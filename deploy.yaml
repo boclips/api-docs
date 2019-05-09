@@ -1,7 +1,7 @@
 app: api-docs
 port: 8080
-scale: Small
-bootTime: Fast
+scale: Large
+bootTime: Slow
 healthPath: /actuator/health
 environments:
   production:
