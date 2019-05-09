@@ -1,0 +1,25 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: openjdk
+    tag: 8-jdk-stretch
+
+inputs:
+  - name: source
+  - name: version
+
+outputs:
+  - name: dist
+
+params:
+  YOUTUBE_API_KEY:
+
+caches:
+  - path: .gradle/
+  - path: source/dependency-check-cache
+
+run:
+  path: source/api-docs/pipeline/scripts/build.sh

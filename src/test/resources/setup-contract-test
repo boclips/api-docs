@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+lpass show --notes "api-docs-test-config" > application-test.yml

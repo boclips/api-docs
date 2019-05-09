@@ -1,0 +1,22 @@
+app: api-docs
+port: 8080
+scale: Small
+bootTime: Fast
+healthPath: /actuator/health
+environments:
+  production:
+    replicas: 2
+    urls:
+      - docs.boclips.com
+  staging:
+    replicas: 1
+    urls:
+      - docs.staging-boclips.com
+  testing:
+    replicas: 1
+    urls:
+      - docs.testing-boclips.com
+  local:
+    replicas: 1
+    urls:
+      - docs.local-boclips.com
