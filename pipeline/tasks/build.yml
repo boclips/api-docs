@@ -22,4 +22,4 @@ caches:
   - path: source/dependency-check-cache
 
 run:
-  path: source/api-docs/pipeline/scripts/build.sh
+  path: source/pipeline/scripts/build.sh
