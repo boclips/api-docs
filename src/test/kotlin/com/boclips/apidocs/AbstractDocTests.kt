@@ -43,8 +43,8 @@ abstract class AbstractDocTests {
             "https://api.staging-boclips.com/v1/token", listOf(
                 "grant_type" to "password",
                 "client_id" to "teachers",
-                "username" to "josecarlos@boclips.com",
-                "password" to "test"
+                "username" to username,
+                "password" to password
             )
         ).responseObject<Map<String, Any>>().third.component1()?.get("access_token") as String?
 

@@ -83,7 +83,7 @@ The index provides the entry point into the service.
 
 A `GET` request is used to access the index
 
-operation::resource-index[snippets='http-request']
+operation::resource-index[snippets='http-request,http-response,links']
 
 
 
