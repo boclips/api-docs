@@ -15,7 +15,8 @@ outputs:
   - name: dist
 
 params:
-  YOUTUBE_API_KEY:
+  API_USERNAME:
+  API_PASSWORD:
 
 caches:
   - path: .gradle/

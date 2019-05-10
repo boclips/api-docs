@@ -5,18 +5,6 @@ bootTime: Slow
 healthPath: /actuator/health
 environments:
   production:
-    replicas: 2
+    replicas: 1
     urls:
       - docs.boclips.com
-  staging:
-    replicas: 1
-    urls:
-      - docs.staging-boclips.com
-  testing:
-    replicas: 1
-    urls:
-      - docs.testing-boclips.com
-  local:
-    replicas: 1
-    urls:
-      - docs.local-boclips.com
