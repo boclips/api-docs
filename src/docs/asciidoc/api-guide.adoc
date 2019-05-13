@@ -17,7 +17,7 @@ Boclips Engineering;
 == HTTP verbs
 
 RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
-use of HTTP verbs.
+use of HTTP verbs. Supported operation varies from resource to resource.
 
 |===
 | Verb | Usage
@@ -27,6 +27,9 @@ use of HTTP verbs.
 
 | `POST`
 | Used to create a new resource
+
+| `PUT`
+| Used to fully replace an existing resource
 
 | `PATCH`
 | Used to update an existing resource, including partial updates
@@ -67,8 +70,8 @@ use of HTTP status codes.
 RESTful Notes uses hypermedia and resources include links to other resources in their
 responses. Responses are in http://stateless.co/hal_specification.html[Hypertext Application
 from resource to resource.
-Language (HAL)] format. Links can be found beneath the `_links` key. Users of the API should
-not create URIs themselves, instead they should use the above-described links to navigate
+Language (HAL)] format. Links can be found beneath the `_links` key. *Users of the API should
+not create URIs themselves*, instead they should use the above-described links to navigate
 
 [[resources]]
 = Resources
@@ -76,7 +79,7 @@ not create URIs themselves, instead they should use the above-described links to
 [[resources-index]]
 == Index
 
-The index provides the entry point into the service.
+The index provides the entry point into the service. Links can be pulled from here.
 
 [[resources-index-access]]
 === Accessing the index
@@ -85,6 +88,19 @@ A `GET` request is used to access the index
 
 operation::resource-index[snippets='http-request,http-response,links']
 
+[[resources-video]]
+== Video
+
+The video resource contains metadata about a Boclips video asset. This includes basic metadata as well as
+streaming details.
+
+[[resources-index-access]]
+=== Accessing a single video
+
+A `GET` request against the `video` link will return an individual video as long as its `id` is interpolated
+following the provided template under <<resources-index-access,links>>.
+
+operation::resource-video[snippets='path-parameters,http-request,http-response,response-fields,links']
 
 
 

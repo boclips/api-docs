@@ -2,8 +2,10 @@ package com.boclips.apidocs
 
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.jackson.responseObject
+import io.restassured.RestAssured.form
 import io.restassured.RestAssured.given
 import io.restassured.builder.RequestSpecBuilder
+import io.restassured.http.ContentType
 import io.restassured.specification.RequestSpecification
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.BeforeEach
@@ -16,8 +18,10 @@ import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.RestDocumentationExtension
 import org.springframework.restdocs.operation.preprocess.Preprocessors.maskLinks
 import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyUris
+import org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 import org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
 import org.springframework.restdocs.operation.preprocess.Preprocessors.replacePattern
+import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration
 import org.springframework.test.context.ActiveProfiles
@@ -50,7 +54,6 @@ abstract class AbstractDocTests {
 
         this.documentationSpec = RequestSpecBuilder()
             .setBaseUri("https://api.staging-boclips.com/v1")
-            .setAccept("application/json+hal")
             .addHeader("Authorization", "Bearer $token")
             .addFilter(
                 documentationConfiguration(restDocumentation)
@@ -61,16 +64,18 @@ abstract class AbstractDocTests {
                             .host("api.boclips.com"),
                         removeHeaders("Authorization"),
                         replacePattern(Pattern.compile("staging-boclips"), "boclips"),
-                        maskLinks()
+                        prettyPrint()
                     )
                     .withResponseDefaults(modifyUris()
                         .scheme("https")
                         .host("api.boclips.com"),
                         removeHeaders("Authorization"),
                         replacePattern(Pattern.compile("staging-boclips"), "boclips"),
-                        maskLinks()
+                        prettyPrint()
                     )
             ).build()
     }
+
+    val linksFieldDescriptor = PayloadDocumentation.subsectionWithPath("_links").description("HAL links for this resource")
 
 }
