@@ -10,6 +10,7 @@ import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
 import org.springframework.restdocs.request.RequestDocumentation.pathParameters
+import org.springframework.restdocs.request.RequestDocumentation.requestParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 
 class VideosDocTests : AbstractDocTests() {
@@ -52,6 +53,32 @@ class VideosDocTests : AbstractDocTests() {
                 )
             )
             .`when`().get("/videos/{id}", "5c542abf5438cdbcb56df0bf").apply { println(prettyPrint()) }
+            .then().assertThat().statusCode(`is`(200))
+    }
+
+    @Test
+    fun `video search`() {
+        given(documentationSpec)
+            .filter(
+                document(
+                    "resource-video-search"
+                    , requestParameters(
+                        parameterWithName("query").description("The text search query"),
+                        parameterWithName("size").optional().description("The amount of videos per page, 100 by default"),
+                        parameterWithName("page").optional().description("Zero-index based page number, first page by default")
+                    )
+                    , PayloadDocumentation.responseFields(
+                        PayloadDocumentation.subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
+                        fieldWithPath("page.size").description("Amount of videos in the current page"),
+                        fieldWithPath("page.totalElements").description("Total amount of videos for this search query across pages"),
+                        fieldWithPath("page.totalPages").description("Total amount of pages for this search query"),
+                        fieldWithPath("page.number").description("Number of the current page. Zero-index based")
+
+                    )
+
+                )
+            )
+            .`when`().get("/videos?query=test&page=0&size=20").apply { println(prettyPrint()) }
             .then().assertThat().statusCode(`is`(200))
     }
 }

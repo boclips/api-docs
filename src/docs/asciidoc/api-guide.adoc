@@ -94,13 +94,22 @@ operation::resource-index[snippets='http-request,http-response,links']
 The video resource contains metadata about a Boclips video asset. This includes basic metadata as well as
 streaming details.
 
-[[resources-index-access]]
+[[resources-video-access]]
 === Accessing a single video
 
 A `GET` request against the `video` link will return an individual video as long as its `id` is interpolated
 following the provided template under <<resources-index-access,links>>.
 
 operation::resource-video[snippets='path-parameters,http-request,http-response,response-fields,links']
+
+
+[[resources-video-search]]
+=== Video search
+
+A `GET` request against the `search` link will return a collection of videos.
+Videos can be filtered using the criteria provided under the <<resources-index-access,templated `search` link>>.
+
+operation::resource-video-search[snippets='request-parameters,http-request,response-fields']
 
 
 
