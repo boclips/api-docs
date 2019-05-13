@@ -7,11 +7,11 @@ import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithR
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
-import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
 import org.springframework.restdocs.request.RequestDocumentation.pathParameters
 import org.springframework.restdocs.request.RequestDocumentation.requestParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.snippet.Attributes
 
 class VideosDocTests : AbstractDocTests() {
 
@@ -63,9 +63,15 @@ class VideosDocTests : AbstractDocTests() {
                 document(
                     "resource-video-search"
                     , requestParameters(
-                        parameterWithName("query").description("The text search query"),
-                        parameterWithName("size").optional().description("The amount of videos per page, 100 by default"),
-                        parameterWithName("page").optional().description("Zero-index based page number, first page by default")
+                        parameterWithName("query").description("The text search query").attributes(Attributes.key("type").value("String")).attributes(Attributes.key("type").value("String")),
+                        parameterWithName("size").optional().description("The amount of videos per page, 100 by default").attributes(Attributes.key("type").value("Number")),
+                        parameterWithName("page").optional().description("Zero-index based page number, first page by default").attributes(Attributes.key("type").value("Number")),
+                        parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date is supported. Useful to get the latest videos for a search").attributes(Attributes.key("type").value("RELEASE_DATE")),
+                        parameterWithName("min_duration").optional().description("Filters on the duration property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (PT6M5S)")),
+                        parameterWithName("max_duration").optional().description("Filters on the duration property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (PT30S)")),
+                        parameterWithName("released_date_from").optional().description("Filters on the releasedOn property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")),
+                        parameterWithName("released_date_to").optional().description("Filters on the releasedOn property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")),
+                        parameterWithName("source").optional().description("Filter by video source, e.g youtube or boclips").attributes(Attributes.key("type").value("youtube, boclips"))
                     )
                     , PayloadDocumentation.responseFields(
                         PayloadDocumentation.subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
@@ -75,10 +81,9 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("page.number").description("Number of the current page. Zero-index based")
 
                     )
-
                 )
             )
-            .`when`().get("/videos?query=test&page=0&size=20").apply { println(prettyPrint()) }
+            .`when`().get("/videos?query=test&page=0&size=1").apply { println(prettyPrint()) }
             .then().assertThat().statusCode(`is`(200))
     }
 }

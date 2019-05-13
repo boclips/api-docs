@@ -109,7 +109,7 @@ operation::resource-video[snippets='path-parameters,http-request,http-response,r
 A `GET` request against the `search` link will return a collection of videos.
 Videos can be filtered using the criteria provided under the <<resources-index-access,templated `search` link>>.
 
-operation::resource-video-search[snippets='request-parameters,http-request,response-fields']
+operation::resource-video-search[snippets='request-parameters,http-request,http-response,response-fields']
 
 
 
