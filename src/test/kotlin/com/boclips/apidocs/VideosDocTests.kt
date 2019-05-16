@@ -37,6 +37,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("playback.streamUrl").description("Streaming URL for this particular video"),
                         fieldWithPath("playback.thumbnailUrl").description("URL for a thumbnail of this video"),
                         fieldWithPath("playback.duration").description("Duration of this particular video in ISO-8601"),
+                        fieldWithPath("playback._links.createPlaybackEvent.href").description("Link to post to for a createPlaybackEvent"),
 
                         fieldWithPath("legalRestrictions").description("Legal restrictions for this particular video if any"),
 
