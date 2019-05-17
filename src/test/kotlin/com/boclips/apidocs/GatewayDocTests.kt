@@ -6,8 +6,32 @@ import org.junit.jupiter.api.Test
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
+import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
+import javax.servlet.RequestDispatcher
+
+
 
 class GatewayDocTests: AbstractDocTests() {
+
+    @Test
+    fun `error example`() {
+        given(documentationSpec)
+                .filter(
+                        document(
+                                "error-example"
+                                , responseFields(
+                                fieldWithPath("error").description("The HTTP error that occurred, e.g. `Invalid field`"),
+                                fieldWithPath("message").description("A description of the cause of the error"),
+                                fieldWithPath("path").description("The path to which the request was made"),
+                                fieldWithPath("status").description("The HTTP status code, e.g. `400`"),
+                                fieldWithPath("timestamp").description("The time at which the error occurred"))
+                        )
+                )
+                .`when`().get("/videos").apply { prettyPrint() }
+                .then().assertThat().statusCode(`is`(400))
+
+    }
 
     @Test
     fun `resource index contains root links`() {
