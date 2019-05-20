@@ -99,7 +99,7 @@ The index provides the entry point into the service. Links can be pulled from he
 
 A `GET` request is used to access the index
 
-operation::resource-index[snippets='http-request,http-response,links']
+operation::resource-index[snippets='http-request,curl-request,http-response,links']
 
 [[resources-video]]
 == Video
@@ -113,7 +113,7 @@ streaming details.
 A `GET` request against the `video` link will return an individual video as long as its `id` is interpolated
 following the provided template under <<resources-index-access,links>>.
 
-operation::resource-video[snippets='path-parameters,http-request,http-response,response-fields,links']
+operation::resource-video[snippets='path-parameters,http-request,curl-request,http-response,response-fields,links']
 
 
 [[resources-video-search]]
@@ -122,7 +122,7 @@ operation::resource-video[snippets='path-parameters,http-request,http-response,r
 A `GET` request against the `search` link will return a collection of videos.
 Videos can be filtered using the criteria provided under the <<resources-index-access,templated `search` link>>.
 
-operation::resource-video-search[snippets='request-parameters,http-request,http-response,response-fields']
+operation::resource-video-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
 
 
 
