@@ -10,6 +10,7 @@ image_resource:
 inputs:
   - name: source
   - name: version
+  - name: player-source
 
 outputs:
   - name: dist

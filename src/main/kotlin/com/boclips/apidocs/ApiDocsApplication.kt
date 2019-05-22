@@ -15,5 +15,5 @@ fun main(args: Array<String>) {
 @Controller
 class MainController {
 	@GetMapping("/")
-	fun index() = "redirect:/docs/api-guide.html"
+	fun index() = "redirect:/docs/index.html"
 }

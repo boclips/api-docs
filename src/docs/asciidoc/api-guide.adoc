@@ -12,12 +12,13 @@ Boclips Engineering;
 
 [[overview]]
 = Overview
+This is the reference guide to the Boclips API.
 
 [[overview-http-verbs]]
 == HTTP verbs
 
-RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
-use of HTTP verbs. Supported operation varies from resource to resource.
+The API adheres as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs. Supported operations vary from resource to resource.
 
 |===
 | Verb | Usage
@@ -41,7 +42,7 @@ use of HTTP verbs. Supported operation varies from resource to resource.
 [[overview-http-status-codes]]
 == HTTP status codes
 
-RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+The API adheres as closely as possible to standard HTTP and REST conventions in its
 use of HTTP status codes.
 
 |===
@@ -67,11 +68,11 @@ use of HTTP status codes.
 [[overview-hypermedia]]
 == Hypermedia
 
-RESTful Notes uses hypermedia and resources include links to other resources in their
+The API uses hypermedia, and resources include links to other resources in their
 responses. Responses are in http://stateless.co/hal_specification.html[Hypertext Application
 from resource to resource.
 Language (HAL)] format. Links can be found beneath the `_links` key. *Users of the API should
-not create URIs themselves*, instead they should use the above-described links to navigate
+not create URIs themselves*, but instead should use the above-described links to navigate.
 
 [[overview-errors]]
 == Errors
@@ -97,7 +98,7 @@ The index provides the entry point into the service. Links can be pulled from he
 [[resources-index-access]]
 === Accessing the index
 
-A `GET` request is used to access the index
+A `GET` request is used to access the index.
 
 operation::resource-index[snippets='http-request,curl-request,http-response,links']
 

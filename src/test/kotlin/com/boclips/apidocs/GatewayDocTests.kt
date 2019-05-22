@@ -40,11 +40,11 @@ class GatewayDocTests: AbstractDocTests() {
                 document(
                     "resource-index"
                 , links(
-                linkWithRel("video").description("The video resource, templated link to retrieve an individual video."),
+                linkWithRel("video").description("The video resource, templated link to retrieve an individual video"),
                 linkWithRel("search").description("Templated link to perform video search"),
 
                 linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
-                linkWithRel("createCollection").description("Link to create new video collections"),
+                linkWithRel("createCollection").description("Link to create a new video collection"),
                 linkWithRel("myCollections").description("Collections created by the current user"),
                 linkWithRel("publicCollections").description("Collections marked as public"),
                 linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),

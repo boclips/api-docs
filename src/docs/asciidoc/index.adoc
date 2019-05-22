@@ -1,0 +1,21 @@
+= Boclips Developer Documentation
+Boclips Engineering;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Overview
+In order to integrate with Boclips, we offer a comprehensive link:api-guide.html[REST API]
+as well as an link:player-guide.html[open source player].
+
+[[api-reference-guide]]
+== API Reference Guide
+This is the link to the link:api-guide.html[API reference guide].
+
+[[player-reference-guide]]
+== Player Reference Guide
+This is the link to the link:player-guide.html[Player reference guide].

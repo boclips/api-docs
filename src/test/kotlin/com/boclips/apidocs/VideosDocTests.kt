@@ -37,7 +37,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("playback.streamUrl").description("Streaming URL for this particular video"),
                         fieldWithPath("playback.thumbnailUrl").description("URL for a thumbnail of this video"),
                         fieldWithPath("playback.duration").description("Duration of this particular video in ISO-8601"),
-                        fieldWithPath("playback._links.createPlaybackEvent.href").description("Link to post to for a createPlaybackEvent"),
+                        fieldWithPath("playback._links.createPlaybackEvent.href").description("POST endpoint for a createPlaybackEvent"),
 
                         fieldWithPath("legalRestrictions").description("Legal restrictions for this particular video if any"),
 
@@ -65,13 +65,13 @@ class VideosDocTests : AbstractDocTests() {
                     "resource-video-search"
                     , requestParameters(
                         parameterWithName("query").description("The text search query").attributes(Attributes.key("type").value("String")).attributes(Attributes.key("type").value("String")),
-                        parameterWithName("size").optional().description("The amount of videos per page, 100 by default").attributes(Attributes.key("type").value("Number")),
+                        parameterWithName("size").optional().description("The number of videos per page, 100 by default").attributes(Attributes.key("type").value("Number")),
                         parameterWithName("page").optional().description("Zero-index based page number, first page by default").attributes(Attributes.key("type").value("Number")),
-                        parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date is supported. Useful to get the latest videos for a search").attributes(Attributes.key("type").value("RELEASE_DATE")),
-                        parameterWithName("min_duration").optional().description("Filters on the duration property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (PT6M5S)")),
-                        parameterWithName("max_duration").optional().description("Filters on the duration property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (PT30S)")),
-                        parameterWithName("released_date_from").optional().description("Filters on the releasedOn property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")),
-                        parameterWithName("released_date_to").optional().description("Filters on the releasedOn property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")),
+                        parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date is supported. Useful to search for the latest videos").attributes(Attributes.key("type").value("RELEASE_DATE")),
+                        parameterWithName("min_duration").optional().description("Filters on the video duration property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (PT6M5S)")),
+                        parameterWithName("max_duration").optional().description("Filters on the video duration property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (PT30S)")),
+                        parameterWithName("released_date_from").optional().description("Filters on the video releasedOn property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")),
+                        parameterWithName("released_date_to").optional().description("Filters on the video releasedOn property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")),
                         parameterWithName("source").optional().description("Filter by video source, e.g youtube or boclips").attributes(Attributes.key("type").value("youtube, boclips"))
                     )
                     , PayloadDocumentation.responseFields(
