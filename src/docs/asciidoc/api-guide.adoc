@@ -87,6 +87,17 @@ For example, a request that attempts to apply a non-existent tag to a note will 
 
 include::{snippets}/error-example/http-response.adoc[]
 
+[[errors-cors]]
+=== Cross-Origin Resource Sharing
+
+Any requests to our API originating from within a browser will be subject to CORs restrictions.
+
+If you receive any CORs related errors it is possible the API requests have originated from a
+domain that has not been whitelisted on our server.
+
+Please contact us with any domains that you expect to call our API from (including protocols
+and port numbers -- if necessary).
+
 [[resources]]
 = Resources
 
