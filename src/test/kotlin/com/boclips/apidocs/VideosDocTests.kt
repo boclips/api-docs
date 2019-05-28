@@ -41,6 +41,10 @@ class VideosDocTests : AbstractDocTests() {
 
                         fieldWithPath("legalRestrictions").description("Legal restrictions for this particular video if any"),
 
+                        fieldWithPath("ageRange.label").optional().description("Age range in a human readable format"),
+                        fieldWithPath("ageRange.min").optional().description("Minimum age range for this video"),
+                        fieldWithPath("ageRange.max").optional().description("Maximum age range for this video"),
+
                         fieldWithPath("contentPartner").description("deprecated"), //TODO this should be renamed a "partner" makes no sense for API consumers
                         fieldWithPath("contentPartnerVideoId").description("deprecated"), //TODO This makes no sense in the API
                         fieldWithPath("type.id").description("deprecated"), // TODO We don't really care about this in the API
