@@ -41,12 +41,13 @@ class GatewayDocTests: AbstractDocTests() {
                     "resource-index"
                 , links(
                 linkWithRel("video").description("The video resource, templated link to retrieve an individual video"),
-                linkWithRel("search").description("Templated link to perform video search"),
+                linkWithRel("searchVideos").description("Templated link to perform video search"),
 
                 linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
                 linkWithRel("createCollection").description("Link to create a new video collection"),
                 linkWithRel("myCollections").description("Collections created by the current user"),
                 linkWithRel("publicCollections").description("Collections marked as public"),
+                linkWithRel("searchCollections").description("Searchable collections"),
                 linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
 
                 linkWithRel("subjects").description("List of subjects available"),
