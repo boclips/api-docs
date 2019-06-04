@@ -101,13 +101,13 @@ and port numbers -- if necessary).
 [[overview-authentication]]
 == Authentication
 
-The Boclips API authorization is built using https://openid.net/connect/[OpenID Connect].
+The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect].
 In order to get started we'll need to obtain an `access_token`. Depending on the type of integration,
-we could use different `grant_types`.
+we can provide different `grant_types`.
 
 Boclips will provide you with a `client_id` and depending on the integration a `client_secret`.
 
-Regardless of how the token is retrieved, the structure of the response should always be the same:
+Regardless of how the token is retrieved, the structure of the response will look like this:
 
 [[token-response]]
 include::{snippets}/refresh-token-example/response-body.adoc[]
@@ -129,19 +129,19 @@ In order to get an `access_token` using `client_credentials` we would perform a 
 operation::client-credentials-example[snippets='http-request,curl-request']
 
 
-And assuming all the parameters are correct, we should get a <<token-response,valid token response>> back.
+Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
 
 
-==== Using your platform as SSO to consume Boclips resources
+==== Using your platform as SSO
 
-We may integrate your existing user-base into our services so that we do not need to hold
-password details and your users get a seamless SSO experience.
+You may want to integrate your existing user base with Boclips. The API will provide a seamless SSO experience.
 
-For your users to be integrated into our platform we would need to configure upfront an
+For your users to be integrated into our platform we will configure upfront an
 identity provider on our end. At the moment we support SAML 2.0 IDPs and OpenID Connect IDPs.
 
-Once that's ready, we'll send you across the URL that will trigger the flow so you can retrieve an `access_token`.
-The flow would look like:
+Once ready, we'll send you across the URL that will trigger the flow so you can retrieve an `access_token`.
+
+Such a flow will look like this:
 
 . The user's browser visits your application. The application notices the user is not logged in, so it redirects
 the browser to our server to be authenticated. The application passes along a callback URL (a redirect URL)
@@ -151,7 +151,7 @@ as a query parameter in this browser redirect that our server will use when it f
 back to the application using the callback URL provided earlier and additionally adds the temporary code as a
 query parameter in the callback URL.
 
-. Your application extracts the temporary code and makes a background REST request to our server
+. Your application extracts the temporary code and makes a background REST request to our authentication server
 to exchange the code for an identity, access and refresh token. Once this temporary code has been used once to
  obtain the tokens, it can never be used again. This prevents potential replay attacks.
 
