@@ -155,9 +155,6 @@ query parameter in the callback URL.
 to exchange the code for an identity, access and refresh token. Once this temporary code has been used once to
  obtain the tokens, it can never be used again. This prevents potential replay attacks.
 
- As an example, if
-
-
 [[resources]]
 = Resources
 
