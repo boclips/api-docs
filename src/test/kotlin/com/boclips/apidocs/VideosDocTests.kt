@@ -68,7 +68,7 @@ class VideosDocTests : AbstractDocTests() {
                 document(
                     "resource-video-search"
                     , requestParameters(
-                        parameterWithName("query").description("The text search query").attributes(Attributes.key("type").value("String")).attributes(Attributes.key("type").value("String")),
+                        parameterWithName("query").description("The text search query").attributes(Attributes.key("type").value("String")),
                         parameterWithName("size").optional().description("The number of videos per page, 100 by default").attributes(Attributes.key("type").value("Number")),
                         parameterWithName("page").optional().description("Zero-index based page number, first page by default").attributes(Attributes.key("type").value("Number")),
                         parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date is supported. Useful to search for the latest videos").attributes(Attributes.key("type").value("RELEASE_DATE")),

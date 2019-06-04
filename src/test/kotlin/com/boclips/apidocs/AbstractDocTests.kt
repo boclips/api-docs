@@ -2,27 +2,20 @@ package com.boclips.apidocs
 
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.jackson.responseObject
-import io.restassured.RestAssured.form
-import io.restassured.RestAssured.given
 import io.restassured.builder.RequestSpecBuilder
-import io.restassured.http.ContentType
 import io.restassured.specification.RequestSpecification
-import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment
 import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.RestDocumentationExtension
-import org.springframework.restdocs.operation.preprocess.Preprocessors.maskLinks
 import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyUris
 import org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 import org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
 import org.springframework.restdocs.operation.preprocess.Preprocessors.replacePattern
 import org.springframework.restdocs.payload.PayloadDocumentation
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.junit.jupiter.SpringExtension
@@ -41,20 +34,31 @@ abstract class AbstractDocTests {
     @Value("\${api.password}")
     lateinit var password: String
 
+    @Value("\${api.clientid}")
+    lateinit var clientId: String
+
+    @Value("\${api.clientsecret}")
+    lateinit var clientSecret: String
+
+    protected lateinit var accessToken: String
+    protected lateinit var refreshToken: String
+
     @BeforeEach
     fun setUp(restDocumentation: RestDocumentationContextProvider) {
-        val token = Fuel.post(
-            "https://api.staging-boclips.com/v1/token", listOf(
+        val payload = Fuel.post(
+                "https://api.staging-boclips.com/v1/token", listOf(
                 "grant_type" to "password",
                 "client_id" to "teachers",
                 "username" to username,
                 "password" to password
-            )
-        ).responseObject<Map<String, Any>>().third.component1()?.get("access_token") as String?
+        )
+        ).responseObject<Map<String, Any>>().third.component1()
+        accessToken = (payload?.get("access_token") as String?) ?: ""
+        refreshToken = (payload?.get("refresh_token") as String?) ?: ""
 
         this.documentationSpec = RequestSpecBuilder()
             .setBaseUri("https://api.staging-boclips.com/v1")
-            .addHeader("Authorization", "Bearer $token")
+            .addHeader("Authorization", "Bearer $accessToken")
             .addFilter(
                 documentationConfiguration(restDocumentation)
                     .operationPreprocessors()

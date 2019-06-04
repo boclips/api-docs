@@ -98,6 +98,66 @@ domain that has not been whitelisted on our server.
 Please contact us with any domains that you expect to call our API from (including protocols
 and port numbers -- if necessary).
 
+[[overview-authentication]]
+== Authentication
+
+The Boclips API authorization is built using https://openid.net/connect/[OpenID Connect].
+In order to get started we'll need to obtain an `access_token`. Depending on the type of integration,
+we could use different `grant_types`.
+
+Boclips will provide you with a `client_id` and depending on the integration a `client_secret`.
+
+Regardless of how the token is retrieved, the structure of the response should always be the same:
+
+[[token-response]]
+include::{snippets}/refresh-token-example/response-body.adoc[]
+include::{snippets}/refresh-token-example/response-fields.adoc[]
+
+
+=== Use cases
+
+==== Backend service integration
+
+You may want to use Boclips straight from your backend services. In this case, Boclips will provide
+you with your own `client_id` and `client_secret`.
+
+All the communication will happen outside of the context of a user, therefore some features like user collections
+may not be available.
+
+In order to get an `access_token` using `client_credentials` we would perform a request:
+
+operation::client-credentials-example[snippets='http-request,curl-request']
+
+
+And assuming all the parameters are correct, we should get a <<token-response,valid token response>> back.
+
+
+==== Using your platform as SSO to consume Boclips resources
+
+We may integrate your existing user-base into our services so that we do not need to hold
+password details and your users get a seamless SSO experience.
+
+For your users to be integrated into our platform we would need to configure upfront an
+identity provider on our end. At the moment we support SAML 2.0 IDPs and OpenID Connect IDPs.
+
+Once that's ready, we'll send you across the URL that will trigger the flow so you can retrieve an `access_token`.
+The flow would look like:
+
+. The user's browser visits your application. The application notices the user is not logged in, so it redirects
+the browser to our server to be authenticated. The application passes along a callback URL (a redirect URL)
+as a query parameter in this browser redirect that our server will use when it finishes authentication.
+
+. Our server authenticates the user and creates a one-time, very short lived, temporary code. Our server redirects
+back to the application using the callback URL provided earlier and additionally adds the temporary code as a
+query parameter in the callback URL.
+
+. Your application extracts the temporary code and makes a background REST request to our server
+to exchange the code for an identity, access and refresh token. Once this temporary code has been used once to
+ obtain the tokens, it can never be used again. This prevents potential replay attacks.
+
+ As an example, if
+
+
 [[resources]]
 = Resources
 
