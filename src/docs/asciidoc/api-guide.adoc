@@ -101,8 +101,10 @@ and port numbers -- if necessary).
 [[overview-authentication]]
 == Authentication
 
-The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect].
-In order to get started we'll need to obtain an `access_token`. Depending on the type of integration,
+The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect (OIDC)]. Alternatively,
+we support https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language[SAML] too.
+
+In order to get started with OIDC, we'll need to obtain an `access_token`. Depending on the type of integration,
 we can provide different `grant_types`.
 
 Boclips will provide you with a `client_id` and depending on the integration a `client_secret`.
@@ -114,7 +116,7 @@ include::{snippets}/refresh-token-example/response-body.adoc[]
 include::{snippets}/refresh-token-example/response-fields.adoc[]
 
 
-=== Use cases
+=== OIDC Use cases
 
 ==== Backend service integration
 
@@ -137,18 +139,24 @@ Assuming all the parameters are correct, you will get a <<token-response,valid t
 You may want to integrate your existing user base with Boclips. The API will provide a seamless SSO experience.
 
 For your users to be integrated into our platform we will configure upfront an
-identity provider on our end. At the moment we support SAML 2.0 IDPs and OpenID Connect IDPs.
+identity provider (IDP) on our end. At the moment we support SAML 2.0 IDPs and OpenID Connect IDPs.
 
-Once ready, we'll send you across the URL that will trigger the flow so you can retrieve an `access_token`.
+Once ready, you'll need to perform an https://auth0.com/docs/api-auth/tutorials/authorization-code-grant[authorization code grant flow]
+to retrieve an `access_token`:
+
+[[trigger-authorization]]
+operation::authorization-code-example[snippets='http-request,curl-request']
 
 Such a flow will look like this:
 
-. The user's browser visits your application. The application notices the user is not logged in, so it redirects
-the browser to our server to be authenticated. The application passes along a callback URL (a redirect URL)
+. The user's browser visits your application. The application notices the user is not logged in, so it
+<<trigger-authorization,redirects the browser to our server>> to be authenticated. The application passes along a callback URL (a redirect URL)
 as a query parameter in this browser redirect that our server will use when it finishes authentication.
+.. If the user has a session in your domain - we'll move to the next point
+.. If the user has no session in your domain we'll send her to your login page (this needs to be configured on our end)
 
-. Our server authenticates the user and creates a one-time, very short lived, temporary code. Our server redirects
-back to the application using the callback URL provided earlier and additionally adds the temporary code as a
+. Given your IDP acknowledge your user, our server authenticates the user and creates a one-time, very short lived, temporary code.
+Our server redirects back to the application using the callback URL provided earlier and additionally adds the temporary code as a
 query parameter in the callback URL.
 
 . Your application extracts the temporary code and makes a background REST request to our authentication server

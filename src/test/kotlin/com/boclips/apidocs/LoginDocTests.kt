@@ -27,6 +27,9 @@ class LoginDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "refresh-token-example",
+                    preprocessRequest(
+                        modifyParameters().set("client_id", "*** Your client ID ***")
+                    ),
                     preprocessResponse(
                         replacePattern(Pattern.compile("\"access_token\"\\s*:\\s*\"[^\"]+\""), "\"access_token\" : \"***\""),
                         replacePattern(Pattern.compile("\"refresh_token\"\\s*:\\s*\"[^\"]+\""), "\"refresh_token\" : \"***\"")
@@ -50,7 +53,36 @@ class LoginDocTests : AbstractDocTests() {
     }
 
     @Test
-    fun `client crecentials flow`() {
+    fun `authorization code flow`() {
+        given(documentationSpec).urlEncodingEnabled(true)
+            .param("response_type", "code")
+            .param("client_id", "teachers")
+            .param("redirect_uri", "https://teachers.staging-boclips.com")
+            .filter(
+                document(
+                    "authorization-code-example",
+                    preprocessRequest(
+                        modifyParameters().set("client_id", "*** Your client ID ***").set("redirect_uri", "*** The redirect URL of your chouce ***")
+                    ),
+                    requestParameters(
+                        parameterWithName("response_type").description("The response type for this flow must always be `code`").attributes(
+                            Attributes.key("type").value("String - Constant")
+                        ),
+                        parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
+                            Attributes.key("type").value("String")
+                        ),
+                        parameterWithName("redirect_uri").description("The URL your user should be redirected to once we managed to authorize her. Typically the root of your webapp. We need to whitelist valid redirect URLs on our end, please let us know where your app will be hosted.").attributes(
+                            Attributes.key("type").value("URL")
+                        )
+                    )
+                )
+            )
+            .`when`().post("/authorize").apply { prettyPrint() }
+            .then().assertThat().statusCode(`is`(200))
+    }
+
+    @Test
+    fun `client credentials flow`() {
         given(documentationSpec).urlEncodingEnabled(true)
             .param("grant_type", "client_credentials")
             .param("client_id", clientId)
@@ -59,7 +91,7 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "client-credentials-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "***").set("client_secret", "***")
+                        modifyParameters().set("client_id", "*** Your client ID ***").set("client_secret", "*** Your client secret ***")
                     ),
                     tokenResponseFields,
                     requestParameters(
