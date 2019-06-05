@@ -77,7 +77,7 @@ class LoginDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().post("/authorize").apply { prettyPrint() }
+            .`when`().get("/authorize").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(200))
     }
 
