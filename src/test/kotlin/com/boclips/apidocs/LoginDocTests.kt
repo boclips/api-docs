@@ -28,7 +28,7 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "refresh-token-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "*** Your client ID ***")
+                        modifyParameters().set("client_id", "***")
                     ),
                     preprocessResponse(
                         replacePattern(Pattern.compile("\"access_token\"\\s*:\\s*\"[^\"]+\""), "\"access_token\" : \"***\""),
@@ -62,7 +62,7 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "authorization-code-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "*** Your client ID ***").set("redirect_uri", "*** The redirect URL of your chouce ***")
+                        modifyParameters().set("client_id", "***").set("redirect_uri", "***")
                     ),
                     requestParameters(
                         parameterWithName("response_type").description("The response type for this flow must always be `code`").attributes(
@@ -91,7 +91,7 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "client-credentials-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "*** Your client ID ***").set("client_secret", "*** Your client secret ***")
+                        modifyParameters().set("client_id", "***").set("client_secret", "***")
                     ),
                     tokenResponseFields,
                     requestParameters(
