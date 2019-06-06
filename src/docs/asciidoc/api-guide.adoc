@@ -142,10 +142,16 @@ For your users to be integrated into our platform we will configure upfront an
 identity provider (IDP) on our end. At the moment we support SAML 2.0 IDPs and OpenID Connect IDPs.
 
 Once ready, you'll need to perform an https://auth0.com/docs/api-auth/tutorials/authorization-code-grant[authorization code grant flow]
-to retrieve an `access_token`:
+to retrieve an `access_token`
+
+First obtaining a code:
 
 [[trigger-authorization]]
 operation::authorization-code-example[snippets='http-request,curl-request']
+
+[[get-token-authorization]]
+Then obtaining the `access_token`
+operation::authorization-code-token-example[snippets='http-request,curl-request']
 
 Such a flow will look like this:
 
@@ -159,7 +165,7 @@ as a query parameter in this browser redirect that our server will use when it f
 Our server redirects back to the application using the callback URL provided earlier and additionally adds the temporary code as a
 query parameter in the callback URL.
 
-. Your application extracts the temporary code and makes a background REST request to our authentication server
+. Your application extracts the temporary code and <<get-token-authorization,makes a background REST request>> to our authentication server
 to exchange the code for an identity, access and refresh token. Once this temporary code has been used once to
  obtain the tokens, it can never be used again. This prevents potential replay attacks.
 

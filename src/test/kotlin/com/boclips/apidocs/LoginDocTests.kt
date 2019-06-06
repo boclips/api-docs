@@ -53,7 +53,7 @@ class LoginDocTests : AbstractDocTests() {
     }
 
     @Test
-    fun `authorization code flow`() {
+    fun `authorization code flow - requesting code`() {
         given(documentationSpec).urlEncodingEnabled(true)
             .param("response_type", "code")
             .param("client_id", "teachers")
@@ -79,6 +79,39 @@ class LoginDocTests : AbstractDocTests() {
             )
             .`when`().get("/authorize").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(200))
+    }
+
+    @Test
+    fun `authorization code flow - token request`() {
+        given(documentationSpec).urlEncodingEnabled(true)
+            .param("grant_type", "authorization_code")
+            .param("client_id", "viewsonic")
+            .param("code", "***")
+            .param("redirect_uri", "exact-same-url-used-to-request-code")
+            .filter(
+                document(
+                    "authorization-code-token-example",
+                    preprocessRequest(
+                        modifyParameters().set("client_id", "***")
+                    ),
+                    requestParameters(
+                        parameterWithName("grant_type").description("The grant type for this flow must always be `authorization_code`").attributes(
+                            Attributes.key("type").value("String - Constant")
+                        ),
+                        parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
+                            Attributes.key("type").value("String")
+                        ),
+                        parameterWithName("code").description("The client secret that was Boclips issued to you").attributes(
+                            Attributes.key("type").value("String")
+                        ),
+                        parameterWithName("redirect_uri").description("The exact same redirect_uri that was used when requesting the code. Including path and/or params if any.").attributes(
+                            Attributes.key("type").value("String")
+                        )
+                    )
+                )
+            )
+            .`when`().post("/token").apply { prettyPrint() }
+            .then().assertThat().statusCode(`is`(400)).and()
     }
 
     @Test
