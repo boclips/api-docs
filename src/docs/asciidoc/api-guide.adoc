@@ -150,7 +150,8 @@ First obtaining a code:
 operation::authorization-code-example[snippets='http-request,curl-request']
 
 [[get-token-authorization]]
-Then obtaining the `access_token`
+Then obtaining the `access_token`:
+
 operation::authorization-code-token-example[snippets='http-request,curl-request']
 
 Such a flow will look like this:
