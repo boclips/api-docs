@@ -128,7 +128,7 @@ may not be available.
 
 In order to get an `access_token` using `client_credentials` we would perform a request:
 
-operation::client-credentials-example[snippets='http-request,curl-request']
+operation::client-credentials-example[snippets='http-request,curl-request,request-parameters']
 
 
 Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
@@ -147,12 +147,12 @@ to retrieve an `access_token`
 First obtaining a code:
 
 [[trigger-authorization]]
-operation::authorization-code-example[snippets='http-request,curl-request']
+operation::authorization-code-example[snippets='http-request,curl-request,request-parameters']
 
 [[get-token-authorization]]
 Then obtaining the `access_token`:
 
-operation::authorization-code-token-example[snippets='http-request,curl-request']
+operation::authorization-code-token-example[snippets='http-request,curl-request,request-parameters']
 
 Such a flow will look like this:
 
