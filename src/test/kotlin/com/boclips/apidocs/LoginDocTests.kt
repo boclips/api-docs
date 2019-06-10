@@ -28,7 +28,7 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "refresh-token-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "***")
+                        modifyParameters().set("client_id", "***").set("refresh_token", "***")
                     ),
                     preprocessResponse(
                         replacePattern(Pattern.compile("\"access_token\"\\s*:\\s*\"[^\"]+\""), "\"access_token\" : \"***\""),

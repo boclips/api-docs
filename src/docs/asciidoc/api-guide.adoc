@@ -115,6 +115,20 @@ Regardless of how the token is retrieved, the structure of the response will loo
 include::{snippets}/refresh-token-example/response-body.adoc[]
 include::{snippets}/refresh-token-example/response-fields.adoc[]
 
+Next, we'll talk about refreshing the token and then we'll describe a few authentication high level use cases before
+we delve deeper into implementation details.
+
+[[refresh-token]]
+=== Refreshing the access token
+
+The OIDC refresh token, enables you to renew the access token periodically without having to authenticate again.
+The refresh token has an expiration attached to it but it is longer than a regular `access_token`.
+
+In order to renew a token using a `refresh_token` flow you should:
+
+operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
+
+Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
 
 === OIDC Use cases
 
