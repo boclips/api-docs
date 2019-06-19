@@ -222,5 +222,11 @@ Videos can be filtered using the criteria provided under the <<resources-index-a
 
 operation::resource-video-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
 
+[[resources-subjects]]
+== Subjects
 
+The subject resource lists all available subjects that Boclips offers to tag videos or other relevant resources.
+This resource can also be used to filter by subject.
+
+operation::resource-subjects[snippets='http-request,curl-request,http-response,response-fields,links']
 

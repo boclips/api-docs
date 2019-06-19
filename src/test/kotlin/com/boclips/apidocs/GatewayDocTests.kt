@@ -28,7 +28,7 @@ class GatewayDocTests: AbstractDocTests() {
                                 fieldWithPath("timestamp").description("The time at which the error occurred"))
                         )
                 )
-                .`when`().get("/videos").apply { prettyPrint() }
+                .`when`().get("/videos?duration_min=not-quite-a-number").apply { prettyPrint() }
                 .then().assertThat().statusCode(`is`(400))
 
     }
