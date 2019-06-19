@@ -75,6 +75,25 @@ from resource to resource.
 Language (HAL)] format. Links can be found beneath the `_links` key. *Users of the API should
 not create URIs themselves*, but instead should use the above-described links to navigate.
 
+=== Interpolating URLs
+
+As part of the HAL links the API will return templated URLs. In order to obtain a valid URL you will need to interpolate
+values appropriately.
+
+Please keep in mind, some params may be mandatory, whereas others may be optional. Also, although logical names for
+params will remain consistent to avoid breaking changes, mandatory params may become optional or viceversa.
+
+For instance you may get a URL that looks like:
+`https://api.boclips.com/v1/resource/{resourceId}?mandatoryParam1={mandatoryParam1}&mandatoryParam2={mandatoryParam2}{&optionalParam}`
+
+Which over time could become:
+`https://api.boclips.com/v1/resource/{resourceId}?mandatoryParam={mandatoryParam}{&mandatoryParam2,optionalParam}`
+
+This sort of modifications should not break your client.
+
+If you are implementing a web based application libraries such as https://medialize.github.io/URI.js/uri-template.html[URI.js]
+will take care of this for you.
+
 [[overview-errors]]
 == Errors
 
