@@ -9,6 +9,7 @@ Boclips Engineering;
 :operation-curl-request-title: Example request
 :operation-http-response-title: Example response
 :snippets: ../../../build/generated-snippets
+:stylesheet: styles.css
 
 [[overview]]
 = Overview

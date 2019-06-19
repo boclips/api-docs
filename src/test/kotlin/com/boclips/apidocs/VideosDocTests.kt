@@ -97,7 +97,7 @@ class VideosDocTests : AbstractDocTests() {
                 .`when`().get("/videos" +
                         "?query=genetic" +
                         "&page=0" +
-                        "&size=20" +
+                        "&size=1" +
                         "&duration_min=PT1M" +
                         "&duration_max=PT3M" +
                         "&released_date_from=2018-01-01" +
