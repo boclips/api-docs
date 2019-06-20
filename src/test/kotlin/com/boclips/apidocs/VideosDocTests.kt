@@ -43,8 +43,8 @@ class VideosDocTests : AbstractDocTests() {
                                 fieldWithPath("legalRestrictions").description("Legal restrictions for this particular video if any"),
 
                                 fieldWithPath("ageRange.label").optional().description("Age range in a human readable format"),
-                                fieldWithPath("ageRange.min").optional().description("Minimum age range for this video"),
-                                fieldWithPath("ageRange.max").optional().description("Maximum age range for this video"),
+                                fieldWithPath("ageRange.min").optional().description("Minimum of age range for this video"),
+                                fieldWithPath("ageRange.max").optional().description("Maximum of age range for this video"),
 
                                 fieldWithPath("contentPartner").description("deprecated"), //TODO this should be renamed a "partner" makes no sense for API consumers
                                 fieldWithPath("contentPartnerVideoId").description("deprecated"), //TODO This makes no sense in the API
@@ -80,6 +80,8 @@ class VideosDocTests : AbstractDocTests() {
                                 parameterWithName("released_date_to").optional().description("Filters on the video releasedOn property, this range is inclusive").attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")),
                                 parameterWithName("source").optional().description("Filter by video source, e.g youtube or boclips").attributes(Attributes.key("type").value("youtube, boclips")),
                                 parameterWithName("subject").optional().description("Filter by subject id - from the <<resources-subjects,list of subjects>>").attributes(Attributes.key("type").value("Subject Id (5cb499c9fd5beb428189454b)")),
+                                parameterWithName("age_range_min").optional().description("Minimum age to filter from - it filters on the video age range property, and is inclusive.").attributes(Attributes.key("type").value("Number")),
+                                parameterWithName("age_range_max").optional().description("Maximum age to filter to - it filters on the video age range property, and is inclusive.").attributes(Attributes.key("type").value("Number")),
                                 //Sorting
                                 parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date is supported. Useful to search for the latest videos").attributes(Attributes.key("type").value("RELEASE_DATE"))
 
