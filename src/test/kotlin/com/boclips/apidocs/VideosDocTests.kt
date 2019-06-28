@@ -32,6 +32,7 @@ class VideosDocTests : AbstractDocTests() {
                                 fieldWithPath("releasedOn").description("Date on which the video was originally released as stated by the content producer"),
                                 fieldWithPath("subjects").description("Tagged subjects for this video. E.g. Maths or Philosophy"),
                                 fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
+                                fieldWithPath("rating").description("Score of this video based on user rating. From 0 to 5."),
 
                                 fieldWithPath("playback.type").description("Playback type, i.e. STREAM or YOUTUBE"),
                                 fieldWithPath("playback.id").description("Id of this playback, useful for YOUTUBE type"),
