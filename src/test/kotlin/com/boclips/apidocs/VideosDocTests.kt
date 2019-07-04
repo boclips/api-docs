@@ -53,6 +53,7 @@ class VideosDocTests : AbstractDocTests() {
                                 fieldWithPath("type.id").description("deprecated"), // TODO We don't really care about this in the API
                                 fieldWithPath("type.name").description("deprecated"), // TODO We should remodel this using the same filtering mechanisms values we provide
                                 fieldWithPath("status").description("deprecated"), // TODO This should be available for internal use only
+                                fieldWithPath("hiddenFromSearchForDeliveryMethods").description("deprecated"), // TODO This hsould be available for internal use only
                                 linksFieldDescriptor
                         )
                                 , links(
