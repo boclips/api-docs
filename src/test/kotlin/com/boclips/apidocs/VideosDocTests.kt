@@ -48,12 +48,7 @@ class VideosDocTests : AbstractDocTests() {
                                 fieldWithPath("ageRange.min").optional().description("Minimum of age range for this video"),
                                 fieldWithPath("ageRange.max").optional().description("Maximum of age range for this video"),
 
-                                fieldWithPath("contentPartner").description("deprecated"), //TODO this should be renamed a "partner" makes no sense for API consumers
-                                fieldWithPath("contentPartnerVideoId").description("deprecated"), //TODO This makes no sense in the API
-                                fieldWithPath("type.id").description("deprecated"), // TODO We don't really care about this in the API
-                                fieldWithPath("type.name").description("deprecated"), // TODO We should remodel this using the same filtering mechanisms values we provide
-                                fieldWithPath("status").description("deprecated"), // TODO This should be available for internal use only
-                                fieldWithPath("hiddenFromSearchForDeliveryMethods").description("deprecated"), // TODO This hsould be available for internal use only
+                                fieldWithPath("source").description("Where the video got sourced from"),
                                 linksFieldDescriptor
                         )
                                 , links(
