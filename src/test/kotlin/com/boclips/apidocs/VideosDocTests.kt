@@ -48,7 +48,7 @@ class VideosDocTests : AbstractDocTests() {
                                 fieldWithPath("ageRange.min").optional().description("Minimum of age range for this video"),
                                 fieldWithPath("ageRange.max").optional().description("Maximum of age range for this video"),
 
-                                fieldWithPath("source").description("Where the video got sourced from"),
+                                fieldWithPath("createdBy").description("Who provided the video"),
                                 linksFieldDescriptor
                         )
                                 , links(
