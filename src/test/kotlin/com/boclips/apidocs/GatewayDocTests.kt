@@ -51,10 +51,7 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
 
                 linkWithRel("subjects").description("List of subjects available"),
-                linkWithRel("profile").description("User profile information"),
-
-                linkWithRel("createNoSearchResultsEvent").description("Deprecated"),
-                linkWithRel("createPlaybackEvent").description("Deprecated")
+                linkWithRel("profile").description("User profile information")
             )
                 )
             )
