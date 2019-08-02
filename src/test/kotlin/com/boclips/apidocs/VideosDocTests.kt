@@ -33,6 +33,7 @@ class VideosDocTests : AbstractDocTests() {
                                 fieldWithPath("subjects").description("Tagged subjects for this video. E.g. Maths or Philosophy"),
                                 fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
                                 fieldWithPath("rating").description("Score of this video based on user rating. From 0 to 5."),
+                                fieldWithPath("yourRating").description("Score you gave to this video. From 0 to 5."),
                                 fieldWithPath("bestFor").description("Most appropriate use for this video"),
 
                                 fieldWithPath("playback.type").description("Playback type, i.e. STREAM or YOUTUBE"),
