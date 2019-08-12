@@ -49,6 +49,7 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("publicCollections").description("Collections marked as public"),
                 linkWithRel("searchCollections").description("Searchable collections"),
                 linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
+                linkWithRel("createVideoVisitedEvent").description("POST endpoint for a createVideoVisitedEvent"),
 
                 linkWithRel("subjects").description("List of subjects available"),
                 linkWithRel("profile").description("User profile information")
