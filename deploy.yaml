@@ -1,10 +1,10 @@
 app: api-docs
 port: 8080
-scale: Large
+scale: Medium
 bootTime: Slow
 healthPath: /actuator/health
 environments:
   production:
-    replicas: 1
+    replicas: 2
     urls:
       - docs.boclips.com
