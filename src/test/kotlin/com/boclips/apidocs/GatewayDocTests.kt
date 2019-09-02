@@ -52,7 +52,8 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("createVideoVisitedEvent").description("POST endpoint for a createVideoVisitedEvent"),
 
                 linkWithRel("subjects").description("List of subjects available"),
-                linkWithRel("profile").description("User profile information")
+                linkWithRel("profile").description("User profile information"),
+                linkWithRel("countries").description("List of countries")
             )
                 )
             )
