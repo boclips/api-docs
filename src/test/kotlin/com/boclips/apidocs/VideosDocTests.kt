@@ -54,7 +54,8 @@ class VideosDocTests : AbstractDocTests() {
                                 linksFieldDescriptor
                         )
                                 , links(
-                                linkWithRel("self").description("The video resource that was just retrieved")
+                                linkWithRel("self").description("The video resource that was just retrieved"),
+                                linkWithRel("createVideoInteractedWithEvent").description("POST request to this URL will log user's interaction with this video.")
                         )
                         )
                 )
