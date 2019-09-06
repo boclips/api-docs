@@ -55,7 +55,7 @@ class VideosDocTests : AbstractDocTests() {
                         )
                                 , links(
                                 linkWithRel("self").description("The video resource that was just retrieved"),
-                                linkWithRel("createVideoInteractedWithEvent").description("POST request to this URL will log user's interaction with this video.")
+                                linkWithRel("logInteraction").description("POST request to this URL will log user's interaction with this video.")
                         )
                         )
                 )
