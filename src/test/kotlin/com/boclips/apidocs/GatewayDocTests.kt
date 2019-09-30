@@ -47,7 +47,8 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("createCollection").description("Link to create a new video collection"),
                 linkWithRel("myCollections").description("Collections created by the current user"),
                 linkWithRel("publicCollections").description("Collections marked as public"),
-                linkWithRel("searchPublicCollections").description("Searchable collections"),
+                linkWithRel("searchPublicCollections").description("Search all public collections"),
+                linkWithRel("searchCollections").description("Search all collections"),
                 linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
 
                 linkWithRel("subjects").description("List of subjects available"),
