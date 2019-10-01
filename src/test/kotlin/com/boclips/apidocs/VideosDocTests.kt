@@ -42,7 +42,8 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("_links.thumbnail.href").description("Thumbnail URL for the video. May be templated with thumbnailWidth").optional(),
                         fieldWithPath("_links.thumbnail.templated").ignored(),
                         fieldWithPath("_links.videoPreview.href").description("VideoPreview URL for the video. Templated with thumbnailWidth, and thumbnailCount").optional(),
-                        fieldWithPath("_links.videoPreview.templated").ignored()
+                        fieldWithPath("_links.videoPreview.templated").ignored(),
+                        fieldWithPath("_links.hlsStream.href").description("URL for the Apple HLS stream").optional()
                     ),
                     responseFields(
                         fieldWithPath("id").description("The unique identifier for this video, can be interpolated in templated links"),
