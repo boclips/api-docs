@@ -1,0 +1,156 @@
+= Boclips LTI Guide
+Boclips Engineering;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:sectlinks:
+:toc: left
+:toclevels: 4
+:stylesheet: styles.css
+
+[[overview]]
+= Overview
+
+This is the developer reference guide to Boclips LTI implementation.
+
+NOTE: At the moment we support LTI 1.1 only.
+
+[[boclips-lti-features]]
+== Boclips LTI Features
+
+Our current LTI implementation delivers read only views of resources:
+
+* videos,
+* collections of videos,
+* lists of video collections.
+
+LTI is used here to authenticate external users within Boclips application. They don't need to create accounts or log in, an LTI handshake does it on their behalf, making the experience seamless.
+
+LTI protocol assumes that one web application will be opened _from_ or _within_ another web application. The aforementioned resources are thus plain web pages that display content to users. Whether that page is opened in a separate window or embedded within an `iframe` element is a matter of design preference.
+
+[[lti-v1p1]]
+== LTI 1.1
+
+In LTI 1.1 world, the two parties interacting with each other are:
+
+* *tool provider* -- a service that has resources than can be accessed (_consumed_) using LTI. This is e.g. Boclips,
+* *tool consumer* -- yourself, or any other party that wants to access Boclips content using LTI.
+
+There is plenty of detailed documentation available on LTI (some of it linked below), but in a nutshell an LTI workflow looks like this:
+
+[example]
+--
+1. _tool consumer_ executes an LTI launch request against the _tool provider_. It's a HTTP POST request with some specific parameters,
+2. _tool provider_ verifies the launch request (this is discussed further in following sections),
+3. if the launch request is valid, _tool provider_ automatically provisions or retrieves a user account, establishes a HTTP session, sets a cookie and responds with a HTTP redirect to requested resource,
+4. _tool consumer_ follows the redirect, passing previously received session cookie along,
+5. content is displayed to the end user.
+--
+
+[[lti-v1p1-authentication]]
+=== Authentication
+
+Launch requests are verified based on a pre-shared set of credentials, *consumer key* and *consumer secret*. These are created by Boclips and exchanged with you before any integration can take place -- they can be thought of as an equivalent of API keys.
+
+An LTI 1.1 handshake works as follows:
+
+[example]
+--
+1. _tool consumer_ collects all parameters required to execute a Launch Request,
+2. then it uses the _secret_ to compute an link:https://oauth.net/core/1.0/[OAuth 1.0 signature] for that request. All POST parameters, HTTP method itself and request URL are included in signature generation,
+3. the signature is then attached as another POST parameter and the request is executed,
+4. upon receiving the request, _tool provider_ removes the signature parameter, recomputes the signature and verifies the request,
+5. if the signature matches and all mandatory parameters are present, the request is deemed valid.
+--
+
+The key is passed as a part of a launch request and allows to identify different consumers. The secret should be stored in a secure manner and not be exposed to 3rd parties.
+
+[[lti-v1p1-anatomy-of-a-launch-request]]
+=== Anatomy of a Lunch Request
+
+[[lti-v1p1-lti-parameters]]
+==== LTI Parameters
+
+A minimal subset LTI launch request parameters required to access Boclips resources is presented in the table below.
+
+Please note that LTI specification permits more parameters in order to pass contextual information along. Some parameters are treated as _recommended_, others are _optional_. Many recommended parameters include user information -- this helps with automatic account provisioning.
+
+More info on supported parameters can be found in link:https://www.imsglobal.org/specs/ltiv1p1/implementation-guide[official specification].
+
+[cols="2,1,1,5"]
+include::{snippets}/lti-v1p1-lti-parameters/request-parameters.adoc[]
+
+[[lti-v1p1-oauth-parameters]]
+==== OAuth 1.0 Parameters
+
+LTI 1.1 security model is based on link:https://oauth.net/core/1.0/[OAuth 1.0] message signing. A well formed LTI launch request must contain all parameters listed below.
+
+Ideally you won't need to handle all of those yourself -- there are open source LTI and/or OAuth 1.0 libraries available, for example we use an link:https://github.com/IMSGlobal/basiclti-util-java[official IMS one] for our JVM apps.
+
+[cols="2,1,1,5"]
+include::{snippets}/lti-v1p1-oauth-parameters/request-parameters.adoc[]
+
+[[lti-v1p1-boclips-custom-parameters]]
+==== Boclips Custom Parameters
+
+We support additional parameters that allow customizing the LTI experience. They can be passed along all the other launch request parameters.
+
+[cols="2,1,1,5"]
+include::{snippets}/lti-v1p1-boclips-parameters/request-parameters.adoc[]
+
+[[lti-v1p1-sample-launch-request]]
+==== Sample Launch Request
+
+Below is an example of a valid LTI launch request issued using:
+
+* a video resource located under https://lti.boclips.com/v1p1/videos/5c542abf5438cdbcb56df0bf,
+* consumer key used is `your-consumer-key`,
+* resource link ID of `41B464BA-F406-485C-ACDF-C1E5EB474156`,
+* custom logo parameter set to https://storage.googleapis.com/boclips-public-static-files/boclips/logo.png.
+
+include::{snippets}/lti-v1p1-full-launch-request/http-request.adoc[]
+
+The server responds with a redirect to the resource and sets a session cookie:
+
+include::{snippets}/lti-v1p1-full-launch-request/http-response.adoc[]
+
+NOTE: Given our current LTI implementation, the launch requests will look nearly the same for other resource types. Only the resource URL will change.
+
+[[lti-v1p1-resource-endpoints]]
+=== Resource Endpoints
+
+==== Single Video
+
+Displays a single video playable using our interactive player.
+
+[listing]
+--
+/v1p1/videos/{videoId}
+--
+
+==== Collection of Videos
+
+Displays a collection of videos with thumbnails and descriptions. Clicking on any of them will take the user to a video page.
+
+[listing]
+--
+/v1p1/collections/{collectionId}
+--
+
+==== List of Collections
+
+Displays a list of available collections with a subset of video thumbnails for each of them. Selecting one of them will take the user to a video collection page.
+
+[listing]
+--
+/v1p1/collections
+--
+
+NOTE: Note that the assumption is that IDs of resources are known in advance and as a consumer you embed LTI links them as you choose. Alternatively, users can explore the full content library from the collections list page (last resource).
+
+[[lti-v1p1-external-resources]]
+=== External Resources
+
+* link:https://www.imsglobal.org/specs/ltiv1p1/implementation-guide[LTI 1.1 official specification]
+* link:https://medium.com/lcom-techblog/simple-lti-tool-consumer-in-html-and-javascript-72ca153d7a83[Simple LTI consumer application]
+* link:https://ltiapps.net/test/tc.php[Tool for testing LTI 1.1 consumers and providers]

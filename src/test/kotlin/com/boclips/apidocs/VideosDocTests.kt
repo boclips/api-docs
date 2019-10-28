@@ -6,11 +6,8 @@ import org.hamcrest.Matchers
 import org.junit.jupiter.api.Test
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
-import org.springframework.restdocs.operation.preprocess.Preprocessors
-import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.payload.PayloadDocumentation.beneathPath
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
-import org.springframework.restdocs.payload.PayloadDocumentation.responseBody
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
@@ -127,8 +124,8 @@ class VideosDocTests : AbstractDocTests() {
                         )
 
                     )
-                    , PayloadDocumentation.responseFields(
-                        PayloadDocumentation.subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
+                    , responseFields(
+                        subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
                         fieldWithPath("page.size").description("Amount of videos in the current page"),
                         fieldWithPath("page.totalElements").description("Total amount of videos for this search query across pages"),
                         fieldWithPath("page.totalPages").description("Total amount of pages for this search query"),
