@@ -97,7 +97,7 @@ class LtiDocTests : AbstractDocTests() {
                 document(
                     "lti-v1p1-full-launch-request",
                     requestParameters(
-                        *this.ltiParameters,
+                        *ltiParameters,
                         *oauthParameters,
                         *boclipsParameters
                     )
@@ -107,7 +107,7 @@ class LtiDocTests : AbstractDocTests() {
                 document(
                     "lti-v1p1-lti-parameters",
                     requestParameters(
-                        *this.ltiParameters,
+                        *ltiParameters,
                         *oauthParametersIgnored,
                         *boclipsParametersIgnored
                     )

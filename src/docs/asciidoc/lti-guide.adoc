@@ -36,7 +36,8 @@ In LTI 1.1 world, the two parties interacting with each other are:
 * *tool provider* -- a service that has resources than can be accessed (_consumed_) using LTI. This is e.g. Boclips,
 * *tool consumer* -- yourself, or any other party that wants to access Boclips content using LTI.
 
-There is plenty of detailed documentation available on LTI (some of it linked below), but in a nutshell an LTI workflow looks like this:
+There is plenty of detailed documentation available on LTI (some of it linked below), but in a nutshell the simplest LTI workflow that we support looks like this:
+
 
 [example]
 --
@@ -68,10 +69,12 @@ The key is passed as a part of a launch request and allows to identify different
 [[lti-v1p1-anatomy-of-a-launch-request]]
 === Anatomy of a Lunch Request
 
+All parameters mentioned below are transmitted as standard HTTP POST parameters.
+
 [[lti-v1p1-lti-parameters]]
 ==== LTI Parameters
 
-A minimal subset LTI launch request parameters required to access Boclips resources is presented in the table below.
+A minimal subset of LTI launch request parameters required to access Boclips resources is presented in the table below.
 
 Please note that LTI specification permits more parameters in order to pass contextual information along. Some parameters are treated as _recommended_, others are _optional_. Many recommended parameters include user information -- this helps with automatic account provisioning.
 
@@ -151,6 +154,9 @@ NOTE: Note that the assumption is that IDs of resources are known in advance and
 [[lti-v1p1-external-resources]]
 === External Resources
 
+Below are a mix of official LTI docs from link:https://www.imsglobal.org/[IMS] and articles written by developers that can prove useful when implementing LTI capabilities.
+
 * link:https://www.imsglobal.org/specs/ltiv1p1/implementation-guide[LTI 1.1 official specification]
 * link:https://medium.com/lcom-techblog/simple-lti-tool-consumer-in-html-and-javascript-72ca153d7a83[Simple LTI consumer application]
+* link:https://community.brightspace.com/s/article/So-you-want-to-extend-your-LMS-Part-1-LTI-Primer[An LTI 1.1 overview from a developer perspective]
 * link:https://ltiapps.net/test/tc.php[Tool for testing LTI 1.1 consumers and providers]
