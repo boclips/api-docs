@@ -18,6 +18,10 @@ outputs:
 params:
   API_USERNAME:
   API_PASSWORD:
+  API_CLIENTID:
+  API_CLIENTSECRET:
+  LTI_V1P1_CONSUMERKEY:
+  LTI_V1P1_CONSUMERSECRET:
 
 caches:
   - path: .gradle/
