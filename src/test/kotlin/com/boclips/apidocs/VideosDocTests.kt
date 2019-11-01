@@ -52,6 +52,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("rating").description("Score of this video based on user rating. From 0 to 5."),
                         fieldWithPath("yourRating").description("Score you gave to this video. From 0 to 5."),
                         fieldWithPath("bestFor").description("Most appropriate use for this video"),
+                        fieldWithPath("promoted").description("Promoted status of this video"),
 
                         subsectionWithPath("playback").description("Video Playback resource. See <<resources-video-access_response_fields-playback,playback>> for payload details"),
 
@@ -117,6 +118,9 @@ class VideosDocTests : AbstractDocTests() {
                         ),
                         parameterWithName("age_range_max").optional().description("Maximum age to filter to - it filters on the video age range property, and is inclusive.").attributes(
                             Attributes.key("type").value("Number")
+                        ),
+                        parameterWithName("promoted").optional().description("Filter by promoted videos only").attributes(
+                            Attributes.key("type").value("boolean")
                         ),
                         //Sorting
                         parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date is supported. Useful to search for the latest videos").attributes(
