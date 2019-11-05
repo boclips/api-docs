@@ -1,0 +1,24 @@
+[[overview-http-verbs]]
+== HTTP verbs
+
+The API adheres as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs. Supported operations vary from resource to resource.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to fully replace an existing resource
+
+| `PATCH`
+| Used to update an existing resource, including partial updates
+
+| `DELETE`
+| Used to delete an existing resource
+|===

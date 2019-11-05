@@ -1,0 +1,85 @@
+[[overview-authentication]]
+== Authentication
+
+The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect (OIDC)]. Alternatively,
+we support https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language[SAML] too.
+
+In order to get started with OIDC, we'll need to obtain an `access_token`. Depending on the type of integration,
+we can provide different `grant_types`.
+
+Boclips will provide you with a `client_id` and depending on the integration a `client_secret`.
+
+Regardless of how the token is retrieved, the structure of the response will look like this:
+
+[[token-response]]
+include::{snippets}/refresh-token-example/response-body.adoc[]
+include::{snippets}/refresh-token-example/response-fields.adoc[]
+
+Next, we'll talk about refreshing the token and then we'll describe a few authentication high level use cases before
+we delve deeper into implementation details.
+
+[[refresh-token]]
+=== Refreshing the access token
+
+The OIDC refresh token, enables you to renew the access token periodically without having to authenticate again.
+The refresh token has an expiration attached to it but it is longer than a regular `access_token`.
+
+In order to renew a token using a `refresh_token` flow you should:
+
+operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
+
+Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
+
+=== OIDC Use cases
+
+==== Backend service integration
+
+You may want to use Boclips straight from your backend services. In this case, Boclips will provide
+you with your own `client_id` and `client_secret`.
+
+All the communication will happen outside of the context of a user, therefore some features like user collections
+may not be available.
+
+In order to get an `access_token` using `client_credentials` we would perform a request:
+
+operation::client-credentials-example[snippets='http-request,curl-request,request-parameters']
+
+
+Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
+
+
+==== Using your platform as SSO
+
+You may want to integrate your existing user base with Boclips. The API will provide a seamless SSO experience.
+
+For your users to be integrated into our platform we will configure upfront an
+identity provider (IDP) on our end. At the moment we support SAML 2.0 IDPs and OpenID Connect IDPs.
+
+Once ready, you'll need to perform an https://auth0.com/docs/api-auth/tutorials/authorization-code-grant[authorization code grant flow]
+to retrieve an `access_token`
+
+First obtaining a code:
+
+[[trigger-authorization]]
+operation::authorization-code-example[snippets='http-request,curl-request,request-parameters']
+
+[[get-token-authorization]]
+Then obtaining the `access_token`:
+
+operation::authorization-code-token-example[snippets='http-request,curl-request,request-parameters']
+
+Such a flow will look like this:
+
+. The user's browser visits your application. The application notices the user is not logged in, so it
+<<trigger-authorization,redirects the browser to our server>> to be authenticated. The application passes along a callback URL (a redirect URL)
+as a query parameter in this browser redirect that our server will use when it finishes authentication.
+.. If the user has a session in your domain - we'll move to the next point
+.. If the user has no session in your domain we'll send her to your login page (this needs to be configured on our end)
+
+. Given your IDP acknowledge your user, our server authenticates the user and creates a one-time, very short lived, temporary code.
+Our server redirects back to the application using the callback URL provided earlier and additionally adds the temporary code as a
+query parameter in the callback URL.
+
+. Your application extracts the temporary code and <<get-token-authorization,makes a background REST request>> to our authentication server
+to exchange the code for an identity, access and refresh token. Once this temporary code has been used once to
+obtain the tokens, it can never be used again. This prevents potential replay attacks.

@@ -1,0 +1,11 @@
+[[resources-index]]
+== Index
+
+The index provides the entry point into the service. Links can be pulled from here.
+
+[[resources-index-access]]
+=== Accessing the index
+
+A `GET` request is used to access the index.
+
+operation::resource-index[snippets='http-request,curl-request,http-response,links']

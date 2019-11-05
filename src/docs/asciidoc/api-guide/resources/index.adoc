@@ -1,0 +1,8 @@
+[[resources]]
+= Resources
+
+include::api-index.adoc[]
+
+include::videos.adoc[]
+
+include::subjects.adoc[]

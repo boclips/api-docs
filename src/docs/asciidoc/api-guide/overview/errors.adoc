@@ -1,0 +1,23 @@
+[[overview-errors]]
+== Errors
+
+Whenever an error response (status code >= 400) is returned, the body will contain a JSON object
+that describes the problem. The error object has the following structure:
+
+include::{snippets}/error-example/response-fields.adoc[]
+
+For example, a request that attempts to apply a non-existent tag to a note will produce a
+`400 Bad Request` response:
+
+include::{snippets}/error-example/http-response.adoc[]
+
+[[errors-cors]]
+=== Cross-Origin Resource Sharing
+
+Any requests to our API originating from within a browser will be subject to CORs restrictions.
+
+If you receive any CORs related errors it is possible the API requests have originated from a
+domain that has not been whitelisted on our server.
+
+Please contact us with any domains that you expect to call our API from (including protocols
+and port numbers -- if necessary).
