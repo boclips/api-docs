@@ -1,0 +1,13 @@
+[[resources-collections]]
+== Collections
+
+Collections allow to group related videos together and attach some additional metadata to them. They can be searched through, edited and bookmarked.
+
+[[resources-collections-create]]
+=== Creating a collection
+
+Collections can be created by issuing a `POST` request to a `createCollection` link. Input parameters are provided via a JSON payload.
+
+Upon success, the API will respond with a `201` status and provide a link to the newly created collection under a `Location` response header.
+
+operation::resource-collection-creation[snippets='request-fields,http-request,curl-request,http-response']

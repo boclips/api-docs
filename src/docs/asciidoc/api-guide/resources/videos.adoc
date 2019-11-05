@@ -1,7 +1,7 @@
-[[resources-video]]
-== Video
+[[resources-videos]]
+== Videos
 
-The video resource contains metadata about a Boclips video asset. This includes basic metadata as well as
+The videos resource contains metadata about a Boclips video asset. This includes basic metadata as well as
 streaming details.
 
 [[resources-video-access]]

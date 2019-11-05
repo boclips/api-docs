@@ -5,4 +5,6 @@ include::api-index.adoc[]
 
 include::videos.adoc[]
 
+include::collections.adoc[]
+
 include::subjects.adoc[]

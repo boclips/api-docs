@@ -1,5 +1,6 @@
 package com.boclips.apidocs
 
+import com.boclips.apidocs.preprocessors.AuthHeaderMaskingPreprocessor.Companion.maskAuthHeader
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.jackson.responseObject
 import io.restassured.builder.RequestSpecBuilder
@@ -15,11 +16,12 @@ import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyUri
 import org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 import org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
 import org.springframework.restdocs.operation.preprocess.Preprocessors.replacePattern
+import org.springframework.restdocs.payload.FieldDescriptor
 import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.junit.jupiter.SpringExtension
-import java.util.regex.Pattern
+import java.util.regex.Pattern.compile
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ExtendWith(RestDocumentationExtension::class, SpringExtension::class)
@@ -46,12 +48,12 @@ abstract class AbstractDocTests {
     @BeforeEach
     fun setUp(restDocumentation: RestDocumentationContextProvider) {
         val payload = Fuel.post(
-                "https://api.staging-boclips.com/v1/token", listOf(
+            "https://api.staging-boclips.com/v1/token", listOf(
                 "grant_type" to "password",
                 "client_id" to "teachers",
                 "username" to username,
                 "password" to password
-        )
+            )
         ).responseObject<Map<String, Any>>().third.component1()
         accessToken = (payload?.get("access_token") as String?) ?: ""
         refreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -66,20 +68,34 @@ abstract class AbstractDocTests {
                         modifyUris()
                             .scheme("https")
                             .host("api.boclips.com"),
-                        removeHeaders("Authorization"),
-                        replacePattern(Pattern.compile("staging-boclips"), "boclips"),
+                        // removeHeaders("Authorization"),
+                        maskAuthHeader(),
+                        replacePattern(compile("staging-boclips"), "boclips"),
                         prettyPrint()
                     )
-                    .withResponseDefaults(modifyUris()
-                        .scheme("https")
-                        .host("api.boclips.com"),
-                        removeHeaders("Authorization"),
-                        replacePattern(Pattern.compile("staging-boclips"), "boclips"),
+                    .withResponseDefaults(
+                        modifyUris()
+                            .scheme("https")
+                            .host("api.boclips.com"),
+                        removeHeaders(
+                            "Authorization",
+                            "Set-Cookie",
+                            "Date",
+                            "Expires",
+                            "Pragma",
+                            "X-Frame-Options",
+                            "X-Content-Type-Options",
+                            "X-Xss-Protection",
+                            "Strict-Transport-Security",
+                            "Cache-Control",
+                            "Transfer-Encoding"
+                        ),
+                        replacePattern(compile("staging-boclips"), "boclips"),
                         prettyPrint()
                     )
             ).build()
     }
 
-    val linksFieldDescriptor = PayloadDocumentation.subsectionWithPath("_links").description("HAL links for this resource")
-
+    val linksFieldDescriptor: FieldDescriptor =
+        PayloadDocumentation.subsectionWithPath("_links").description("HAL links for this resource")
 }
