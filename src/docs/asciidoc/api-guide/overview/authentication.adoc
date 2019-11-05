@@ -1,3 +1,5 @@
+:refresh-token-example-snippets: ../../../../../build/generated-snippets/refresh-token-example
+
 [[overview-authentication]]
 == Authentication
 
@@ -12,8 +14,8 @@ Boclips will provide you with a `client_id` and depending on the integration a `
 Regardless of how the token is retrieved, the structure of the response will look like this:
 
 [[token-response]]
-include::{snippets}/refresh-token-example/response-body.adoc[]
-include::{snippets}/refresh-token-example/response-fields.adoc[]
+include::{refresh-token-example-snippets}/response-body.adoc[]
+include::{refresh-token-example-snippets}/response-fields.adoc[]
 
 Next, we'll talk about refreshing the token and then we'll describe a few authentication high level use cases before
 we delve deeper into implementation details.
