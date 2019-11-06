@@ -1,7 +1,9 @@
 [[resources-collections]]
 == Collections
 
-Collections allow to group related videos together and attach some additional metadata to them. They can be searched through, edited and bookmarked.
+Collections enable grouping related videos together and have some additional metadata that describes their content. They are searchable, can be edited and bookmarked.
+
+Each collection can be *public* or *private*. A public collection will be visible to all authenticated users through the search capability. Private collections will be visible only to their *owner*, i.e. user who created them.
 
 [[resources-collections-create]]
 === Creating a collection

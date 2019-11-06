@@ -26,7 +26,7 @@ class CollectionsDocTest : AbstractDocTests() {
                             .description("A list of IDs of videos that should belong to this collection"),
                         fieldWithPath("public")
                             .optional()
-                            .description("Whether the new collection should visible only to you or to everyone")
+                            .description("Whether the new collection should be visible only to you or to everyone")
                     )
                 )
             )
