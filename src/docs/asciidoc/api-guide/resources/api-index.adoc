@@ -1,7 +1,7 @@
 [[resources-index]]
 == Index
 
-The index provides the entry point into the service. Links can be pulled from here.
+The index provides the entry point into the service. It returns a set of links that describe which initial actions are available to you as the API user.
 
 [[resources-index-access]]
 === Accessing the index

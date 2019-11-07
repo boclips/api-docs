@@ -3,9 +3,11 @@
 
 The API uses hypermedia, and resources include links to other resources in their
 responses. Responses are in http://stateless.co/hal_specification.html[Hypertext Application
-from resource to resource.
-Language (HAL)] format. Links can be found beneath the `_links` key. *Users of the API should
-not create URIs themselves*, but instead should use the above-described links to navigate.
+from resource to resource Language (HAL)] format. Links can be found beneath the `_links` key of retrieved resource.
+
+Note that one of the goals of indirection introduced through hypermedia and links is to handle API changes. *Users of the API should not use hardcoded resource URIs*, but instead use the above-described links to navigate the API. This way they'll always receive correct and up-to-date URIs to resources they need.
+
+More information on _Hypermedia as the Engine of Application State_ (HATEOAS) can be found https://en.wikipedia.org/wiki/HATEOAS[here].
 
 === Interpolating URLs
 
