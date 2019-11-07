@@ -1,5 +1,6 @@
 package com.boclips.apidocs
 
+import com.boclips.apidocs.testsupport.AbstractDocTests
 import io.restassured.RestAssured.given
 import io.restassured.builder.RequestSpecBuilder
 import io.restassured.specification.RequestSpecification

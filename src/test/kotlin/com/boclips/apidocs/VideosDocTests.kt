@@ -1,5 +1,6 @@
 package com.boclips.apidocs
 
+import com.boclips.apidocs.testsupport.AbstractDocTests
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.Matchers
@@ -67,7 +68,9 @@ class VideosDocTests : AbstractDocTests() {
                     ),
                     links(
                         linkWithRel("self").description("The video resource that was just retrieved"),
-                        linkWithRel("logInteraction").description("POST request to this URL will log user's interaction with this video.")
+                        linkWithRel("logInteraction").description("`POST` request to this URL will log user's interaction with this video"),
+                        linkWithRel("rate").description("`PATCH` request to this URL will give this video a rating"),
+                        linkWithRel("tag").description("`PATCH` request to this URL will tag this video")
                     )
                 )
             )

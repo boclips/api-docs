@@ -1,8 +1,13 @@
 package com.boclips.apidocs
 
+import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.boclips.apidocs.testsupport.RequestSpecificationFactory
 import io.restassured.RestAssured.given
+import io.restassured.specification.RequestSpecification
 import org.hamcrest.CoreMatchers.`is`
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyParameters
 import org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest
 import org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse
@@ -17,13 +22,12 @@ import org.springframework.restdocs.snippet.Attributes
 import java.util.regex.Pattern
 
 class LoginDocTests : AbstractDocTests() {
-
     @Test
     fun `refresh token flow`() {
-        given(documentationSpec).urlEncodingEnabled(true)
+        given(loginDocumentationSpec).urlEncodingEnabled(true)
             .param("grant_type", "refresh_token")
             .param("client_id", "teachers")
-            .param("refresh_token", refreshToken)
+            .param("refresh_token", publicClientRefreshToken)
             .filter(
                 document(
                     "refresh-token-example",
@@ -31,8 +35,14 @@ class LoginDocTests : AbstractDocTests() {
                         modifyParameters().set("client_id", "***").set("refresh_token", "***")
                     ),
                     preprocessResponse(
-                        replacePattern(Pattern.compile("\"access_token\"\\s*:\\s*\"[^\"]+\""), "\"access_token\" : \"***\""),
-                        replacePattern(Pattern.compile("\"refresh_token\"\\s*:\\s*\"[^\"]+\""), "\"refresh_token\" : \"***\"")
+                        replacePattern(
+                            Pattern.compile("\"access_token\"\\s*:\\s*\"[^\"]+\""),
+                            "\"access_token\" : \"***\""
+                        ),
+                        replacePattern(
+                            Pattern.compile("\"refresh_token\"\\s*:\\s*\"[^\"]+\""),
+                            "\"refresh_token\" : \"***\""
+                        )
                     ),
                     tokenResponseFields,
                     requestParameters(
@@ -54,7 +64,7 @@ class LoginDocTests : AbstractDocTests() {
 
     @Test
     fun `authorization code flow - requesting code`() {
-        given(documentationSpec).urlEncodingEnabled(true)
+        given(loginDocumentationSpec).urlEncodingEnabled(true)
             .param("response_type", "code")
             .param("client_id", "teachers")
             .param("redirect_uri", "https://teachers.staging-boclips.com")
@@ -83,7 +93,7 @@ class LoginDocTests : AbstractDocTests() {
 
     @Test
     fun `authorization code flow - token request`() {
-        given(documentationSpec).urlEncodingEnabled(true)
+        given(loginDocumentationSpec).urlEncodingEnabled(true)
             .param("grant_type", "authorization_code")
             .param("client_id", "viewsonic")
             .param("code", "***")
@@ -116,7 +126,7 @@ class LoginDocTests : AbstractDocTests() {
 
     @Test
     fun `client credentials flow`() {
-        given(documentationSpec).urlEncodingEnabled(true)
+        given(loginDocumentationSpec).urlEncodingEnabled(true)
             .param("grant_type", "client_credentials")
             .param("client_id", clientId)
             .param("client_secret", clientSecret)
@@ -155,5 +165,12 @@ class LoginDocTests : AbstractDocTests() {
         fieldWithPath("not-before-policy").optional().description("The instant after which the `access_token` will become valid as long as it hasn't expired"),
         fieldWithPath("token_type").description("https://openid.net/specs/openid-connect-core-1_0.html[OIDC token type] must be `bearer`")
     )
+
+    private lateinit var loginDocumentationSpec: RequestSpecification
+
+    @BeforeEach
+    fun setupDocumentationSpec(restDocumentation: RestDocumentationContextProvider) {
+        loginDocumentationSpec = RequestSpecificationFactory.createFor(publicClientAccessToken, restDocumentation)
+    }
 }
 

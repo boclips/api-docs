@@ -8,8 +8,19 @@ Each collection can be *public* or *private*. A public collection will be visibl
 [[resources-collections-create]]
 === Creating a collection
 
-Collections can be created by issuing a `POST` request to a `createCollection` link. Input parameters are provided via a JSON payload.
+Collections can be created by issuing a `POST` request to `createCollection` link. Input parameters are provided via a JSON payload.
 
 Upon success, the API will respond with a `201` status and provide a link to the newly created collection under a `Location` response header.
 
 operation::resource-collection-creation[snippets='request-fields,http-request,curl-request,http-response']
+
+[[resources-collections-retrieve]]
+=== Retrieving a collection
+
+You can retrieve collections by sending a `GET` request to `collection` link. It's a templated link with a collection `id` path parameter.
+
+Alternatively you can of course use an absolute link to a specific collection that you have, e.g. when it's extracted from a `Location` header after <<resources-collections-create,creating>>.
+
+operation::resource-collection[snippets='path-parameters,http-request,curl-request,http-response,response-fields,links']
+
+

@@ -1,5 +1,6 @@
 package com.boclips.apidocs
 
+import com.boclips.apidocs.testsupport.AbstractDocTests
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
@@ -8,9 +9,6 @@ import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
-import javax.servlet.RequestDispatcher
-
-
 
 class GatewayDocTests: AbstractDocTests() {
 
@@ -40,8 +38,12 @@ class GatewayDocTests: AbstractDocTests() {
                 document(
                     "resource-index"
                 , links(
+                linkWithRel("activate").description("A `PUT` request against this link allows to pass profile information and activate a new user"),
+
                 linkWithRel("video").description("The video resource, templated link to retrieve an individual video"),
                 linkWithRel("searchVideos").description("Templated link to perform video search"),
+
+                linkWithRel("createPlaybackEvent").description("`POST` endpoint for a createPlaybackEvent"),
 
                 linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
                 linkWithRel("createCollection").description("Link to create a new video collection"),
@@ -53,7 +55,11 @@ class GatewayDocTests: AbstractDocTests() {
 
                 linkWithRel("subjects").description("List of subjects available"),
                 linkWithRel("profile").description("User profile information"),
-                linkWithRel("countries").description("List of countries")
+                linkWithRel("countries").description("List of countries"),
+
+                linkWithRel("tags").description("List of tags that can be attached to videos"),
+
+                linkWithRel("disciplines").description("List of disciplines available in the system (e.g. arts, humanities...)")
             )
                 )
             )

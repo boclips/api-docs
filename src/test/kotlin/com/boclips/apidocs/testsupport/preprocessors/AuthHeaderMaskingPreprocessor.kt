@@ -1,4 +1,4 @@
-package com.boclips.apidocs.preprocessors
+package com.boclips.apidocs.testsupport.preprocessors
 
 import org.springframework.http.HttpHeaders.writableHttpHeaders
 import org.springframework.restdocs.operation.OperationRequest
