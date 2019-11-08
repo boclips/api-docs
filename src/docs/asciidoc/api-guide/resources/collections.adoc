@@ -39,3 +39,14 @@ Note that the first search link allows to compose a query that searches for publ
 Collection search results are pageable -- you can control both the page number and page size.
 
 operation::resource-collection-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields,links']
+
+[[resources-collections-edit]]
+=== Editing collections
+
+==== Updating selected fields
+
+A collection can be edited by sending a `PATCH` request to its `edit` link. Input parameters are provided via a JSON payload. Example below shows all possible values, but subsets can be submitted as well.
+
+Upon success, the API will respond with a `204` status.
+
+operation::resource-collection-edit[snippets='request-fields,http-request,curl-request,http-response']

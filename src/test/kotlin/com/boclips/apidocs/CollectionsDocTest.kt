@@ -8,6 +8,7 @@ import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.http.HttpStatus
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
@@ -36,24 +37,28 @@ class CollectionsDocTest : AbstractDocTests() {
                         fieldWithPath("videos")
                             .optional()
                             .description("A list of IDs of videos that should belong to this collection"),
+                        fieldWithPath("subjects")
+                            .optional()
+                            .description("A list of IDs of subjects that should belong to this collection"),
                         fieldWithPath("public")
                             .optional()
                             .description("Whether the new collection should be visible only to you or to everyone")
                     )
                 )
             )
+            .`when`()
+            .contentType(ContentType.JSON)
             .body(
                 """
                 {
                     "title": "Life at Boclips",
                     "description": "Working hard on them APIs",
                     "videos": ["5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3"],
+                    "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
                     "public": true
                 }
             """.trimIndent()
             )
-            .contentType(ContentType.JSON)
-            .`when`()
             .post("/collections")
             .apply { println(prettyPrint()) }
             .then()
@@ -141,6 +146,60 @@ class CollectionsDocTest : AbstractDocTests() {
             .then()
             .assertThat()
             .statusCode(`is`(200))
+    }
+
+    @Test
+    fun `editing collections`() {
+        given(documentationSpec)
+            .filter(
+                document(
+                    "resource-collection-edit",
+                    requestFields(
+                        fieldWithPath("title")
+                            .optional()
+                            .description("Collection's title"),
+                        fieldWithPath("description")
+                            .optional()
+                            .description("Collection's description"),
+                        fieldWithPath("videos")
+                            .optional()
+                            .description("A list of IDs of videos that should belong to this collection. Will replace existing videos"),
+                        fieldWithPath("subjects")
+                            .optional()
+                            .description("A list of IDs of subjects that should belong to this collection. Will replace existing subjects"),
+                        fieldWithPath("isPublic")
+                            .optional()
+                            .description("Whether the new collection should be visible only to you or to everyone"),
+                        fieldWithPath("ageRange.min")
+                            .optional()
+                            .description("The lower bound of age range this collection of videos is suitable for"),
+                        fieldWithPath("ageRange.max")
+                            .optional()
+                            .description("The upper bound of age range this collection of videos is suitable for")
+                    )
+                )
+            )
+            .`when`()
+            .contentType(ContentType.JSON)
+            .body(
+                """
+                {
+                    "title": "Life at Boclips",
+                    "description": "Working hard on them APIs",
+                    "videos": ["5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3"],
+                    "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
+                    "isPublic": true,
+                    "ageRange": {
+                        "min": 8,
+                        "max": 12
+                    }
+                }
+            """.trimIndent()
+            )
+            .patch("/collections/{id}", collectionId)
+            .apply { println(prettyPrint()) }
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
 
     @BeforeEach
