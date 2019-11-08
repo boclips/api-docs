@@ -124,6 +124,7 @@ class CollectionsDocTest : AbstractDocTests() {
                     ),
                     links(
                         linkWithRel("self").description("Points to this exact search query"),
+                        linkWithRel("next").description("Points to next page of collections"),
                         linkWithRel("details").description("Points to this search query with details projection"),
                         linkWithRel("list").description("Points to this search query with list projection")
                     )
