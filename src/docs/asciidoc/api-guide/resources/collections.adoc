@@ -50,3 +50,11 @@ A collection can be edited by sending a `PATCH` request to its `edit` link. Inpu
 Upon success, the API will respond with a `204` status.
 
 operation::resource-collection-edit[snippets='request-fields,http-request,curl-request,http-response']
+
+==== Adding videos to a collection
+
+A video can be added to a collection by sending a `PUT` request to the `addVideo` link. It's a templated link with a `video_id` path parameter.
+
+Upon success, the API will respond with a `204` status.
+
+operation::resource-collection-add-video[snippets='path-parameters,http-request,curl-request,http-response']

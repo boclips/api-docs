@@ -22,6 +22,25 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 import org.springframework.restdocs.snippet.Attributes.key
 
 class CollectionsDocTest : AbstractDocTests() {
+    val videoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
+
+    @Test
+    fun `adding a video to a collection`() {
+        given(documentationSpec)
+            .filter(
+                document(
+                    "resource-collection-add-video",
+                    pathParameters(
+                        parameterWithName("video_id").description("The ID of the video")
+                    )
+                )
+            )
+            .`when`()
+            .put("/collections/${collectionId}/videos/{video_id}", videoIds[0])
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
+    }
+
     @Test
     fun `creating a new collection`() {
         given(documentationSpec)
@@ -53,7 +72,7 @@ class CollectionsDocTest : AbstractDocTests() {
                 {
                     "title": "Life at Boclips",
                     "description": "Working hard on them APIs",
-                    "videos": ["5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3"],
+                    "videos": ["${videoIds[0]}", "${videoIds[1]}"],
                     "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
                     "public": true
                 }
@@ -186,7 +205,7 @@ class CollectionsDocTest : AbstractDocTests() {
                 {
                     "title": "Life at Boclips",
                     "description": "Working hard on them APIs",
-                    "videos": ["5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3"],
+                    "videos": ["${videoIds[0]}", "${videoIds[1]}"],
                     "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
                     "isPublic": true,
                     "ageRange": {
