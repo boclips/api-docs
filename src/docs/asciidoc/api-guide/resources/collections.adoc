@@ -23,4 +23,13 @@ Alternatively you can of course use an absolute link to a specific collection th
 
 operation::resource-collection[snippets='path-parameters,http-request,curl-request,http-response,response-fields,links']
 
+[[resources-collections-search]]
+=== Collection search
 
+Boclips API allows searching through collections via `searchCollections` and `searchPublicCollections` links. Former will return results from among the collections the user created themself and the public collections, the latter will process through public ones only.
+
+Note that the first search link allows to compose a query that searches for public collections as well, so the second one essentially serves as a convenient shorthand.
+
+Collection search results are pageable -- you can control both the page number and page size.
+
+operation::resource-collection-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields,links']

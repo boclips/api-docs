@@ -131,13 +131,9 @@ class VideosDocTests : AbstractDocTests() {
                         )
 
                     )
-                    , responseFields(
+                    ,responseFields(
                         subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
-                        fieldWithPath("page.size").description("Amount of videos in the current page"),
-                        fieldWithPath("page.totalElements").description("Total amount of videos for this search query across pages"),
-                        fieldWithPath("page.totalPages").description("Total amount of pages for this search query"),
-                        fieldWithPath("page.number").description("Number of the current page. Zero-index based")
-
+                        *pageSpecificationResponseFields
                     )
                 )
             )

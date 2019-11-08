@@ -14,6 +14,7 @@ import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.RestDocumentationExtension
 import org.springframework.restdocs.payload.FieldDescriptor
 import org.springframework.restdocs.payload.PayloadDocumentation
+import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
@@ -92,4 +93,11 @@ abstract class AbstractDocTests {
 
     val linksFieldDescriptor: FieldDescriptor =
         PayloadDocumentation.subsectionWithPath("_links").description("HAL links for this resource")
+
+    val pageSpecificationResponseFields = arrayOf(
+        fieldWithPath("page.size").description("Amount of resources in the current page"),
+        fieldWithPath("page.totalElements").description("Total amount of resources for this search query across pages"),
+        fieldWithPath("page.totalPages").description("Total amount of pages for this search query"),
+        fieldWithPath("page.number").description("Number of the current page. Zero-index based")
+    )
 }

@@ -47,7 +47,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
 
-	testImplementation 'com.github.boclips:videos:v0.577.0'
+	testImplementation 'com.github.boclips:videos:v0.588.0'
 	testImplementation 'org.springframework.security.oauth:spring-security-oauth2:2.1.4.RELEASE'
 
 	testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
