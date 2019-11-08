@@ -42,6 +42,23 @@ class CollectionsDocTest : AbstractDocTests() {
     }
 
     @Test
+    fun `removing a video from a collection`() {
+        given(documentationSpec)
+            .filter(
+                document(
+                    "resource-collection-remove-video",
+                    pathParameters(
+                        parameterWithName("video_id").description("The ID of the video")
+                    )
+                )
+            )
+            .`when`()
+            .delete("/collections/${collectionId}/videos/{video_id}", videoIds[0])
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
+    }
+
+    @Test
     fun `creating a new collection`() {
         given(documentationSpec)
             .filter(

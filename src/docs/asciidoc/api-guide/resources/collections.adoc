@@ -58,3 +58,11 @@ A video can be added to a collection by sending a `PUT` request to the `addVideo
 Upon success, the API will respond with a `204` status.
 
 operation::resource-collection-add-video[snippets='path-parameters,http-request,curl-request,http-response']
+
+==== Removing videos from a collection
+
+A video can be removed from a collection by sending a `DELETE` request to the `removeVideo` link. It's a templated link with a `video_id` path parameter.
+
+Upon success, the API will respond with a `204` status.
+
+operation::resource-collection-remove-video[snippets='path-parameters,http-request,curl-request,http-response']
