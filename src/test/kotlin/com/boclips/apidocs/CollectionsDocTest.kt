@@ -62,42 +62,15 @@ class CollectionsDocTest : AbstractDocTests() {
 
     @Test
     fun `retrieving a collection`() {
-        given(documentationSpec)
-            .filter(
-                document(
-                    "resource-collection",
-                    pathParameters(
-                        parameterWithName("id").description("The ID of the collection")
-                    ),
-                    responseFields(
-                        fieldWithPath("id").description("The ID of the collection"),
-                        fieldWithPath("owner").description("The ID of the collection's owner"),
-                        fieldWithPath("title").description("Collection's title"),
-                        fieldWithPath("description").description("Collection's description"),
-                        subsectionWithPath("videos").description("A list of videos in the collection. Shallow video details are returned by default"),
-                        subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
-                        fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
-                        fieldWithPath("public").description("Whether the collection is publicly available"),
-                        fieldWithPath("mine").description("Whether the collection belongs to me"),
-                        fieldWithPath("createdBy").description("Name of collection's creator"),
-                        fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
-                        fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
-                        fieldWithPath("attachments").description("A list of items attached to this collection"),
-                        subsectionWithPath("_links").description("HAL links related to this collection")
-                    ),
-                    links(
-                        linkWithRel("self").description("Points to this collection"),
-                        linkWithRel("edit").description("`PATCH` requests can be sent to this URL to update the collection"),
-                        linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
-                        linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
-                        linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection")
-                    )
-                )
-            )
-            .`when`()
-            .get("/collections/{id}", collectionId).apply { println(prettyPrint()) }
-            .then()
-            .assertThat().statusCode(`is`(200))
+        testRetrievingCollection(snippetId = "resource-collection")
+    }
+
+    @Test
+    fun `retrieving a collection with detailed projection`() {
+        testRetrievingCollection(
+            snippetId = "resource-collection-detailed",
+            useDetailedProjection = true
+        )
     }
 
     @Test
@@ -187,4 +160,48 @@ class CollectionsDocTest : AbstractDocTests() {
 
     lateinit var subjects: List<Subject>
     lateinit var collectionId: String
+
+    fun testRetrievingCollection(snippetId: String, useDetailedProjection: Boolean = false) {
+        given(documentationSpec)
+            .filter(
+                document(
+                    snippetId,
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
+                    ),
+                    responseFields(
+                        fieldWithPath("id").description("The ID of the collection"),
+                        fieldWithPath("owner").description("The ID of the collection's owner"),
+                        fieldWithPath("title").description("Collection's title"),
+                        fieldWithPath("description").description("Collection's description"),
+                        subsectionWithPath("videos").description("A list of videos in the collection. Shallow video details are returned by default"),
+                        subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
+                        fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
+                        fieldWithPath("public").description("Whether the collection is publicly available"),
+                        fieldWithPath("mine").description("Whether the collection belongs to me"),
+                        fieldWithPath("createdBy").description("Name of collection's creator"),
+                        fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
+                        fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
+                        fieldWithPath("attachments").description("A list of items attached to this collection"),
+                        subsectionWithPath("_links").description("HAL links related to this collection")
+                    ),
+                    links(
+                        linkWithRel("self").description("Points to this collection"),
+                        linkWithRel("edit").description("`PATCH` requests can be sent to this URL to update the collection"),
+                        linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
+                        linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
+                        linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection")
+                    )
+                )
+            )
+            .`when`()
+            .apply {
+                if (useDetailedProjection) {
+                    queryParam("projection", "details")
+                }
+            }
+            .get("/collections/{id}", collectionId).apply { println(prettyPrint()) }
+            .then()
+            .assertThat().statusCode(`is`(200))
+    }
 }

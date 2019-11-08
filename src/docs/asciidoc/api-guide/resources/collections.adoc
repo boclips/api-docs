@@ -23,6 +23,12 @@ Alternatively you can of course use an absolute link to a specific collection th
 
 operation::resource-collection[snippets='path-parameters,http-request,curl-request,http-response,response-fields,links']
 
+==== Projections
+
+The API supports two projections -- `list` and `details`. The former is used by default and returns shallow details of sub-resources. The other one will fetch sub-resources along. Projection can be specified via a query parameter:
+
+operation::resource-collection-detailed[snippets='http-request,http-response']
+
 [[resources-collections-search]]
 === Collection search
 
