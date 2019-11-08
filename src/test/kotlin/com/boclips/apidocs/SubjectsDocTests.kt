@@ -12,16 +12,16 @@ import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithP
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 
 class SubjectsDocTests : AbstractDocTests() {
-
     @Test
     fun `resource index contains root links`() {
         given(documentationSpec)
             .filter(
                 document(
-                    "resource-subjects"
-                    , responseFields(
+                    "resource-subjects",
+                    responseFields(
                         fieldWithPath("_embedded.subjects[].id").description("Id of the subject, can be used for filtering"),
                         fieldWithPath("_embedded.subjects[].name").description("Human readable subject name"),
+                        fieldWithPath("_embedded.subjects[].lessonPlan").description("Whether the subject supports lesson plans"),
                         subsectionWithPath("_embedded.subjects[]._links").description("HAL links for the subject resource"),
                         subsectionWithPath("_links").description("HAL links for the subject collection resource")
                     ), links(
@@ -29,7 +29,9 @@ class SubjectsDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().get("/subjects").apply { prettyPrint() }
-            .then().assertThat().statusCode(`is`(200))
+            .`when`()
+            .get("/subjects").apply { prettyPrint() }
+            .then()
+            .assertThat().statusCode(`is`(200))
     }
 }
