@@ -3,9 +3,11 @@ package com.boclips.apidocs
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.videos.service.client.CreateCollectionRequest
 import com.boclips.videos.service.client.Subject
+import com.github.kittinunf.fuel.Fuel
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
@@ -22,8 +24,6 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 import org.springframework.restdocs.snippet.Attributes.key
 
 class CollectionsDocTest : AbstractDocTests() {
-    val videoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
-
     @Test
     fun `adding a video to a collection`() {
         given(documentationSpec)
@@ -172,11 +172,11 @@ class CollectionsDocTest : AbstractDocTests() {
                 )
             )
             .`when`()
-            .queryParam("query", "boclips")
+            .queryParam("query", publicCollectionTitle)
             .queryParam("public", true)
             .queryParam("subject", subjects.map { it.id.value })
             .queryParam("page", 0)
-            .queryParam("size", 30)
+            .queryParam("size", 1)
             .queryParam("projection", "list")
             .get("/collections").apply { println(prettyPrint()) }
             .then()
@@ -238,8 +238,28 @@ class CollectionsDocTest : AbstractDocTests() {
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
 
+    @Test
+    fun `bookmarking a collection`() {
+        given(documentationSpec)
+            .filter(
+                document(
+                    "resource-collection-bookmark",
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
+                    )
+                )
+            )
+            .`when`()
+            .queryParam("bookmarked", true)
+            .patch("/collections/{id}", publicCollectionId)
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.OK.value()))
+            .and()
+            .body("id", equalTo(publicCollectionId))
+    }
+
     @BeforeEach
-    fun createTestCollection() {
+    fun setupTestData() {
         val retrievedSubjects = videoServiceClient.subjects
         subjects = listOf(retrievedSubjects.component1(), retrievedSubjects.component2())
 
@@ -252,12 +272,39 @@ class CollectionsDocTest : AbstractDocTests() {
                 .isPublic(true)
                 .build()
         ).uri.path.substringAfterLast("/")
+
+        setupPublicCollectionDetails()
     }
 
+    val videoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
+
     lateinit var subjects: List<Subject>
+
     lateinit var collectionId: String
 
-    fun testRetrievingCollection(snippetId: String, useDetailedProjection: Boolean = false) {
+    lateinit var publicCollectionId: String
+    val publicCollectionTitle = "Public Boclips Collection"
+
+    private fun setupPublicCollectionDetails() {
+        val response = Fuel.post("https://api.staging-boclips.com/v1/collections")
+            .header("Authorization", "Bearer $publicClientAccessToken")
+            .body(
+                """
+                {
+                    "title": "$publicCollectionTitle",
+                    "description": "This content is accessible by everyone",
+                    "videos": ["${videoIds[0]}", "${videoIds[1]}"],
+                    "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
+                    "public": true
+                }
+            """.trimIndent()
+            )
+            .response()
+
+        publicCollectionId = response.second.headers["Location"].first().substringAfterLast("/")
+    }
+
+    private fun testRetrievingCollection(snippetId: String, useDetailedProjection: Boolean = false) {
         given(documentationSpec)
             .filter(
                 document(

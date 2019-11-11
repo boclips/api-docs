@@ -66,3 +66,14 @@ A video can be removed from a collection by sending a `DELETE` request to the `r
 Upon success, the API will respond with a `204` status.
 
 operation::resource-collection-remove-video[snippets='path-parameters,http-request,curl-request,http-response']
+
+[[resources-collections-bookmark]]
+=== Bookmarking collections
+
+Public collections you haven't created yourself can be bookmarked. This means that they will be returned from a query executed by following the <<resources-index-access_links,`bookmarkedCollections`>> link.
+
+In order to bookmark a collection you should follow its `bookmark` link. Analogously, a `unbookmark` link will be available for collections that you've already bookmarked.
+
+Upon successful (un)bookmarking, the API will respond with a 200 response and return the updated resource.
+
+operation::resource-collection-bookmark[snippets='http-request,curl-request,http-response']
