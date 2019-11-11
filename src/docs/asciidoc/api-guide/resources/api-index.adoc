@@ -1,7 +1,14 @@
 [[resources-index]]
 == Index
 
-The index provides the entry point into the service. It returns a set of links that describe which initial actions are available to you as the API user.
+The index provides the entry point into the service. It returns a set of links that describe which actions are available to you as the API user.
+
+[IMPORTANT]
+====
+The lists of links that are returned depend on your *API subscription tier*, so not all of the features described below may be available to you. They're also dependant on *resource states*.
+
+The best way to handle the API integration is by assuming that links may come and go and disabling/enabling features as necessary.
+====
 
 [[resources-index-access]]
 === Accessing the index

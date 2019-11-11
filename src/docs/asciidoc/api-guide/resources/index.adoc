@@ -1,7 +1,7 @@
 [[resources]]
 = Resources
 
-Boclips API revolves around REST resources that can be accessed and interacted with via hypermedia links.
+Boclips API revolves around REST resources that can be accessed and interacted with via <<overview-hypermedia,hypermedia links>>.
 
 include::api-index.adoc[]
 
