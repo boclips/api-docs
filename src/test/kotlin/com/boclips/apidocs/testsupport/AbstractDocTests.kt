@@ -45,6 +45,8 @@ abstract class AbstractDocTests {
 
     protected lateinit var videoServiceClient: VideoServiceClient
 
+    protected lateinit var links: Map<String, String>
+
     @BeforeEach
     fun setUp(restDocumentation: RestDocumentationContextProvider) {
         setupPublicClientTokens()
@@ -52,7 +54,18 @@ abstract class AbstractDocTests {
 
         setupVideoServiceClient()
 
+        setupLinks()
+
         documentationSpec = RequestSpecificationFactory.createFor(privateClientAccessToken, restDocumentation)
+    }
+
+    private fun setupLinks() {
+        val linksResource = Fuel.get("https://api.staging-boclips.com/v1")
+            .header("Authorization", "Bearer $privateClientAccessToken")
+            .responseObject<Map<String, Any>>().third.component1()!!
+
+        @Suppress("UNCHECKED_CAST")
+        links = (linksResource["_links"] as Map<String, Map<String, String>>).mapValues { (it.value)["href"] as String }
     }
 
     private fun setupPublicClientTokens() {

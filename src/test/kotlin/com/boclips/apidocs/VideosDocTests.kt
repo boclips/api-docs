@@ -1,6 +1,7 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.damnhandy.uri.template.UriTemplate
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.Matchers
@@ -74,7 +75,7 @@ class VideosDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().get("/videos/{id}", "5c542abf5438cdbcb56df0bf").apply { println(prettyPrint()) }
+            .`when`().get(links["video"], "5c542abf5438cdbcb56df0bf").apply { println(prettyPrint()) }
             .then().assertThat().statusCode(`is`(200))
     }
 
@@ -137,18 +138,21 @@ class VideosDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().get(
-                "/videos" +
-                    "?query=genetic" +
-                    "&page=0" +
-                    "&size=1" +
-                    "&duration_min=PT1M" +
-                    "&duration_max=PT3M" +
-                    "&released_date_from=2018-01-01" +
-                    "&released_date_to=2019-06-01" +
-                    "&source=boclips" +
-                    "&sort_by=RELEASE_DATE"
-            ).apply { println(prettyPrint()) }
+            .`when`()
+            .get(
+                UriTemplate.fromTemplate(links["searchVideos"])
+                    .set("query", "genetic")
+                    .set("page", 0)
+                    .set("size", 1)
+                    .set("duration_min", "PT1M")
+                    .set("duration_max", "PT3M")
+                    .set("released_date_from", "2018-01-01")
+                    .set("released_date_to", "2019-06-01")
+                    .set("source", "boclips")
+                    .set("sort_by", "RELEASE_DATE")
+                    .expand()
+            )
+            .apply { println(prettyPrint()) }
             .then().assertThat().statusCode(`is`(200))
             .and().body("_embedded.videos[0].title", Matchers.not(Matchers.isEmptyString()))
     }

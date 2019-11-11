@@ -30,7 +30,7 @@ class SubjectsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .get("/subjects").apply { prettyPrint() }
+            .get(links["subjects"]).apply { prettyPrint() }
             .then()
             .assertThat().statusCode(`is`(200))
     }

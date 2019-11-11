@@ -3,6 +3,7 @@ package com.boclips.apidocs
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.videos.service.client.CreateCollectionRequest
 import com.boclips.videos.service.client.Subject
+import com.damnhandy.uri.template.UriTemplate
 import com.github.kittinunf.fuel.Fuel
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
@@ -95,7 +96,7 @@ class CollectionsDocTest : AbstractDocTests() {
                 }
             """.trimIndent()
             )
-            .post("/collections")
+            .post(links["createCollection"])
             .apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(`is`(201))
@@ -172,13 +173,17 @@ class CollectionsDocTest : AbstractDocTests() {
                 )
             )
             .`when`()
-            .queryParam("query", publicCollectionTitle)
-            .queryParam("public", true)
-            .queryParam("subject", subjects.map { it.id.value })
-            .queryParam("page", 0)
-            .queryParam("size", 1)
-            .queryParam("projection", "list")
-            .get("/collections").apply { println(prettyPrint()) }
+            .get(
+                UriTemplate.fromTemplate(links["searchCollections"])
+                    .set("query", publicCollectionTitle)
+                    .set("public", true)
+                    .set("subject", subjects.map { it.id.value })
+                    .set("page", 0)
+                    .set("size", 1)
+                    .set("projection", "list")
+                    .expand()
+            )
+            .apply { println(prettyPrint()) }
             .then()
             .assertThat()
             .statusCode(`is`(200))
@@ -286,7 +291,7 @@ class CollectionsDocTest : AbstractDocTests() {
     val publicCollectionTitle = "Public Boclips Collection"
 
     private fun setupPublicCollectionDetails() {
-        val response = Fuel.post("https://api.staging-boclips.com/v1/collections")
+        val response = Fuel.post(links["createCollection"] ?: error("Link not available"))
             .header("Authorization", "Bearer $publicClientAccessToken")
             .body(
                 """
@@ -343,7 +348,7 @@ class CollectionsDocTest : AbstractDocTests() {
                     queryParam("projection", "details")
                 }
             }
-            .get("/collections/{id}", collectionId).apply { println(prettyPrint()) }
+            .get(links["collection"], collectionId).apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(`is`(200))
     }
