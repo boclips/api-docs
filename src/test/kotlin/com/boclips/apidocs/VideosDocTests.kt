@@ -51,8 +51,8 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("releasedOn").description("Date on which the video was originally released as stated by the content producer"),
                         fieldWithPath("subjects").description("Tagged subjects for this video. E.g. Maths or Philosophy"),
                         fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
-                        fieldWithPath("rating").description("Score of this video based on user rating. From 0 to 5."),
-                        fieldWithPath("yourRating").description("Score you gave to this video. From 0 to 5."),
+                        fieldWithPath("rating").description("Score of this video based on user rating. From 0 to 5"),
+                        fieldWithPath("yourRating").description("Score you gave to this video. From 0 to 5"),
                         fieldWithPath("bestFor").description("Most appropriate use for this video"),
                         fieldWithPath("promoted").description("Promoted status of this video"),
 
@@ -117,18 +117,18 @@ class VideosDocTests : AbstractDocTests() {
                         parameterWithName("subject").optional().description("Filter by subject id - from the <<resources-subjects,list of subjects>>").attributes(
                             Attributes.key("type").value("Subject Id (5cb499c9fd5beb428189454b)")
                         ),
-                        parameterWithName("age_range_min").optional().description("Minimum age to filter from - it filters on the video age range property, and is inclusive.").attributes(
+                        parameterWithName("age_range_min").optional().description("Minimum age to filter from - it filters on the video age range property, and is inclusive").attributes(
                             Attributes.key("type").value("Number")
                         ),
-                        parameterWithName("age_range_max").optional().description("Maximum age to filter to - it filters on the video age range property, and is inclusive.").attributes(
+                        parameterWithName("age_range_max").optional().description("Maximum age to filter to - it filters on the video age range property, and is inclusive").attributes(
                             Attributes.key("type").value("Number")
                         ),
                         parameterWithName("promoted").optional().description("Filter by promoted videos only").attributes(
                             Attributes.key("type").value("boolean")
                         ),
                         //Sorting
-                        parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date is supported. Useful to search for the latest videos").attributes(
-                            Attributes.key("type").value("RELEASE_DATE")
+                        parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction").attributes(
+                            Attributes.key("type").value("RELEASE_DATE, RATING")
                         )
 
                     )
