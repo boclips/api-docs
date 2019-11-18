@@ -54,7 +54,7 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
 
                 linkWithRel("subjects").description("List of subjects available"),
-                linkWithRel("profile").description("User profile information"),
+                linkWithRel("profile").description("Templated link to get user profile information"),
                 linkWithRel("countries").description("List of countries"),
 
                 linkWithRel("tags").description("List of tags that can be attached to videos"),

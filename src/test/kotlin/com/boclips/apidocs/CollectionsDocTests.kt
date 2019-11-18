@@ -24,7 +24,7 @@ import org.springframework.restdocs.request.RequestDocumentation.requestParamete
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes.key
 
-class CollectionsDocTest : AbstractDocTests() {
+class CollectionsDocTests : AbstractDocTests() {
     @Test
     fun `adding a video to a collection`() {
         given(documentationSpec)
