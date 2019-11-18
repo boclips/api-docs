@@ -7,7 +7,7 @@ Boclips Engineering;
 
 [[overview]]
 = Overview
-In order to integrate with Boclips, we offer a comprehensive link:api-guide.html[REST API]
+In order to integrate with Boclips, we offer a comprehensive link:api-guide/index.html[REST API]
 as well as an link:player-guide.html[open source player].
 
 [[api-reference-guide]]
