@@ -19,4 +19,7 @@ operation::resource-video[snippets='path-parameters,http-request,curl-request,ht
 A `GET` request against the `search` link will return a collection of videos.
 Videos can be filtered using the criteria provided under the <<resources-index-access,templated `search` link>>.
 
+If the API user has subjects associated with their account, i.e. "Mathematics", the search will be weighted to
+prefer videos with those same subjects.
+
 operation::resource-video-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
