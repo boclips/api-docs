@@ -1,9 +1,11 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.boclips.apidocs.testsupport.RequestSpecificationFactory
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
+import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
@@ -32,13 +34,16 @@ class GatewayDocTests: AbstractDocTests() {
     }
 
     @Test
-    fun `resource index contains root links`() {
-        given(documentationSpec)
+    fun `resource index contains root links`(restDocumentation: RestDocumentationContextProvider) {
+        val indexDocumentationSpec = RequestSpecificationFactory.createFor(freshClientAccessToken, restDocumentation)
+
+        given(indexDocumentationSpec)
             .filter(
                 document(
                     "resource-index"
                 , links(
                 linkWithRel("activate").description("A `PUT` request against this link allows to pass profile information and activate a new user"),
+                linkWithRel("trackPageRendered").description("..."),
 
                 linkWithRel("video").description("The video resource, templated link to retrieve an individual video"),
                 linkWithRel("searchVideos").description("Templated link to perform video search"),

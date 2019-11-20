@@ -31,6 +31,18 @@ abstract class AbstractDocTests {
     @Value("\${api.password}")
     lateinit var password: String
 
+    @Value("\${api.freshuser.username}")
+    lateinit var freshUserUsername: String
+
+    @Value("\${api.freshuser.password}")
+    lateinit var freshUserPassword: String
+
+    @Value("\${api.updatableuser.username}")
+    lateinit var updatableUserUsername: String
+
+    @Value("\${api.updatableuser.password}")
+    lateinit var updatableUserPassword: String
+
     @Value("\${api.clientid}")
     lateinit var clientId: String
 
@@ -39,6 +51,12 @@ abstract class AbstractDocTests {
 
     protected lateinit var publicClientAccessToken: String
     protected lateinit var publicClientRefreshToken: String
+
+    protected lateinit var freshClientAccessToken: String
+    protected lateinit var freshClientRefreshToken: String
+
+    protected lateinit var updatableClientAccessToken: String
+    protected lateinit var updatableClientRefreshToken: String
 
     protected lateinit var privateClientAccessToken: String
     protected lateinit var privateClientRefreshToken: String
@@ -50,6 +68,8 @@ abstract class AbstractDocTests {
     @BeforeEach
     fun setUp(restDocumentation: RestDocumentationContextProvider) {
         setupPublicClientTokens()
+        setupFreshClientTokens()
+        setupUpdateableClientTokens()
         setupPrivateClientTokens()
 
         setupVideoServiceClient()
@@ -60,12 +80,17 @@ abstract class AbstractDocTests {
     }
 
     private fun setupLinks() {
+        links = getLinksFor(privateClientAccessToken)
+    }
+
+    protected fun getLinksFor(userToken: String): Map<String, String> {
         val linksResource = Fuel.get("https://api.staging-boclips.com/v1")
-            .header("Authorization", "Bearer $privateClientAccessToken")
+            .header("Authorization", "Bearer $userToken")
             .responseObject<Map<String, Any>>().third.component1()!!
 
         @Suppress("UNCHECKED_CAST")
-        links = (linksResource["_links"] as Map<String, Map<String, String>>).mapValues { (it.value)["href"] as String }
+        return (linksResource["_links"] as Map<String, Map<String, String>>)
+            .mapValues { (it.value)["href"] as String }
     }
 
     private fun setupPublicClientTokens() {
@@ -79,6 +104,32 @@ abstract class AbstractDocTests {
         ).responseObject<Map<String, Any>>().third.component1()
         publicClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         publicClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
+    }
+
+    private fun setupFreshClientTokens() {
+        val payload = Fuel.post(
+            "https://api.staging-boclips.com/v1/token", listOf(
+                "grant_type" to "password",
+                "client_id" to "teachers",
+                "username" to freshUserUsername,
+                "password" to freshUserPassword
+            )
+        ).responseObject<Map<String, Any>>().third.component1()
+        freshClientAccessToken = (payload?.get("access_token") as String?) ?: ""
+        freshClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
+    }
+
+    private fun setupUpdateableClientTokens() {
+        val payload = Fuel.post(
+            "https://api.staging-boclips.com/v1/token", listOf(
+                "grant_type" to "password",
+                "client_id" to "teachers",
+                "username" to updatableUserUsername,
+                "password" to updatableUserPassword
+            )
+        ).responseObject<Map<String, Any>>().third.component1()
+        updatableClientAccessToken = (payload?.get("access_token") as String?) ?: ""
+        updatableClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
     private fun setupPrivateClientTokens() {

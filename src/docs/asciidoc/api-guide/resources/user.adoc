@@ -1,0 +1,19 @@
+[[resources-users]]
+== Users
+
+The user resource describes a user of the API. Specifically, the user profile
+can be interacted with, and that user profile contains metadata about the user.
+
+[[resources-video-search]]
+=== User profile
+
+A user profile contains metadata about the user of the API, and can be both
+inspected (with a GET request) and edited (with a PUT request).
+
+==== Fetching
+
+operation::resource-user-get-user-profile[snippets='http-request,curl-request,http-response,response-fields']
+
+==== Updating
+
+operation::resource-user-put-user-profile[snippets='http-request,curl-request,request-fields,http-response']

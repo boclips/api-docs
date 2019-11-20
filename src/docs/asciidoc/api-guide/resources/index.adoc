@@ -5,6 +5,8 @@ Boclips API revolves around REST resources that can be accessed and interacted w
 
 include::api-index.adoc[]
 
+include::user.adoc[]
+
 include::videos.adoc[]
 
 include::collections.adoc[]
