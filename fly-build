@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+cwd="$(cd "$(dirname "$0")" && pwd)"
+dir=$(mktemp -d -t fly-build-api-docs.XXXXX)
+tidy () {
+    rm -rf "$dir"
+}
+
+trap tidy EXIT
+
+mkdir "$dir/version"
+echo TEST_VERSION > "$dir/version/version"
+
+API_USERNAME="$(get-k8s-concourse-secret boclips api username)"
+API_PASSWORD="$(get-k8s-concourse-secret boclips api password)"
+API_FRESHUSER_USERNAME="$(get-k8s-concourse-secret boclips api-docs freshuser-username)"
+API_FRESHUSER_PASSWORD="$(get-k8s-concourse-secret boclips api-docs freshuser-password)"
+API_UPDATABLEUSER_USERNAME="$(get-k8s-concourse-secret boclips api-docs updatableuser-username)"
+API_UPDATABLEUSER_PASSWORD="$(get-k8s-concourse-secret boclips api-docs updatableuser-password)"
+API_CLIENTID="$(get-k8s-concourse-secret boclips api-docs client-id)"
+API_CLIENTSECRET="$(get-k8s-concourse-secret boclips api-docs client-secret)"
+LTI_V1P1_CONSUMERKEY="$(get-k8s-concourse-secret boclips api-docs lti-v1p1-consumer-key)"
+LTI_V1P1_CONSUMERSECRET="$(get-k8s-concourse-secret boclips api-docs lti-v1p1-consumer-secret)"
+
+export API_USERNAME
+export API_PASSWORD
+export API_FRESHUSER_USERNAME
+export API_FRESHUSER_PASSWORD
+export API_UPDATABLEUSER_USERNAME
+export API_UPDATABLEUSER_PASSWORD
+export API_CLIENTID
+export API_CLIENTSECRET
+export LTI_V1P1_CONSUMERKEY
+export LTI_V1P1_CONSUMERSECRET
+
+fly --target ci \
+    execute \
+    --config "$cwd/pipeline/tasks/build.yml" \
+    --input source="$cwd" \
+    --input version="$dir/version" \
+    --inputs-from=boclips/generate-api-docs
