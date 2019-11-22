@@ -1,6 +1,7 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.boclips.apidocs.testsupport.BearerTokenDocumentationPolicy
 import com.boclips.apidocs.testsupport.RequestSpecificationFactory
 import io.restassured.RestAssured.given
 import io.restassured.specification.RequestSpecification
@@ -170,7 +171,11 @@ class LoginDocTests : AbstractDocTests() {
 
     @BeforeEach
     fun setupDocumentationSpec(restDocumentation: RestDocumentationContextProvider) {
-        loginDocumentationSpec = RequestSpecificationFactory.createFor(publicClientAccessToken, restDocumentation)
+        loginDocumentationSpec = RequestSpecificationFactory.createFor(
+            accessToken = publicClientAccessToken,
+            restDocumentation = restDocumentation,
+            bearerTokenDocumentationPolicy = BearerTokenDocumentationPolicy.HIDE
+        )
     }
 }
 

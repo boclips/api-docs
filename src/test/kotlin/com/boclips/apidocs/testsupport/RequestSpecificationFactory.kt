@@ -4,6 +4,7 @@ import com.boclips.apidocs.testsupport.preprocessors.AuthHeaderMaskingPreprocess
 import io.restassured.builder.RequestSpecBuilder
 import io.restassured.specification.RequestSpecification
 import org.springframework.restdocs.RestDocumentationContextProvider
+import org.springframework.restdocs.operation.preprocess.OperationPreprocessor
 import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyUris
 import org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
 import org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
@@ -13,7 +14,11 @@ import java.util.regex.Pattern
 
 class RequestSpecificationFactory {
     companion object {
-        fun createFor(accessToken: String, restDocumentation: RestDocumentationContextProvider): RequestSpecification {
+        fun createFor(
+            accessToken: String,
+            restDocumentation: RestDocumentationContextProvider,
+            bearerTokenDocumentationPolicy: BearerTokenDocumentationPolicy = BearerTokenDocumentationPolicy.MASK
+        ): RequestSpecification {
             return RequestSpecBuilder()
                 .setBaseUri("https://api.staging-boclips.com/v1")
                 .addHeader("Authorization", "Bearer $accessToken")
@@ -24,7 +29,7 @@ class RequestSpecificationFactory {
                             modifyUris()
                                 .scheme("https")
                                 .host("api.boclips.com"),
-                            maskAuthHeader(),
+                            handleBearerToken(bearerTokenDocumentationPolicy),
                             replacePattern(Pattern.compile("staging-boclips"), "boclips"),
                             prettyPrint()
                         )
@@ -50,5 +55,16 @@ class RequestSpecificationFactory {
                         )
                 ).build()
         }
+
+        private fun handleBearerToken(policy: BearerTokenDocumentationPolicy): OperationPreprocessor {
+            return when (policy) {
+                BearerTokenDocumentationPolicy.HIDE -> removeHeaders("Authorization")
+                BearerTokenDocumentationPolicy.MASK -> maskAuthHeader()
+            }
+        }
     }
+}
+
+enum class BearerTokenDocumentationPolicy {
+    HIDE, MASK
 }
