@@ -59,6 +59,9 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("searchCollections").description("Search all collections"),
                 linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
 
+                linkWithRel("contentPartner").description("Retrieve a specific content partner"),
+                linkWithRel("contentPartners").description("Retrieve all content partners"),
+
                 linkWithRel("subjects").description("List of subjects available"),
                 linkWithRel("profile").description("Templated link to get user profile information"),
                 linkWithRel("countries").description("List of countries"),

@@ -1,0 +1,13 @@
+[[resources-content-partners]]
+== Content Partners
+
+The content partner resource describes a provider of video content to the
+Boclips platform.
+
+=== Retrieving one content partner
+
+operation::resource-content-partner-get[snippets='http-request,curl-request,http-response,response-fields']
+
+=== Retrieving many content partners
+
+operation::resource-content-partners-get[snippets='http-request,curl-request,http-response,response-fields']

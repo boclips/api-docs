@@ -12,3 +12,5 @@ include::videos.adoc[]
 include::collections.adoc[]
 
 include::subjects.adoc[]
+
+include::content-partners.adoc[]
