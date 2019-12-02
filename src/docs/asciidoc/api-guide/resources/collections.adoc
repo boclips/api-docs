@@ -3,12 +3,16 @@
 
 Collections enable grouping related videos together and have some additional metadata that describes their content. They are searchable, can be edited and bookmarked.
 
-Each collection can be *public* or *private*. A public collection will be visible to all authenticated users through the search capability. Private collections will be visible only to their *owner*, i.e. user who created them.
-
 [[resources-collections-attachments]]
-==== Attachments
+*Attachments*
 
 Attachments allow linking additional resources to video collections. The only type of attachments currently supported are lesson plans, which are in form of a hyperlink to an external document that can be accessed by collection's viewer. Additionally, an attachment can have a description.
+
+
+[[resources-collections-public-private]]
+*Private and public collections*
+
+Each collection can be *public* or *private*. A public collection will be visible to all authenticated users through the search capability. Private collections will be visible only to their *owner*, i.e. user who created them. This also means they will be returned in search results for their owner.
 
 [[resources-collections-create]]
 === Creating a collection
@@ -28,9 +32,15 @@ Alternatively you can of course use an absolute link to a specific collection th
 
 operation::resource-collection[snippets='path-parameters,http-request,curl-request,http-response,response-fields,links']
 
+[[resources-collections-projections]]
 ==== Projections
 
-The API supports two projections -- `list` and `details`. The former is used by default and returns shallow details of sub-resources. The other one will fetch sub-resources along. Projection can be specified via a query parameter:
+The API supports two projections -- `list` and `details`. They are used to control how sub-resources will be returned from the collection API call:
+
+- `list` will return only the id on returned video sub-resources.
+- `details` will return all fields of video sub-resources.
+
+Projection can be specified via a query parameter and defaults to `list`:
 
 operation::resource-collection-detailed[snippets='http-request,http-response']
 
@@ -50,9 +60,11 @@ operation::resource-collection-search[snippets='request-parameters,http-request,
 
 ==== Updating selected fields
 
-A collection can be edited by sending a `PATCH` request to its `edit` link. Input parameters are provided via a JSON payload. Example below shows all possible values, but subsets can be submitted as well.
+A collection can be edited by sending a `PATCH` request to its `edit` link. Input parameters are provided via a JSON payload. You can update only specific fields of a given collection, you don't need to always submit full details.
 
 Upon success, the API will respond with a `204` status.
+
+Example below shows all possible values, but subsets can be submitted as well.
 
 operation::resource-collection-edit[snippets='request-fields,http-request,curl-request,http-response']
 

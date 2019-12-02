@@ -157,7 +157,7 @@ class CollectionsDocTests : AbstractDocTests() {
                             ),
                         parameterWithName("projection")
                             .optional()
-                            .description("Controls how sub-resources are fetched. Allowed values are `list` for shallow details and `details` for full sub-resource information")
+                            .description("Controls how sub-resources are fetched. Allowed values are `list` for shallow details and `details` for full sub-resource information. See <<resources-collections-projections,here>> for more details")
                             .attributes(
                                 key("type").value("Integer")
                             )
@@ -325,7 +325,7 @@ class CollectionsDocTests : AbstractDocTests() {
                         fieldWithPath("owner").description("The ID of the collection's owner"),
                         fieldWithPath("title").description("Collection's title"),
                         fieldWithPath("description").description("Collection's description"),
-                        subsectionWithPath("videos").description("A list of videos in the collection. Shallow video details are returned by default"),
+                        subsectionWithPath("videos").description("A list of <<resources-videos,videos>> in the collection. Shallow video details are returned by default"),
                         subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
                         fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
                         fieldWithPath("public").description("Whether the collection is publicly available"),
@@ -357,3 +357,4 @@ class CollectionsDocTests : AbstractDocTests() {
             .assertThat().statusCode(`is`(200))
     }
 }
+
