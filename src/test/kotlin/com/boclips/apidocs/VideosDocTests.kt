@@ -115,7 +115,7 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("YOUTUBE, BOCLIPS")
                         ),
                         parameterWithName("subject").optional().description("Filter by subject id - from the <<resources-subjects,list of subjects>>").attributes(
-                            Attributes.key("type").value("Subject Id (5cb499c9fd5beb428189454b)")
+                            Attributes.key("type").value("Subject Id (e.g. '5cb499c9fd5beb428189454b')")
                         ),
                         parameterWithName("age_range_min").optional().description("Minimum age to filter from - it filters on the video age range property, and is inclusive").attributes(
                             Attributes.key("type").value("Number")
@@ -124,9 +124,12 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("Number")
                         ),
                         parameterWithName("promoted").optional().description("Filter by promoted videos only").attributes(
-                            Attributes.key("type").value("boolean")
+                            Attributes.key("type").value("Boolean")
                         ),
-                        //Sorting
+                        parameterWithName("content_partner").optional().description("Filter by content partner, which is the publishing company for the video. Use multiple times to search for multiple values, e.g. 'content_partner=first&content_partner=second'.").attributes(
+                            Attributes.key("type").value("String (e.g. 'Bloomberg')")
+                        ),
+                        // Sorting
                         parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction").attributes(
                             Attributes.key("type").value("RELEASE_DATE, RATING")
                         )
@@ -150,6 +153,7 @@ class VideosDocTests : AbstractDocTests() {
                     .set("released_date_to", "2019-06-01")
                     .set("source", "boclips")
                     .set("sort_by", "RELEASE_DATE")
+                    .set("content_partner", "Bloomberg")
                     .expand()
             )
             .apply { println(prettyPrint()) }
