@@ -25,6 +25,9 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 import org.springframework.restdocs.snippet.Attributes.key
 
 class CollectionsDocTests : AbstractDocTests() {
+    val collectionTitle = "Genetic Screening Debate"
+    val collectionDesc = "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds."
+
     @Test
     fun `adding a video to a collection`() {
         given(documentationSpec)
@@ -88,8 +91,8 @@ class CollectionsDocTests : AbstractDocTests() {
             .body(
                 """
                 {
-                    "title": "Life at Boclips",
-                    "description": "Working hard on them APIs",
+                    "title": "$collectionTitle",
+                    "description": "$collectionDesc",
                     "videos": ["${videoIds[0]}", "${videoIds[1]}"],
                     "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
                     "public": true
@@ -225,8 +228,8 @@ class CollectionsDocTests : AbstractDocTests() {
             .body(
                 """
                 {
-                    "title": "Life at Boclips",
-                    "description": "Working hard on them APIs",
+                    "title": "$collectionTitle",
+                    "description": "$collectionDesc",
                     "videos": ["${videoIds[0]}", "${videoIds[1]}"],
                     "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
                     "isPublic": true,
@@ -270,8 +273,8 @@ class CollectionsDocTests : AbstractDocTests() {
 
         collectionId = videoServiceClient.createCollection(
             CreateCollectionRequest.builder()
-                .title("Life at Boclips")
-                .description("Working hard on them APIs")
+                .title(collectionTitle)
+                .description(collectionDesc)
                 .videos(listOf("5c542abf5438cdbcb56df0bf"))
                 .subjects(subjects.map { it.id.value }.toSet())
                 .isPublic(true)
