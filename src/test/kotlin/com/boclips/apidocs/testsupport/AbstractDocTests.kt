@@ -79,7 +79,7 @@ abstract class AbstractDocTests {
         documentationSpec = RequestSpecificationFactory.createFor(privateClientAccessToken, restDocumentation)
     }
 
-    private fun setupLinks() {
+    fun setupLinks() {
         links = getLinksFor(privateClientAccessToken)
     }
 

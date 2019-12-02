@@ -10,6 +10,10 @@ can be interacted with, and that user profile contains metadata about the user.
 A user profile contains metadata about the user of the API, and can be both
 inspected (with a GET request) and edited (with a PUT request).
 
+*Search results customization*
+
+One of the properties that are stored on the user profile are their subjects. Videos that match user's subjects will have higher score, therefore will be listed higher in search results than videos that don't.
+
 ==== Fetching
 
 operation::resource-user-get-user-profile[snippets='http-request,curl-request,http-response,response-fields']
