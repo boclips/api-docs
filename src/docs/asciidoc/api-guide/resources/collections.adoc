@@ -5,6 +5,11 @@ Collections enable grouping related videos together and have some additional met
 
 Each collection can be *public* or *private*. A public collection will be visible to all authenticated users through the search capability. Private collections will be visible only to their *owner*, i.e. user who created them.
 
+[[resources-collections-attachments]]
+==== Attachments
+
+Attachments allow linking additional resources to video collections. The only type of attachments currently supported are lesson plans, which are in form of a hyperlink to an external document that can be accessed by collection's viewer. Additionally, an attachment can have a description.
+
 [[resources-collections-create]]
 === Creating a collection
 
