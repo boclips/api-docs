@@ -112,7 +112,7 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
                         ),
                         parameterWithName("source").optional().description("Filter by video source, e.g youtube or boclips").attributes(
-                            Attributes.key("type").value("youtube, boclips")
+                            Attributes.key("type").value("YOUTUBE, BOCLIPS")
                         ),
                         parameterWithName("subject").optional().description("Filter by subject id - from the <<resources-subjects,list of subjects>>").attributes(
                             Attributes.key("type").value("Subject Id (5cb499c9fd5beb428189454b)")
