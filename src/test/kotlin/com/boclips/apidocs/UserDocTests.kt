@@ -16,7 +16,15 @@ import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 
+object Descriptions {
+    const val firstName = "The first name of the user"
+    const val lastName = "The user's last name"
+    const val subjects = "Ids of teaching <<resources-subjects,subjects>> relevant for this user. They influence <<resources-user-profile,search results>>"
+    const val ages = "The student ages taught by the user"
+}
+
 class UserDocTests : AbstractDocTests() {
+
     @Test
     fun `getting user profile`() {
         given(documentationSpec)
@@ -25,10 +33,10 @@ class UserDocTests : AbstractDocTests() {
                     "resource-user-get-user-profile",
                     responseFields(
                         fieldWithPath("id").description("The ID of the user"),
-                        fieldWithPath("firstName").description("The first name of the user"),
-                        fieldWithPath("lastName").description("The last name of the user"),
-                        fieldWithPath("ages").description("A list of ages that the user teaches"),
-                        subsectionWithPath("subjects").description("A list of <<resources-subjects,subjects>> relevant for this user"),
+                        fieldWithPath("firstName").description(Descriptions.firstName),
+                        fieldWithPath("lastName").description(Descriptions.lastName),
+                        fieldWithPath("ages").description(Descriptions.ages),
+                        subsectionWithPath("subjects").description(Descriptions.subjects),
                         fieldWithPath("email").description("The email of the user"),
                         fieldWithPath("analyticsId").ignored(),
                         fieldWithPath("organisationAccountId").ignored(),
@@ -57,12 +65,12 @@ class UserDocTests : AbstractDocTests() {
                 document(
                     "resource-user-put-user-profile",
                     requestFields(
-                        fieldWithPath("firstName").optional().description("The user's first name"),
-                        fieldWithPath("lastName").optional().description("The user's last name"),
-                        fieldWithPath("subjects").optional().description("Ids of teaching <<resources-subjects,subjects>> relevant for this user"),
-                        fieldWithPath("ages").optional().description("The ages taught by the user"),
+                        fieldWithPath("firstName").optional().description(Descriptions.firstName),
+                        fieldWithPath("lastName").optional().description(Descriptions.lastName),
+                        fieldWithPath("subjects").optional().description(Descriptions.subjects),
+                        fieldWithPath("ages").optional().description(Descriptions.ages),
                         fieldWithPath("country").optional().description("The country of the user (3-letter ISO Country Code)"),
-                        fieldWithPath("state").optional().description("The state of the user (2-letter, US only)")
+                        fieldWithPath("state").optional().description("The US state of the user (2-letter ISO Code)")
                     )
                 )
             )

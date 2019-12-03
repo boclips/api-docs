@@ -16,8 +16,13 @@ One of the properties that are stored on the user profile are their subjects. Vi
 
 ==== Fetching
 
+User profile can be fetched by <<resources-index-access_links,`profile`>> hypermedia link.
+
 operation::resource-user-get-user-profile[snippets='http-request,curl-request,http-response,response-fields']
 
 ==== Updating
 
+User profile can be updated by <<resources-index-access_links,`profile`>> hypermedia link.
+
 operation::resource-user-put-user-profile[snippets='http-request,curl-request,request-fields,http-response']
+
