@@ -48,7 +48,6 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("video").description("The video resource, templated link to retrieve an individual video"),
                 linkWithRel("searchVideos").description("Templated link to perform video search"),
 
-                linkWithRel("createPlaybackEvent").description("`POST` endpoint for a createPlaybackEvent"),
                 linkWithRel("trackPageRendered").description("`POST` endpoint for tracking pageRendered event"),
 
                 linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
