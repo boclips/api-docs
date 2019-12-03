@@ -28,7 +28,7 @@ class UserDocTests : AbstractDocTests() {
                         fieldWithPath("firstName").description("The first name of the user"),
                         fieldWithPath("lastName").description("The last name of the user"),
                         fieldWithPath("ages").description("A list of ages that the user teaches"),
-                        subsectionWithPath("subjects").description("A list subjects that the user teaches"),
+                        subsectionWithPath("subjects").description("A list of <<resources-subjects,subjects>> relevant for this user"),
                         fieldWithPath("email").description("The email of the user"),
                         fieldWithPath("analyticsId").ignored(),
                         fieldWithPath("organisationAccountId").ignored(),
@@ -59,7 +59,7 @@ class UserDocTests : AbstractDocTests() {
                     requestFields(
                         fieldWithPath("firstName").optional().description("The user's first name"),
                         fieldWithPath("lastName").optional().description("The user's last name"),
-                        fieldWithPath("subjects").optional().description("The subjects of the user, by name"),
+                        fieldWithPath("subjects").optional().description("Ids of teaching <<resources-subjects,subjects>> relevant for this user"),
                         fieldWithPath("ages").optional().description("The ages taught by the user"),
                         fieldWithPath("country").optional().description("The country of the user (3-letter ISO Country Code)"),
                         fieldWithPath("state").optional().description("The state of the user (2-letter, US only)")
