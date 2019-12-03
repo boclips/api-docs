@@ -36,7 +36,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("streamUrl").description("Streaming URL for this particular video"),
                         fieldWithPath("thumbnailUrl").description("URL for a thumbnail of this video"),
                         fieldWithPath("duration").description("Duration of this particular video in ISO-8601"),
-                        fieldWithPath("_links.createPlaybackEvent.href").description("POST endpoint for a createPlaybackEvent"),
+                        fieldWithPath("_links.createPlaybackEvent.href").description("POST endpoint for a createPlaybackEvent. See more on events <<resources-events,here>>"),
                         fieldWithPath("_links.createPlayerInteractedWithEvent.href").description("POST endpoint for a createPlayerInteractedWithEvent"),
                         fieldWithPath("_links.thumbnail.href").description("Thumbnail URL for the video. May be templated with thumbnailWidth").optional(),
                         fieldWithPath("_links.thumbnail.templated").ignored(),
