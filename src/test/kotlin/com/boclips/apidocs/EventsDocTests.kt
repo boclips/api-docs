@@ -22,7 +22,6 @@ class EventsDocTests : AbstractDocTests() {
                 document(
                     "resources-events-publish-playback",
                     requestFields(
-                        fieldWithPath("playerId").description("Unique ID of the video player"),
                         fieldWithPath("videoId").description("ID of the <<resources-videos,video>>"),
                         fieldWithPath("segmentStartSeconds").description("Second the video started its playback"),
                         fieldWithPath("segmentEndSeconds").description("Second the video ended its playback")
@@ -32,7 +31,6 @@ class EventsDocTests : AbstractDocTests() {
             .`when`().contentType(ContentType.JSON).body(
                 """
                 {
-                  "playerId": "${UUID.randomUUID()}",
                   "videoId": "$videoId",
                   "segmentStartSeconds": 1,
                   "segmentEndSeconds": 3
