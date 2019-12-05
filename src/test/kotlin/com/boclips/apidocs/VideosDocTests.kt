@@ -129,6 +129,9 @@ class VideosDocTests : AbstractDocTests() {
                         parameterWithName("content_partner").optional().description("Filter by content partner, which is the publishing company for the video. Use multiple times to search for multiple values, e.g. 'content_partner=first&content_partner=second'.").attributes(
                             Attributes.key("type").value("String (e.g. 'Bloomberg')")
                         ),
+                        parameterWithName("type").optional().description("Filter responses by video type. There're three different types of video allowed. `NEWS`, `STOCK` and `INSTRUCTIONAL`").attributes(
+                            Attributes.key("type").value("Enum")
+                        ),
                         // Sorting
                         parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction").attributes(
                             Attributes.key("type").value("RELEASE_DATE, RATING")
@@ -154,6 +157,7 @@ class VideosDocTests : AbstractDocTests() {
                     .set("source", "boclips")
                     .set("sort_by", "RELEASE_DATE")
                     .set("content_partner", "Bloomberg")
+                    .set("type", "NEWS")
                     .expand()
             )
             .apply { println(prettyPrint()) }
