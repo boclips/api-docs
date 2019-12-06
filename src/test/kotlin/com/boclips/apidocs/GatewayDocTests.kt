@@ -66,6 +66,7 @@ class GatewayDocTests: AbstractDocTests() {
                 linkWithRel("countries").description("List of countries"),
 
                 linkWithRel("tags").description("List of tags that can be attached to videos"),
+                linkWithRel("videoTypes").description("Lists <<resources-video-types,types>> of videos available in the system. These can be later used when <<resources-video-search,searching>>"),
 
                 linkWithRel("disciplines").description("List of disciplines available in the system (e.g. arts, humanities...)")
             )

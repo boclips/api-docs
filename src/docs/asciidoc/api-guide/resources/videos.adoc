@@ -12,7 +12,6 @@ following the provided template under <<resources-index-access,links>>.
 
 operation::resource-video[snippets='path-parameters,http-request,curl-request,http-response,response-fields,response-fields-playback,links']
 
-
 [[resources-video-search]]
 === Video search
 
@@ -23,3 +22,10 @@ If the API user has subjects associated with their account, i.e. "Mathematics", 
 prefer videos with those same subjects.
 
 operation::resource-video-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
+
+[[resources-video-types]]
+=== Video types
+
+Video types available in the system can be listed using the <<resources-index-access_links,`videoTypes`>> link.
+
+operation::resource-video-types[snippets='http-request,curl-request,http-response,response-fields']

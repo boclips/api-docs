@@ -129,7 +129,7 @@ class VideosDocTests : AbstractDocTests() {
                         parameterWithName("content_partner").optional().description("Filter by content partner, which is the publishing company for the video. Use multiple times to search for multiple values, e.g. 'content_partner=first&content_partner=second'.").attributes(
                             Attributes.key("type").value("String (e.g. 'Bloomberg')")
                         ),
-                        parameterWithName("type").optional().description("Filter responses by video type. There're three different types of video allowed. `NEWS`, `STOCK` and `INSTRUCTIONAL`").attributes(
+                        parameterWithName("type").optional().description("Filter responses by <<resources-video-types,video type>>").attributes(
                             Attributes.key("type").value("Enum")
                         ),
                         // Sorting
