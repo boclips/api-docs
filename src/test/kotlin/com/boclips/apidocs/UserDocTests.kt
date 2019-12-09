@@ -19,7 +19,8 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 object Descriptions {
     const val firstName = "The first name of the user"
     const val lastName = "The user's last name"
-    const val subjects = "Ids of teaching <<resources-subjects,subjects>> relevant for this user. They influence <<resources-user-profile,search results>>"
+    const val subjects =
+        "Ids of teaching <<resources-subjects,subjects>> relevant for this user. They influence <<resources-user-profile,search results>>"
     const val ages = "The student ages taught by the user"
 }
 
@@ -41,6 +42,7 @@ class UserDocTests : AbstractDocTests() {
                         fieldWithPath("analyticsId").ignored(),
                         fieldWithPath("organisationAccountId").ignored(),
                         subsectionWithPath("organisation").ignored(),
+                        subsectionWithPath("teacherPlatformAttributes").ignored(),
                         subsectionWithPath("_links").description("HAL links related to this collection")
                     ),
                     links(
