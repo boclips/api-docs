@@ -1,0 +1,9 @@
+[[resources-discipline]]
+== Disciplines
+
+The discipline resource groups subjects together. Each discipline will contain a list of subjects.
+
+=== Retrieving all disciplines
+
+operation::resource-disciplines-get[snippets='http-request,curl-request,http-response,response-fields,links']
+
