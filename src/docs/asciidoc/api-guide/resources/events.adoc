@@ -1,14 +1,31 @@
 [[resources-events]]
 == Events
 
-Boclips API supports events. They can be published using standard REST calls and are later used for analytics and reporting purposes.
+Boclips API supports events.
+They can be published using standard REST calls and are later used for analytics and reporting purposes.
 
 === Playback events
 
 The most important type of Boclips events are playback events as they allow us to track video usage for billing purposes.
 
-If you're using our web player, it will publish these events for you automatically, no extra work required. If, however, you need to use a custom player, then you'll need to publish those events yourself. Each video playback contains a `createPlaybackEvent` link that you can use to POST data to our events endpoint.
+==== Sending single playback event
+
+If you're using our web player, it will publish these events for you automatically, no extra work required.
+
+If, however, you need to use a custom player, then you'll need to publish those events yourself.
+Each video playback contains a `createPlaybackEvent` link that you can use to POST data to our events endpoint.
 
 To accommodate for cases where user closes the app before a playback event can be submitted, playback events can be split into smaller chunks and uploaded one by one.
 
 operation::resources-events-publish-playback[snippets='request-fields,http-request,curl-request,http-response']
+
+==== Sending a batch of playback events
+
+If you're using a custom video player and you prefer to send a batch of playback events you can do so.
+
+As the batch upload of events happens in retrospect, you will have to include the `captureTime` of video property in POST request.
+This property describes when the event occurred.
+
+The `captureTime` must be in an https://www.w3.org/TR/NOTE-datetime[ISO 8601] format including year, month, day, hour, second, nanosecond and time zone. For example: `1997-07-16T19:20:30.45+01:00`
+
+operation::resources-events-publish-batch-playback[snippets='request-fields,http-request,curl-request,http-response']

@@ -12,7 +12,6 @@ import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import java.net.URI
-import java.util.UUID
 
 class EventsDocTests : AbstractDocTests() {
     @Test
@@ -35,6 +34,41 @@ class EventsDocTests : AbstractDocTests() {
                   "segmentStartSeconds": 1,
                   "segmentEndSeconds": 3
                 }
+            """.trimIndent()
+            ).post(createPlaybackEventLink)
+            .apply { println(prettyPrint()) }
+            .then()
+            .assertThat().statusCode(CoreMatchers.`is`(HttpStatus.CREATED.value()))
+    }
+
+    @Test
+    fun `publishing batch of playback events`() {
+        given(documentationSpec)
+            .filter(
+                document(
+                    "resources-events-publish-batch-playback",
+                    requestFields(
+                        fieldWithPath("[*].videoId").description("ID of the <<resources-videos,video>>"),
+                        fieldWithPath("[*].segmentStartSeconds").description("Second the video started its playback"),
+                        fieldWithPath("[*].segmentEndSeconds").description("Second the video ended its playback"),
+                        fieldWithPath("[*].captureTime").optional().description("Time when playback event was fired")
+                    )
+                )
+            )
+            .`when`().contentType(ContentType.JSON).body(
+                """
+                [{
+                    "videoId": "$videoId",
+                    "segmentStartSeconds": 1,
+                    "segmentEndSeconds": 3,
+                    "captureTime": "1997-07-16T19:20:30.45+01:00"
+                },
+                {
+                    "videoId": "$videoId",
+                    "segmentStartSeconds": 1,
+                    "segmentEndSeconds": 3,
+                    "captureTime": "1997-07-16T19:20:30.45+01:00"
+                }]
             """.trimIndent()
             ).post(createPlaybackEventLink)
             .apply { println(prettyPrint()) }
