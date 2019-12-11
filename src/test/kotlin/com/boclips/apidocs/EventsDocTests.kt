@@ -5,7 +5,6 @@ import com.boclips.videos.service.client.VideoId
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
@@ -14,6 +13,8 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 import java.net.URI
 
 class EventsDocTests : AbstractDocTests() {
+    val videoId = "5c542abf5438cdbcb56df0bf"
+
     @Test
     fun `publishing playback event`() {
         given(documentationSpec)
@@ -35,7 +36,8 @@ class EventsDocTests : AbstractDocTests() {
                   "segmentEndSeconds": 3
                 }
             """.trimIndent()
-            ).post(createPlaybackEventLink)
+            )
+            .post(createPlaybackEventLink())
             .apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(CoreMatchers.`is`(HttpStatus.CREATED.value()))
@@ -70,21 +72,21 @@ class EventsDocTests : AbstractDocTests() {
                     "captureTime": "1997-07-16T19:20:30.45+01:00"
                 }]
             """.trimIndent()
-            ).post(createPlaybackEventLink)
+            )
+            .post(getPlaybackEventsLink())
             .apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(CoreMatchers.`is`(HttpStatus.CREATED.value()))
     }
 
-    val videoId = "5c542abf5438cdbcb56df0bf"
-
-    lateinit var createPlaybackEventLink: String
-
-    @BeforeEach
-    fun setupTestData() {
+    fun createPlaybackEventLink(): URI {
         val video = videoServiceClient.get(
             VideoId(URI("https://api.staging-boclips.com/v1/videos/$videoId"))
         )
-        createPlaybackEventLink = video.playback.links.createPlaybackEvent.href
+        return URI(video.playback.links.createPlaybackEvent.href)
+    }
+
+    fun getPlaybackEventsLink(): URI {
+        return URI(links["createPlaybackEvents"] ?: error("Could not find link"))
     }
 }

@@ -21,11 +21,11 @@ operation::resources-events-publish-playback[snippets='request-fields,http-reque
 
 ==== Sending a batch of playback events
 
-If you're using a custom video player and you prefer to send a batch of playback events you can do so.
+If you're using a custom video player and you prefer to send a batch of playback events you can do so given you possess the permission.
 
-As the batch upload of events happens in retrospect, you will have to include the `captureTime` of video property in POST request.
-This property describes when the event occurred.
+As the batch upload of events happens in retrospect, you must include the `captureTime` of video property in POST request.
+This property describes when the event occurred (not when the batch upload is issued).
 
-The `captureTime` must be in an https://www.w3.org/TR/NOTE-datetime[ISO 8601] format including year, month, day, hour, second, nanosecond and time zone. For example: `1997-07-16T19:20:30.45+01:00`
+The `captureTime` represents an https://www.w3.org/TR/NOTE-datetime[ISO 8601] formatted string including year, month, day, hour, second, nanosecond and time zone. For example: `1997-07-16T19:20:30.45+01:00`.
 
 operation::resources-events-publish-batch-playback[snippets='request-fields,http-request,curl-request,http-response']
