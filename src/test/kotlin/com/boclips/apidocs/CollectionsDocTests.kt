@@ -11,9 +11,14 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.boot.web.client.RestTemplateBuilder
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
+import org.springframework.restdocs.payload.PayloadDocumentation.beneathPath
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
@@ -23,10 +28,13 @@ import org.springframework.restdocs.request.RequestDocumentation.pathParameters
 import org.springframework.restdocs.request.RequestDocumentation.requestParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes.key
+import org.springframework.web.client.exchange
+import java.net.URI
 
 class CollectionsDocTests : AbstractDocTests() {
     val collectionTitle = "Genetic Screening Debate"
-    val collectionDesc = "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds."
+    val collectionDesc =
+        "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds."
 
     @Test
     fun `adding a video to a collection`() {
@@ -219,7 +227,16 @@ class CollectionsDocTests : AbstractDocTests() {
                             .description("The lower bound of age range this collection of videos is suitable for"),
                         fieldWithPath("ageRange.max")
                             .optional()
-                            .description("The upper bound of age range this collection of videos is suitable for")
+                            .description("The upper bound of age range this collection of videos is suitable for"),
+                        subsectionWithPath("attachment")
+                            .optional()
+                            .description("An optional <<resources-collections-attachments,attachment>> that can be added to this collection")
+                    ),
+                    requestFields(
+                        beneathPath("attachment").withSubsectionId("attachment"),
+                        fieldWithPath("linkToResource").description("A link that points to attachment's actual content"),
+                        fieldWithPath("type").type("Enum String").description("The type of the attachment. Currently we support `LESSON_PLAN` only"),
+                        fieldWithPath("description").optional().description("Text that describes the attachment")
                     )
                 )
             )
@@ -236,6 +253,11 @@ class CollectionsDocTests : AbstractDocTests() {
                     "ageRange": {
                         "min": 8,
                         "max": 12
+                    },
+                    "attachment": {
+                        "linkToResource": "https://docs.google.com/document/d/1SBf26k2PEPsChg2X4yv6F71uqp8bECcYFtAFSmTDN10/edit?usp=sharing",
+                        "description": "1.Solving Problems with The Scientific Method: We Do it Everyday! 1.Plan A Science Fair Project",
+                        "type": "LESSON_PLAN"
                     }
                 }
             """.trimIndent()
@@ -271,7 +293,7 @@ class CollectionsDocTests : AbstractDocTests() {
         val retrievedSubjects = videoServiceClient.subjects
         subjects = listOf(retrievedSubjects.component1(), retrievedSubjects.component2())
 
-        collectionId = videoServiceClient.createCollection(
+        val collectionLocation = videoServiceClient.createCollection(
             CreateCollectionRequest.builder()
                 .title(collectionTitle)
                 .description(collectionDesc)
@@ -279,9 +301,25 @@ class CollectionsDocTests : AbstractDocTests() {
                 .subjects(subjects.map { it.id.value }.toSet())
                 .isPublic(true)
                 .build()
-        ).uri.path.substringAfterLast("/")
+        )
+        collectionId = collectionLocation.uri.path.substringAfterLast("/")
+        addAttachmentToCollection(collectionLocation.uri)
 
         setupPublicCollectionDetails()
+    }
+
+    private fun addAttachmentToCollection(collectionUri: URI) {
+        val restTemplate = RestTemplateBuilder().build()
+        val httpEntity = HttpEntity("""
+            {
+                "attachment": {
+                    "linkToResource": "https://docs.google.com/document/d/1SBf26k2PEPsChg2X4yv6F71uqp8bECcYFtAFSmTDN10/edit?usp=sharing",
+                    "description": "1.Solving Problems with The Scientific Method: We Do it Everyday! 1.Plan A Science Fair Project",
+                    "type": "LESSON_PLAN"
+                }
+            }
+        """.trimIndent(), HttpHeaders().apply { setBearerAuth(privateClientAccessToken) })
+        restTemplate.exchange<String>(collectionUri.toString(), HttpMethod.PATCH, httpEntity)
     }
 
     val videoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
@@ -333,8 +371,17 @@ class CollectionsDocTests : AbstractDocTests() {
                         fieldWithPath("createdBy").description("Name of collection's creator"),
                         fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
                         fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
-                        fieldWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
+                        subsectionWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
                         subsectionWithPath("_links").description("HAL links related to this collection")
+                    ),
+                    responseFields(
+                        beneathPath("attachments").withSubsectionId("attachments"),
+                        fieldWithPath("id").description("ID of the attachment"),
+                        fieldWithPath("type").description("The type of the attachment. Currently we support `LESSON_PLAN` only").attributes(
+                            key("type").value("Enum String")
+                        ),
+                        fieldWithPath("description").description("Text that describes the attachment"),
+                        fieldWithPath("_links.download.href").description("A link that points to attachment's actual content")
                     ),
                     links(
                         linkWithRel("self").description("Points to this collection"),
