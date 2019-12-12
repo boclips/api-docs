@@ -71,7 +71,9 @@ class VideosDocTests : AbstractDocTests() {
                         linkWithRel("self").description("The video resource that was just retrieved"),
                         linkWithRel("logInteraction").description("`POST` request to this URL will log user's interaction with this video"),
                         linkWithRel("rate").description("`PATCH` request to this URL will give this video a rating"),
-                        linkWithRel("tag").description("`PATCH` request to this URL will tag this video")
+                        linkWithRel("tag").description("`PATCH` request to this URL will tag this video"),
+                        linkWithRel("share").description("`PATCH` request to this URL will make the video accessible by the requesting user's share code"),
+                        linkWithRel("validateShareCode").description("`GET` request to this URL will validate the provided share code")
                     )
                 )
             )
