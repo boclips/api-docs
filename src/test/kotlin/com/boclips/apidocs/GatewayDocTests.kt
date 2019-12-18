@@ -70,7 +70,7 @@ class GatewayDocTests: AbstractDocTests() {
 
                 linkWithRel("disciplines").description("List of disciplines available in the system (e.g. arts, humanities...)"),
 
-                linkWithRel("createPlaybackEvents").description("Sending batches of playback events from the past")
+                linkWithRel("createPlaybackEvents").description("Sending <<_sending_a_batch_of_playback_events,batches>> of playback events from the past")
             )
                 )
             )

@@ -23,6 +23,8 @@ operation::resources-events-publish-playback[snippets='request-fields,http-reque
 
 If you're using a custom video player and you prefer to send a batch of playback events you can do so given you possess the permission.
 
+The batch events endpoint can be found under the <<resources-index-access_links,`createPlaybackEvents`>> link of the API index.
+
 As the batch upload of events happens in retrospect, you must include the `captureTime` of video property in POST request.
 This property describes when the event occurred (not when the batch upload is issued).
 
