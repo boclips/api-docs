@@ -39,10 +39,15 @@ class UserDocTests : AbstractDocTests() {
                         fieldWithPath("ages").description(Descriptions.ages),
                         subsectionWithPath("subjects").description(Descriptions.subjects),
                         fieldWithPath("email").description("The email of the user"),
+                        fieldWithPath("analyticsId").ignored(),
+                        fieldWithPath("organisationAccountId").ignored(),
+                        subsectionWithPath("organisation").ignored(),
+                        subsectionWithPath("teacherPlatformAttributes").ignored(),
                         subsectionWithPath("_links").description("HAL links related to this collection")
                     ),
                     links(
-                        linkWithRel("self").description("Points to this user profile")
+                        linkWithRel("self").description("Points to this user profile"),
+                        linkWithRel("profile").ignored()
                     )
                 )
             )
