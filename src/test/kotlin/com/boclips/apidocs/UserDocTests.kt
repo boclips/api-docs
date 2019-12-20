@@ -42,6 +42,7 @@ class UserDocTests : AbstractDocTests() {
                         subsectionWithPath("_links").description("HAL links related to this collection")
                     ),
                     links(
+                        linkWithRel("profile").ignored(),
                         linkWithRel("self").description("Points to this user profile")
                     )
                 )
