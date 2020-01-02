@@ -54,6 +54,8 @@ Note that the first search link allows to compose a query that searches for publ
 
 Collection search results are pageable -- you can control both the page number and page size.
 
+You can filter collections by lesson plans. If you include `has_lesson_plans` flag in your query, you'll be given list of collection that will only have lesson plan attachments.
+
 operation::resource-collection-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields,links']
 
 [[resources-collections-edit]]
