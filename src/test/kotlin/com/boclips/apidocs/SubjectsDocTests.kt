@@ -21,7 +21,6 @@ class SubjectsDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("_embedded.subjects[].id").description("Id of the subject, can be used for filtering"),
                         fieldWithPath("_embedded.subjects[].name").description("Human readable subject name"),
-                        fieldWithPath("_embedded.subjects[].lessonPlan").description("Whether the subject supports lesson plans"),
                         subsectionWithPath("_embedded.subjects[]._links").description("HAL links for the subject resource"),
                         subsectionWithPath("_links").description("HAL links for the subject collection resource")
                     ), links(
