@@ -54,7 +54,6 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("rating").description("Score of this video based on user rating. From 0 to 5"),
                         fieldWithPath("yourRating").description("Score you gave to this video. From 0 to 5"),
                         fieldWithPath("bestFor").description("Most appropriate use for this video"),
-                        fieldWithPath("bestForTags").ignored(),
                         fieldWithPath("promoted").description("Promoted status of this video"),
 
                         subsectionWithPath("playback").description("Video Playback resource. See <<resources-video-access_response_fields-playback,playback>> for payload details"),
