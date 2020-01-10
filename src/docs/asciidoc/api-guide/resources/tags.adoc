@@ -1,0 +1,7 @@
+[[resources-tags]]
+== Tags
+
+The tag resource lists all available tags that Boclips offers. Tags describe what the video can be best used for.
+
+operation::resource-tags[snippets='http-request,curl-request,http-response,response-fields,links']
+

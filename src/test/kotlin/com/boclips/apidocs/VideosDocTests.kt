@@ -133,6 +133,9 @@ class VideosDocTests : AbstractDocTests() {
                         parameterWithName("type").optional().description("Filter responses by <<resources-video-types,video type>>").attributes(
                             Attributes.key("type").value("Enum")
                         ),
+                        parameterWithName("best_for").optional().description("Filter responses by <<resources-tags,tag>> labels, exact matches when specifying multiple tags").attributes(
+                            Attributes.key("type").value("List of strings (e.g 'explainer')")
+                        ),
                         // Sorting
                         parameterWithName("sort_by").optional().description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction").attributes(
                             Attributes.key("type").value("RELEASE_DATE, RATING")

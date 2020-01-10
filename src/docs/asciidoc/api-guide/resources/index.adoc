@@ -17,4 +17,6 @@ include::disciplines.adoc[]
 
 include::subjects.adoc[]
 
+include::tags.adoc[]
+
 include::content-partners.adoc[]
