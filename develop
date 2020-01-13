@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ ! -d "./build/asciidoc/html5" ]]
+then
+    ./gradlew asciidoctor
+fi
+
+parallel --line-buffer ::: './gradlew --continuous asciidoctor' './gradlew liveReload'
