@@ -13,4 +13,6 @@ Boclips Engineering;
 
 include::overview/index.adoc[]
 
+include::authentication/index.adoc[]
+
 include::resources/index.adoc[]
