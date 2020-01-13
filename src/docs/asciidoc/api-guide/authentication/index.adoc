@@ -17,7 +17,7 @@ Regardless of how the token is retrieved, the structure of the response will loo
 include::{refresh-token-example-snippets}/response-body.adoc[]
 include::{refresh-token-example-snippets}/response-fields.adoc[]
 
-Next, we'll talk about refreshing the token and then we'll describe a few authentication high level use cases before
+Next, we'll talk about refreshing the token and then we'll describe a few high level authentication use cases before
 we delve deeper into implementation details.
 
 [[refresh-token]]
@@ -46,19 +46,40 @@ In order to get an `access_token` using `client_credentials` we would perform a 
 
 operation::client-credentials-example[snippets='http-request,curl-request,request-parameters']
 
-
 Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
-
 
 === Using your platform as SSO
 
-You may want to integrate your existing user base with Boclips. The API will provide a seamless SSO experience.
+You may want to integrate your existing user base with Boclips. If you authenticate your users via an OpenID Connect or a SAML 2.0 identity provider (IdP), Boclips API will provide a seamless SSO experience.
 
-For your users to be integrated into our platform we will configure upfront an
-identity provider (IDP) on our end. At the moment we support SAML 2.0 IDPs and OpenID Connect IDPs.
+Any authenticated user coming from your system will be able to execute calls against Boclips API without having to go through any additional authentication/authorization steps, as Boclips' IdP will query your IdP behind the scenes to verify user's identity.
+
+==== Configuring identity federation
+
+This mechanism of different IdPs talking to each other to authenticate users is called _identity federation_. Setting it up is a matter providing your IdP's configuration to Boclips authentication server.
+
+Luckily, this information is provided in a well known format that can be easily retrieved and processed by us.
+
+===== OIDC
+
+OIDC IdPs by convention expose their configuration via a `.well-known/openid-configuration` endpoint, this mechanism is called OpenID Connect Discovery.
+
+https://login.boclips.com/auth/realms/boclips/.well-known/openid-configuration[Here] you can see how this information looks like for Boclips.
+
+===== SAML 2.0
+
+In case of SAML, your IdP server should expose a https://en.wikipedia.org/wiki/SAML_Metadata#Identity_Provider_Metadata[SAML SSO Metadata] endpoint, though in this case the location itself is not standardised. Refer to your SAML IdP documentation on how to retrieve the metadata file.
+
+==== Configuring an OIDC client
+
+The second configuration step is OIDC client information. We need a list of https://www.oauth.com/oauth2-servers/redirect-uris/[redirect URIs] to know where your users can be securely redirected to after we verify their identity.
+
+After the client is registered on our side we can share a client ID with you.
+
+==== Authenticating users
 
 Once ready, you'll need to perform an https://auth0.com/docs/api-auth/tutorials/authorization-code-grant[authorization code grant flow]
-to retrieve an `access_token`
+to retrieve an `access_token`.
 
 First obtaining a code:
 
