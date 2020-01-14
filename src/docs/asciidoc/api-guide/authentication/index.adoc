@@ -6,35 +6,22 @@
 The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect (OIDC)]. Alternatively,
 we support https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language[SAML] too.
 
-In order to get started with OIDC, we'll need to obtain an `access_token`. Depending on the type of integration,
-we can provide different `grant_types`.
+OIDC is an additional layer on top of https://www.oauth.com/[OAuth 2.0] that enables user information access.
 
-Boclips will provide you with a `client_id` and depending on the integration a `client_secret`.
+The first step of using Boclips API in your application is obtaining an access token. Depending on the type of integration,
+we can provide different https://oauth.net/2/grant-types/[OAuth grant types].
 
-Regardless of how the token is retrieved, the structure of the response will look like this:
+Boclips will provide you with a `client_id` and, depending on the integration, a `client_secret`.
+
+Regardless of how the access token is retrieved, the structure of the response will look like this:
 
 [[token-response]]
 include::{refresh-token-example-snippets}/response-body.adoc[]
 include::{refresh-token-example-snippets}/response-fields.adoc[]
 
-Next, we'll talk about refreshing the token and then we'll describe a few high level authentication use cases before
-we delve deeper into implementation details.
+== Authentication Use Cases
 
-[[refresh-token]]
-== Refreshing the access token
-
-The OIDC refresh token, enables you to renew the access token periodically without having to authenticate again.
-The refresh token has an expiration attached to it but it is longer than a regular `access_token`.
-
-In order to renew a token using a `refresh_token` flow you should:
-
-operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
-
-Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
-
-== OIDC Use cases
-
-=== Backend service integration
+=== Backend Service Integration
 
 You may want to use Boclips straight from your backend services. In this case, Boclips will provide
 you with your own `client_id` and `client_secret`.
@@ -42,7 +29,7 @@ you with your own `client_id` and `client_secret`.
 All the communication will happen outside of the context of a user, therefore some features like user collections
 may not be available.
 
-In order to get an `access_token` using `client_credentials` we would perform a request:
+In order to get an access token using `client_credentials` we would perform a request:
 
 operation::client-credentials-example[snippets='http-request,curl-request,request-parameters']
 
@@ -52,9 +39,9 @@ Assuming all the parameters are correct, you will get a <<token-response,valid t
 
 You may want to integrate your existing user base with Boclips. If you authenticate your users via an OpenID Connect or a SAML 2.0 identity provider (IdP), Boclips API will provide a seamless SSO experience.
 
-Any authenticated user coming from your system will be able to execute calls against Boclips API without having to go through any additional authentication/authorization steps, as Boclips' IdP will query your IdP behind the scenes to verify user's identity.
+Any authenticated user coming from your system will be able to execute calls against Boclips API without having to go through any additional authentication/authorization steps, as Boclips' IdP will query your IdP behind the scenes to verify user identity.
 
-==== Configuring identity federation
+==== Configuring Identity Federation
 
 This mechanism of different IdPs talking to each other to authenticate users is called _identity federation_. Setting it up is a matter providing your IdP's configuration to Boclips authentication server.
 
@@ -70,39 +57,46 @@ https://login.boclips.com/auth/realms/boclips/.well-known/openid-configuration[H
 
 In case of SAML, your IdP server should expose a https://en.wikipedia.org/wiki/SAML_Metadata#Identity_Provider_Metadata[SAML SSO Metadata] endpoint, though in this case the location itself is not standardised. Refer to your SAML IdP documentation on how to retrieve the metadata file.
 
-==== Configuring an OIDC client
+==== Configuring an OIDC Client
 
-The second configuration step is OIDC client information. We need a list of https://www.oauth.com/oauth2-servers/redirect-uris/[redirect URIs] to know where your users can be securely redirected to after we verify their identity.
+The second configuration step is OIDC client information. We need a list of https://www.oauth.com/oauth2-servers/redirect-uris/[redirect URIs] to know where your users can be securely redirected to after we confirm their identity.
 
-After the client is registered on our side we can share a client ID with you.
+After the client is registered on our side we can share a `client_id` with you.
 
-==== Authenticating users
+==== Retrieving an Access Token
 
-Once ready, you'll need to perform an https://auth0.com/docs/api-auth/tutorials/authorization-code-grant[authorization code grant flow]
-to retrieve an `access_token`.
+Once setup is done and access credentials have been exchanged with you, you'll need to perform an https://oauth.net/2/grant-types/authorization-code/[authorization code] grant flow
+to retrieve a Boclips API access token.
 
-First obtaining a code:
+This authentication flow works slightly differently depending on whether your application is a https://www.oauth.com/oauth2-servers/server-side-apps/[server-side application], or a https://www.oauth.com/oauth2-servers/single-page-apps/[single-page application]. Either way, it works roughly as outlined below:
+
+. The user's browser visits your application. The application notices the user is not logged in, so it <<trigger-authorization,redirects the browser to our server>> to be authenticated. The application passes along a callback URL (a redirect URL)  as a query parameter in this browser redirect that our server will use when it finishes authentication. Then:
+.. if the user has a session in your domain — we'll move to the next point,
+.. if the user has no session in your domain we'll send them to your login page (this needs to be configured on our end).
+
+. Given your IdP acknowledges your user, our server authenticates the user and creates a one-time temporary code. Our server redirects back to the application using the callback URL provided earlier and additionally adds this temporary code as a query parameter in the callback URL.
+
+. Your application extracts the temporary code and <<get-token-authorization,makes a background HTTP request>> to our authentication server to exchange the code for an identity, access and refresh token. Once this temporary code has been used to obtain the tokens, it can never be used again. This prevents potential replay attacks.
+
+== Sample Requests
 
 [[trigger-authorization]]
+=== Obtaining an Authorization Code:
+
 operation::authorization-code-example[snippets='http-request,curl-request,request-parameters']
 
 [[get-token-authorization]]
-Then obtaining the `access_token`:
+=== Obtaining an Access Token:
 
 operation::authorization-code-token-example[snippets='http-request,curl-request,request-parameters']
 
-Such a flow will look like this:
+[[refresh-token]]
+=== Refreshing an Access Token
 
-. The user's browser visits your application. The application notices the user is not logged in, so it
-<<trigger-authorization,redirects the browser to our server>> to be authenticated. The application passes along a callback URL (a redirect URL)
-as a query parameter in this browser redirect that our server will use when it finishes authentication.
-.. If the user has a session in your domain - we'll move to the next point
-.. If the user has no session in your domain we'll send her to your login page (this needs to be configured on our end)
+The refresh token enables you to renew an access token periodically without having to authenticate again. The refresh token has an expiration attached to it, but its lifetime is longer than that of an access token.
 
-. Given your IDP acknowledge your user, our server authenticates the user and creates a one-time, very short lived, temporary code.
-Our server redirects back to the application using the callback URL provided earlier and additionally adds the temporary code as a
-query parameter in the callback URL.
+In order to renew a token using a `refresh_token` flow you should:
 
-. Your application extracts the temporary code and <<get-token-authorization,makes a background REST request>> to our authentication server
-to exchange the code for an identity, access and refresh token. Once this temporary code has been used once to
-obtain the tokens, it can never be used again. This prevents potential replay attacks.
+operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
+
+Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
