@@ -9,13 +9,31 @@ Note that one of the goals of indirection introduced through hypermedia and link
 
 More information on _Hypermedia as the Engine of Application State_ (HATEOAS) can be found https://en.wikipedia.org/wiki/HATEOAS[here].
 
+[[overview-interpolating-urls]]
 === Interpolating URLs
 
-As part of the HAL links the API will return templated URLs. In order to obtain a valid URL you will need to interpolate
+As part of the HAL links spec, the API may return templated URLs. In order to obtain the effective URL, you will need to interpolate
 values appropriately.
 
+If a link is templated, its `templated` property will be set to true, for example:
+
+[source,json]
+----
+{
+  "_links": {
+    "video": {
+      "href": "https://api.boclips.com/v1/videos/{id}",
+      "templated": true
+    }
+  }
+}
+----
+
+Now if you wanted to use that link, you need to interpolate the value of `id` with the identifier corresponding to your video. If you are implementing a web application, libraries such as https://medialize.github.io/URI.js/uri-template.html[URI.js]
+will take care of this for you. Most major web frameworks should support this pattern.
+
 Please keep in mind, some params may be mandatory, whereas others may be optional. Also, although logical names for
-params will remain consistent to avoid breaking changes, mandatory params may become optional or viceversa.
+params will remain consistent to avoid breaking changes, mandatory params may become optional or vice-versa.
 
 For instance you may get a URL that looks like:
 `https://api.boclips.com/v1/resource/{resourceId}?mandatoryParam1={mandatoryParam1}&mandatoryParam2={mandatoryParam2}{&optionalParam}`
@@ -24,6 +42,3 @@ Which over time could become:
 `https://api.boclips.com/v1/resource/{resourceId}?mandatoryParam={mandatoryParam}{&mandatoryParam2,optionalParam}`
 
 This sort of modifications should not break your client.
-
-If you are implementing a web based application libraries such as https://medialize.github.io/URI.js/uri-template.html[URI.js]
-will take care of this for you.

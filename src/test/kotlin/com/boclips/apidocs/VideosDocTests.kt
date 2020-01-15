@@ -36,8 +36,8 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("duration").description("Duration of this particular video in ISO-8601"),
                         fieldWithPath("_links.createPlaybackEvent.href").description("POST endpoint for a createPlaybackEvent. See more on events <<resources-events,here>>"),
                         fieldWithPath("_links.createPlayerInteractedWithEvent.href").description("POST endpoint for a createPlayerInteractedWithEvent"),
-                        fieldWithPath("_links.thumbnail.href").description("Thumbnail URL for the video. May be templated with thumbnailWidth").optional(),
-                        fieldWithPath("_links.thumbnail.templated").description("Tells whether the thumbnail link is templated"),
+                        fieldWithPath("_links.thumbnail.href").description("Thumbnail URL for the video. May be <<overview-interpolating-urls,templated>> with thumbnailWidth").optional(),
+                        fieldWithPath("_links.thumbnail.templated").description("Tells whether the thumbnail link is <<overview-interpolating-urls,templated>>"),
                         fieldWithPath("_links.videoPreview.href").description("VideoPreview URL for the video. Templated with thumbnailWidth, and thumbnailCount").optional(),
                         fieldWithPath("_links.videoPreview.templated").ignored(),
                         fieldWithPath("_links.hlsStream.href").description("URL for the Apple HLS stream").optional()
