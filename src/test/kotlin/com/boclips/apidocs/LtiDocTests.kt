@@ -78,7 +78,8 @@ class LtiDocTests : AbstractDocTests() {
             "lti_version" to "LTI-1p0",
             "oauth_consumer_key" to consumerKey,
             "resource_link_id" to "41B464BA-F406-485C-ACDF-C1E5EB474156",
-            "custom_logo" to "https://storage.googleapis.com/boclips-public-static-files/boclips/logo.png"
+            "custom_logo" to "https://storage.googleapis.com/boclips-public-static-files/boclips/logo.png",
+            "user_id" to "some_user_id"
         )
 
         val signedLaunchRequestParameters = ltiOauthSigner.signParameters(
@@ -188,12 +189,17 @@ class LtiDocTests : AbstractDocTests() {
     )
 
     val boclipsParametersIgnored = arrayOf(
-        parameterWithName("custom_logo").ignored()
+        parameterWithName("custom_logo").ignored(),
+        parameterWithName("user_id").ignored()
     )
     val boclipsParameters = arrayOf(
         parameterWithName("custom_logo")
             .optional()
             .description("A URL to an image file that will be displayed at the top of LTI pages")
-            .attributes(key("type").value("URL"))
+            .attributes(key("type").value("URL")),
+        parameterWithName("user_id")
+            .optional()
+            .description("A user ID which identifies the specific Boclips user interacting with LTI. This enables per-user analytics for backend clients.")
+            .attributes(key("type").value("String"))
     )
 }

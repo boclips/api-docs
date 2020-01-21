@@ -100,3 +100,8 @@ In order to renew a token using a `refresh_token` flow you should:
 operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
 
 Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
+
+[[overriding-user-id]]
+=== Overriding User ID
+
+On any endpoint, you can manually add a user ID to your request in order to have that ID used for analytics. This is especially useful when connecting using a `client_credentials` grant, where your user ID would not represent a Boclips user. To do so, include header `Boclips-User-Id: [your user ID]` on any API request.
