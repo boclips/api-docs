@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-docs
+  annotations:
+    sidecar.jaegertracing.io/inject: jaeger
+spec:
+  template:
+    metadata:
+      name: api-docs
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: api-docs
+        image: eu.gcr.io/boclips-prod/boclips/api-docs:1
+        env:
+        - name: SENTRY_RELEASE
+          value: api-docs-$(VERSION)
+        ports:
+        - name: http
+          containerPort: 8080
+        envFrom:
+        - secretRef:
+            name: api-docs
