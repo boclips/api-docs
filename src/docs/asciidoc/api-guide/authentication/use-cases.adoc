@@ -1,0 +1,69 @@
+== Authentication Use Cases
+
+=== Backend Service Integration
+
+You may want to use Boclips straight from your backend services. In this case the OAuth 2 flow to use should will be `client_credentials` and Boclips will provide
+you with your own `client_id` and `client_secret`.
+
+All the communication will happen outside of the context of a user in that case, therefore some features like user collections
+may not be available.
+
+In order to get an access token using `client_credentials` we would perform a request:
+
+operation::client-credentials-example[snippets='http-request,curl-request,request-parameters']
+
+Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
+
+[[overriding-user-id]]
+==== Providing a user identifier for analytics
+
+As mentioned above, backend service integrations happen without the end-user context, but for analytics and billing purposes it may be required to provide an id that will uniquely identify users (even if their true identities remain anonymous to Boclips).
+
+To achieve this, you can manually add a user id to any requests you send to us by including a header:
+
+----
+Boclips-User-Id: [your user id]
+----
+
+=== Using your platform as SSO
+
+You may want to integrate your existing user base with Boclips. If you authenticate your users via an OpenID Connect or a SAML 2.0 identity provider (IdP), Boclips API will provide a seamless SSO experience.
+
+Any authenticated user coming from your system will be able to execute calls against Boclips API without having to go through any additional authentication/authorization steps, as Boclips' IdP will query your IdP behind the scenes to verify user identity.
+
+==== Configuring Identity Federation
+
+This mechanism of different IdPs talking to each other to authenticate users is called _identity federation_. Setting it up is a matter providing your IdP's configuration to Boclips authentication server.
+
+Luckily, this information is provided in a well known format that can be easily retrieved and processed by us.
+
+===== OIDC
+
+OIDC IdPs by convention expose their configuration via a `.well-known/openid-configuration` endpoint, this mechanism is called OpenID Connect Discovery.
+
+https://login.boclips.com/auth/realms/boclips/.well-known/openid-configuration[Here] you can see how this information looks like for Boclips.
+
+===== SAML 2.0
+
+In case of SAML, your IdP server should expose a https://en.wikipedia.org/wiki/SAML_Metadata#Identity_Provider_Metadata[SAML SSO Metadata] endpoint, though in this case the location itself is not standardised. Refer to your SAML IdP documentation on how to retrieve the metadata file.
+
+==== Configuring an OIDC Client
+
+The second configuration step is OIDC client information. We need a list of https://www.oauth.com/oauth2-servers/redirect-uris/[redirect URIs] to know where your users can be securely redirected to after we confirm their identity.
+
+After the client is registered on our side we can share a `client_id` with you.
+
+==== Retrieving an Access Token
+
+Once setup is done and access credentials have been exchanged with you, you'll need to perform an https://oauth.net/2/grant-types/authorization-code/[authorization code] grant flow
+to retrieve a Boclips API access token.
+
+This authentication flow works slightly differently depending on whether your application is a https://www.oauth.com/oauth2-servers/server-side-apps/[server-side application], or a https://www.oauth.com/oauth2-servers/single-page-apps/[single-page application]. Either way, it works roughly as outlined below:
+
+. The user's browser visits your application. The application notices the user is not logged in, so it <<trigger-authorization,redirects the browser to our server>> to be authenticated. The application passes along a callback URL (a redirect URL)  as a query parameter in this browser redirect that our server will use when it finishes authentication. Then:
+.. if the user has a session in your domain — we'll move to the next point,
+.. if the user has no session in your domain we'll send them to your login page (this needs to be configured on our end).
+
+. Given your IdP acknowledges your user, our server authenticates the user and creates a one-time temporary code. Our server redirects back to the application using the callback URL provided earlier and additionally adds this temporary code as a query parameter in the callback URL.
+
+. Your application extracts the temporary code and <<get-token-authorization,makes a background HTTP request>> to our authentication server to exchange the code for an identity, access and refresh token. Once this temporary code has been used to obtain the tokens, it can never be used again. This prevents potential replay attacks.

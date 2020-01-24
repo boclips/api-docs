@@ -1,0 +1,22 @@
+== Sample Requests
+
+[[trigger-authorization]]
+=== Obtaining an Authorization Code:
+
+operation::authorization-code-example[snippets='http-request,curl-request,request-parameters']
+
+[[get-token-authorization]]
+=== Obtaining an Access Token:
+
+operation::authorization-code-token-example[snippets='http-request,curl-request,request-parameters']
+
+[[refresh-token]]
+=== Refreshing an Access Token
+
+The refresh token enables you to renew an access token periodically without having to authenticate again. The refresh token has an expiration attached to it, but its lifetime is longer than that of an access token.
+
+In order to renew a token using a `refresh_token` flow you should:
+
+operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
+
+Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
