@@ -19,4 +19,4 @@ In order to renew a token using a `refresh_token` flow you should:
 
 operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
 
-Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
+Assuming all the parameters are correct, you will get a <<authentication-token-response,valid token response>> back.

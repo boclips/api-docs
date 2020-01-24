@@ -1,6 +1,6 @@
 :refresh-token-example-snippets: ../../../../../build/generated-snippets/refresh-token-example
 
-[[overview-authentication]]
+[[authentication-overview]]
 = Authentication
 
 The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect (OIDC)]. Alternatively,
@@ -15,7 +15,7 @@ Boclips will provide you with a `client_id` and, depending on the integration, a
 
 Regardless of how the access token is retrieved, the structure of the response will look like this:
 
-[[token-response]]
+[[authentication-token-response]]
 include::{refresh-token-example-snippets}/response-body.adoc[]
 include::{refresh-token-example-snippets}/response-fields.adoc[]
 

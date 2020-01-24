@@ -1,5 +1,7 @@
+[[authentication-use-cases]]
 == Authentication Use Cases
 
+[[authentication-use-cases-backend-services]]
 === Backend Service Integration
 
 You may want to use Boclips straight from your backend services. In this case the OAuth 2 flow to use should will be `client_credentials` and Boclips will provide
@@ -12,7 +14,7 @@ In order to get an access token using `client_credentials` we would perform a re
 
 operation::client-credentials-example[snippets='http-request,curl-request,request-parameters']
 
-Assuming all the parameters are correct, you will get a <<token-response,valid token response>> back.
+Assuming all the parameters are correct, you will get a <<authentication-token-response,valid token response>> back.
 
 [[overriding-user-id]]
 ==== Providing a user identifier for analytics
@@ -25,6 +27,7 @@ To achieve this, you can manually add a user id to any requests you send to us b
 Boclips-User-Id: [your user id]
 ----
 
+[[authentication-use-cases-sso]]
 === Using your platform as SSO
 
 You may want to integrate your existing user base with Boclips. If you authenticate your users via an OpenID Connect or a SAML 2.0 identity provider (IdP), Boclips API will provide a seamless SSO experience.
@@ -53,6 +56,7 @@ The second configuration step is OIDC client information. We need a list of http
 
 After the client is registered on our side we can share a `client_id` with you.
 
+[[authentication-use-cases-authorization-code-grant]]
 ==== Retrieving an Access Token
 
 Once setup is done and access credentials have been exchanged with you, you'll need to perform an https://oauth.net/2/grant-types/authorization-code/[authorization code] grant flow
@@ -67,3 +71,24 @@ This authentication flow works slightly differently depending on whether your ap
 . Given your IdP acknowledges your user, our server authenticates the user and creates a one-time temporary code. Our server redirects back to the application using the callback URL provided earlier and additionally adds this temporary code as a query parameter in the callback URL.
 
 . Your application extracts the temporary code and <<get-token-authorization,makes a background HTTP request>> to our authentication server to exchange the code for an identity, access and refresh token. Once this temporary code has been used to obtain the tokens, it can never be used again. This prevents potential replay attacks.
+
+[[authentication-use-cases-mobile-apps]]
+=== Authenticating mobile applications
+
+Authenticating mobile applications is possible with both options described above.
+
+When working with a <<authentication-use-cases-backend-services,backend service integration>>, your mobile app will simply be calling your backend services which, having access to client secret, will handle authentication themselves.
+
+In the case of an <<authentication-use-cases-sso,SSO integration>>, mobile apps can't guarantee the confidentiality of a client secret and therefore will be using a public client. That implies a <<authentication-use-cases-authorization-code-grant,flow>> analogous to the one web applications go through, with some additional security considerations.
+
+We recommend going through this https://www.oauth.com/oauth2-servers/mobile-and-native-apps/[official guide] on developing mobile apps authentication with OAuth 2.
+
+==== Mobile browser usage
+
+The nature of authenticating using a public OAuth client implies the user will have to visit IdP server's login/authorization page. Mobile apps give you the option of displaying that page either in a custom embedded view, or using a mobile platform's native browser.
+
+The official security recommendation is to always use the native browser. This allows the user to verify that the page they're visiting is valid and they will also benefit from shared system cookies.
+
+==== Proof for Key Code Exchange
+
+If your IdP supports https://www.oauth.com/oauth2-servers/pkce/[PKCE], it's worth using it to benefit from an additional layer of security. PKCE protects users from authentication traffic interception attacks.
