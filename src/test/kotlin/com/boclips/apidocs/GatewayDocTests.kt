@@ -70,7 +70,8 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("countries").description("List of countries"),
 
                         linkWithRel("contentPartner").description("Retrieve a specific content partner"),
-                        linkWithRel("contentPartners").description("Retrieve all content partners")
+                        linkWithRel("contentPartners").description("Retrieve all content partners"),
+                        linkWithRel("contentCategories").description("Retrieve a list of content partner categories")
                     )
                 )
             )
