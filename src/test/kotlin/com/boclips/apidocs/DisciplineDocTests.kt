@@ -22,6 +22,8 @@ class DisciplineDocTests : AbstractDocTests() {
                         fieldWithPath("_embedded.disciplines[].id").description("Id of the discipline"),
                         fieldWithPath("_embedded.disciplines[].name").description("Name of the discipline"),
                         fieldWithPath("_embedded.disciplines[].code").description("kebab-case version of the name"),
+                        subsectionWithPath("_embedded.disciplines[]._links")
+                            .description("HAL links for the individual disciplines"),
                         subsectionWithPath("_embedded.disciplines[].subjects")
                             .description("A list of <<resources-subjects, subjects>> associated to this discipline"),
                         subsectionWithPath("_links").description("HAL links for the discipline collection resource")
