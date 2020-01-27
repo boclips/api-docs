@@ -29,7 +29,7 @@ class ContentPartnersDocTests : AbstractDocTests() {
                         fieldWithPath("id").description("The ID of the content partner"),
                         fieldWithPath("name").description("The name of the content partner"),
                         subsectionWithPath("ageRange").description("The age ranges served by the content partner"),
-                        subsectionWithPath("legalRestrictions").description("Text demonstrating the legal restrictions involved in using this partner's content"),
+                        subsectionWithPath("legalRestriction").description("Text demonstrating the legal restrictions involved in using this partner's content"),
                         subsectionWithPath("_links").description("HAL links related to this collection"),
                         fieldWithPath("official").ignored(),
                         fieldWithPath("distributionMethods").ignored(),
