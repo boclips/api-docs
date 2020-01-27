@@ -61,6 +61,8 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("ageRange.label").optional().description("Age range in a human readable format"),
                         fieldWithPath("ageRange.min").optional().description("Minimum of age range for this video"),
                         fieldWithPath("ageRange.max").optional().description("Maximum of age range for this video"),
+                        fieldWithPath("language.code").optional().description("The language of the video in the format of the ISO 639-2 standard"),
+                        fieldWithPath("language.displayName").optional().description("The language of the video in a human readable format (e.g English)"),
 
                         fieldWithPath("createdBy").description("Who provided the video"),
                         linksFieldDescriptor
