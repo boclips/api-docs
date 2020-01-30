@@ -35,12 +35,15 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("id").description("Id of this playback, useful for YOUTUBE type"),
                         fieldWithPath("duration").description("Duration of this particular video in ISO-8601"),
                         fieldWithPath("_links.createPlaybackEvent.href").description("POST endpoint for a createPlaybackEvent. See more on events <<resources-events,here>>"),
+                        fieldWithPath("_links.createPlaybackEvent.templated").ignored(),
                         fieldWithPath("_links.createPlayerInteractedWithEvent.href").description("POST endpoint for a createPlayerInteractedWithEvent"),
+                        fieldWithPath("_links.createPlayerInteractedWithEvent.templated").ignored(),
                         fieldWithPath("_links.thumbnail.href").description("Thumbnail URL for the video. May be <<overview-interpolating-urls,templated>> with thumbnailWidth").optional(),
                         fieldWithPath("_links.thumbnail.templated").description("Tells whether the thumbnail link is <<overview-interpolating-urls,templated>>"),
                         fieldWithPath("_links.videoPreview.href").description("VideoPreview URL for the video. Templated with thumbnailWidth, and thumbnailCount").optional(),
                         fieldWithPath("_links.videoPreview.templated").ignored(),
-                        fieldWithPath("_links.hlsStream.href").description("URL for the Apple HLS stream").optional()
+                        fieldWithPath("_links.hlsStream.href").description("URL for the Apple HLS stream").optional(),
+                        fieldWithPath("_links.hlsStream.templated").ignored()
                     ),
                     responseFields(
                         fieldWithPath("id").description("The unique identifier for this video, can be interpolated in templated links"),

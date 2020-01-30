@@ -382,7 +382,8 @@ class CollectionsDocTests : AbstractDocTests() {
                                                 key("type").value("Enum String")
                                         ),
                                         fieldWithPath("description").description("Text that describes the attachment"),
-                                        fieldWithPath("_links.download.href").description("A link that points to attachment's actual content")
+                                        fieldWithPath("_links.download.href").description("A link that points to attachment's actual content"),
+                                        fieldWithPath("_links.download.templated").ignored()
                                 ),
                                 links(
                                         linkWithRel("self").description("Points to this collection"),
