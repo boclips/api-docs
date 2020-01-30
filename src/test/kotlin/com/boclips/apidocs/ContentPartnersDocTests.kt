@@ -31,7 +31,15 @@ class ContentPartnersDocTests : AbstractDocTests() {
                         subsectionWithPath("ageRange").description("The age ranges served by the content partner"),
                         subsectionWithPath("legalRestriction").description("Text demonstrating the legal restrictions involved in using this partner's content"),
                         subsectionWithPath("description").description("Text describing this partner's content"),
+                        subsectionWithPath("contentCategories[*].key").ignored(),
+                        subsectionWithPath("contentCategories[*].label").description("Content category label"),
+                        subsectionWithPath("language.code").description("Language in 3 letter ISO-639-2 code format"),
+                        subsectionWithPath("language.name").description("Name of the content partner language"),
                         subsectionWithPath("_links").description("HAL links related to this collection"),
+                        subsectionWithPath("hubspotId").ignored(),
+                        subsectionWithPath("awards").description("Content partner awards"),
+                        subsectionWithPath("notes").description("Custom notes about the content partner"),
+
                         fieldWithPath("official").ignored(),
                         fieldWithPath("distributionMethods").ignored(),
                         fieldWithPath("currency").ignored()
