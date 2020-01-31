@@ -38,6 +38,7 @@ class ContentPartnersDocTests : AbstractDocTests() {
                         subsectionWithPath("_links").description("HAL links related to this collection"),
                         subsectionWithPath("hubspotId").ignored(),
                         subsectionWithPath("awards").description("Content partner awards"),
+                        subsectionWithPath("contentTypes").description("Content partner types"),
                         subsectionWithPath("notes").description("Custom notes about the content partner"),
 
                         fieldWithPath("official").ignored(),
