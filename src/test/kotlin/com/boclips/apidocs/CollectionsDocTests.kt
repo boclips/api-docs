@@ -145,6 +145,18 @@ class CollectionsDocTests : AbstractDocTests() {
                                                 .attributes(
                                                         key("type").value("List of subject IDs")
                                                 ),
+                                        parameterWithName("age_range_min")
+                                                .optional()
+                                                .description("Minimum age to filter from - it filters on the collection age range property, and is inclusive")
+                                                .attributes(
+                                                        key("type").value("Number")
+                                                ),
+                                        parameterWithName("age_range_max")
+                                                .optional()
+                                                .description("Maximum age to filter to - it filters on the collection age range property, and is inclusive")
+                                                .attributes(
+                                                        key("type").value("Number")
+                                                ),
                                         parameterWithName("has_lesson_plans")
                                                 .optional()
                                                 .description("Allows to limit search results to collection with lesson plan attachment only")
