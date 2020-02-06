@@ -58,6 +58,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
                         linkWithRel("createCollection").description("Link to create a new video collection"),
                         linkWithRel("myCollections").description("Collections created by the current user"),
+                        linkWithRel("mySavedCollections").description("Collections created or bookmarked by the current user"),
                         linkWithRel("publicCollections").description("Collections marked as public"),
                         linkWithRel("searchPublicCollections").description("Search all public collections"),
                         linkWithRel("searchCollections").description("Search all collections"),
