@@ -71,7 +71,8 @@ class GatewayDocTests : AbstractDocTests() {
 
                         linkWithRel("contentPartner").description("Retrieve a specific content partner"),
                         linkWithRel("contentPartners").description("Retrieve all content partners"),
-                        linkWithRel("contentCategories").description("Retrieve a list of content partner categories")
+                        linkWithRel("contentCategories").description("Retrieve a list of content partner categories"),
+                        linkWithRel("validateShareCode").description("Validate a share code for a given user")
                     )
                 )
             )
