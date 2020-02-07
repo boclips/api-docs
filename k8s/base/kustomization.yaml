@@ -7,11 +7,11 @@ resources:
 commonLabels:
   app: api-docs
 commonAnnotations:
-  boclips-version: "218"
+  boclips-version: "219"
 images:
 - name: app
   newName: eu.gcr.io/boclips-prod/boclips/api-docs
-  newTag: "218"
+  newTag: "219"
 patches:
 - path: spread-across-zones.yaml
   target:
