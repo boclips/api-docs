@@ -36,14 +36,9 @@ class ContentPartnersDocTests : AbstractDocTests() {
                         subsectionWithPath("language.code").description("Language in 3 letter ISO-639-2 code format"),
                         subsectionWithPath("language.name").description("Name of the content partner language"),
                         subsectionWithPath("_links").description("HAL links related to this collection"),
-                        subsectionWithPath("hubspotId").ignored(),
                         subsectionWithPath("awards").description("Content partner awards"),
                         subsectionWithPath("contentTypes").description("Content partner types"),
-                        subsectionWithPath("notes").description("Custom notes about the content partner"),
-
-                        fieldWithPath("official").ignored(),
-                        fieldWithPath("distributionMethods").ignored(),
-                        fieldWithPath("currency").ignored()
+                        subsectionWithPath("notes").description("Custom notes about the content partner")
                     ),
                     links(
                         linkWithRel("self").description("Points to this contentPartner")
