@@ -1,6 +1,7 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.boclips.apidocs.testsupport.UriTemplateHelper.stripOptionalParameters
 import com.boclips.videos.service.client.CreateCollectionRequest
 import com.boclips.videos.service.client.Subject
 import com.damnhandy.uri.template.UriTemplate
@@ -18,8 +19,14 @@ import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
-import org.springframework.restdocs.payload.PayloadDocumentation.*
-import org.springframework.restdocs.request.RequestDocumentation.*
+import org.springframework.restdocs.payload.PayloadDocumentation.beneathPath
+import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
+import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
+import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
+import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
+import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
+import org.springframework.restdocs.request.RequestDocumentation.pathParameters
+import org.springframework.restdocs.request.RequestDocumentation.requestParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes.key
 import org.springframework.web.client.exchange
@@ -28,70 +35,70 @@ import java.net.URI
 class CollectionsDocTests : AbstractDocTests() {
     val collectionTitle = "Genetic Screening Debate"
     val collectionDesc =
-            "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds."
+        "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds."
 
     @Test
     fun `adding a video to a collection`() {
         given(documentationSpec)
-                .filter(
-                        document(
-                                "resource-collection-add-video",
-                                pathParameters(
-                                        parameterWithName("video_id").description("The ID of the video")
-                                )
-                        )
+            .filter(
+                document(
+                    "resource-collection-add-video",
+                    pathParameters(
+                        parameterWithName("video_id").description("The ID of the video")
+                    )
                 )
-                .`when`()
-                .put("/collections/${collectionId}/videos/{video_id}", videoIds[0])
-                .then()
-                .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
+            )
+            .`when`()
+            .put("/collections/${collectionId}/videos/{video_id}", videoIds[0])
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
 
     @Test
     fun `removing a video from a collection`() {
         given(documentationSpec)
-                .filter(
-                        document(
-                                "resource-collection-remove-video",
-                                pathParameters(
-                                        parameterWithName("video_id").description("The ID of the video")
-                                )
-                        )
+            .filter(
+                document(
+                    "resource-collection-remove-video",
+                    pathParameters(
+                        parameterWithName("video_id").description("The ID of the video")
+                    )
                 )
-                .`when`()
-                .delete("/collections/${collectionId}/videos/{video_id}", videoIds[0])
-                .then()
-                .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
+            )
+            .`when`()
+            .delete("/collections/${collectionId}/videos/{video_id}", videoIds[0])
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
 
     @Test
     fun `creating a new collection`() {
         given(documentationSpec)
-                .filter(
-                        document(
-                                "resource-collection-creation",
-                                requestFields(
-                                        fieldWithPath("title")
-                                                .description("Collection's title"),
-                                        fieldWithPath("description")
-                                                .optional()
-                                                .description("Collection's description"),
-                                        fieldWithPath("videos")
-                                                .optional()
-                                                .description("A list of IDs of videos that should belong to this collection"),
-                                        fieldWithPath("subjects")
-                                                .optional()
-                                                .description("A list of IDs of subjects that should belong to this collection"),
-                                        fieldWithPath("public")
-                                                .optional()
-                                                .description("Whether the new collection should be visible only to you or to everyone")
-                                )
-                        )
+            .filter(
+                document(
+                    "resource-collection-creation",
+                    requestFields(
+                        fieldWithPath("title")
+                            .description("Collection's title"),
+                        fieldWithPath("description")
+                            .optional()
+                            .description("Collection's description"),
+                        fieldWithPath("videos")
+                            .optional()
+                            .description("A list of IDs of videos that should belong to this collection"),
+                        fieldWithPath("subjects")
+                            .optional()
+                            .description("A list of IDs of subjects that should belong to this collection"),
+                        fieldWithPath("public")
+                            .optional()
+                            .description("Whether the new collection should be visible only to you or to everyone")
+                    )
                 )
-                .`when`()
-                .contentType(ContentType.JSON)
-                .body(
-                        """
+            )
+            .`when`()
+            .contentType(ContentType.JSON)
+            .body(
+                """
                 {
                     "title": "$collectionTitle",
                     "description": "$collectionDesc",
@@ -100,11 +107,11 @@ class CollectionsDocTests : AbstractDocTests() {
                     "public": true
                 }
             """.trimIndent()
-                )
-                .post(links["createCollection"])
-                .apply { println(prettyPrint()) }
-                .then()
-                .assertThat().statusCode(`is`(201))
+            )
+            .post(links["createCollection"])
+            .apply { println(prettyPrint()) }
+            .then()
+            .assertThat().statusCode(`is`(201))
     }
 
     @Test
@@ -115,148 +122,148 @@ class CollectionsDocTests : AbstractDocTests() {
     @Test
     fun `retrieving a collection with detailed projection`() {
         testRetrievingCollection(
-                snippetId = "resource-collection-detailed",
-                useDetailedProjection = true
+            snippetId = "resource-collection-detailed",
+            useDetailedProjection = true
         )
     }
 
     @Test
     fun `searching through collections`() {
         given(documentationSpec)
-                .filter(
-                        document(
-                                "resource-collection-search",
-                                requestParameters(
-                                        parameterWithName("query")
-                                                .optional()
-                                                .description("A phrase you want to search by. Filters through collection titles")
-                                                .attributes(
-                                                        key("type").value("String")
-                                                ),
-                                        parameterWithName("public")
-                                                .optional()
-                                                .description("Whether you want to search through public collections only or not")
-                                                .attributes(
-                                                        key("type").value("Boolean")
-                                                ),
-                                        parameterWithName("subject")
-                                                .optional()
-                                                .description("Allows to limit search results to specific subjects only")
-                                                .attributes(
-                                                        key("type").value("List of subject IDs")
-                                                ),
-                                        parameterWithName("age_range_min")
-                                                .optional()
-                                                .description("Minimum age to filter from - it filters on the collection age range property, and is inclusive")
-                                                .attributes(
-                                                        key("type").value("Number")
-                                                ),
-                                        parameterWithName("age_range_max")
-                                                .optional()
-                                                .description("Maximum age to filter to - it filters on the collection age range property, and is inclusive")
-                                                .attributes(
-                                                        key("type").value("Number")
-                                                ),
-                                        parameterWithName("has_lesson_plans")
-                                                .optional()
-                                                .description("Allows to limit search results to collection with lesson plan attachment only")
-                                                .attributes(
-                                                        key("type").value("Boolean")
-                                                ),
-                                        parameterWithName("page")
-                                                .optional()
-                                                .description("Index of search results page to retrieve")
-                                                .attributes(
-                                                        key("type").value("Integer")
-                                                ),
-                                        parameterWithName("size")
-                                                .optional()
-                                                .description("Collection page size")
-                                                .attributes(
-                                                        key("type").value("Integer")
-                                                ),
-                                        parameterWithName("projection")
-                                                .optional()
-                                                .description("Controls how sub-resources are fetched. Allowed values are `list` for shallow details and `details` for full sub-resource information. See <<resources-collections-projections,here>> for more details")
-                                                .attributes(
-                                                        key("type").value("Integer")
-                                                )
-                                ),
-                                responseFields(
-                                        subsectionWithPath("_embedded.collections").description("Collection resources array. See <<resources-collections-retrieve_response_fields,collection>> for payload details"),
-                                        *pageSpecificationResponseFields,
-                                        subsectionWithPath("_links").description("HAL links for the collection resource")
-                                ),
-                                links(
-                                        linkWithRel("self").description("Points to this exact search query"),
-                                        linkWithRel("next").description("Points to next page of collections"),
-                                        linkWithRel("details").description("Points to this search query with details projection"),
-                                        linkWithRel("list").description("Points to this search query with list projection")
-                                )
-                        )
+            .filter(
+                document(
+                    "resource-collection-search",
+                    requestParameters(
+                        parameterWithName("query")
+                            .optional()
+                            .description("A phrase you want to search by. Filters through collection titles")
+                            .attributes(
+                                key("type").value("String")
+                            ),
+                        parameterWithName("public")
+                            .optional()
+                            .description("Whether you want to search through public collections only or not")
+                            .attributes(
+                                key("type").value("Boolean")
+                            ),
+                        parameterWithName("subject")
+                            .optional()
+                            .description("Allows to limit search results to specific subjects only")
+                            .attributes(
+                                key("type").value("List of subject IDs")
+                            ),
+                        parameterWithName("age_range_min")
+                            .optional()
+                            .description("Minimum age to filter from - it filters on the collection age range property, and is inclusive")
+                            .attributes(
+                                key("type").value("Number")
+                            ),
+                        parameterWithName("age_range_max")
+                            .optional()
+                            .description("Maximum age to filter to - it filters on the collection age range property, and is inclusive")
+                            .attributes(
+                                key("type").value("Number")
+                            ),
+                        parameterWithName("has_lesson_plans")
+                            .optional()
+                            .description("Allows to limit search results to collection with lesson plan attachment only")
+                            .attributes(
+                                key("type").value("Boolean")
+                            ),
+                        parameterWithName("page")
+                            .optional()
+                            .description("Index of search results page to retrieve")
+                            .attributes(
+                                key("type").value("Integer")
+                            ),
+                        parameterWithName("size")
+                            .optional()
+                            .description("Collection page size")
+                            .attributes(
+                                key("type").value("Integer")
+                            ),
+                        parameterWithName("projection")
+                            .optional()
+                            .description("Controls how sub-resources are fetched. Allowed values are `list` for shallow details and `details` for full sub-resource information. See <<resources-collections-projections,here>> for more details")
+                            .attributes(
+                                key("type").value("Integer")
+                            )
+                    ),
+                    responseFields(
+                        subsectionWithPath("_embedded.collections").description("Collection resources array. See <<resources-collections-retrieve_response_fields,collection>> for payload details"),
+                        *pageSpecificationResponseFields,
+                        subsectionWithPath("_links").description("HAL links for the collection resource")
+                    ),
+                    links(
+                        linkWithRel("self").description("Points to this exact search query"),
+                        linkWithRel("next").description("Points to next page of collections"),
+                        linkWithRel("details").description("Points to this search query with details projection"),
+                        linkWithRel("list").description("Points to this search query with list projection")
+                    )
                 )
-                .`when`()
-                .get(
-                        UriTemplate.fromTemplate(links["searchCollections"])
-                                .set("query", publicCollectionTitle)
-                                .set("public", true)
-                                .set("subject", subjects.map { it.id.value })
-                                .set("page", 0)
-                                .set("size", 1)
-                                .set("projection", "list")
-                                .set("hasLessonPlans", true)
-                                .expand()
-                )
-                .apply { println(prettyPrint()) }
-                .then()
-                .assertThat()
-                .statusCode(`is`(200))
+            )
+            .`when`()
+            .get(
+                UriTemplate.fromTemplate(links["searchCollections"])
+                    .set("query", publicCollectionTitle)
+                    .set("public", true)
+                    .set("subject", subjects.map { it.id.value })
+                    .set("page", 0)
+                    .set("size", 1)
+                    .set("projection", "list")
+                    .set("hasLessonPlans", true)
+                    .expand()
+            )
+            .apply { println(prettyPrint()) }
+            .then()
+            .assertThat()
+            .statusCode(`is`(200))
     }
 
     @Test
     fun `editing collections`() {
         given(documentationSpec)
-                .filter(
-                        document(
-                                "resource-collection-edit",
-                                requestFields(
-                                        fieldWithPath("title")
-                                                .optional()
-                                                .description("Collection's title"),
-                                        fieldWithPath("description")
-                                                .optional()
-                                                .description("Collection's description"),
-                                        fieldWithPath("videos")
-                                                .optional()
-                                                .description("A list of IDs of videos that should belong to this collection. Will replace existing videos"),
-                                        fieldWithPath("subjects")
-                                                .optional()
-                                                .description("A list of IDs of subjects that should belong to this collection. Will replace existing subjects"),
-                                        fieldWithPath("isPublic")
-                                                .optional()
-                                                .description("Whether the new collection should be visible only to you or to everyone"),
-                                        fieldWithPath("ageRange.min")
-                                                .optional()
-                                                .description("The lower bound of age range this collection of videos is suitable for"),
-                                        fieldWithPath("ageRange.max")
-                                                .optional()
-                                                .description("The upper bound of age range this collection of videos is suitable for"),
-                                        subsectionWithPath("attachment")
-                                                .optional()
-                                                .description("An optional <<resources-collections-attachments,attachment>> that can be added to this collection")
-                                ),
-                                requestFields(
-                                        beneathPath("attachment").withSubsectionId("attachment"),
-                                        fieldWithPath("linkToResource").description("A link that points to attachment's actual content"),
-                                        fieldWithPath("type").type("Enum String").description("The type of the attachment. Currently we support `LESSON_PLAN` only"),
-                                        fieldWithPath("description").optional().description("Text that describes the attachment")
-                                )
-                        )
+            .filter(
+                document(
+                    "resource-collection-edit",
+                    requestFields(
+                        fieldWithPath("title")
+                            .optional()
+                            .description("Collection's title"),
+                        fieldWithPath("description")
+                            .optional()
+                            .description("Collection's description"),
+                        fieldWithPath("videos")
+                            .optional()
+                            .description("A list of IDs of videos that should belong to this collection. Will replace existing videos"),
+                        fieldWithPath("subjects")
+                            .optional()
+                            .description("A list of IDs of subjects that should belong to this collection. Will replace existing subjects"),
+                        fieldWithPath("isPublic")
+                            .optional()
+                            .description("Whether the new collection should be visible only to you or to everyone"),
+                        fieldWithPath("ageRange.min")
+                            .optional()
+                            .description("The lower bound of age range this collection of videos is suitable for"),
+                        fieldWithPath("ageRange.max")
+                            .optional()
+                            .description("The upper bound of age range this collection of videos is suitable for"),
+                        subsectionWithPath("attachment")
+                            .optional()
+                            .description("An optional <<resources-collections-attachments,attachment>> that can be added to this collection")
+                    ),
+                    requestFields(
+                        beneathPath("attachment").withSubsectionId("attachment"),
+                        fieldWithPath("linkToResource").description("A link that points to attachment's actual content"),
+                        fieldWithPath("type").type("Enum String").description("The type of the attachment. Currently we support `LESSON_PLAN` only"),
+                        fieldWithPath("description").optional().description("Text that describes the attachment")
+                    )
                 )
-                .`when`()
-                .contentType(ContentType.JSON)
-                .body(
-                        """
+            )
+            .`when`()
+            .contentType(ContentType.JSON)
+            .body(
+                """
                 {
                     "title": "$collectionTitle",
                     "description": "$collectionDesc",
@@ -274,31 +281,31 @@ class CollectionsDocTests : AbstractDocTests() {
                     }
                 }
             """.trimIndent()
-                )
-                .patch("/collections/{id}", collectionId)
-                .apply { println(prettyPrint()) }
-                .then()
-                .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
+            )
+            .patch("/collections/{id}", collectionId)
+            .apply { println(prettyPrint()) }
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
 
     @Test
     fun `bookmarking a collection`() {
         given(documentationSpec)
-                .filter(
-                        document(
-                                "resource-collection-bookmark",
-                                pathParameters(
-                                        parameterWithName("id").description("The ID of the collection")
-                                )
-                        )
+            .filter(
+                document(
+                    "resource-collection-bookmark",
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
+                    )
                 )
-                .`when`()
-                .queryParam("bookmarked", true)
-                .patch("/collections/{id}", publicCollectionId)
-                .then()
-                .assertThat().statusCode(`is`(HttpStatus.OK.value()))
-                .and()
-                .body("id", equalTo(publicCollectionId))
+            )
+            .`when`()
+            .queryParam("bookmarked", true)
+            .patch("/collections/{id}", publicCollectionId)
+            .then()
+            .assertThat().statusCode(`is`(HttpStatus.OK.value()))
+            .and()
+            .body("id", equalTo(publicCollectionId))
     }
 
     @BeforeEach
@@ -307,13 +314,13 @@ class CollectionsDocTests : AbstractDocTests() {
         subjects = listOf(retrievedSubjects.component1(), retrievedSubjects.component2())
 
         val collectionLocation = videoServiceClient.createCollection(
-                CreateCollectionRequest.builder()
-                        .title(collectionTitle)
-                        .description(collectionDesc)
-                        .videos(listOf("5c542abf5438cdbcb56df0bf"))
-                        .subjects(subjects.map { it.id.value }.toSet())
-                        .isPublic(true)
-                        .build()
+            CreateCollectionRequest.builder()
+                .title(collectionTitle)
+                .description(collectionDesc)
+                .videos(listOf("5c542abf5438cdbcb56df0bf"))
+                .subjects(subjects.map { it.id.value }.toSet())
+                .isPublic(true)
+                .build()
         )
         collectionId = collectionLocation.uri.path.substringAfterLast("/")
         addAttachmentToCollection(collectionLocation.uri)
@@ -346,9 +353,9 @@ class CollectionsDocTests : AbstractDocTests() {
 
     private fun setupPublicCollectionDetails() {
         val response = Fuel.post(links["createCollection"] ?: error("Link not available"))
-                .header("Authorization", "Bearer $publicClientAccessToken")
-                .body(
-                        """
+            .header("Authorization", "Bearer $publicClientAccessToken")
+            .body(
+                """
                 {
                     "title": "$publicCollectionTitle",
                     "description": "This content is accessible by everyone",
@@ -357,65 +364,66 @@ class CollectionsDocTests : AbstractDocTests() {
                     "public": true
                 }
             """.trimIndent()
-                )
-                .response()
+            )
+            .response()
 
         publicCollectionId = response.second.headers["Location"].first().substringAfterLast("/")
     }
 
     private fun testRetrievingCollection(snippetId: String, useDetailedProjection: Boolean = false) {
         given(documentationSpec)
-                .filter(
-                        document(
-                                snippetId,
-                                pathParameters(
-                                        parameterWithName("id").description("The ID of the collection")
-                                ),
-                                responseFields(
-                                        fieldWithPath("id").description("The ID of the collection"),
-                                        fieldWithPath("owner").description("The ID of the collection's owner"),
-                                        fieldWithPath("title").description("Collection's title"),
-                                        fieldWithPath("description").description("Collection's description"),
-                                        subsectionWithPath("videos").description("A list of <<resources-videos,videos>> in the collection. Shallow video details are returned by default"),
-                                        subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
-                                        fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
-                                        fieldWithPath("public").description("Whether the collection is publicly available"),
-                                        fieldWithPath("mine").description("Whether the collection belongs to me"),
-                                        fieldWithPath("createdBy").description("Name of collection's creator"),
-                                        fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
-                                        fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
-                                        subsectionWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
-                                        subsectionWithPath("_links").description("HAL links related to this collection")
-                                ),
-                                responseFields(
-                                        beneathPath("attachments").withSubsectionId("attachments"),
-                                        fieldWithPath("id").description("ID of the attachment"),
-                                        fieldWithPath("type").description("The type of the attachment. Currently we support `LESSON_PLAN` only").attributes(
-                                                key("type").value("Enum String")
-                                        ),
-                                        fieldWithPath("description").description("Text that describes the attachment"),
-                                        fieldWithPath("_links.download.href").description("A link that points to attachment's actual content"),
-                                        fieldWithPath("_links.download.templated").ignored()
-                                ),
-                                links(
-                                        linkWithRel("self").description("Points to this collection"),
-                                        linkWithRel("edit").description("`PATCH` requests can be sent to this URL to update the collection"),
-                                        linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
-                                        linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
-                                        linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection"),
-                                        linkWithRel("interactedWith").description("`POST` requests to this URL to track collection interaction events")
-                                )
-                        )
+            .filter(
+                document(
+                    snippetId,
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
+                    ),
+                    responseFields(
+                        fieldWithPath("id").description("The ID of the collection"),
+                        fieldWithPath("owner").description("The ID of the collection's owner"),
+                        fieldWithPath("title").description("Collection's title"),
+                        fieldWithPath("description").description("Collection's description"),
+                        subsectionWithPath("videos").description("A list of <<resources-videos,videos>> in the collection. Shallow video details are returned by default"),
+                        subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
+                        fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
+                        fieldWithPath("public").description("Whether the collection is publicly available"),
+                        fieldWithPath("mine").description("Whether the collection belongs to me"),
+                        fieldWithPath("createdBy").description("Name of collection's creator"),
+                        fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
+                        fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
+                        subsectionWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
+                        subsectionWithPath("_links").description("HAL links related to this collection")
+                    ),
+                    responseFields(
+                        beneathPath("attachments").withSubsectionId("attachments"),
+                        fieldWithPath("id").description("ID of the attachment"),
+                        fieldWithPath("type").description("The type of the attachment. Currently we support `LESSON_PLAN` only").attributes(
+                            key("type").value("Enum String")
+                        ),
+                        fieldWithPath("description").description("Text that describes the attachment"),
+                        fieldWithPath("_links.download.href").description("A link that points to attachment's actual content"),
+                        fieldWithPath("_links.download.templated").ignored()
+                    ),
+                    links(
+                        linkWithRel("self").description("Points to this collection"),
+                        linkWithRel("edit").description("`PATCH` requests can be sent to this URL to update the collection"),
+                        linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
+                        linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
+                        linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection"),
+                        linkWithRel("interactedWith").description("`POST` requests to this URL to track collection interaction events")
+                    )
                 )
-                .`when`()
-                .apply {
-                    if (useDetailedProjection) {
-                        queryParam("projection", "details")
-                    }
+            )
+            .`when`()
+            .apply {
+                if (useDetailedProjection) {
+                    queryParam("projection", "details")
                 }
-                .get(links["collection"], collectionId).apply { println(prettyPrint()) }
-                .then()
-                .assertThat().statusCode(`is`(200))
+            }
+            .get(stripOptionalParameters(links["collection"]), collectionId)
+            .apply { println(prettyPrint()) }
+            .then()
+            .assertThat().statusCode(`is`(200))
     }
 }
 
