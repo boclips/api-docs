@@ -205,13 +205,10 @@ class CollectionsDocTests : AbstractDocTests() {
             .`when`()
             .get(
                 UriTemplate.fromTemplate(links["searchCollections"])
-                    .set("query", publicCollectionTitle)
-                    .set("public", true)
-                    .set("subject", subjects.map { it.id.value })
+                    .set("query", "collection")
                     .set("page", 0)
                     .set("size", 1)
                     .set("projection", "list")
-                    .set("hasLessonPlans", true)
                     .expand()
             )
             .apply { println(prettyPrint()) }
