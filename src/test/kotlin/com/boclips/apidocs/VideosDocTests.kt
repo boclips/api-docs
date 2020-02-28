@@ -103,7 +103,7 @@ class VideosDocTests : AbstractDocTests() {
                                 "type"
                             ).value("String")
                         ),
-                        parameterWithName("durations").optional().description("Filters on the video duration property. Provide duration ranges in the form `min[-max]`, ie `PT1M-PT6M`. These ranges are inclusive. This property supersedes the duration_min and duration_max properties.").attributes(
+                        parameterWithName("duration").optional().description("Filters on the video duration property. Provide duration ranges in the form `min[-max]`, ie `PT1M-PT6M`. These ranges are inclusive. This property supersedes the duration_min and duration_max properties.").attributes(
                             Attributes.key("type").value("Range of ISO-8601 (PT6M5S).")
                         ),
                         parameterWithName("duration_min").optional().description("Filters on the video duration property, this range is inclusive").attributes(
