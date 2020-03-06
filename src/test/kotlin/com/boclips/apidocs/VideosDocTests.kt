@@ -130,6 +130,9 @@ class VideosDocTests : AbstractDocTests() {
                         parameterWithName("age_range_max").optional().description("Maximum age to filter to - it filters on the video age range property, and is inclusive").attributes(
                             Attributes.key("type").value("Number")
                         ),
+                        parameterWithName("age_range").optional().description("Filters on the video age ranges. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.").attributes(
+                            Attributes.key("type").value("String")
+                        ),
                         parameterWithName("promoted").optional().description("Filter by promoted videos only").attributes(
                             Attributes.key("type").value("Boolean")
                         ),

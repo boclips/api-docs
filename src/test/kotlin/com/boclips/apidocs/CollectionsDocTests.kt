@@ -164,6 +164,12 @@ class CollectionsDocTests : AbstractDocTests() {
                             .attributes(
                                 key("type").value("Number")
                             ),
+                        parameterWithName("age_range")
+                            .optional()
+                            .description("Filters on the video age ranges. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
+                            .attributes(
+                                key("type").value("String")
+                            ),
                         parameterWithName("has_lesson_plans")
                             .optional()
                             .description("Allows to limit search results to collection with lesson plan attachment only")
@@ -252,7 +258,8 @@ class CollectionsDocTests : AbstractDocTests() {
                     requestFields(
                         beneathPath("attachment").withSubsectionId("attachment"),
                         fieldWithPath("linkToResource").description("A link that points to attachment's actual content"),
-                        fieldWithPath("type").type("Enum String").description("The type of the attachment. Currently we support `LESSON_PLAN` only"),
+                        fieldWithPath("type").type("Enum String")
+                            .description("The type of the attachment. Currently we support `LESSON_PLAN` only"),
                         fieldWithPath("description").optional().description("Text that describes the attachment")
                     )
                 )
@@ -394,9 +401,10 @@ class CollectionsDocTests : AbstractDocTests() {
                     responseFields(
                         beneathPath("attachments").withSubsectionId("attachments"),
                         fieldWithPath("id").description("ID of the attachment"),
-                        fieldWithPath("type").description("The type of the attachment. Currently we support `LESSON_PLAN` only").attributes(
-                            key("type").value("Enum String")
-                        ),
+                        fieldWithPath("type").description("The type of the attachment. Currently we support `LESSON_PLAN` only")
+                            .attributes(
+                                key("type").value("Enum String")
+                            ),
                         fieldWithPath("description").description("Text that describes the attachment"),
                         fieldWithPath("_links.download.href").description("A link that points to attachment's actual content"),
                         fieldWithPath("_links.download.templated").ignored()
