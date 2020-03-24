@@ -153,6 +153,7 @@ class VideosDocTests : AbstractDocTests() {
                     )
                     ,responseFields(
                         subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
+                        subsectionWithPath("_embedded.facets").ignored(),
                         *pageSpecificationResponseFields
                     )
                 )
