@@ -158,7 +158,7 @@ class LoginDocTests : AbstractDocTests() {
     val tokenResponseFields: ResponseFieldsSnippet = responseFields(
         fieldWithPath("access_token").description("The OIDC `access_token` JWT-encoded that can be used to fetch Boclips resources"),
         fieldWithPath("refresh_token").description("The OIDC `refresh_token` that can be used to get a new `access_token` if the current expires"),
-        fieldWithPath("expires_in").description("Expiration of the `access_token` in millis"),
+        fieldWithPath("expires_in").description("Expiration of the `access_token` in seconds"),
         fieldWithPath("refresh_expires_in").description("Expiration of the `refresh_token` in millis"),
 
         fieldWithPath("scope").description("https://auth0.com/docs/scopes/current/oidc-scopes[OIDC claims] allowed for this particular `access_token`"),
