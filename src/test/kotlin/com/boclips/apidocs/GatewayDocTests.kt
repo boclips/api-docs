@@ -60,6 +60,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("myCollections").description("Collections created by the current user"),
                         linkWithRel("mySavedCollections").description("Collections created or bookmarked by the current user"),
                         linkWithRel("publicCollections").description("Collections marked as public"),
+                        linkWithRel("promotedCollections").description("Collections that are promoted"),
                         linkWithRel("searchPublicCollections").description("Search all public collections"),
                         linkWithRel("searchCollections").description("Search all collections"),
                         linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),

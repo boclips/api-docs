@@ -146,6 +146,12 @@ class CollectionsDocTests : AbstractDocTests() {
                             .attributes(
                                 key("type").value("Boolean")
                             ),
+                        parameterWithName("promoted")
+                            .optional()
+                            .description("Whether you want to search through promoted collections only or not")
+                            .attributes(
+                                key("type").value("Boolean")
+                            ),
                         parameterWithName("subject")
                             .optional()
                             .description("Allows to limit search results to specific subjects only")
@@ -391,6 +397,7 @@ class CollectionsDocTests : AbstractDocTests() {
                         subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
                         fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
                         fieldWithPath("public").description("Whether the collection is publicly available"),
+                        fieldWithPath("promoted").description("Whether the collection is promoted"),
                         fieldWithPath("mine").description("Whether the collection belongs to me"),
                         fieldWithPath("createdBy").description("Name of collection's creator"),
                         fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
