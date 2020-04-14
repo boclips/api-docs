@@ -408,7 +408,7 @@ class CollectionsDocTests : AbstractDocTests() {
                     responseFields(
                         beneathPath("attachments").withSubsectionId("attachments"),
                         fieldWithPath("id").description("ID of the attachment"),
-                        fieldWithPath("type").description("The type of the attachment. Currently we support `LESSON_PLAN` only")
+                        fieldWithPath("type").description("The type of the attachment: `LESSON_PLAN` `ACTIVITY`")
                             .attributes(
                                 key("type").value("Enum String")
                             ),
