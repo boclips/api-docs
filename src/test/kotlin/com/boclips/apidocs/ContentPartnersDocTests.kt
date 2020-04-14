@@ -28,7 +28,6 @@ class ContentPartnersDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("id").description("The ID of the content partner"),
                         fieldWithPath("name").description("The name of the content partner"),
-                        subsectionWithPath("ageRange").description("The age ranges served by the content partner"),
                         subsectionWithPath("legalRestriction").description("Text demonstrating the legal restrictions involved in using this partner's content"),
                         fieldWithPath("description").description("Text describing this partner's content"),
                         subsectionWithPath("contentCategories[*].key").ignored(),
