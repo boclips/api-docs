@@ -61,6 +61,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("myCollections").description("Collections created by the current user"),
                         linkWithRel("mySavedCollections").description("Collections created or bookmarked by the current user"),
                         linkWithRel("publicCollections").description("Collections marked as public"),
+                        linkWithRel("discoverCollections").description("Collections that have been curated by Boclips and are considered a great starting point for exploration."),
                         linkWithRel("promotedCollections").description("Collections that are promoted"),
                         linkWithRel("searchPublicCollections").description("Search all public collections"),
                         linkWithRel("searchCollections").description("Search all collections"),
