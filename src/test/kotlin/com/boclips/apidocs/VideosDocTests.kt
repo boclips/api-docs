@@ -64,6 +64,7 @@ class VideosDocTests : AbstractDocTests() {
                         subsectionWithPath("attachments").description("List of resources attached to the video to help use the video in the classroom"),
 
                         fieldWithPath("legalRestrictions").description("Legal restrictions for this particular video if any"),
+                        fieldWithPath("contentWarnings").description("Content warnings for this particular video if any"),
 
                         fieldWithPath("ageRange.label").optional().description("Age range in a human readable format"),
                         fieldWithPath("ageRange.min").optional().description("Minimum of age range for this video"),
