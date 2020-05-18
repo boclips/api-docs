@@ -60,10 +60,10 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("createCollection").description("Link to create a new video collection"),
                         linkWithRel("myCollections").description("Collections created by the current user"),
                         linkWithRel("mySavedCollections").description("Collections created or bookmarked by the current user"),
-                        linkWithRel("publicCollections").description("Collections marked as public"),
+                        linkWithRel("publicCollections").ignored(),
+                        linkWithRel("searchPublicCollections").ignored(),
                         linkWithRel("discoverCollections").description("Collections that have been curated by Boclips and are considered a great starting point for exploration."),
                         linkWithRel("promotedCollections").description("Collections that are promoted"),
-                        linkWithRel("searchPublicCollections").description("Search all public collections"),
                         linkWithRel("searchCollections").description("Search all collections"),
                         linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
 
