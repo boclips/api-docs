@@ -2,19 +2,18 @@ package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.apidocs.testsupport.UriTemplateHelper.stripOptionalParameters
+import com.boclips.videos.api.request.attachments.AttachmentRequest
 import com.boclips.videos.api.request.collection.CreateCollectionRequest
+import com.boclips.videos.api.request.collection.UpdateCollectionRequest
 import com.boclips.videos.api.response.subject.SubjectResource
 import com.damnhandy.uri.template.UriTemplate
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.equalTo
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.springframework.boot.web.client.RestTemplateBuilder
-import org.springframework.http.HttpEntity
-import org.springframework.http.HttpHeaders
-import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
@@ -28,11 +27,9 @@ import org.springframework.restdocs.request.RequestDocumentation.pathParameters
 import org.springframework.restdocs.request.RequestDocumentation.requestParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes.key
-import org.springframework.web.client.exchange
-import java.net.URI
 
 class CollectionsDocTests : AbstractDocTests() {
-    val collectionTitle = "Genetic Screening Debate"
+    val aCollectionTitle = "Genetic Screening Debate"
     val collectionDesc =
         "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds."
 
@@ -48,7 +45,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .put("/collections/${collectionId}/videos/{video_id}", videoIds[0])
+            .put("/collections/${aCollectionWithAttachments}/videos/{video_id}", someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
@@ -65,7 +62,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .delete("/collections/${collectionId}/videos/{video_id}", videoIds[0])
+            .delete("/collections/${aCollectionWithAttachments}/videos/{video_id}", someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
@@ -98,9 +95,9 @@ class CollectionsDocTests : AbstractDocTests() {
             .body(
                 """
                 {
-                    "title": "$collectionTitle",
+                    "title": "$aCollectionTitle",
                     "description": "$collectionDesc",
-                    "videos": ["${videoIds[0]}", "${videoIds[1]}"],
+                    "videos": ["${someExistingVideoIds[0]}", "${someExistingVideoIds[1]}"],
                     "subjects": [${subjects.joinToString(", ") { "\"${it.id}\"" }}],
                     "discoverable": true
                 }
@@ -273,9 +270,9 @@ class CollectionsDocTests : AbstractDocTests() {
             .body(
                 """
                 {
-                    "title": "$collectionTitle",
+                    "title": "$aCollectionTitle",
                     "description": "$collectionDesc",
-                    "videos": ["${videoIds[0]}", "${videoIds[1]}"],
+                    "videos": ["${someExistingVideoIds[0]}", "${someExistingVideoIds[1]}"],
                     "subjects": [${subjects.joinToString(", ") { "\"${it.id}\"" }}],
                     "discoverable": true,
                     "ageRange": {
@@ -290,7 +287,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 }
             """.trimIndent()
             )
-            .patch("/collections/{id}", collectionId)
+            .patch("/collections/{id}", aCollectionWithAttachments)
             .apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
@@ -309,52 +306,56 @@ class CollectionsDocTests : AbstractDocTests() {
             )
             .`when`()
             .queryParam("bookmarked", true)
-            .patch("/collections/{id}", discoverableCollectionId)
+            .patch("/collections/{id}", aCollection)
             .then()
             .assertThat().statusCode(`is`(HttpStatus.OK.value()))
             .and()
-            .body("id", equalTo(discoverableCollectionId))
+            .body("id", equalTo(aCollection))
     }
 
     @BeforeEach
     fun setupTestData() {
         subjects = subjectsClient.getSubjects()._embedded.subjects.take(2)
 
-        val collectionWithAttachments = collectionsClient.create(
+        aCollectionWithAttachments = collectionsClient.create(
             CreateCollectionRequest(
-                title = collectionTitle,
+                title = aCollectionTitle,
                 description = collectionDesc,
                 videos = listOf("5c542abf5438cdbcb56df0bf"),
                 subjects = subjects.map { it.id }.toSet(),
                 discoverable = true
             )
-        )
-        collectionId = collectionWithAttachments.id!!
-        addAttachmentToCollection(URI("https://api.staging-boclips.com/v1/collections/$collectionId"))
+        ).id!!
 
-        discoverableCollectionId = collectionsClient.create(
+        collectionsClient.update(
+            collectionId = aCollectionWithAttachments,
+            update = UpdateCollectionRequest(
+                attachment = AttachmentRequest(
+                    linkToResource = "https://docs.google.com/document/d/1SBf26k2PEPsChg2X4yv6F71uqp8bECcYFtAFSmTDN10/edit?usp=sharing",
+                    description = "1.Solving Problems with The Scientific Method: We Do it Everyday! 1.Plan A Science Fair Project",
+                    type = "LESSON_PLAN"
+                )
+            )
+        )
+
+        aCollection = collectionsClient.create(
             CreateCollectionRequest(
-                title = discoverableCollectionTitle,
+                title = anotherCollectionTitle,
                 description = "This content is accessible by everyone",
-                videos = listOf(videoIds[0], videoIds[1]),
+                videos = listOf(someExistingVideoIds[0], someExistingVideoIds[1]),
                 subjects = subjects.map { it.id }.toSet(),
                 discoverable = true
             )
         ).id!!
     }
 
-    private fun addAttachmentToCollection(collectionUri: URI) {
-        val restTemplate = RestTemplateBuilder().build()
-        val httpEntity = HttpEntity("""
-            {
-                "attachment": {
-                    "linkToResource": "https://docs.google.com/document/d/1SBf26k2PEPsChg2X4yv6F71uqp8bECcYFtAFSmTDN10/edit?usp=sharing",
-                    "description": "1.Solving Problems with The Scientific Method: We Do it Everyday! 1.Plan A Science Fair Project",
-                    "type": "LESSON_PLAN"
-                }
-            }
-        """.trimIndent(), HttpHeaders().apply { setBearerAuth(privateClientAccessToken) })
-        restTemplate.exchange<String>(collectionUri.toString(), HttpMethod.PATCH, httpEntity)
+    @AfterEach
+    fun tearDownTestData() {
+        try {
+            collectionsClient.delete(aCollection)
+            collectionsClient.delete(aCollectionWithAttachments)
+        } catch (ex: Exception) {
+        }
     }
 
     private fun testRetrievingCollection(snippetId: String, useDetailedProjection: Boolean = false) {
@@ -410,17 +411,17 @@ class CollectionsDocTests : AbstractDocTests() {
                     queryParam("projection", "details")
                 }
             }
-            .get(stripOptionalParameters(links["collection"]), collectionId)
+            .get(stripOptionalParameters(links["collection"]), aCollectionWithAttachments)
             .apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(`is`(200))
     }
 
-    val videoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
-    val discoverableCollectionTitle = "Discoverable Boclips Collection"
+    val someExistingVideoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
+    val anotherCollectionTitle = "Discoverable Boclips Collection"
 
     lateinit var subjects: List<SubjectResource>
-    lateinit var collectionId: String
-    lateinit var discoverableCollectionId: String
+    lateinit var aCollectionWithAttachments: String
+    lateinit var aCollection: String
 }
 

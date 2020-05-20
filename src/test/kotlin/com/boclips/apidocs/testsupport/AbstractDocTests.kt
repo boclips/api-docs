@@ -54,19 +54,19 @@ abstract class AbstractDocTests {
     @Value("\${api.clientsecret}")
     lateinit var clientSecret: String
 
-    // used in login spec only
+    // credentials used in login spec only
     protected lateinit var publicClientAccessToken: String
     protected lateinit var publicClientRefreshToken: String
 
-    // teacher user that does not get modified
+    // credentials used for operations not modifying the user
     protected lateinit var freshClientAccessToken: String
     protected lateinit var freshClientRefreshToken: String
 
-    // teacher user which is updated used user doc tests
+    // credentials used for operations modifying the user
     protected lateinit var teacherAccessToken: String
     protected lateinit var teacherRefreshToken: String
 
-    // stub user - user setting up all the fixture
+    // credentials used to set up the fixtures
     protected lateinit var privateClientAccessToken: String
     protected lateinit var privateClientRefreshToken: String
 
