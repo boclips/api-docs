@@ -140,7 +140,7 @@ class CollectionsDocTests : AbstractDocTests() {
                             ),
                         parameterWithName("discoverable")
                             .optional()
-                            .description("Whether you want to specifically search through collections marked as discoverable.")
+                            .description("By default only discoverable collections appear in search. To retrieve all collections use this property.")
                             .attributes(
                                 key("type").value("Boolean")
                             ),
