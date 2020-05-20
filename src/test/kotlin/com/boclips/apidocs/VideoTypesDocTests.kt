@@ -11,7 +11,7 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class VideoTypesDocTests : AbstractDocTests() {
     @Test
     fun `lists available video types`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-video-types",

@@ -2,10 +2,9 @@ package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.apidocs.testsupport.UriTemplateHelper.stripOptionalParameters
-import com.boclips.videos.service.client.CreateCollectionRequest
-import com.boclips.videos.service.client.Subject
+import com.boclips.videos.api.request.collection.CreateCollectionRequest
+import com.boclips.videos.api.response.subject.SubjectResource
 import com.damnhandy.uri.template.UriTemplate
-import com.github.kittinunf.fuel.Fuel
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers.`is`
@@ -39,7 +38,7 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `adding a video to a collection`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-collection-add-video",
@@ -56,7 +55,7 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `removing a video from a collection`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-collection-remove-video",
@@ -73,7 +72,7 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `creating a new collection`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-collection-creation",
@@ -89,9 +88,8 @@ class CollectionsDocTests : AbstractDocTests() {
                         fieldWithPath("subjects")
                             .optional()
                             .description("A list of IDs of subjects that should belong to this collection"),
-                        fieldWithPath("public")
-                            .optional()
-                            .description("Whether the new collection should be visible only to you or to everyone")
+                        fieldWithPath("discoverable")
+                            .ignored()
                     )
                 )
             )
@@ -103,8 +101,8 @@ class CollectionsDocTests : AbstractDocTests() {
                     "title": "$collectionTitle",
                     "description": "$collectionDesc",
                     "videos": ["${videoIds[0]}", "${videoIds[1]}"],
-                    "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
-                    "public": true
+                    "subjects": [${subjects.joinToString(", ") { "\"${it.id}\"" }}],
+                    "discoverable": true
                 }
             """.trimIndent()
             )
@@ -129,7 +127,7 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `searching through collections`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-collection-search",
@@ -140,9 +138,9 @@ class CollectionsDocTests : AbstractDocTests() {
                             .attributes(
                                 key("type").value("String")
                             ),
-                        parameterWithName("public")
+                        parameterWithName("discoverable")
                             .optional()
-                            .description("Whether you want to search through public collections only or not")
+                            .description("Whether you want to specifically search through collections marked as discoverable.")
                             .attributes(
                                 key("type").value("Boolean")
                             ),
@@ -231,7 +229,7 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `editing collections`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-collection-edit",
@@ -248,9 +246,9 @@ class CollectionsDocTests : AbstractDocTests() {
                         fieldWithPath("subjects")
                             .optional()
                             .description("A list of IDs of subjects that should belong to this collection. Will replace existing subjects"),
-                        fieldWithPath("isPublic")
+                        fieldWithPath("discoverable")
                             .optional()
-                            .description("Whether the new collection should be visible only to you or to everyone"),
+                            .description("Whether the new collection is visible in search and has been vetted by Boclips"),
                         fieldWithPath("ageRange.min")
                             .optional()
                             .description("The lower bound of age range this collection of videos is suitable for"),
@@ -278,8 +276,8 @@ class CollectionsDocTests : AbstractDocTests() {
                     "title": "$collectionTitle",
                     "description": "$collectionDesc",
                     "videos": ["${videoIds[0]}", "${videoIds[1]}"],
-                    "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
-                    "isPublic": true,
+                    "subjects": [${subjects.joinToString(", ") { "\"${it.id}\"" }}],
+                    "discoverable": true,
                     "ageRange": {
                         "min": 8,
                         "max": 12
@@ -300,7 +298,7 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `bookmarking a collection`() {
-        given(documentationSpec)
+        given(apiUserSpec)
             .filter(
                 document(
                     "resource-collection-bookmark",
@@ -311,31 +309,38 @@ class CollectionsDocTests : AbstractDocTests() {
             )
             .`when`()
             .queryParam("bookmarked", true)
-            .patch("/collections/{id}", publicCollectionId)
+            .patch("/collections/{id}", discoverableCollectionId)
             .then()
             .assertThat().statusCode(`is`(HttpStatus.OK.value()))
             .and()
-            .body("id", equalTo(publicCollectionId))
+            .body("id", equalTo(discoverableCollectionId))
     }
 
     @BeforeEach
     fun setupTestData() {
-        val retrievedSubjects = videoServiceClient.subjects
-        subjects = listOf(retrievedSubjects.component1(), retrievedSubjects.component2())
+        subjects = subjectsClient.getSubjects()._embedded.subjects.take(2)
 
-        val collectionLocation = videoServiceClient.createCollection(
-            CreateCollectionRequest.builder()
-                .title(collectionTitle)
-                .description(collectionDesc)
-                .videos(listOf("5c542abf5438cdbcb56df0bf"))
-                .subjects(subjects.map { it.id.value }.toSet())
-                .isPublic(true)
-                .build()
+        val collectionWithAttachments = collectionsClient.create(
+            CreateCollectionRequest(
+                title = collectionTitle,
+                description = collectionDesc,
+                videos = listOf("5c542abf5438cdbcb56df0bf"),
+                subjects = subjects.map { it.id }.toSet(),
+                discoverable = true
+            )
         )
-        collectionId = collectionLocation.uri.path.substringAfterLast("/")
-        addAttachmentToCollection(collectionLocation.uri)
+        collectionId = collectionWithAttachments.id!!
+        addAttachmentToCollection(URI("https://api.staging-boclips.com/v1/collections/$collectionId"))
 
-        setupPublicCollectionDetails()
+        discoverableCollectionId = collectionsClient.create(
+            CreateCollectionRequest(
+                title = discoverableCollectionTitle,
+                description = "This content is accessible by everyone",
+                videos = listOf(videoIds[0], videoIds[1]),
+                subjects = subjects.map { it.id }.toSet(),
+                discoverable = true
+            )
+        ).id!!
     }
 
     private fun addAttachmentToCollection(collectionUri: URI) {
@@ -352,36 +357,8 @@ class CollectionsDocTests : AbstractDocTests() {
         restTemplate.exchange<String>(collectionUri.toString(), HttpMethod.PATCH, httpEntity)
     }
 
-    val videoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
-
-    lateinit var subjects: List<Subject>
-
-    lateinit var collectionId: String
-
-    lateinit var publicCollectionId: String
-    val publicCollectionTitle = "Public Boclips Collection"
-
-    private fun setupPublicCollectionDetails() {
-        val response = Fuel.post(links["createCollection"] ?: error("Link not available"))
-            .header("Authorization", "Bearer $publicClientAccessToken")
-            .body(
-                """
-                {
-                    "title": "$publicCollectionTitle",
-                    "description": "This content is accessible by everyone",
-                    "videos": ["${videoIds[0]}", "${videoIds[1]}"],
-                    "subjects": [${subjects.joinToString(", ") { "\"${it.id.value}\"" }}],
-                    "public": true
-                }
-            """.trimIndent()
-            )
-            .response()
-
-        publicCollectionId = response.second.headers["Location"].first().substringAfterLast("/")
-    }
-
     private fun testRetrievingCollection(snippetId: String, useDetailedProjection: Boolean = false) {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     snippetId,
@@ -397,7 +374,7 @@ class CollectionsDocTests : AbstractDocTests() {
                         subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
                         fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
                         fieldWithPath("public").ignored(),
-                        fieldWithPath("discoverable").description("Boclips-vetted collection, means collection appears in search"),
+                        fieldWithPath("discoverable").description("Discoverable collections are discoverable through searching and browsing."),
                         fieldWithPath("promoted").description("Whether the collection is promoted"),
                         fieldWithPath("mine").description("Whether the collection belongs to me"),
                         fieldWithPath("createdBy").description("Name of collection's creator"),
@@ -438,5 +415,12 @@ class CollectionsDocTests : AbstractDocTests() {
             .then()
             .assertThat().statusCode(`is`(200))
     }
+
+    val videoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
+    val discoverableCollectionTitle = "Discoverable Boclips Collection"
+
+    lateinit var subjects: List<SubjectResource>
+    lateinit var collectionId: String
+    lateinit var discoverableCollectionId: String
 }
 

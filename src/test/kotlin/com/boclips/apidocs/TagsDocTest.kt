@@ -14,7 +14,7 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class TagsDocTest : AbstractDocTests() {
     @Test
     fun `resource index contains root links`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-tags",

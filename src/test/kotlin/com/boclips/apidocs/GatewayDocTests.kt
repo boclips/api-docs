@@ -16,7 +16,7 @@ class GatewayDocTests : AbstractDocTests() {
 
     @Test
     fun `error example`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "error-example"
@@ -56,16 +56,13 @@ class GatewayDocTests : AbstractDocTests() {
 
                         linkWithRel("tags").description("List of tags that can be attached to videos"),
 
-                        linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
                         linkWithRel("createCollection").description("Link to create a new video collection"),
                         linkWithRel("myCollections").description("Collections created by the current user"),
                         linkWithRel("mySavedCollections").description("Collections created or bookmarked by the current user"),
-                        linkWithRel("publicCollections").ignored(),
-                        linkWithRel("searchPublicCollections").ignored(),
                         linkWithRel("discoverCollections").description("Collections that have been curated by Boclips and are considered a great starting point for exploration."),
-                        linkWithRel("promotedCollections").description("Collections that are promoted"),
+                        linkWithRel("promotedCollections").description("Collections that are promoted, e.g. on a homepage."),
                         linkWithRel("searchCollections").description("Search all collections"),
-                        linkWithRel("bookmarkedCollections").description("Collections bookmarked by the current user"),
+                        linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
 
                         linkWithRel("subjects").description("List of subjects available"),
 

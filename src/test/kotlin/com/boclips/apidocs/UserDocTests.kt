@@ -28,7 +28,7 @@ class UserDocTests : AbstractDocTests() {
 
     @Test
     fun `getting user profile`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-user-get-user-profile",
@@ -55,10 +55,10 @@ class UserDocTests : AbstractDocTests() {
 
     @Test
     fun `updating user profile`(restDocumentation: RestDocumentationContextProvider) {
-        val subject = videoServiceClient.subjects[0].id.value
-        val myLinks = getLinksFor(updatableClientAccessToken)
+        val subject = subjectsClient.getSubjects()._embedded.subjects[0].id
+        val myLinks = getLinksFor(teacherAccessToken)
 
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-user-put-user-profile",
@@ -94,7 +94,7 @@ class UserDocTests : AbstractDocTests() {
     @BeforeEach
     override fun setUp(restDocumentation: RestDocumentationContextProvider) {
         super.setUp(restDocumentation)
-        documentationSpec = RequestSpecificationFactory.createFor(updatableClientAccessToken, restDocumentation)
-        links = getLinksFor(updatableClientAccessToken)
+        stubOwnerSpec = RequestSpecificationFactory.createFor(teacherAccessToken, restDocumentation)
+        links = getLinksFor(teacherAccessToken)
     }
 }

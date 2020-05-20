@@ -22,7 +22,7 @@ class VideosDocTests : AbstractDocTests() {
 
     @Test
     fun `video details`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-video",
@@ -92,7 +92,7 @@ class VideosDocTests : AbstractDocTests() {
 
     @Test
     fun `video search`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-video-search"

@@ -17,8 +17,8 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class ContentPartnersDocTests : AbstractDocTests() {
     @Test
     fun `getting single content partner`() {
-        val contentPartner = videoServiceClient.contentPartners[0]
-        given(documentationSpec)
+        val contentPartner = contentPartnersClient.getContentPartners()._embedded.contentPartners[0]
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-content-partner-get",
@@ -46,14 +46,14 @@ class ContentPartnersDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .get(links["contentPartner"], contentPartner.contentPartnerId.value).apply { println(prettyPrint()) }
+            .get(links["contentPartner"], contentPartner.id).apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(`is`(200))
     }
 
     @Test
     fun `getting all content partners`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-content-partners-get",

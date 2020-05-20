@@ -1,7 +1,6 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
-import com.boclips.videos.service.client.VideoId
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers
@@ -17,7 +16,7 @@ class EventsDocTests : AbstractDocTests() {
 
     @Test
     fun `publishing playback event`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-events-publish-playback",
@@ -45,7 +44,7 @@ class EventsDocTests : AbstractDocTests() {
 
     @Test
     fun `publishing batch of playback events`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-events-publish-batch-playback",
@@ -80,10 +79,8 @@ class EventsDocTests : AbstractDocTests() {
     }
 
     fun createPlaybackEventLink(): URI {
-        val video = videoServiceClient.get(
-            VideoId(URI("https://api.staging-boclips.com/v1/videos/$videoId"))
-        )
-        return URI(video.playback.links.createPlaybackEvent.href)
+        val video = videosClient.getVideo(videoId)
+            return URI(video.playback?._links?.get("createPlaybackEvent")?.href!!)
     }
 
     fun getPlaybackEventsLink(): URI {

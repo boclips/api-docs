@@ -14,7 +14,7 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class DisciplineDocTests : AbstractDocTests() {
     @Test
     fun `get all disciplines`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-disciplines-get",

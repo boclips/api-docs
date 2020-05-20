@@ -10,7 +10,7 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class ContentCategories : AbstractDocTests()  {
     @Test
     fun `lists available video types`() {
-        given(documentationSpec)
+        given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-content-partners",

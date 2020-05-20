@@ -1,7 +1,11 @@
 package com.boclips.apidocs.testsupport
 
-import com.boclips.videos.service.client.ServiceCredentials
-import com.boclips.videos.service.client.VideoServiceClient
+import com.boclips.videos.api.httpclient.CollectionsClient
+import com.boclips.videos.api.httpclient.ContentPartnersClient
+import com.boclips.videos.api.httpclient.SubjectsClient
+import com.boclips.videos.api.httpclient.VideosClient
+import com.boclips.videos.api.httpclient.helper.ServiceAccountCredentials
+import com.boclips.videos.api.httpclient.helper.ServiceAccountTokenFactory
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.jackson.responseObject
 import io.restassured.specification.RequestSpecification
@@ -23,7 +27,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ActiveProfiles("test")
 abstract class AbstractDocTests {
 
-    protected var documentationSpec: RequestSpecification? = null
+    protected var stubOwnerSpec: RequestSpecification? = null
+    protected var apiUserSpec: RequestSpecification? = null
 
     @Value("\${api.username}")
     lateinit var username: String
@@ -49,19 +54,26 @@ abstract class AbstractDocTests {
     @Value("\${api.clientsecret}")
     lateinit var clientSecret: String
 
+    // used in login spec only
     protected lateinit var publicClientAccessToken: String
     protected lateinit var publicClientRefreshToken: String
 
+    // teacher user that does not get modified
     protected lateinit var freshClientAccessToken: String
     protected lateinit var freshClientRefreshToken: String
 
-    protected lateinit var updatableClientAccessToken: String
-    protected lateinit var updatableClientRefreshToken: String
+    // teacher user which is updated used user doc tests
+    protected lateinit var teacherAccessToken: String
+    protected lateinit var teacherRefreshToken: String
 
+    // stub user - user setting up all the fixture
     protected lateinit var privateClientAccessToken: String
     protected lateinit var privateClientRefreshToken: String
 
-    protected lateinit var videoServiceClient: VideoServiceClient
+    protected lateinit var videosClient: VideosClient
+    protected lateinit var subjectsClient: SubjectsClient
+    protected lateinit var collectionsClient: CollectionsClient
+    protected lateinit var contentPartnersClient: ContentPartnersClient
 
     protected lateinit var links: Map<String, String>
 
@@ -69,14 +81,14 @@ abstract class AbstractDocTests {
     fun setUp(restDocumentation: RestDocumentationContextProvider) {
         setupPublicClientTokens()
         setupFreshClientTokens()
-        setupUpdateableClientTokens()
+        setupTeacherToken()
         setupPrivateClientTokens()
 
-        setupVideoServiceClient()
-
+        setupClients()
         setupLinks()
 
-        documentationSpec = RequestSpecificationFactory.createFor(privateClientAccessToken, restDocumentation)
+        stubOwnerSpec = RequestSpecificationFactory.createFor(privateClientAccessToken, restDocumentation)
+        apiUserSpec = RequestSpecificationFactory.createFor(freshClientAccessToken, restDocumentation)
     }
 
     fun setupLinks() {
@@ -119,7 +131,7 @@ abstract class AbstractDocTests {
         freshClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
-    private fun setupUpdateableClientTokens() {
+    private fun setupTeacherToken() {
         val payload = Fuel.post(
             "https://api.staging-boclips.com/v1/token", listOf(
                 "grant_type" to "password",
@@ -128,8 +140,8 @@ abstract class AbstractDocTests {
                 "password" to updatableUserPassword
             )
         ).responseObject<Map<String, Any>>().third.component1()
-        updatableClientAccessToken = (payload?.get("access_token") as String?) ?: ""
-        updatableClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
+        teacherAccessToken = (payload?.get("access_token") as String?) ?: ""
+        teacherRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
     private fun setupPrivateClientTokens() {
@@ -144,14 +156,49 @@ abstract class AbstractDocTests {
         privateClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
-    private fun setupVideoServiceClient() {
-        videoServiceClient = VideoServiceClient.getApiClient(
-            "https://api.staging-boclips.com",
-            ServiceCredentials.builder()
-                .accessTokenUri("https://api.staging-boclips.com/v1/token")
-                .clientId(clientId)
-                .clientSecret(clientSecret)
-                .build()
+    private fun setupClients() {
+        videosClient = VideosClient.create(
+            apiUrl = "https://api.staging-boclips.com",
+            tokenFactory = ServiceAccountTokenFactory(
+                ServiceAccountCredentials(
+                    authEndpoint = "https://api.staging-boclips.com",
+                    clientId = clientId,
+                    clientSecret = clientSecret
+                )
+            )
+        )
+
+        collectionsClient = CollectionsClient.create(
+            apiUrl = "https://api.staging-boclips.com",
+            tokenFactory = ServiceAccountTokenFactory(
+                ServiceAccountCredentials(
+                    authEndpoint = "https://api.staging-boclips.com",
+                    clientId = clientId,
+                    clientSecret = clientSecret
+                )
+            )
+        )
+
+        subjectsClient = SubjectsClient.create(
+            apiUrl = "https://api.staging-boclips.com",
+            tokenFactory = ServiceAccountTokenFactory(
+                ServiceAccountCredentials(
+                    authEndpoint = "https://api.staging-boclips.com",
+                    clientId = clientId,
+                    clientSecret = clientSecret
+                )
+            )
+        )
+
+        contentPartnersClient = ContentPartnersClient.create(
+            apiUrl = "https://api.staging-boclips.com",
+            tokenFactory = ServiceAccountTokenFactory(
+                ServiceAccountCredentials(
+                    authEndpoint = "https://api.staging-boclips.com",
+                    clientId = clientId,
+                    clientSecret = clientSecret
+                )
+            )
         )
     }
 
