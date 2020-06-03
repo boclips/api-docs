@@ -194,6 +194,12 @@ class CollectionsDocTests : AbstractDocTests() {
                             .description("Controls how sub-resources are fetched. Allowed values are `list` for shallow details and `details` for full sub-resource information. See <<resources-collections-projections,here>> for more details")
                             .attributes(
                                 key("type").value("Integer")
+                            ),
+                        parameterWithName("sort_by")
+                            .optional()
+                            .description("Sort collections by UPDATED_AT (last updated collections appear first), IS_DEFAULT (Watch later collections appear first), HAS_ATTACHMENT (collections with attachments appear first)")
+                            .attributes(
+                                key("type").value("UPDATED_AT, IS_DEFAULT, HAS_ATTACHMENT")
                             )
                     ),
                     responseFields(
