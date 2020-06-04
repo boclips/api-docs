@@ -1,7 +1,7 @@
 package com.boclips.apidocs.testsupport
 
+import com.boclips.videos.api.httpclient.ChannelsClient
 import com.boclips.videos.api.httpclient.CollectionsClient
-import com.boclips.videos.api.httpclient.ContentPartnersClient
 import com.boclips.videos.api.httpclient.SubjectsClient
 import com.boclips.videos.api.httpclient.VideosClient
 import com.boclips.videos.api.httpclient.helper.ServiceAccountCredentials
@@ -73,7 +73,7 @@ abstract class AbstractDocTests {
     protected lateinit var videosClient: VideosClient
     protected lateinit var subjectsClient: SubjectsClient
     protected lateinit var collectionsClient: CollectionsClient
-    protected lateinit var contentPartnersClient: ContentPartnersClient
+    protected lateinit var channelsClient: ChannelsClient
 
     protected lateinit var links: Map<String, String>
 
@@ -108,11 +108,11 @@ abstract class AbstractDocTests {
     private fun setupPublicClientTokens() {
         val payload = Fuel.post(
             "https://api.staging-boclips.com/v1/token", listOf(
-                "grant_type" to "password",
-                "client_id" to "teachers",
-                "username" to username,
-                "password" to password
-            )
+            "grant_type" to "password",
+            "client_id" to "teachers",
+            "username" to username,
+            "password" to password
+        )
         ).responseObject<Map<String, Any>>().third.component1()
         publicClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         publicClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -121,11 +121,11 @@ abstract class AbstractDocTests {
     private fun setupFreshClientTokens() {
         val payload = Fuel.post(
             "https://api.staging-boclips.com/v1/token", listOf(
-                "grant_type" to "password",
-                "client_id" to "teachers",
-                "username" to freshUserUsername,
-                "password" to freshUserPassword
-            )
+            "grant_type" to "password",
+            "client_id" to "teachers",
+            "username" to freshUserUsername,
+            "password" to freshUserPassword
+        )
         ).responseObject<Map<String, Any>>().third.component1()
         freshClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         freshClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -134,11 +134,11 @@ abstract class AbstractDocTests {
     private fun setupTeacherToken() {
         val payload = Fuel.post(
             "https://api.staging-boclips.com/v1/token", listOf(
-                "grant_type" to "password",
-                "client_id" to "teachers",
-                "username" to updatableUserUsername,
-                "password" to updatableUserPassword
-            )
+            "grant_type" to "password",
+            "client_id" to "teachers",
+            "username" to updatableUserUsername,
+            "password" to updatableUserPassword
+        )
         ).responseObject<Map<String, Any>>().third.component1()
         teacherAccessToken = (payload?.get("access_token") as String?) ?: ""
         teacherRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -147,10 +147,10 @@ abstract class AbstractDocTests {
     private fun setupPrivateClientTokens() {
         val payload = Fuel.post(
             "https://api.staging-boclips.com/v1/token", listOf(
-                "grant_type" to "client_credentials",
-                "client_id" to clientId,
-                "client_secret" to clientSecret
-            )
+            "grant_type" to "client_credentials",
+            "client_id" to clientId,
+            "client_secret" to clientSecret
+        )
         ).responseObject<Map<String, Any>>().third.component1()
         privateClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         privateClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -190,7 +190,7 @@ abstract class AbstractDocTests {
             )
         )
 
-        contentPartnersClient = ContentPartnersClient.create(
+        channelsClient = ChannelsClient.create(
             apiUrl = "https://api.staging-boclips.com",
             tokenFactory = ServiceAccountTokenFactory(
                 ServiceAccountCredentials(

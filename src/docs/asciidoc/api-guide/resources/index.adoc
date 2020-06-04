@@ -20,3 +20,5 @@ include::subjects.adoc[]
 include::tags.adoc[]
 
 include::content-partners.adoc[]
+
+include::channels.adoc[]

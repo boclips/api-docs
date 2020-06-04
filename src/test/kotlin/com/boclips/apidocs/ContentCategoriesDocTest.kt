@@ -13,9 +13,9 @@ class ContentCategories : AbstractDocTests()  {
         given(stubOwnerSpec)
             .filter(
                 document(
-                    "resources-content-partners",
+                    "resources-channels",
                     responseFields(
-                        fieldWithPath("_embedded.contentCategories").description("List of categories that content partner content can be described as."),
+                        fieldWithPath("_embedded.contentCategories").description("List of categories that channel's content can be described as."),
                         fieldWithPath("_embedded.contentCategories[*].label").ignored(),
                         fieldWithPath("_embedded.contentCategories[*].key").ignored()
                     )

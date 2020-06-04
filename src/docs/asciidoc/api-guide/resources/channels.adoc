@@ -1,0 +1,13 @@
+[[resources-channels]]
+== Channels
+
+The channel resource describes a provider of video content to the
+Boclips platform.
+
+=== Retrieving one channel
+
+operation::resource-channel-get[snippets='http-request,curl-request,http-response,response-fields']
+
+=== Retrieving many channels
+
+operation::resource-channels-get[snippets='http-request,curl-request,http-response,response-fields']

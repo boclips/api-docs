@@ -70,9 +70,11 @@ class GatewayDocTests : AbstractDocTests() {
 
                         linkWithRel("countries").description("List of countries"),
 
-                        linkWithRel("contentPartner").description("Retrieve a specific content partner"),
-                        linkWithRel("contentPartners").description("Retrieve all content partners"),
-                        linkWithRel("contentCategories").description("Retrieve a list of content partner categories"),
+                        linkWithRel("contentPartner").description("Deprecated, please use channel instead. Retrieve a specific content partner"),
+                        linkWithRel("contentPartners").description("Deprecated, please use channels instead. Retrieve all content partners"),
+                        linkWithRel("channel").description("Retrieve a specific channel"),
+                        linkWithRel("channels").description("Retrieve all channels"),
+                        linkWithRel("contentCategories").description("Retrieve a list of content categories"),
                         linkWithRel("validateShareCode").description("Validate a share code for a given user"),
                         linkWithRel("contractLegalRestrictions").ignored(),
                         linkWithRel("suggestions").ignored()

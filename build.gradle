@@ -50,7 +50,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
 
-    testImplementation 'com.github.boclips:videos:v433'
+    testImplementation 'com.github.boclips:videos:v467'
     // Below are transitive client dependencies that we need to import ourselves at the moment...
     testImplementation('org.springframework.security.oauth:spring-security-oauth2:2.4.0.RELEASE')
     testImplementation('com.damnhandy:handy-uri-templates:2.1.8')
