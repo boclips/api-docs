@@ -8,13 +8,8 @@ import org.hamcrest.Matchers
 import org.junit.jupiter.api.Test
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
-import org.springframework.restdocs.payload.PayloadDocumentation.beneathPath
-import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
-import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
-import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
-import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
-import org.springframework.restdocs.request.RequestDocumentation.pathParameters
-import org.springframework.restdocs.request.RequestDocumentation.requestParameters
+import org.springframework.restdocs.payload.PayloadDocumentation.*
+import org.springframework.restdocs.request.RequestDocumentation.*
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes
 
@@ -97,106 +92,111 @@ class VideosDocTests : AbstractDocTests() {
                 document(
                     "resource-video-search"
                     , requestParameters(
-                        parameterWithName("size").optional()
-                            .description("The number of videos per page, 100 by default").attributes(
+                    parameterWithName("size").optional()
+                        .description("The number of videos per page, 100 by default").attributes(
                             Attributes.key("type").value("Number")
                         ),
-                        parameterWithName("page").optional()
-                            .description("Zero-index based page number, first page by default").attributes(
+                    parameterWithName("page").optional()
+                        .description("Zero-index based page number, first page by default").attributes(
                             Attributes.key("type").value("Number")
                         ),
-                        parameterWithName("query").optional().description("The text search query").attributes(
-                            Attributes.key(
-                                "type"
-                            ).value("String")
+                    parameterWithName("query").optional().description("The text search query").attributes(
+                        Attributes.key(
+                            "type"
+                        ).value("String")
+                    ),
+                    parameterWithName("duration").optional()
+                        .description("Filters on the video duration property. Provide duration ranges in the form `min[-max]`, ie `PT1M-PT6M`. These ranges are inclusive. This property supersedes the duration_min and duration_max properties.")
+                        .attributes(
+                            Attributes.key("type").value("Range of ISO-8601 (PT6M5S)")
                         ),
-                        parameterWithName("duration").optional()
-                            .description("Filters on the video duration property. Provide duration ranges in the form `min[-max]`, ie `PT1M-PT6M`. These ranges are inclusive. This property supersedes the duration_min and duration_max properties.")
-                            .attributes(
-                                Attributes.key("type").value("Range of ISO-8601 (PT6M5S)")
-                            ),
-                        parameterWithName("duration_min").optional()
-                            .description("Filters on the video duration property, this range is inclusive").attributes(
+                    parameterWithName("duration_min").optional()
+                        .description("Filters on the video duration property, this range is inclusive").attributes(
                             Attributes.key("type").value("ISO-8601 (PT6M5S)")
                         ),
-                        parameterWithName("duration_max").optional()
-                            .description("Filters on the video duration property, this range is inclusive").attributes(
+                    parameterWithName("duration_max").optional()
+                        .description("Filters on the video duration property, this range is inclusive").attributes(
                             Attributes.key("type").value("ISO-8601 (PT30S)")
                         ),
-                        parameterWithName("released_date_from").optional()
-                            .description("Filters on the video releasedOn property, this range is inclusive")
-                            .attributes(
-                                Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
-                            ),
-                        parameterWithName("released_date_to").optional()
-                            .description("Filters on the video releasedOn property, this range is inclusive")
-                            .attributes(
-                                Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
-                            ),
-                        parameterWithName("source").optional()
-                            .description("Filter by video source, e.g youtube or boclips").attributes(
+                    parameterWithName("released_date_from").optional()
+                        .description("Filters on the video releasedOn property, this range is inclusive")
+                        .attributes(
+                            Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
+                        ),
+                    parameterWithName("released_date_to").optional()
+                        .description("Filters on the video releasedOn property, this range is inclusive")
+                        .attributes(
+                            Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
+                        ),
+                    parameterWithName("source").optional()
+                        .description("Filter by video source, e.g youtube or boclips").attributes(
                             Attributes.key("type").value("YOUTUBE, BOCLIPS")
                         ),
-                        parameterWithName("subject").optional()
-                            .description("Filter by subject id - from the <<resources-subjects,list of subjects>>")
-                            .attributes(
-                                Attributes.key("type").value("Subject Id (e.g. '5cb499c9fd5beb428189454b')")
-                            ),
-                        parameterWithName("age_range_min").optional()
-                            .description("Minimum age to filter from - it filters on the video age range property, and is inclusive")
-                            .attributes(
-                                Attributes.key("type").value("Number")
-                            ),
-                        parameterWithName("age_range_max").optional()
-                            .description("Maximum age to filter to - it filters on the video age range property, and is inclusive")
-                            .attributes(
-                                Attributes.key("type").value("Number")
-                            ),
-                        parameterWithName("age_range").optional()
-                            .description("Filters on the video age ranges. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
-                            .attributes(
-                                Attributes.key("type").value("String")
-                            ),
-                        parameterWithName("duration_facets").optional()
-                            .description("Override default facets for durations, see <<resources-video-search-facets,search facets>>.")
-                            .attributes(
-                                Attributes.key("type").value("Range of ISO-8601 (PT6M5S), e.g. PT0S-PT5M.")
-                            ),
-                        parameterWithName("age_range_facets").optional()
-                            .description("Override default facets for age ranges, see <<resources-video-search-facets,search facets")
-                            .attributes(
-                                Attributes.key("type").value("String, e.g. 3-5")
-                            ),
-                        parameterWithName("promoted").optional().description("Filter by promoted videos only")
-                            .attributes(
-                                Attributes.key("type").value("Boolean")
-                            ),
-                        parameterWithName("content_partner").optional()
-                            .description("Filter by content partner, which is the publishing company for the video. Use multiple times to search for multiple values, e.g. 'content_partner=first&content_partner=second'.")
-                            .attributes(
-                                Attributes.key("type").value("String (e.g. 'Bloomberg')")
-                            ),
-                        parameterWithName("type").optional()
-                            .description("Filter responses by <<resources-video-types,video type>>").attributes(
+                    parameterWithName("subject").optional()
+                        .description("Filter by subject id - from the <<resources-subjects,list of subjects>>")
+                        .attributes(
+                            Attributes.key("type").value("Subject Id (e.g. '5cb499c9fd5beb428189454b')")
+                        ),
+                    parameterWithName("age_range_min").optional()
+                        .description("Minimum age to filter from - it filters on the video age range property, and is inclusive")
+                        .attributes(
+                            Attributes.key("type").value("Number")
+                        ),
+                    parameterWithName("age_range_max").optional()
+                        .description("Maximum age to filter to - it filters on the video age range property, and is inclusive")
+                        .attributes(
+                            Attributes.key("type").value("Number")
+                        ),
+                    parameterWithName("age_range").optional()
+                        .description("Filters on the video age ranges. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
+                        .attributes(
+                            Attributes.key("type").value("String")
+                        ),
+                    parameterWithName("duration_facets").optional()
+                        .description("Override default facets for durations, see <<resources-video-search-facets,search facets>>.")
+                        .attributes(
+                            Attributes.key("type").value("Range of ISO-8601 (PT6M5S), e.g. PT0S-PT5M.")
+                        ),
+                    parameterWithName("age_range_facets").optional()
+                        .description("Override default facets for age ranges, see <<resources-video-search-facets,search facets")
+                        .attributes(
+                            Attributes.key("type").value("String, e.g. 3-5")
+                        ),
+                    parameterWithName("promoted").optional().description("Filter by promoted videos only")
+                        .attributes(
+                            Attributes.key("type").value("Boolean")
+                        ),
+                    parameterWithName("content_partner").optional()
+                        .description("Deprecated in favour of channel. Filter by content partner, which is the provider of the video content. Use multiple times to search for multiple values, e.g. 'content_partner=first&content_partner=second'.")
+                        .attributes(
+                            Attributes.key("type").value("String (e.g. 'Bloomberg')")
+                        ),
+                    parameterWithName("channel").optional()
+                        .description("Filter by channel, which is the provider of the video content. Use multiple times to search for multiple values, e.g. 'channel=first&channel=second'.")
+                        .attributes(
+                            Attributes.key("type").value("String (e.g. 'Bloomberg')")
+                        ),
+                    parameterWithName("type").optional()
+                        .description("Filter responses by <<resources-video-types,video type>>").attributes(
                             Attributes.key("type").value("Enum")
                         ),
-                        parameterWithName("best_for").optional()
-                            .description("Filter responses by <<resources-tags,tag>> labels, exact matches when specifying multiple tags")
-                            .attributes(
-                                Attributes.key("type").value("List of strings (e.g 'explainer')")
-                            ),
-                        parameterWithName("sort_by").optional()
-                            .description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction")
-                            .attributes(
-                                Attributes.key("type").value("RELEASE_DATE, RATING")
-                            )
+                    parameterWithName("best_for").optional()
+                        .description("Filter responses by <<resources-tags,tag>> labels, exact matches when specifying multiple tags")
+                        .attributes(
+                            Attributes.key("type").value("List of strings (e.g 'explainer')")
+                        ),
+                    parameterWithName("sort_by").optional()
+                        .description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction")
+                        .attributes(
+                            Attributes.key("type").value("RELEASE_DATE, RATING")
+                        )
 
-                    )
+                )
                     , responseFields(
-                        subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
-                        subsectionWithPath("_embedded.facets").description("Search facets for age ranges, durations and subjects"),
-                        *pageSpecificationResponseFields
-                    )
+                    subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
+                    subsectionWithPath("_embedded.facets").description("Search facets for age ranges, durations and subjects"),
+                    *pageSpecificationResponseFields
+                )
                 )
             )
             .`when`()
@@ -211,7 +211,7 @@ class VideosDocTests : AbstractDocTests() {
                     .set("released_date_to", "2019-06-01")
                     .set("source", "boclips")
                     .set("sort_by", "RELEASE_DATE")
-                    .set("content_partner", "Bloomberg")
+                    .set("channel", "Bloomberg")
                     .set("type", "NEWS")
                     .expand()
             )
