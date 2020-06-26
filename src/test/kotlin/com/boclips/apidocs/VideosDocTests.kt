@@ -46,6 +46,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("id").description("The unique identifier for this video, can be interpolated in templated links"),
                         fieldWithPath("title").description("Human readable title for this video"),
                         fieldWithPath("description").description("Description detailing what this video talks about"),
+                        fieldWithPath("additionalDescription").description("Additional information to help improve the metadata"),
                         fieldWithPath("releasedOn").description("Date on which the video was originally released as stated by the content producer"),
                         subsectionWithPath("subjects").description("Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details"),
                         fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
