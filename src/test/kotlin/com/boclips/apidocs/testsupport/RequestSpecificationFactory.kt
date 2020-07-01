@@ -26,17 +26,11 @@ class RequestSpecificationFactory {
                     documentationConfiguration(restDocumentation)
                         .operationPreprocessors()
                         .withRequestDefaults(
-                            modifyUris()
-                                .scheme("https")
-                                .host("api.boclips.com"),
                             handleBearerToken(bearerTokenDocumentationPolicy),
                             replacePattern(Pattern.compile("staging-boclips"), "boclips"),
                             prettyPrint()
                         )
                         .withResponseDefaults(
-                            modifyUris()
-                                .scheme("https")
-                                .host("api.boclips.com"),
                             removeHeaders(
                                 "Authorization",
                                 "Set-Cookie",
