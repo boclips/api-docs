@@ -5,10 +5,7 @@ import io.restassured.builder.RequestSpecBuilder
 import io.restassured.specification.RequestSpecification
 import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.operation.preprocess.OperationPreprocessor
-import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyUris
-import org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
-import org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
-import org.springframework.restdocs.operation.preprocess.Preprocessors.replacePattern
+import org.springframework.restdocs.operation.preprocess.Preprocessors.*
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration
 import java.util.regex.Pattern
 
@@ -34,9 +31,7 @@ class RequestSpecificationFactory {
                             prettyPrint()
                         )
                         .withResponseDefaults(
-                            modifyUris()
-                                .scheme("https")
-                                .host("api.boclips.com"),
+                            StagingUriModifyingOperationPreprocessor(),
                             removeHeaders(
                                 "Authorization",
                                 "Set-Cookie",
