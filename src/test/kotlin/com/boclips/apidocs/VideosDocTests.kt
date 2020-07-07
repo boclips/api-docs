@@ -149,7 +149,7 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("Number")
                         ),
                     parameterWithName("age_range").optional()
-                        .description("Filter videos which cover at least 2 ages in the video age range property. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
+                        .description("Filter videos which cover at least 2 ages from a range in the video age range property. Provide age ranges in the form `lowerAge-upperAge`, ie `5-7`. These ranges are inclusive.")
                         .attributes(
                             Attributes.key("type").value("String")
                         ),
