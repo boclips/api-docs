@@ -149,7 +149,7 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("Number")
                         ),
                     parameterWithName("age_range").optional()
-                        .description("Filters on the video age ranges. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
+                        .description("Filter videos which cover at least 2 ages in the video age range property. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
                         .attributes(
                             Attributes.key("type").value("String")
                         ),
@@ -159,7 +159,7 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("Range of ISO-8601 (PT6M5S), e.g. PT0S-PT5M.")
                         ),
                     parameterWithName("age_range_facets").optional()
-                        .description("Override default facets for age ranges, see <<resources-video-search-facets,search facets")
+                        .description("Override default facets for age ranges, see <<resources-video-search-facets,search facets>>.")
                         .attributes(
                             Attributes.key("type").value("String, e.g. 3-5")
                         ),

@@ -34,6 +34,9 @@ We provide default search facets out of the box. By setting the `age_range_facet
 
 *Age Range Defaults* (in years): 3-5, 5-9, 9-11, 11-14, 14-16, 16-99
 
+Age Range buckets will show the counts for videos which are suitable for at least 2 ages in that range.
+For example a video which has `ageRange: {min: 4, max: 10}` would be counted in these buckets: 3-5, 5-9, 9-11.
+
 *Durations Defaults* (in seconds): 0-120, 120-300, 300-600, 600-1200, 1200-86400
 
 [[resources-video-types]]
