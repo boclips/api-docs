@@ -24,7 +24,7 @@ prefer videos with those same subjects.
 operation::resource-video-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
 
 [[resources-video-search-age-ranges]]
-==== Video search - filtering by ages
+==== Filtering by ages
 
 We provide two ways of filtering videos by ages.
 
@@ -35,21 +35,21 @@ We provide two ways of filtering videos by ages.
 
 
 |===
-|Example Video with age range | Strict filtering by `age_range_min=3&age_range_max=5` | Relaxed filtering by `age_range=3-5`
+|Video with an age range | Search with filter: `age_range_min=3&age_range_max=5` | Search with filter: `age_range=3-5`
 
-|Video A, 3 - 16
+|Video A, age range: 3 - 16
 |no match, has age > max 5
 |match
 
-|Video B, 3-5
+|Video B, age range: 3-5
 |match
 |match
 
-|Video D, 2 - 3
+|Video C, age range: 2 - 3
 |no match, has age < min
 |no match, only matches age 3, we need at least two matching ages
 
-|Video D, 2 - 15
+|Video D, age range: 2 - 15
 |no match, has age < min and age > max
 |match
 
