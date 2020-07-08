@@ -139,17 +139,17 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("Subject Id (e.g. '5cb499c9fd5beb428189454b')")
                         ),
                     parameterWithName("age_range_min").optional()
-                        .description("Minimum age to filter from - it filters on the video age range property, and is inclusive")
+                        .description("Minimum age to filter from - it filters on the video age range property, and is inclusive. See <<resources-video-search-age-ranges,filter by age>> for more details.")
                         .attributes(
                             Attributes.key("type").value("Number")
                         ),
                     parameterWithName("age_range_max").optional()
-                        .description("Maximum age to filter to - it filters on the video age range property, and is inclusive")
+                        .description("Maximum age to filter to - it filters on the video age range property, and is inclusive. See <<resources-video-search-age-ranges,filter by age>> for more details.")
                         .attributes(
                             Attributes.key("type").value("Number")
                         ),
                     parameterWithName("age_range").optional()
-                        .description("Filter videos which cover at least 2 ages from a range in the video age range property. Provide age ranges in the form `lowerAge-upperAge`, ie `5-7`. These ranges are inclusive.")
+                        .description("Filter videos which cover at least 2 ages from a range in the video age range property. Provide age ranges in the form `lowerAge-upperAge`, ie `5-7`. See <<resources-video-search-age-ranges,filter by age>> for more details.")
                         .attributes(
                             Attributes.key("type").value("String")
                         ),
