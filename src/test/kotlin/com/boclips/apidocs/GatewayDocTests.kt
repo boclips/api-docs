@@ -45,6 +45,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("trackPageRendered").description("`POST` endpoint for tracking pageRendered event"),
                         linkWithRel("trackPlatformInteractedWith").description("`POST` endpoint for tracking a platform interaction event"),
                         linkWithRel("createPlaybackEvents").description("Sending <<_sending_a_batch_of_playback_events,batches>> of playback events from the past"),
+                        linkWithRel("createSearchQueryCompletionsSuggestedEvent").description("`POST` endpoint for tracking search completions suggested event"),
 
                         linkWithRel("activate").description("A `PUT` request against this link allows to pass profile information and activate a new user"),
                         linkWithRel("profile").description("Templated link to get user profile information"),
