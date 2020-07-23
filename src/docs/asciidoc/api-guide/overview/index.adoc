@@ -9,3 +9,5 @@ include::http-status-codes.adoc[]
 include::hypermedia.adoc[]
 
 include::errors.adoc[]
+
+include::terms-of-service.adoc[]
