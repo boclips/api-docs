@@ -2,9 +2,17 @@
 == Terms of service
 
 === Playback information
-As an API user, you are responsible for submitting video playback information to Boclips via our events API. If you are using Boclips' javascript player this will be done automatically, however, if you are not you must submit these playback events yourselves. More information about how to do this can be found <<resources-events,`here`>>.
+As an API user, you are responsible for submitting video playback information to Boclips via our events API. If you are using Boclips' javascript player this will be done automatically, however, if you are not, you must submit these playback events yourselves. More information about how to do this can be found <<resources-events,`here`>>.
 
 === Undocumented fields
 When using the API you may notice some fields in the response that are not documented. These undocumented fields are likely to change and must not be implemented against unless explicit approval has been given from Boclips (typically when testing beta features). The full extent of Boclips' API offering is explicitly documented in these docs.
 
 === Changes to the API
+On the rare occasion that we need to make breaking changes to our API, the process of making this change will go like:
+
+. Keeping support for the old way, we will introduce the change into our API.
+. We will notify you of this change, with clear instructions on how to start using the new changes. We will then give a time frame for when we will drop support for the old way.
+ - Our docs will be updated and the old way will be clearly deprecated.
+. A week before we are scheduled to drop support we will notify you again to make sure you're ready.
+. If you need more time, we will push back on dropping support.
+. Once you are happy you have made the change we will then drop support and undocument the old way.
