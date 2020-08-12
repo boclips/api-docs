@@ -77,6 +77,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("channels").description("Retrieve all channels"),
                         linkWithRel("contentCategories").description("Retrieve a list of content categories"),
                         linkWithRel("validateShareCode").description("Validate a share code for a given user"),
+                        linkWithRel("isUserActive").description("Check whether given user is active"),
                         linkWithRel("contractLegalRestrictions").ignored(),
                         linkWithRel("suggestions").ignored()
                     )
