@@ -1,6 +1,7 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.boclips.apidocs.testsupport.UriTemplateHelper.stripOptionalParameters
 import com.damnhandy.uri.template.UriTemplate
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
@@ -82,7 +83,7 @@ class VideosDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().get(links["video"], "5c542abf5438cdbcb56df0bf").apply { println(prettyPrint()) }
+            .`when`().get(stripOptionalParameters(links["video"]), "5c542abf5438cdbcb56df0bf").apply { println(prettyPrint()) }
             .then().assertThat().statusCode(`is`(200))
     }
 
