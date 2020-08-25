@@ -191,6 +191,11 @@ class VideosDocTests : AbstractDocTests() {
                         .description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction")
                         .attributes(
                             Attributes.key("type").value("RELEASE_DATE, RATING")
+                        ),
+                    parameterWithName("id").optional()
+                        .description("Filter by video ids, this can be a comma separated list of video ids")
+                        .attributes(
+                            Attributes.key("type").value("Video ID (e.g '5cd9627d6c2905689d1c150c'")
                         )
 
                 )
