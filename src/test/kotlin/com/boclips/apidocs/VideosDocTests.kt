@@ -178,6 +178,11 @@ class VideosDocTests : AbstractDocTests() {
                         .attributes(
                             Attributes.key("type").value("String (e.g. 'Bloomberg')")
                         ),
+                    parameterWithName("channel_ids").optional()
+                        .description("Filter by channel ids, which is the provider of the video content. Use multiple times to search for multiple values, e.g. 'channel_ids=123456789&channel_ids=987654321'.")
+                        .attributes(
+                            Attributes.key("type").value("String (e.g. 'Bloomberg')")
+                        ),
                     parameterWithName("type").optional()
                         .description("Filter responses by <<resources-video-types,video type>>").attributes(
                             Attributes.key("type").value("Enum")
