@@ -174,14 +174,15 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("String (e.g. 'Bloomberg')")
                         ),
                     parameterWithName("channel").optional()
-                        .description("Filter by channel, which is the provider of the video content. Use multiple times to search for multiple values, e.g. 'channel=first&channel=second'.")
+                        .description(
+                                "Filter by channel IDs (channel is the provider of the video content). " +
+                                        "Use multiple times to search for multiple values, " +
+                                        "e.g. 'channel=5d5432448256f68bdcf75d53&channel=5d77b49698cfe500017e9856'. " +
+                                        "Deprecated: filtering by channel names (it is still available, but " +
+                                        "will be removed anytime soon)."
+                        )
                         .attributes(
-                            Attributes.key("type").value("String (e.g. 'Bloomberg')")
-                        ),
-                    parameterWithName("channel_ids").optional()
-                        .description("Filter by channel ids, which is the provider of the video content. Use multiple times to search for multiple values, e.g. 'channel_ids=123456789&channel_ids=987654321'.")
-                        .attributes(
-                            Attributes.key("type").value("String (e.g. 'Bloomberg')")
+                            Attributes.key("type").value("String (e.g. '5d77b49698cfe500017e9856')")
                         ),
                     parameterWithName("type").optional()
                         .description("Filter responses by <<resources-video-types,video type>>").attributes(
