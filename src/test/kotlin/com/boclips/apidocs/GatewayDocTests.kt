@@ -49,6 +49,7 @@ class GatewayDocTests : AbstractDocTests() {
 
                         linkWithRel("activate").description("A `PUT` request against this link allows to pass profile information and activate a new user"),
                         linkWithRel("profile").description("Templated link to get user profile information"),
+                        linkWithRel("currentUser").description("Get the current user's profile"),
 
                         linkWithRel("video").description("The video resource, templated link to retrieve an individual video"),
                         linkWithRel("searchVideos").description("Templated link to perform video search"),
