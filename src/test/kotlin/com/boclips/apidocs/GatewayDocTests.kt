@@ -19,8 +19,7 @@ class GatewayDocTests : AbstractDocTests() {
         given(stubOwnerSpec)
             .filter(
                 document(
-                    "error-example"
-                    , responseFields(
+                    "error-example", responseFields(
                         fieldWithPath("error").description("The HTTP error that occurred, e.g. `Invalid field`"),
                         fieldWithPath("message").description("A description of the cause of the error"),
                         fieldWithPath("path").description("The path to which the request was made"),
@@ -40,8 +39,7 @@ class GatewayDocTests : AbstractDocTests() {
         given(indexDocumentationSpec)
             .filter(
                 document(
-                    "resource-index"
-                    , links(
+                    "resource-index", links(
                         linkWithRel("trackPageRendered").description("`POST` endpoint for tracking pageRendered event"),
                         linkWithRel("trackPlatformInteractedWith").description("`POST` endpoint for tracking a platform interaction event"),
                         linkWithRel("createPlaybackEvents").description("Sending <<_sending_a_batch_of_playback_events,batches>> of playback events from the past"),
@@ -80,7 +78,8 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("validateShareCode").description("Validate a share code for a given user"),
                         linkWithRel("isUserActive").description("Check whether given user is active"),
                         linkWithRel("contractLegalRestrictions").ignored(),
-                        linkWithRel("suggestions").ignored()
+                        linkWithRel("suggestions").ignored(),
+                        linkWithRel("newSuggestions").ignored()
                     )
                 )
             )
