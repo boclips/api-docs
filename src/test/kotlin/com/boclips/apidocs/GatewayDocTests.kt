@@ -78,8 +78,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("validateShareCode").description("Validate a share code for a given user"),
                         linkWithRel("isUserActive").description("Check whether given user is active"),
                         linkWithRel("contractLegalRestrictions").ignored(),
-                        linkWithRel("suggestions").ignored(),
-                        linkWithRel("newSuggestions").ignored()
+                        linkWithRel("suggestions").ignored()
                     )
                 )
             )
