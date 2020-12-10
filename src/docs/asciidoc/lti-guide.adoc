@@ -67,7 +67,7 @@ An LTI 1.1 handshake works as follows:
 The key is passed as a part of a launch request and allows to identify different consumers. The secret should be stored in a secure manner and not be exposed to 3rd parties.
 
 [[lti-v1p1-anatomy-of-a-launch-request]]
-=== Anatomy of a Lunch Request
+=== Anatomy of a Launch Request
 
 All parameters mentioned below are transmitted as standard HTTP POST parameters.
 
