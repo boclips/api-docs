@@ -30,7 +30,7 @@ Boclips-User-Id: [your user id]
 [[authentication-use-cases-sso]]
 === Using your platform as SSO
 
-You may want to integrate your existing user base with Boclips. If you authenticate your users via an OpenID Connect or a SAML 2.0 identity provider (IdP), Boclips API will provide a seamless SSO experience.
+You may want to integrate your existing user base with Boclips. If you authenticate your users via an OpenID Connect identity provider (IdP), Boclips API will provide a seamless SSO experience.
 
 Any authenticated user coming from your system will be able to execute calls against Boclips API without having to go through any additional authentication/authorization steps, as Boclips' IdP will query your IdP behind the scenes to verify user identity.
 
@@ -45,10 +45,6 @@ Luckily, this information is provided in a well known format that can be easily 
 OIDC IdPs by convention expose their configuration via a `.well-known/openid-configuration` endpoint, this mechanism is called OpenID Connect Discovery.
 
 https://login.boclips.com/auth/realms/boclips/.well-known/openid-configuration[Here] you can see how this information looks like for Boclips.
-
-===== SAML 2.0
-
-In case of SAML, your IdP server should expose a https://en.wikipedia.org/wiki/SAML_Metadata#Identity_Provider_Metadata[SAML SSO Metadata] endpoint, though in this case the location itself is not standardised. Refer to your SAML IdP documentation on how to retrieve the metadata file.
 
 ==== Configuring an OIDC Client
 
