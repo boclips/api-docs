@@ -104,7 +104,7 @@ include::{snippets}/lti-v1p1-boclips-parameters/request-parameters.adoc[]
 [[lti-v1p1-sample-launch-request]]
 ==== Sample Launch Request
 
-Below is an example of a valid LTI launch request issued using:
+Below is an example of a valid LTI launch request issued using. Please note that the values below are just sample placeholders, not real parameters that can be used to execute a launch:
 
 * a video resource located under https://lti.boclips.com/v1p1/videos/5c542abf5438cdbcb56df0bf,
 * consumer key used is `your-consumer-key`,
