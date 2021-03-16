@@ -171,6 +171,9 @@ class LoginDocTests : AbstractDocTests() {
                     ),
                     tokenResponseFields,
                     requestParameters(
+                        parameterWithName("Boclips-User-Id").description("The header representing user ID. It must be no longer than 64 characters").attributes(
+                            Attributes.key("type").value("String - Constant")
+                        ),
                         parameterWithName("grant_type").description("The grant type for this flow must always be `client_credentials`").attributes(
                             Attributes.key("type").value("String - Constant")
                         ),
