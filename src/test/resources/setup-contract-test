@@ -1,3 +1,15 @@
 #!/usr/bin/env bash
 
-lpass show --notes "api-docs-test-config" > application-test.yml
+cwd="$(cd "$(dirname "$0")" && pwd)"
+cat > "$cwd/application-test.yml" <<EOF
+api.username: $(bo show credential concourse-main boclips.api username)
+api.password: $(bo show credential concourse-main boclips.api password)
+api.clientid: $(bo show credential concourse-main boclips.api-docs client-id)
+api.clientsecret: $(bo show credential concourse-main boclips.api-docs client-secret)
+api.freshuser.username: $(bo show credential concourse-main boclips.api-docs freshuser-username)
+api.freshuser.password: $(bo show credential concourse-main boclips.api-docs freshuser-password)
+api.updatableuser.username: $(bo show credential concourse-main boclips.api-docs updatableuser-username)
+api.updatableuser.password: $(bo show credential concourse-main boclips.api-docs updatableuser-password)
+lti.v1p1.consumerkey: $(bo show credential concourse-main boclips.api-docs lti-v1p1-consumer-key)
+lti.v1p1.consumersecret: $(bo show credential concourse-main boclips.api-docs lti-v1p1-consumer-secret)
+EOF

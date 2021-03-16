@@ -3,8 +3,7 @@
 [[authentication-overview]]
 = Authentication
 
-The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect (OIDC)]. Alternatively,
-we support https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language[SAML] too.
+The Boclips API authorization is based on https://openid.net/connect/[OpenID Connect (OIDC)].
 
 OIDC is an additional layer on top of https://www.oauth.com/[OAuth 2.0] that enables user information access.
 
