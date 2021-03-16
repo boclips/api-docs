@@ -4,6 +4,7 @@ import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.apidocs.testsupport.BearerTokenDocumentationPolicy
 import com.boclips.apidocs.testsupport.RequestSpecificationFactory
 import io.restassured.RestAssured.given
+import io.restassured.http.Header
 import io.restassured.specification.RequestSpecification
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.BeforeEach
@@ -134,6 +135,37 @@ class LoginDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "client-credentials-example",
+                    preprocessRequest(
+                        modifyParameters().set("client_id", "***").set("client_secret", "***")
+                    ),
+                    tokenResponseFields,
+                    requestParameters(
+                        parameterWithName("grant_type").description("The grant type for this flow must always be `client_credentials`").attributes(
+                            Attributes.key("type").value("String - Constant")
+                        ),
+                        parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
+                            Attributes.key("type").value("String")
+                        ),
+                        parameterWithName("client_secret").description("The client secret that was Boclips issued to you").attributes(
+                            Attributes.key("type").value("String")
+                        )
+                    )
+                )
+            )
+            .`when`().post("/token").apply { prettyPrint() }
+            .then().assertThat().statusCode(`is`(200))
+    }
+
+    @Test
+    fun `personalised client credentials flow`() {
+        given(loginDocumentationSpec).urlEncodingEnabled(true)
+            .header(Header("Boclips-User-Id", "[your user id]"))
+            .param("grant_type", "client_credentials")
+            .param("client_id", clientId)
+            .param("client_secret", clientSecret)
+            .filter(
+                document(
+                    "client-credentials-personalised-example",
                     preprocessRequest(
                         modifyParameters().set("client_id", "***").set("client_secret", "***")
                     ),
