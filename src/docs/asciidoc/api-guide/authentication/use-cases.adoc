@@ -8,7 +8,7 @@ You may want to use Boclips straight from your backend services. In this case th
 you with your own `client_id` and `client_secret`.
 
 All the communication will happen outside of the context of a user in that case, therefore some features like user collections
-may not be available.
+may not be available (See <<user-context>> if user based features are needed).
 
 In order to get an access token using `client_credentials` we would perform a request:
 
@@ -18,6 +18,7 @@ Assuming all the parameters are correct, you will get a <<authentication-token-r
 
 [[overriding-user-id]]
 ==== Providing a user identifier for analytics
+If you're planning to use our user based API features, we recommend using <<user-context>> instead.
 
 As mentioned above, backend service integrations happen without the end-user context, but for analytics and billing purposes it may be required to provide an id that will uniquely identify users (even if their true identities remain anonymous to Boclips).
 
@@ -26,6 +27,27 @@ To achieve this, you can manually add a user id to any requests you send to us b
 ----
 Boclips-User-Id: [your user id]
 ----
+
+[[user-context]]
+==== Full user context
+CAUTION: This feature is still in beta and could potentially change.
+
+Typically the `client_credentials` flow does not contain a user context due to its machine to machine nature.
+However, Boclips offers a way for integrations to give this context, which will enable the use of features such as individual user's collections.
+This works by generating a unique access token for each user.
+To achieve this, you can manually add a user id when requesting a token via the <<authentication-use-cases-backend-services, client_credentials flow>> by including a header:
+
+----
+Boclips-User-Id: [your user id]
+----
+[IMPORTANT]
+====
+[your user id] length must be no longer than 64 characters.
+====
+
+That will provide you with access token personalised for the user identified by header. It means you can use this token for all requests that need this user's context, without any additional headers.
+
+When accessing the API on behalf of another user, you must generate a new token for that user. The user id passed to us must be unique across all of your users.
 
 [[authentication-use-cases-sso]]
 === Using your platform as SSO
