@@ -28,7 +28,7 @@ class LoginDocTests : AbstractDocTests() {
     fun `refresh token flow`() {
         given(loginDocumentationSpec).urlEncodingEnabled(true)
             .param("grant_type", "refresh_token")
-            .param("client_id", "teachers")
+            .param("client_id", "hq")
             .param("refresh_token", publicClientRefreshToken)
             .filter(
                 document(

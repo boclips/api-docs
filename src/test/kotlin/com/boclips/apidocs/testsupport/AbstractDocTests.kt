@@ -109,7 +109,7 @@ abstract class AbstractDocTests {
         val payload = Fuel.post(
             "https://api.staging-boclips.com/v1/token", listOf(
             "grant_type" to "password",
-            "client_id" to "teachers",
+            "client_id" to "hq",
             "username" to username,
             "password" to password
         )
@@ -122,7 +122,7 @@ abstract class AbstractDocTests {
         val payload = Fuel.post(
             "https://api.staging-boclips.com/v1/token", listOf(
             "grant_type" to "password",
-            "client_id" to "teachers",
+            "client_id" to "hq",
             "username" to freshUserUsername,
             "password" to freshUserPassword
         )
