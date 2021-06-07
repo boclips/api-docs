@@ -13,6 +13,7 @@ import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithP
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
 import org.springframework.restdocs.request.RequestDocumentation.pathParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.snippet.Attributes.key
 
 class ChannelDocTests : AbstractDocTests() {
     @Test
@@ -56,6 +57,20 @@ class ChannelDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "resource-channels-get",
+                    pathParameters(
+                    parameterWithName("page")
+                        .optional()
+                        .description("Index of channels page to retrieve, 0 by default")
+                        .attributes(
+                            key("type").value("Integer")
+                        ),
+                    parameterWithName("size")
+                        .optional()
+                        .description("Channels page size, 10000 by default")
+                        .attributes(
+                            key("type").value("Integer")
+                        )
+                    ),
                     responseFields(
                         subsectionWithPath("_embedded.channels").description("Channels resources array. See the <<_retrieving_one_channel_response_fields,channel>> resource for payload details")
                     )
