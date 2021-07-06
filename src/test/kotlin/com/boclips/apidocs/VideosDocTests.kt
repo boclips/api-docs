@@ -44,6 +44,12 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("_links.hlsStream.templated").ignored()
                     ),
                     responseFields(
+                        beneathPath("categories").withSubsectionId("category"),
+                        fieldWithPath("code").description("The code of the category"),
+                        fieldWithPath("value").description("A short description of the category"),
+                        fieldWithPath("parent").type("Category").description("The parent of the category. This is a nested recursive structure, see <<resources-video-access_response_fields-category,category>> for payload details")
+                    ),
+                    responseFields(
                         fieldWithPath("id").description("The unique identifier for this video, can be interpolated in templated links"),
                         fieldWithPath("title").description("Human readable title for this video"),
                         fieldWithPath("description").description("Description detailing what this video talks about"),
@@ -62,6 +68,7 @@ class VideosDocTests : AbstractDocTests() {
 
                         fieldWithPath("legalRestrictions").description("Legal restrictions for this particular video if any"),
                         fieldWithPath("contentWarnings").description("Content warnings for this particular video if any"),
+                        subsectionWithPath("categories").description("Any categories assigned to the video. See <<resources-video-access_response_fields-category,category>> for payload details of a category"),
 
                         fieldWithPath("keywords").ignored(),
 
