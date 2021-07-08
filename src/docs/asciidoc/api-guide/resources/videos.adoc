@@ -88,7 +88,7 @@ Sometimes you may want to ingest all videos in the Boclips offering to enrich wi
 Currently, <<resources-video-search, `video search`>> is optimised for quick reads and limits the maximum window, so you can't request a page deeper than 10000 results.
 A GET request to `videoFeed` will allow you to page through all the videos.
 
-operation::resource-video-feed[snippets='http-request,curl-request,http-response,response-fields,links']
+operation::resource-video-feed[snippets='request-parameters,http-request,curl-request,http-response,response-fields,links']
 
 ==== Caveats
 - The maximum page size is 1000 results. Any larger will result in a 400 returned.
