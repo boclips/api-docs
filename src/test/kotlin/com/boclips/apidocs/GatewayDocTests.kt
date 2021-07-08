@@ -53,6 +53,7 @@ class GatewayDocTests : AbstractDocTests() {
 
                         linkWithRel("video").description("The video resource, templated link to retrieve an individual video"),
                         linkWithRel("searchVideos").description("Templated link to perform video search"),
+                        linkWithRel("videoFeed").description("A feed of videos for deep pagination"),
 
                         linkWithRel("videoTypes").description("Lists <<resources-video-types,types>> of videos available in the system. These can be later used when <<resources-video-search,searching>>"),
 
