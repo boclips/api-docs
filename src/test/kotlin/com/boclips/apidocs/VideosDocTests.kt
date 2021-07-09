@@ -55,6 +55,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("description").description("Description detailing what this video talks about"),
                         fieldWithPath("additionalDescription").description("Additional information to help improve the metadata"),
                         fieldWithPath("releasedOn").description("Date on which the video was originally released as stated by the content producer"),
+                        fieldWithPath("updatedAt").description("Date when the most recent update occured"),
                         subsectionWithPath("subjects").description("Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details"),
                         fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
                         fieldWithPath("rating").description("Score of this video based on user rating. From 0 to 5"),
