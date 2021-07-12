@@ -140,6 +140,11 @@ class VideosDocTests : AbstractDocTests() {
                         .attributes(
                             Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
                         ),
+                    parameterWithName("updated_after").optional()
+                        .description("Filters on the video updatedAt property, this range is inclusive")
+                        .attributes(
+                            Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
+                        ),
                     parameterWithName("source").optional()
                         .description("Filter by video source, e.g youtube or boclips").attributes(
                             Attributes.key("type").value("YOUTUBE, BOCLIPS")
