@@ -140,7 +140,7 @@ class VideosDocTests : AbstractDocTests() {
                         .attributes(
                             Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
                         ),
-                    parameterWithName("updated_after").optional()
+                    parameterWithName("updated_as_of").optional()
                         .description("Filters on the video updatedAt property, this range is inclusive")
                         .attributes(
                             Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")

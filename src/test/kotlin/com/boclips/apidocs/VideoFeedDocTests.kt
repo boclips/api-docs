@@ -31,7 +31,11 @@ class VideoFeedDocTests : AbstractDocTests() {
                         parameterWithName("cursorId")
                             .optional()
                             .description("This is set explicitly in the next link and you should never have to set it")
-                            .attributes(Attributes.key("type").value("String"))
+                            .attributes(Attributes.key("type").value("String")),
+                        parameterWithName("updated_as_of")
+                            .optional()
+                            .description("Filters on the video updatedAt property, this range is inclusive")
+                            .attributes(Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)"))
                     ),
                     responseFields(
                         subsectionWithPath("_embedded.videos")
