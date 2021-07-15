@@ -92,8 +92,8 @@ operation::resource-video-feed[snippets='request-parameters,http-request,curl-re
 
 ==== Caveats
 - The maximum page size is 1000 results. Any larger will result in a 400 returned.
-- We keep the context of the feed request alive for 5 minutes, which is reset after any request with the same `cursorId`.
+- We keep the context of the feed request alive for 5 minutes, which is reset after any request with the same `cursor_id`.
 This means after a request you have 5 minutes to make another request to fetch the next page of results or the context will timeout and a 400 is returned
 - The end of results is given by returning an empty list of videos and no `next` link is returned
-- Making the request twice with the same `cursorId` is essentially the same as following the next link
+- Making the request twice with the same `cursor_id` is essentially the same as following the next link
 

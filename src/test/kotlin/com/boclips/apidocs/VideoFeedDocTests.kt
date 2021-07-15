@@ -28,7 +28,7 @@ class VideoFeedDocTests : AbstractDocTests() {
                             .optional()
                             .description("The number of videos per page, 1000 by default and is also the max size")
                             .attributes(Attributes.key("type").value("Number")),
-                        parameterWithName("cursorId")
+                        parameterWithName("cursor_id")
                             .optional()
                             .description("This is set explicitly in the next link and you should never have to set it")
                             .attributes(Attributes.key("type").value("String")),
