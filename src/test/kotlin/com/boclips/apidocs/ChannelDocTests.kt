@@ -36,7 +36,8 @@ class ChannelDocTests : AbstractDocTests() {
                         subsectionWithPath("language.code").description("Language in 3 letter ISO-639-2 code format"),
                         subsectionWithPath("language.name").description("Name of the channel language"),
                         subsectionWithPath("_links").description("HAL links related to this collection"),
-                        fieldWithPath("contentTypes").description("Channel types"),
+                        fieldWithPath("contentTypes").description("Deprecated in favour of contentType"),
+                        fieldWithPath("contentType").description("The type of content the channel produces"),
                         fieldWithPath("notes").description("Custom notes about the channel"),
                         fieldWithPath("oneLineDescription").description("A snappy, high-energy description of the channel")
                     ),
