@@ -37,6 +37,14 @@ class GatewayDocTests : AbstractDocTests() {
     fun `resource index contains root links`(restDocumentation: RestDocumentationContextProvider) {
         val indexDocumentationSpec = RequestSpecificationFactory.createFor(freshClientAccessToken, restDocumentation)
 
+        println("---")
+        println(
+            given(indexDocumentationSpec).filter(document("resource-index"))
+                .`when`().get("/").apply { prettyPrint() }
+        )
+        println("---")
+
+
         given(indexDocumentationSpec)
             .filter(
                 document(
@@ -81,8 +89,6 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("contractLegalRestrictions").ignored(),
                         linkWithRel("suggestions").ignored(),
                         linkWithRel("getMetadata").ignored(),
-                        linkWithRel("delete").ignored(),
-                        linkWithRel("create").ignored(),
                     )
                 )
             )
