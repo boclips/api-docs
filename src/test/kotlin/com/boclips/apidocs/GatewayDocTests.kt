@@ -80,9 +80,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("isUserActive").description("Check whether given user is active"),
                         linkWithRel("contractLegalRestrictions").ignored(),
                         linkWithRel("suggestions").ignored(),
-                        linkWithRel("getMetadata").ignored(),
-                        linkWithRel("delete").ignored(),
-                        linkWithRel("create").ignored(),
+                        linkWithRel("getMetadata").ignored()
                     )
                 )
             )
