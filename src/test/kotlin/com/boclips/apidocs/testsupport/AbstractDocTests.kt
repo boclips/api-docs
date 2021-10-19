@@ -11,7 +11,6 @@ import com.github.kittinunf.fuel.jackson.responseObject
 import feign.okhttp.OkHttpClient
 import feign.opentracing.TracingClient
 import io.jaegertracing.internal.JaegerTracer
-import io.opentracing.Tracer
 import io.restassured.specification.RequestSpecification
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.extension.ExtendWith
