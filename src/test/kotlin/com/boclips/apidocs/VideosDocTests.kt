@@ -9,6 +9,7 @@ import org.hamcrest.Matchers
 import org.junit.jupiter.api.Test
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
+import org.springframework.restdocs.payload.FieldDescriptor
 import org.springframework.restdocs.payload.PayloadDocumentation.*
 import org.springframework.restdocs.request.RequestDocumentation.*
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
@@ -76,6 +77,11 @@ class VideosDocTests : AbstractDocTests() {
                             .description("The language of the video in a human readable format (e.g English)"),
 
                         fieldWithPath("createdBy").description("Who provided the video"),
+                        fieldWithPath("availability.availableUntil")
+                            .optional()
+                            .description("If provided, the video will be only available until this date.")
+                            .type("ISO-8601 (YYYY-MM-DD)")
+                        ,
                         linksFieldDescriptor
                     ),
                     links(

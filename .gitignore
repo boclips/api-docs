@@ -4,3 +4,4 @@ out/
 .gradle/
 build
 dependency-check-cache/
+.DS_Store
