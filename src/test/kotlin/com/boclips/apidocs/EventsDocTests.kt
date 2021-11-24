@@ -23,7 +23,8 @@ class EventsDocTests : AbstractDocTests() {
                     requestFields(
                         fieldWithPath("videoId").description("ID of the <<resources-videos,video>>"),
                         fieldWithPath("segmentStartSeconds").description("Second the video started its playback"),
-                        fieldWithPath("segmentEndSeconds").description("Second the video ended its playback")
+                        fieldWithPath("segmentEndSeconds").description("Second the video ended its playback"),
+                        fieldWithPath("userId").optional().description("ID of the user who initiated the playback")
                     )
                 )
             )
@@ -32,7 +33,8 @@ class EventsDocTests : AbstractDocTests() {
                 {
                   "videoId": "$videoId",
                   "segmentStartSeconds": 1,
-                  "segmentEndSeconds": 3
+                  "segmentEndSeconds": 3,
+                  "userId": "f0e8d794-1d7e-4944-9705-e16946c7b694"
                 }
             """.trimIndent()
             )
@@ -52,7 +54,8 @@ class EventsDocTests : AbstractDocTests() {
                         fieldWithPath("[*].videoId").description("ID of the <<resources-videos,video>>"),
                         fieldWithPath("[*].segmentStartSeconds").description("Second the video started its playback"),
                         fieldWithPath("[*].segmentEndSeconds").description("Second the video ended its playback"),
-                        fieldWithPath("[*].captureTime").optional().description("Time when playback event was fired")
+                        fieldWithPath("[*].captureTime").type("ISO-8601 (YYYY-MM-DDThh:mm:ss.sTZD)").description("Time when playback event was fired"),
+                        fieldWithPath("[*].userId").optional().description("ID of the user who initiated the playback")
                     )
                 )
             )
@@ -62,13 +65,15 @@ class EventsDocTests : AbstractDocTests() {
                     "videoId": "$videoId",
                     "segmentStartSeconds": 1,
                     "segmentEndSeconds": 3,
-                    "captureTime": "1997-07-16T19:20:30.45+01:00"
+                    "captureTime": "1997-07-16T19:20:30.45+01:00",
+                    "userId": "05c4b56f-1ca2-42ac-b992-2b254584ea29"
                 },
                 {
                     "videoId": "$videoId",
                     "segmentStartSeconds": 1,
                     "segmentEndSeconds": 3,
-                    "captureTime": "1997-07-16T19:20:30.45+01:00"
+                    "captureTime": "1997-07-16T19:20:30.45+01:00",
+                    "userId": "b51a69eb-6977-4766-9f76-7b1b7dc0b953"
                 }]
             """.trimIndent()
             )
