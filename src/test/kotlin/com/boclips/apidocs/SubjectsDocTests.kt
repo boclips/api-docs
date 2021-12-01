@@ -13,11 +13,11 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 
 class SubjectsDocTests : AbstractDocTests() {
     @Test
-    fun `resource index contains root links`() {
+    fun `returns user specific subjects`() {
         given(stubOwnerSpec)
             .filter(
                 document(
-                    "resource-subjects",
+                    "resource-subjects-user",
                     responseFields(
                         fieldWithPath("_embedded.subjects[].id").description("Id of the subject, can be used for filtering"),
                         fieldWithPath("_embedded.subjects[].name").description("Human readable subject name"),
@@ -30,6 +30,28 @@ class SubjectsDocTests : AbstractDocTests() {
             )
             .`when`()
             .get(links["subjects"]).apply { prettyPrint() }
+            .then()
+            .assertThat().statusCode(`is`(200))
+    }
+
+    @Test
+    fun `returns all subjects`() {
+        given(stubOwnerSpec)
+            .filter(
+                document(
+                    "resource-subjects-all",
+                    responseFields(
+                        fieldWithPath("_embedded.subjects[].id").description("Id of the subject, can be used for filtering"),
+                        fieldWithPath("_embedded.subjects[].name").description("Human readable subject name"),
+                        subsectionWithPath("_embedded.subjects[]._links").description("HAL links for the subject resource"),
+                        subsectionWithPath("_links").description("HAL links for the subject collection resource")
+                    ), links(
+                        linkWithRel("self").description("The subject collection resource that was just retrieved")
+                    )
+                )
+            )
+            .`when`()
+            .get(links["subjects"] + "?visibility=all").apply { prettyPrint() }
             .then()
             .assertThat().statusCode(`is`(200))
     }

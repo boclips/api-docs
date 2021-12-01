@@ -3,7 +3,15 @@
 
 The discipline resource groups subjects together. Each discipline will contain a list of subjects.
 
+=== Retrieving user-relevant disciplines
+
+By taking user context into account, only disciplines with subjects that contain non-empty video results will be returned.
+Subjects with empty video results are skipped, which in turn leads to omitting disciplines with no subjects.
+
+operation::resource-disciplines-user-get[snippets='http-request,curl-request,http-response,response-fields,links']
+
 === Retrieving all disciplines
 
-operation::resource-disciplines-get[snippets='http-request,curl-request,http-response,response-fields,links']
+All existing disciplines with all their subjects will be returned, regardless of user context.
 
+operation::resource-disciplines-all-get[snippets='http-request,curl-request']

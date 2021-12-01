@@ -1,8 +1,18 @@
 [[resources-subjects]]
 == Subjects
 
-The subject resource lists all available subjects that Boclips offers to tag videos or other relevant resources.
+The subject resource lists subjects that Boclips offers to tag videos or other relevant resources.
 This resource can also be used to filter by subject.
 
-operation::resource-subjects[snippets='http-request,curl-request,http-response,response-fields,links']
+=== Retrieving user-relevant subjects
 
+By taking user context into account, only subjects that contain non-empty video results will be returned.
+Subjects with empty video results are skipped.
+
+operation::resource-subjects-user[snippets='http-request,curl-request,http-response,response-fields,links']
+
+=== Retrieving all subjects
+
+All existing subjects will be returned, regardless of user context.
+
+operation::resource-subjects-all[snippets='http-request,curl-request']
