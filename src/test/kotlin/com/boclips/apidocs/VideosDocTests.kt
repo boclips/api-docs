@@ -79,7 +79,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("createdBy").description("Who provided the video"),
                         fieldWithPath("availability.availableUntil")
                             .optional()
-                            .description("If provided, the video will be only available until this date.")
+                            .description("If provided, the video will be only available until this date")
                             .type("ISO-8601 (YYYY-MM-DD)")
                         ,
                         linksFieldDescriptor
