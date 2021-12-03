@@ -67,9 +67,11 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("searchCollections").description("Search all collections"),
                         linkWithRel("collection").description("The collection resource, templated link to retrieve an individual video collection"),
 
-                        linkWithRel("subjects").description("List of subjects available"),
+                        linkWithRel("subjects").description("List of subjects available that will return videos"),
+                        linkWithRel("allSubjects").description("List of all subjects available in the system"),
 
-                        linkWithRel("disciplines").description("List of disciplines available in the system (e.g. arts, humanities...)"),
+                        linkWithRel("disciplines").description("List of disciplines that will return videos (e.g. arts, humanities...)"),
+                        linkWithRel("allDisciplines").description("List of all disciplines available in the system (e.g. arts, humanities...)"),
 
                         linkWithRel("countries").description("List of countries"),
 
