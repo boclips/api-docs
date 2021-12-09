@@ -204,7 +204,7 @@ class VideosDocTests : AbstractDocTests() {
                             Attributes.key("type").value("Enum")
                         ),
                     parameterWithName("best_for").optional()
-                        .description("Filter responses by <<resources-tags,tag>> labels, exact matches when specifying multiple tags")
+                        .description("Filter responses by <<resources-tags,tag>> labels")
                         .attributes(
                             Attributes.key("type").value("List of strings (e.g 'explainer')")
                         ),
