@@ -27,6 +27,10 @@ class VideosDocTests : AbstractDocTests() {
                         parameterWithName("id").description("The ID of the video asset")
                     ),
                     responseFields(
+                        beneathPath("bestFor").withSubsectionId("bestFor"),
+                        fieldWithPath("label").description("A <<resources-tags,tag>> label, to describe the video's learning objective")
+                    ),
+                    responseFields(
                         beneathPath("playback").withSubsectionId("playback"),
                         fieldWithPath("type").description("Playback type, i.e. STREAM or YOUTUBE"),
                         fieldWithPath("id").description("Id of this playback, useful for YOUTUBE type"),
@@ -45,6 +49,13 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("_links.hlsStream.templated").ignored()
                     ),
                     responseFields(
+                        beneathPath("contentWarnings").withSubsectionId("contentWarnings"),
+                        fieldWithPath("id").description("ID of the content warning"),
+                        fieldWithPath("label").description("Label describing the content warning"),
+                        fieldWithPath("_links.self.rel").ignored(),
+                        fieldWithPath("_links.self.href").ignored()
+                    ),
+                    responseFields(
                         fieldWithPath("id").description("The unique identifier for this video, can be interpolated in templated links"),
                         fieldWithPath("title").description("Human readable title for this video"),
                         fieldWithPath("description").description("Description detailing what this video talks about"),
@@ -55,7 +66,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
                         fieldWithPath("rating").description("Deprecated we are planning to drop support for this field. Score of this video based on user rating. From 0 to 5"),
                         fieldWithPath("yourRating").description("Deprecated we are planning to drop support for this field. Score you gave to this video. From 0 to 5"),
-                        fieldWithPath("bestFor").description("Most appropriate use for this video"),
+                        subsectionWithPath("bestFor").description("List of best for labels. See <<resources-video-access_response_fields-bestFor,bestFor>> for payload details"),
                         fieldWithPath("promoted").description("Promoted status of this video"),
                         fieldWithPath("type").description("Content type of this video"),
 
@@ -64,7 +75,7 @@ class VideosDocTests : AbstractDocTests() {
                         subsectionWithPath("attachments").description("List of resources attached to the video to help use the video in the classroom"),
 
                         fieldWithPath("legalRestrictions").description("Legal restrictions for this particular video if any"),
-                        fieldWithPath("contentWarnings").description("Content warnings for this particular video if any"),
+                        subsectionWithPath("contentWarnings").description("Content warnings for this particular video if any. See <<resources-video-access_response_fields-contentWarnings,contentWarnings>> for payload details"),
 
                         fieldWithPath("keywords").ignored(),
 
@@ -88,7 +99,7 @@ class VideosDocTests : AbstractDocTests() {
                         linkWithRel("self").description("The video resource that was just retrieved"),
                         linkWithRel("logInteraction").description("`POST` request to this URL will log user's interaction with this video"),
                         linkWithRel("rate").description("`PATCH` request to this URL will give this video a rating"),
-                        linkWithRel("tag").description("`PATCH` request to this URL will tag this video"),
+                        linkWithRel("tag").optional().description("`PATCH` request to this URL will tag this video"),
                         linkWithRel("transcript").description("`GET` to fetch transcripts of video")
                     )
                 )
@@ -245,9 +256,9 @@ class VideosDocTests : AbstractDocTests() {
             )
             .apply { println(prettyPrint()) }
             .then().assertThat().statusCode(`is`(200))
-            .and().body("_embedded.videos[0].title", Matchers.not(Matchers.isEmptyOrNullString()))
-            .and().body("_embedded.facets.ageRanges", Matchers.not(Matchers.isEmptyOrNullString()))
-            .and().body("_embedded.facets.durations", Matchers.not(Matchers.isEmptyOrNullString()))
-            .and().body("_embedded.facets.subjects", Matchers.not(Matchers.isEmptyOrNullString()))
+            .and().body("_embedded.videos[0].title", Matchers.not(Matchers.emptyOrNullString()))
+            .and().body("_embedded.facets.ageRanges", Matchers.not(Matchers.emptyOrNullString()))
+            .and().body("_embedded.facets.durations", Matchers.not(Matchers.emptyOrNullString()))
+            .and().body("_embedded.facets.subjects", Matchers.not(Matchers.emptyOrNullString()))
     }
 }

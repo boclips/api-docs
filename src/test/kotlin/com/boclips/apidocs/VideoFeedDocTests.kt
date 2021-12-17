@@ -56,6 +56,6 @@ class VideoFeedDocTests : AbstractDocTests() {
             )
             .apply { println(prettyPrint()) }
             .then().assertThat().statusCode(`is`(200))
-            .and().body("_embedded.videos[0].title", Matchers.not(Matchers.isEmptyOrNullString()))
+            .and().body("_embedded.videos[0].title", Matchers.not(Matchers.emptyOrNullString()))
     }
 }

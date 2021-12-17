@@ -17,7 +17,7 @@ class StagingUriModifyingOperationPreprocessor : OperationPreprocessor {
             return response
         }
 
-        return OperationResponseFactory().create(response.status, modify(response.headers), response.content)
+        return OperationResponseFactory().create(response.status.value(), modify(response.headers), response.content)
     }
 
     private fun modify(headers: HttpHeaders): HttpHeaders? {

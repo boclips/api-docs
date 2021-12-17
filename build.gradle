@@ -1,6 +1,6 @@
 plugins {
     id 'org.asciidoctor.convert' version '2.4.0'
-    id 'org.springframework.boot' version '2.4.5'
+    id 'org.springframework.boot' version '2.6.1'
     id 'org.jetbrains.kotlin.jvm' version '1.5.21'
     id 'org.jetbrains.kotlin.plugin.spring' version '1.5.21'
     id 'com.adarshr.test-logger' version '1.2.0'
@@ -23,6 +23,7 @@ ext {
     set('snippetsDir', file('build/generated-snippets'))
     junitVersion = '5.3.1'
     kotlinVersion = '1.5.21'
+    feignVersion = '11.7'
 }
 
 test {
@@ -52,21 +53,21 @@ dependencies {
 
     testImplementation 'com.github.boclips:videos:v766'
     // Below are transitive client dependencies that we need to import ourselves at the moment...
-    testImplementation('com.fasterxml.jackson.core:jackson-databind:2.11.0')
+    testImplementation('com.fasterxml.jackson.core:jackson-databind:2.13.0')
     testImplementation('com.fasterxml.jackson.module:jackson-module-kotlin:2.10.2')
-    testImplementation('io.github.openfeign:feign-jackson:11.0')
-    testImplementation 'io.github.openfeign:feign-core:10.7.0'
-    testImplementation 'io.github.openfeign:feign-okhttp:11.2'
+    testImplementation "io.github.openfeign:feign-jackson:$feignVersion"
+    testImplementation "io.github.openfeign:feign-core:$feignVersion"
+    testImplementation "io.github.openfeign:feign-okhttp:$feignVersion"
+
     testImplementation "io.opentracing.contrib:opentracing-spring-jaeger-cloud-starter:3.3.1"
     testImplementation('org.springframework.security.oauth:spring-security-oauth2:2.4.0.RELEASE')
     testImplementation('com.damnhandy:handy-uri-templates:2.1.8')
-    testImplementation('com.fasterxml.jackson.module:jackson-module-kotlin:2.10.1')
-    testImplementation('org.springframework.boot:spring-boot-starter-hateoas:2.2.3.RELEASE')
-    testImplementation('org.springframework.hateoas:spring-hateoas:1.0.3.RELEASE')
+    testImplementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    testImplementation 'org.springframework.hateoas:spring-hateoas'
 
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testCompile "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    testCompile "org.junit.jupiter:junit-jupiter-params:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
 }
 
 test {

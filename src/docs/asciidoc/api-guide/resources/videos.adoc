@@ -10,7 +10,7 @@ streaming details.
 A `GET` request against the `video` link will return an individual video as long as its `id` is interpolated
 following the provided template under <<resources-index-access,links>>.
 
-operation::resource-video[snippets='path-parameters,http-request,curl-request,http-response,response-fields,response-fields-playback,links']
+operation::resource-video[snippets='path-parameters,http-request,curl-request,http-response,response-fields,response-fields-playback,response-fields-contentWarnings,response-fields-bestFor,links']
 
 [[resources-video-search]]
 === Video search
