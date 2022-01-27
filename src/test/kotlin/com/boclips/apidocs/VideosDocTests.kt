@@ -228,8 +228,13 @@ class VideosDocTests : AbstractDocTests() {
                         .description("Filter by video ids, this can be a comma separated list of video ids")
                         .attributes(
                             Attributes.key("type").value("Video ID (e.g '5cd9627d6c2905689d1c150c'")
-                        )
-
+                        ),
+                    parameterWithName("language").optional()
+                        .description("Filter by language codes (ISO 639-2 language code). " +
+                                    "Use multiple times to search for multiple values, " +
+                                    "e.g. 'language=eng&language=spa'."
+                            )
+                        .attributes(Attributes.key("type").value("String (e.g 'eng')"))
                 )
                     , responseFields(
                     subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
