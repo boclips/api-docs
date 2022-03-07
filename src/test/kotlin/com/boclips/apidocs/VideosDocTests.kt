@@ -9,9 +9,13 @@ import org.hamcrest.Matchers
 import org.junit.jupiter.api.Test
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
-import org.springframework.restdocs.payload.FieldDescriptor
-import org.springframework.restdocs.payload.PayloadDocumentation.*
-import org.springframework.restdocs.request.RequestDocumentation.*
+import org.springframework.restdocs.payload.PayloadDocumentation.beneathPath
+import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
+import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
+import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
+import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
+import org.springframework.restdocs.request.RequestDocumentation.pathParameters
+import org.springframework.restdocs.request.RequestDocumentation.requestParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes
 
@@ -164,6 +168,11 @@ class VideosDocTests : AbstractDocTests() {
                         .description("Filter by subject id - from the <<resources-subjects,list of subjects>>")
                         .attributes(
                             Attributes.key("type").value("Subject Id (e.g. '5cb499c9fd5beb428189454b')")
+                        ),
+                    parameterWithName("education_level").optional()
+                        .description("Filter by education level. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<resources-education-levels,education levels resource>>")
+                        .attributes(
+                            Attributes.key("type").value("String")
                         ),
                     parameterWithName("age_range_min").optional()
                         .description("Minimum age to filter from - it filters on the video age range property, and is inclusive. See <<resources-video-search-age-ranges,filter by age>> for more details.")

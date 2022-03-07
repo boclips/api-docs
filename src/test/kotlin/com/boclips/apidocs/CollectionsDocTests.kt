@@ -321,7 +321,7 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @BeforeEach
     fun setupTestData() {
-        subjects = subjectsClient.getSubjects()._embedded.subjects.take(2)
+        subjects = subjectsClient.getAllSubjects()._embedded.subjects.take(2)
 
         aCollectionWithAttachments = collectionsClient.create(
             CreateCollectionRequest(

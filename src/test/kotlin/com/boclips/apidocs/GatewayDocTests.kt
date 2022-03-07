@@ -70,6 +70,8 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("subjects").description("List of subjects available that will return videos"),
                         linkWithRel("allSubjects").description("List of all subjects available in the system"),
 
+                        linkWithRel("educationLevels").description("List of available education levels"),
+
                         linkWithRel("disciplines").description("List of disciplines that will return videos (e.g. arts, humanities...)"),
                         linkWithRel("allDisciplines").description("List of all disciplines available in the system (e.g. arts, humanities...)"),
 

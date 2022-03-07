@@ -1,0 +1,10 @@
+[[resources-education-levels]]
+== Education Levels
+
+Allow identifying the intended user group, e.g. primary school, secondary school, higher education, etc.
+
+This resource can also be used to filter by education levels.
+
+=== Retrieving all education levels
+
+operation::resource-education-levels-all[snippets='http-request,curl-request,http-response,response-fields']

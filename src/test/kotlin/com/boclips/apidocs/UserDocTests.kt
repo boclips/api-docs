@@ -55,7 +55,7 @@ class UserDocTests : AbstractDocTests() {
 
     @Test
     fun `updating user profile`(restDocumentation: RestDocumentationContextProvider) {
-        val subject = subjectsClient.getSubjects()._embedded.subjects[0].id
+        val subject = subjectsClient.getAllSubjects()._embedded.subjects[0].id
         val myLinks = getLinksFor(teacherAccessToken)
 
         given(stubOwnerSpec)
