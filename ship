@@ -3,5 +3,5 @@
 set -e
 
 git pull -r
-./gradlew build
+./gradlew clean ktlintCheck build --warning-mode all
 git push

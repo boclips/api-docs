@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping
 class ApiDocsApplication
 
 fun main(args: Array<String>) {
-	runApplication<ApiDocsApplication>(*args)
+    runApplication<ApiDocsApplication>(*args)
 }
 
 @Controller
 class MainController {
-	@GetMapping("/")
-	fun index() = "redirect:/docs/index.html"
+    @GetMapping("/")
+    fun index() = "redirect:/docs/index.html"
 }

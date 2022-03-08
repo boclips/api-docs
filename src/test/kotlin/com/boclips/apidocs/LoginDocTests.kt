@@ -4,7 +4,6 @@ import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.apidocs.testsupport.BearerTokenDocumentationPolicy
 import com.boclips.apidocs.testsupport.RequestSpecificationFactory
 import io.restassured.RestAssured.given
-import io.restassured.http.Header
 import io.restassured.specification.RequestSpecification
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.BeforeEach
@@ -179,4 +178,3 @@ class LoginDocTests : AbstractDocTests() {
         )
     }
 }
-

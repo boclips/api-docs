@@ -24,7 +24,8 @@ class TagsDocTest : AbstractDocTests() {
                         fieldWithPath("_embedded.tags[].userId").description("The ID of the user that tagged the video with the given tag"),
                         subsectionWithPath("_embedded.tags[]._links").description("HAL links for the tag resource"),
                         subsectionWithPath("_links").description("HAL links for the tag collection resource")
-                    ), links(
+                    ),
+                    links(
                         linkWithRel("self").description("The tag collection resource that was just retrieved")
                     )
                 )
@@ -35,5 +36,3 @@ class TagsDocTest : AbstractDocTests() {
             .assertThat().statusCode(`is`(200))
     }
 }
-
-

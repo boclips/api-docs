@@ -84,7 +84,7 @@ class UserDocTests : AbstractDocTests() {
                     "country": "USA",
                     "state": "AZ"
                 }
-            """.trimIndent()
+                """.trimIndent()
             )
             .put(myLinks["profile"])
             .then()

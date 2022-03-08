@@ -27,7 +27,8 @@ class DisciplineDocTests : AbstractDocTests() {
                         subsectionWithPath("_embedded.disciplines[].subjects")
                             .description("A list of <<resources-subjects, subjects>> associated to this discipline"),
                         subsectionWithPath("_links").description("HAL links for the discipline collection resource")
-                    ), links(linkWithRel("self").description("The discipline resource that was just retrieved"))
+                    ),
+                    links(linkWithRel("self").description("The discipline resource that was just retrieved"))
                 )
             )
             .`when`()
@@ -51,7 +52,8 @@ class DisciplineDocTests : AbstractDocTests() {
                         subsectionWithPath("_embedded.disciplines[].subjects")
                             .description("A list of <<resources-subjects, subjects>> associated to this discipline"),
                         subsectionWithPath("_links").description("HAL links for the discipline collection resource")
-                    ), links(linkWithRel("self").description("The discipline resource that was just retrieved"))
+                    ),
+                    links(linkWithRel("self").description("The discipline resource that was just retrieved"))
                 )
             )
             .`when`()

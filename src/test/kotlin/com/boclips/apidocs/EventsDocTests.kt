@@ -36,7 +36,7 @@ class EventsDocTests : AbstractDocTests() {
                   "segmentEndSeconds": 3,
                   "userId": "f0e8d794-1d7e-4944-9705-e16946c7b694"
                 }
-            """.trimIndent()
+                """.trimIndent()
             )
             .post(createPlaybackEventLink())
             .apply { println(prettyPrint()) }
@@ -75,7 +75,7 @@ class EventsDocTests : AbstractDocTests() {
                     "captureTime": "1997-07-16T19:20:30.45+01:00",
                     "userId": "b51a69eb-6977-4766-9f76-7b1b7dc0b953"
                 }]
-            """.trimIndent()
+                """.trimIndent()
             )
             .post(getPlaybackEventsLink())
             .apply { println(prettyPrint()) }
@@ -85,7 +85,7 @@ class EventsDocTests : AbstractDocTests() {
 
     fun createPlaybackEventLink(): URI {
         val video = videosClient.getVideo(videoId)
-            return URI(video.playback?._links?.get("createPlaybackEvent")?.href!!)
+        return URI(video.playback?._links?.get("createPlaybackEvent")?.href!!)
     }
 
     fun getPlaybackEventsLink(): URI {

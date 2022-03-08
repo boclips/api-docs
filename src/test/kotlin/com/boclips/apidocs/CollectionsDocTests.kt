@@ -9,8 +9,8 @@ import com.boclips.videos.api.response.subject.SubjectResource
 import com.damnhandy.uri.template.UriTemplate
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
-import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.equalTo
+import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -45,7 +45,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .put("/collections/${aCollectionWithAttachments}/videos/{video_id}", someExistingVideoIds[0])
+            .put("/collections/$aCollectionWithAttachments/videos/{video_id}", someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
@@ -62,7 +62,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .delete("/collections/${aCollectionWithAttachments}/videos/{video_id}", someExistingVideoIds[0])
+            .delete("/collections/$aCollectionWithAttachments/videos/{video_id}", someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
@@ -101,7 +101,7 @@ class CollectionsDocTests : AbstractDocTests() {
                     "subjects": [${subjects.joinToString(", ") { "\"${it.id}\"" }}],
                     "discoverable": true
                 }
-            """.trimIndent()
+                """.trimIndent()
             )
             .post(links["createCollection"])
             .apply { println(prettyPrint()) }
@@ -291,7 +291,7 @@ class CollectionsDocTests : AbstractDocTests() {
                         "type": "LESSON_PLAN"
                     }
                 }
-            """.trimIndent()
+                """.trimIndent()
             )
             .patch("/collections/{id}", aCollectionWithAttachments)
             .apply { println(prettyPrint()) }
@@ -432,4 +432,3 @@ class CollectionsDocTests : AbstractDocTests() {
     lateinit var aCollectionWithAttachments: String
     lateinit var aCollection: String
 }
-

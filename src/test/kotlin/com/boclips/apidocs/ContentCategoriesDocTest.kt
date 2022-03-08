@@ -1,4 +1,5 @@
 package com.boclips.apidocs
+
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers
@@ -7,7 +8,7 @@ import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 
-class ContentCategories : AbstractDocTests()  {
+class ContentCategoriesDocTest : AbstractDocTests() {
     @Test
     fun `lists available video types`() {
         given(stubOwnerSpec)
@@ -27,6 +28,3 @@ class ContentCategories : AbstractDocTests()  {
             .assertThat().statusCode(CoreMatchers.`is`(200))
     }
 }
-
-
-

@@ -5,7 +5,6 @@ import org.springframework.restdocs.operation.OperationRequest
 import org.springframework.restdocs.operation.OperationResponse
 import org.springframework.restdocs.operation.OperationResponseFactory
 import org.springframework.restdocs.operation.preprocess.OperationPreprocessor
-import org.springframework.restdocs.operation.preprocess.UriModifyingOperationPreprocessor
 
 class StagingUriModifyingOperationPreprocessor : OperationPreprocessor {
     override fun preprocess(request: OperationRequest?): OperationRequest? {

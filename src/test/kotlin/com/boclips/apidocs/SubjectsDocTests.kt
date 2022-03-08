@@ -23,7 +23,8 @@ class SubjectsDocTests : AbstractDocTests() {
                         fieldWithPath("_embedded.subjects[].name").description("Human readable subject name"),
                         subsectionWithPath("_embedded.subjects[]._links").description("HAL links for the subject resource"),
                         subsectionWithPath("_links").description("HAL links for the subject collection resource")
-                    ), links(
+                    ),
+                    links(
                         linkWithRel("self").description("The subject collection resource that was just retrieved")
                     )
                 )
@@ -45,7 +46,8 @@ class SubjectsDocTests : AbstractDocTests() {
                         fieldWithPath("_embedded.subjects[].name").description("Human readable subject name"),
                         subsectionWithPath("_embedded.subjects[]._links").description("HAL links for the subject resource"),
                         subsectionWithPath("_links").description("HAL links for the subject collection resource")
-                    ), links(
+                    ),
+                    links(
                         linkWithRel("self").description("The subject collection resource that was just retrieved")
                     )
                 )
