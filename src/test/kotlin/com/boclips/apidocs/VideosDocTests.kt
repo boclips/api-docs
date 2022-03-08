@@ -67,6 +67,7 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("releasedOn").description("Date on which the video was originally released as stated by the content producer"),
                         fieldWithPath("updatedAt").description("Date when the most recent update occured"),
                         subsectionWithPath("subjects").description("Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details"),
+                        subsectionWithPath("educationLevels").description("Education levels this video is suitable for. See <<resources-education-levels,education levels resource>> for more details"),
                         fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
                         fieldWithPath("rating").description("Deprecated we are planning to drop support for this field. Score of this video based on user rating. From 0 to 5"),
                         fieldWithPath("yourRating").description("Deprecated we are planning to drop support for this field. Score you gave to this video. From 0 to 5"),
