@@ -195,6 +195,11 @@ class VideosDocTests : AbstractDocTests() {
                             .attributes(
                                 Attributes.key("type").value("Range of ISO-8601 (PT6M5S), e.g. PT0S-PT5M.")
                             ),
+                        parameterWithName("include_education_level_facets").optional()
+                            .description("Indicates whether to include education level facets into search results.")
+                            .attributes(
+                                Attributes.key("type").value("Boolean")
+                            ),
                         parameterWithName("age_range_facets").optional()
                             .description("Override default facets for age ranges, see <<resources-video-search-facets,search facets>>.")
                             .attributes(
@@ -249,7 +254,7 @@ class VideosDocTests : AbstractDocTests() {
                     ),
                     responseFields(
                         subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
-                        subsectionWithPath("_embedded.facets").description("Search facets for age ranges, durations and subjects"),
+                        subsectionWithPath("_embedded.facets").description("Search facets for age ranges, durations, subjects and education levels"),
                         *pageSpecificationResponseFields
                     )
                 )

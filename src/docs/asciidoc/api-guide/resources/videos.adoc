@@ -62,7 +62,7 @@ We provide two ways of filtering videos by ages.
 
 WARNING: This is a *_BETA_* feature. Whilst we don't anticipate major changes, we cannot guarantee backward compatibility at this stage.
 
-Search facets expose hit counts for specific "buckets", namely *subjects*, *age ranges* and *durations*. Facets can substantially improve the search experience of users.
+Search facets expose hit counts for specific "buckets", namely *subjects*, *age ranges*, *durations* and *education levels*. Facets can substantially improve the search experience of users.
 
 We provide default search facets out of the box. By setting the `age_range_facets` and `duration_facets` parameters, you can adapt the facets to meet your needs.
 
