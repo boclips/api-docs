@@ -75,6 +75,8 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("disciplines").description("List of disciplines that will return videos (e.g. arts, humanities...)"),
                         linkWithRel("allDisciplines").description("List of all disciplines available in the system (e.g. arts, humanities...)"),
 
+                        linkWithRel("ngssCodes").description("List of all NGSS codes available"),
+
                         linkWithRel("countries").description("List of countries"),
 
                         linkWithRel("channel").description("Retrieve a specific channel"),

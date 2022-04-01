@@ -17,6 +17,8 @@ include::disciplines.adoc[]
 
 include::subjects.adoc[]
 
+include::curriculum.adoc[]
+
 include::education-levels.adoc[]
 
 include::tags.adoc[]

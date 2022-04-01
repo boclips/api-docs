@@ -1,0 +1,15 @@
+[[resources-curriculum]]
+== Curriculum
+
+We are constantly aligning our content to existing curricula standards.
+
+==== Next Generation Science Standards (NGSS)
+
+NGSS are K–12 science content standards. Standards set the expectations for what students should know and be able to do.
+To read more, go to: https://www.nextgenscience.org/
+
+===== Retrieving all supported NGSS codes
+
+All existing codes with their content area will be returned.
+
+operation::resource-curriculum-ngss-codes-all-get[snippets='http-request,curl-request,http-response,response-fields']
