@@ -11,7 +11,7 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class CurriculumDocTests : AbstractDocTests() {
 
     @Test
-    fun `get all curriculum`() {
+    fun `get all ngss codes`() {
         given(stubOwnerSpec)
             .filter(
                 document(
@@ -24,6 +24,24 @@ class CurriculumDocTests : AbstractDocTests() {
             )
             .`when`()
             .get(links["ngssCodes"]).apply { prettyPrint() }
+            .then()
+            .assertThat().statusCode(`is`(200))
+    }
+
+    @Test
+    fun `get all ngss grades`() {
+        given(stubOwnerSpec)
+            .filter(
+                document(
+                    "resource-curriculum-ngss-grades-all-get",
+                    responseFields(
+                        fieldWithPath("_embedded[].grade").description("NGSS grade value"),
+                        fieldWithPath("_embedded[].description").description("Classes supported in the NGSS grade")
+                    )
+                )
+            )
+            .`when`()
+            .get(links["ngssGrades"]).apply { prettyPrint() }
             .then()
             .assertThat().statusCode(`is`(200))
     }

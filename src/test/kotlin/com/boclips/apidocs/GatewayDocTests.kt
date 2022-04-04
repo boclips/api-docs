@@ -76,6 +76,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("allDisciplines").description("List of all disciplines available in the system (e.g. arts, humanities...)"),
 
                         linkWithRel("ngssCodes").description("List of all NGSS codes available"),
+                        linkWithRel("ngssGrades").description("List of all NGSS grades available"),
 
                         linkWithRel("countries").description("List of countries"),
 

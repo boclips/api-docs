@@ -13,3 +13,10 @@ To read more, go to: https://www.nextgenscience.org/
 All existing codes with their content area will be returned.
 
 operation::resource-curriculum-ngss-codes-all-get[snippets='http-request,curl-request,http-response,response-fields']
+
+
+===== Retrieving all supported NGSS grades
+
+All supported grades with the description of classes that fall under them will be returned.
+
+operation::resource-curriculum-ngss-grades-all-get[snippets='http-request,curl-request,http-response,response-fields']
