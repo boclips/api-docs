@@ -250,7 +250,12 @@ class VideosDocTests : AbstractDocTests() {
                                     "Use multiple times to search for multiple values, " +
                                     "e.g. 'language=eng&language=spa'."
                             )
-                            .attributes(Attributes.key("type").value("String (e.g 'eng')"))
+                            .attributes(Attributes.key("type").value("String (e.g 'eng')")),
+                        parameterWithName("ngss_code").optional()
+                            .description("Filter by NGSS code. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<_retrieving_all_supported_ngss_codes,retrieving all NGSS codes>>")
+                            .attributes(
+                                Attributes.key("type").value("String (eg. 'LS4')")
+                            ),
                     ),
                     responseFields(
                         subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
