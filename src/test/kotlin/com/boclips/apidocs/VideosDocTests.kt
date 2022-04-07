@@ -256,6 +256,11 @@ class VideosDocTests : AbstractDocTests() {
                             .attributes(
                                 Attributes.key("type").value("String (eg. 'LS4')")
                             ),
+                        parameterWithName("ngss_grade").optional()
+                            .description("Filter by NGSS grade. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<_retrieving_all_supported_ngss_grades,retrieving all NGSS grades>>")
+                            .attributes(
+                                Attributes.key("type").value("String (eg. 'K-2')")
+                            ),
                     ),
                     responseFields(
                         subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
