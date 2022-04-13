@@ -23,53 +23,12 @@ prefer videos with those same subjects.
 
 operation::resource-video-search[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
 
-[[resources-video-search-age-ranges]]
-==== Filtering by ages
-
-We provide two ways of filtering videos by ages.
-
-1. Using `age_range_min` and `age_range_max` you apply a *strict* filter. We return videos which are only suitable to ages `≥ age_range_min` and `≤ age_range_max`.
-
-2. Using `age_range` you can apply a *relaxed* filter, where we return all videos which are suitable for at least 2 ages from the provided `age_range`.
-
-
-
-|===
-|Video age range | Search with filter: `age_range_min=3&age_range_max=5` | Search with filter: `age_range=3-5`
-
-| 3 - 16
-|no match, has age > max 5
-|match
-
-| 3-5
-|match
-|match
-
-| 2 - 3
-|no match, has age < min
-|no match, only matches age 3, we need at least two matching ages
-
-| 2 - 15
-|no match, has age < min and age > max
-|match
-
-|===
-
-
-
 [[resources-video-search-facets]]
 ==== Search facets
 
-WARNING: This is a *_BETA_* feature. Whilst we don't anticipate major changes, we cannot guarantee backward compatibility at this stage.
+Search facets expose hit counts for specific "buckets", namely *subjects*, *durations* and *education levels*. Facets can substantially improve the search experience of users.
 
-Search facets expose hit counts for specific "buckets", namely *subjects*, *age ranges*, *durations* and *education levels*. Facets can substantially improve the search experience of users.
-
-We provide default search facets out of the box. By setting the `age_range_facets` and `duration_facets` parameters, you can adapt the facets to meet your needs.
-
-*Age Range Defaults* (in years): 3-5, 5-9, 9-11, 11-14, 14-16, 16-99
-
-Age Range buckets will show the counts for videos which are suitable for at least 2 ages in that range.
-For example a video which has `ageRange: {min: 4, max: 10}` would be counted in these buckets: 3-5, 5-9, 9-11.
+We provide default search facets out of the box. By setting the `duration_facets` parameter, you can adapt this facet to meet your needs.
 
 *Durations Defaults* (in seconds): 0-120, 120-300, 300-600, 600-1200, 1200-86400
 

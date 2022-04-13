@@ -67,7 +67,6 @@ class VideosDocTests : AbstractDocTests() {
                         fieldWithPath("releasedOn").description("Date on which the video was originally released as stated by the content producer"),
                         fieldWithPath("updatedAt").description("Date when the most recent update occured"),
                         subsectionWithPath("subjects").description("Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details"),
-                        subsectionWithPath("educationLevels").description("Education levels this video is suitable for. See <<resources-education-levels,education levels resource>> for more details"),
                         fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
                         fieldWithPath("rating").description("Deprecated we are planning to drop support for this field. Score of this video based on user rating. From 0 to 5"),
                         fieldWithPath("yourRating").description("Deprecated we are planning to drop support for this field. Score you gave to this video. From 0 to 5"),
@@ -84,9 +83,10 @@ class VideosDocTests : AbstractDocTests() {
 
                         fieldWithPath("keywords").ignored(),
 
-                        fieldWithPath("ageRange.label").optional().description("Age range in a human readable format"),
-                        fieldWithPath("ageRange.min").optional().description("Minimum of age range for this video"),
-                        fieldWithPath("ageRange.max").optional().description("Maximum of age range for this video"),
+                        subsectionWithPath("educationLevels").description("Education levels this video is suitable for. See <<resources-education-levels,education levels resource>> for more details"),
+                        fieldWithPath("ageRange.label").optional().description("Deprecated in favour of educationLevels. Age range in a human readable format"),
+                        fieldWithPath("ageRange.min").optional().description("Deprecated in favour of educationLevels. Minimum of age range for this video"),
+                        fieldWithPath("ageRange.max").optional().description("Deprecated in favour of educationLevels. Maximum of age range for this video"),
                         fieldWithPath("language.code").optional()
                             .description("The language of the video in the format of the ISO 639-2 standard"),
                         fieldWithPath("language.displayName").optional()
@@ -176,17 +176,17 @@ class VideosDocTests : AbstractDocTests() {
                                 Attributes.key("type").value("String")
                             ),
                         parameterWithName("age_range_min").optional()
-                            .description("Minimum age to filter from - it filters on the video age range property, and is inclusive. See <<resources-video-search-age-ranges,filter by age>> for more details.")
+                            .description("Deprecated in favour of education_level. Minimum age to filter from - it filters on the video age range property, and is inclusive.")
                             .attributes(
                                 Attributes.key("type").value("Number")
                             ),
                         parameterWithName("age_range_max").optional()
-                            .description("Maximum age to filter to - it filters on the video age range property, and is inclusive. See <<resources-video-search-age-ranges,filter by age>> for more details.")
+                            .description("Deprecated in favour of education_level. Maximum age to filter to - it filters on the video age range property, and is inclusive")
                             .attributes(
                                 Attributes.key("type").value("Number")
                             ),
                         parameterWithName("age_range").optional()
-                            .description("Filter videos which cover at least 2 ages from a range in the video age range property. Provide age ranges in the form `lowerAge-upperAge`, ie `5-7`. See <<resources-video-search-age-ranges,filter by age>> for more details.")
+                            .description("Deprecated in favour of education_level. Filter videos which cover at least 2 ages from a range in the video age range property.")
                             .attributes(
                                 Attributes.key("type").value("String")
                             ),
@@ -201,7 +201,7 @@ class VideosDocTests : AbstractDocTests() {
                                 Attributes.key("type").value("Boolean")
                             ),
                         parameterWithName("age_range_facets").optional()
-                            .description("Override default facets for age ranges, see <<resources-video-search-facets,search facets>>.")
+                            .description("Deprecated. Override default facets for age ranges, see <<resources-video-search-facets,search facets>>.")
                             .attributes(
                                 Attributes.key("type").value("String, e.g. 3-5")
                             ),
@@ -264,7 +264,7 @@ class VideosDocTests : AbstractDocTests() {
                     ),
                     responseFields(
                         subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
-                        subsectionWithPath("_embedded.facets").description("Search facets for age ranges, durations, subjects and education levels"),
+                        subsectionWithPath("_embedded.facets").description("Search facets for durations, subjects and education levels"),
                         *pageSpecificationResponseFields
                     )
                 )
