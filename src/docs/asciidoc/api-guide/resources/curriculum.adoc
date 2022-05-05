@@ -3,20 +3,29 @@
 
 We are constantly aligning our content to existing curricula standards.
 
-==== Next Generation Science Standards (NGSS)
+=== Next Generation Science Standards (NGSS)
 
 NGSS are K–12 science content standards. Standards set the expectations for what students should know and be able to do.
 To read more, go to: https://www.nextgenscience.org/
 
-===== Retrieving all supported NGSS codes
+==== Retrieving all supported NGSS codes
 
 All existing codes with their content area will be returned.
 
 operation::resource-curriculum-ngss-codes-all-get[snippets='http-request,curl-request,http-response,response-fields']
 
 
-===== Retrieving all supported NGSS grades
+==== Retrieving all supported NGSS grades
 
 All supported grades with the description of classes that fall under them will be returned.
 
 operation::resource-curriculum-ngss-grades-all-get[snippets='http-request,curl-request,http-response,response-fields']
+
+=== OpenStax
+OpenStax is a nonprofit educational technology initiative based at Rice University. OpenStax has created peer-reviewed, openly-licensed textbooks which we map our video content to.
+
+==== Retrieving all supported Openstax books
+
+All currently supported Openstax books, with chapters and sections included.
+
+operation::resource-curriculum-openstax-books-all-get[snippets='http-request,curl-request,http-response,response-fields']

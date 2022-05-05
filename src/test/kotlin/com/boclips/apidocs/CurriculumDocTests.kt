@@ -45,4 +45,27 @@ class CurriculumDocTests : AbstractDocTests() {
             .then()
             .assertThat().statusCode(`is`(200))
     }
+
+    @Test
+    fun `get all openstax books`() {
+        given(stubOwnerSpec)
+            .filter(
+                document(
+                    "resource-curriculum-openstax-books-all-get",
+                    responseFields(
+                        fieldWithPath("_embedded.books[].title").description("Title of the book"),
+                        fieldWithPath("_embedded.books[].id").description("Id of the book"),
+                        fieldWithPath("_embedded.books[].chapters[].number").description("Number of a chapter"),
+                        fieldWithPath("_embedded.books[].chapters[].title").description("Title of a chapter"),
+                        fieldWithPath("_embedded.books[].chapters[].sections[].number").description("An optional section number")
+                            .optional(),
+                        fieldWithPath("_embedded.books[].chapters[].sections[].title").description("Title of a section"),
+                    )
+                )
+            )
+            .`when`()
+            .get(links["openstaxBooks"]).apply { prettyPrint() }
+            .then()
+            .assertThat().statusCode(`is`(200))
+    }
 }
