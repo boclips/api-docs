@@ -13,20 +13,42 @@ Boclips Engineering;
 
 This is the developer reference guide to Boclips LTI implementation.
 
-NOTE: At the moment we support LTI 1.1 only.
+LTI is used to authenticate external users within the Boclips application. They don’t need to create accounts or log in, an LTI handshake does it on their behalf, making the experience seamless.
+
+LTI protocol assumes that one web application will be opened from or within another web application. The aforementioned resources are thus plain web pages that display content to users. Whether that page is opened in a separate window or embedded within an iframe element is a matter of design preference.
+
+*The high-level flow is:*
+
+* The LMS authenticates itself and the user against the Tool (eg. Boclips)
+* If successful, the Tool will:
+** set up a session for the user,
+** and redirect them to the requested resource
+
+We support both LTI 1.1 and LTI 1.3. Depending on which version is used, the authentication flow and how the supported features can be accessed is different and explained in more detail in this document.
 
 [[boclips-lti-features]]
-== Boclips LTI Features
+== LTI Features supported
 
-Our current LTI implementation delivers read only views of resources:
+=== Displaying a single video
 
-* videos,
-* collections of videos,
-* lists of video collections.
+The user is able to display a *single video* playable using our interactive player.
 
-LTI is used here to authenticate external users within Boclips application. They don't need to create accounts or log in, an LTI handshake does it on their behalf, making the experience seamless.
+NOTE: Note that the assumption is that IDs of resources are known in advance and as a consumer you embed LTI links them as you choose.
 
-LTI protocol assumes that one web application will be opened _from_ or _within_ another web application. The aforementioned resources are thus plain web pages that display content to users. Whether that page is opened in a separate window or embedded within an `iframe` element is a matter of design preference.
+
+=== Searching and embedding videos
+This feature allows users to browse our full video library and select the resources (videos) they want to embed in their lesson.
+This is a more flexible way of integrating with Boclips as users are not constrained by the pre-selected resources.
+
+*The feature can be used like:*
+
+[example]
+--
+. User accesses the Boclips search view inside their LMS
+. User is able to search videos by text and filter by metadata (eg. video duration, educational level, subject)
+. When an appropriate video is found, the user can select it and initiate the embed flow
+. The selected resource is sent back to the LMS
+--
 
 [[lti-v1p1]]
 == LTI 1.1
@@ -66,93 +88,42 @@ An LTI 1.1 handshake works as follows:
 
 The key is passed as a part of a launch request and allows to identify different consumers. The secret should be stored in a secure manner and not be exposed to 3rd parties.
 
-[[lti-v1p1-anatomy-of-a-launch-request]]
-=== Anatomy of a Launch Request
+More info can be found in the link:https://www.imsglobal.org/specs/ltiv1p1/implementation-guide[official specification].
 
-All parameters mentioned below are transmitted as standard HTTP POST parameters.
-
-[[lti-v1p1-lti-parameters]]
-==== LTI Parameters
-
-A minimal subset of LTI launch request parameters required to access Boclips resources is presented in the table below.
-
-Please note that LTI specification permits more parameters in order to pass contextual information along. Some parameters are treated as _recommended_, others are _optional_. Many recommended parameters include user information -- this helps with automatic account provisioning.
-
-More info on supported parameters can be found in link:https://www.imsglobal.org/specs/ltiv1p1/implementation-guide[official specification].
-
-[cols="2,1,1,5"]
-include::{snippets}/lti-v1p1-lti-parameters/request-parameters.adoc[]
-
-[[lti-v1p1-oauth-parameters]]
-==== OAuth 1.0 Parameters
-
-LTI 1.1 security model is based on link:https://oauth.net/core/1.0/[OAuth 1.0] message signing. A well formed LTI launch request must contain all parameters listed below.
-
-Ideally you won't need to handle all of those yourself -- there are open source LTI and/or OAuth 1.0 libraries available, for example we use an link:https://github.com/IMSGlobal/basiclti-util-java[official IMS one] for our JVM apps.
-
-[cols="2,1,1,5"]
-include::{snippets}/lti-v1p1-oauth-parameters/request-parameters.adoc[]
 
 [[lti-v1p1-boclips-custom-parameters]]
-==== Boclips Custom Parameters
+=== Boclips Custom Parameters
 
 We support additional parameters that allow customizing the LTI experience. They can be passed along all the other launch request parameters.
 
 [cols="2,1,1,5"]
 include::{snippets}/lti-v1p1-boclips-parameters/request-parameters.adoc[]
 
-[[lti-v1p1-sample-launch-request]]
-==== Sample Launch Request
+[[lti-v1p1-access-video]]
+=== Accessing a single video
 
-Below is an example of a valid LTI launch request issued using. Please note that the values below are just sample placeholders, not real parameters that can be used to execute a launch:
-
-* a video resource located under https://lti.boclips.com/v1p1/videos/5c542abf5438cdbcb56df0bf,
-* consumer key used is `your-consumer-key`,
-* resource link ID of `41B464BA-F406-485C-ACDF-C1E5EB474156`,
-* custom logo parameter set to https://storage.googleapis.com/boclips-public-static-files/boclips/logo.png.
-
-include::{snippets}/lti-v1p1-full-launch-request/http-request.adoc[]
-
-The server responds with a redirect to the resource and sets a session cookie:
-
-include::{snippets}/lti-v1p1-full-launch-request/http-response.adoc[]
-
-NOTE: Given our current LTI implementation, the launch requests will look nearly the same for other resource types. Only the resource URL will change.
-
-[[lti-v1p1-resource-endpoints]]
-=== Resource Endpoints
-
-==== Single Video
-
-Displays a single video playable using our interactive player.
-
+Resource endpoint to be used is:
 [listing]
 --
 /v1p1/videos/{videoId}
 --
 
-==== Collection of Videos
+The request has to set `lti_message_type` as `basic-lti-launch-request`.
 
-Displays a collection of videos with thumbnails and descriptions. Clicking on any of them will take the user to a video page.
+[[lti-v1p1-search-and-embed]]
+=== Search and embed
 
+Resource endpoint to be used is:
 [listing]
 --
-/v1p1/collections/{collectionId}
+/v1p1/search-and-embed
 --
 
-==== List of Collections
+The request has to set `lti_message_type` as `ContentItemSelectionRequest`.
 
-Displays a list of available collections with a subset of video thumbnails for each of them. Selecting one of them will take the user to a video collection page.
-
-[listing]
---
-/v1p1/collections
---
-
-NOTE: Note that the assumption is that IDs of resources are known in advance and as a consumer you embed LTI links them as you choose. Alternatively, users can explore the full content library from the collections list page (last resource).
 
 [[lti-v1p1-external-resources]]
-=== External Resources
+=== External Resources for LTI 1.1
 
 Below are a mix of official LTI docs from link:https://www.imsglobal.org/[IMS] and articles written by developers that can prove useful when implementing LTI capabilities.
 
@@ -160,3 +131,82 @@ Below are a mix of official LTI docs from link:https://www.imsglobal.org/[IMS] a
 * link:https://medium.com/lcom-techblog/simple-lti-tool-consumer-in-html-and-javascript-72ca153d7a83[Simple LTI consumer application]
 * link:https://community.brightspace.com/s/article/So-you-want-to-extend-your-LMS-Part-1-LTI-Primer[An LTI 1.1 overview from a developer perspective]
 * link:https://ltiapps.net/test/tc.php[Tool for testing LTI 1.1 consumers and providers]
+
+[[lti-v1p3]]
+== LTI 1.3
+
+_LTI version 1.3 improves upon version by moving away from the use of OAuth 1.0a-style signing for authentication and towards a new security model, using OpenID Connect, signed JWTs, and OAuth2.0 workflows for authentication._
+
+When using LTI 1.3 the parties interacting with each other are:
+
+* *platform* -- yourself, or any other party that wants to access Boclips content using LTI
+* *tool* -- a service that has resources than can be accessed using LTI (e.g. Boclips)
+
+=== Configuring the integration
+
+Before the integration can take place, both parties need to exchange configuration entries with each other.
+
+*Boclips URLs*
+
+[example]
+--
+* Launch URL: https://lti.boclips.com/search-and-embed
+* Login initiation URL: https://lti.boclips.com/v1p3/initiate-login
+* Authentication Response URL: https://lti.boclips.com/v1p3/authentication-response
+* JWKS URL: https://lti.boclips.com/.well-known/jwks
+--
+
+*Information to be shared with Boclips*
+[example]
+--
+* Issuer (iss)
+* Authentication endpoint URL
+* JWKS URL
+* Client ID
+--
+
+[[lti-v1p3-authentication]]
+=== Authentication
+
+An LTI 1.3 handshake works as follows:
+
+[example]
+--
+1. _platform_ initiates a login request against _tool_
+2. _tool_ executes an OAuth 2 Implicit Flow against _platform_'s IdP
+3. end user is redirected to the IdP
+4. if the user authenticated successfully, the _platform_ has to assemble an link:https://www.oauth.com/oauth2-servers/openid-connect/id-tokens/[ID Token] with the related LTI claims added to it
+5. _tool_ validates the ID Token with LTI claims and redirects the user to the LTI resource requested originally
+--
+
+More detail can be found in the official link:https://www.imsglobal.org/spec/security/v1p0/[Authentication Workflow specification].
+
+
+[[lti-v1p3-claims]]
+=== Mandatory LTI claims
+
+Details about the mandatory LTI claims can be found in the link:https://www.imsglobal.org/spec/lti/v1p3#required-message-claims[official documentation].
+
+[[lti-v1p3-access-video]]
+==== Accessing a single video
+
+The below claims has to be set as:
+
+* `\https://purl.imsglobal.org/spec/lti/claim/message_type` to be `LtiResourceLinkRequest`
+* `\https://purl.imsglobal.org/spec/lti/claim/target_link_uri` to be `\https://lti.boclips.com/videos/{videoId}`
+
+[[lti-v1p3-search-and-embed]]
+==== Search and embed
+
+The below claims has to be set as:
+
+* `\https://purl.imsglobal.org/spec/lti/claim/message_type` to be `LtiDeepLinkingRequest`
+* `\https://purl.imsglobal.org/spec/lti/claim/target_link_uri` to be `\https://lti.boclips.com/search-and-embed`
+
+[[lti-v1p3-external-resources]]
+=== External Resources
+
+* link:https://www.imsglobal.org/spec/lti/v1p3[LTI 1.3 official specification]
+* link:https://www.imsglobal.org/spec/security/v1p0/[LTI 1.3 Authentication Workflow specification]
+* link:http://www.imsglobal.org/spec/lti-dl/v2p0/[LTI Deep Linking Specification]
+
