@@ -57,11 +57,13 @@ class CurriculumDocTests : AbstractDocTests() {
                         fieldWithPath("_embedded.books[].id").description("Id of the book"),
                         fieldWithPath("_embedded.books[].chapters[].number").description("Number of a chapter"),
                         fieldWithPath("_embedded.books[].chapters[].title").description("Title of a chapter"),
+                        fieldWithPath("_embedded.books[].chapters[].videoIds[]").description("Video Ids related to chapter"),
                         fieldWithPath("_embedded.books[].chapters[].sections[]").description("Sections of a chapter"),
                         fieldWithPath("_embedded.books[].chapters[].sections[].number").description("An optional section number")
                             .optional(),
                         fieldWithPath("_embedded.books[].chapters[].sections[].title").description("Title of a section")
                             .optional(),
+                        fieldWithPath("_embedded.books[].chapters[].sections[].videoIds[]").description("Video Ids related to section")
                     )
                 )
             )
