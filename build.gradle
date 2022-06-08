@@ -86,6 +86,11 @@ asciidoctor {
     attributes 'highlightjs-theme=github'
     inputs.dir snippetsDir
     dependsOn test
+    resources {
+        from('src/docs/asciidoc/resources') {
+            include("favicon.ico")
+        }
+    }
 }
 
 task copyRestDocs(type: Copy) {

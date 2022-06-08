@@ -4,6 +4,7 @@ Boclips Engineering;
 :icons: font
 :source-highlighter: highlightjs
 :sectlinks:
+:favicon:
 
 [[overview]]
 = Overview
