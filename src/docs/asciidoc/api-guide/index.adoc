@@ -10,6 +10,7 @@ Boclips Engineering;
 :operation-http-response-title: Example response
 :snippets: ../../../../build/generated-snippets
 :stylesheet: ../styles.css
+:favicon: ../favicon.ico
 
 include::overview/index.adoc[]
 
