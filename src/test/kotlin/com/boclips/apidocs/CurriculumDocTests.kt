@@ -55,6 +55,7 @@ class CurriculumDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("_embedded.books[].title").description("Title of the book"),
                         fieldWithPath("_embedded.books[].id").description("Id of the book"),
+                        fieldWithPath("_embedded.books[].subject").description("Subject of the book"),
                         fieldWithPath("_embedded.books[].chapters[].number").description("Number of a chapter"),
                         fieldWithPath("_embedded.books[].chapters[].title").description("Title of a chapter"),
                         fieldWithPath("_embedded.books[].chapters[].videoIds[]").description("Video Ids related to chapter"),
