@@ -91,6 +91,8 @@ class VideosDocTests : AbstractDocTests() {
                             .description("The language of the video in the format of the ISO 639-2 standard"),
                         fieldWithPath("language.displayName").optional()
                             .description("The language of the video in a human readable format (e.g English)"),
+                        fieldWithPath("cefrLevel").optional()
+                            .description("The CEFR level of the video (e.g C1)"),
 
                         fieldWithPath("createdBy").description("Who provided the video"),
                         fieldWithPath("availability.availableUntil")
@@ -187,6 +189,11 @@ class VideosDocTests : AbstractDocTests() {
                             ),
                         parameterWithName("age_range").optional()
                             .description("Deprecated in favour of education_level. Filter videos which cover at least 2 ages from a range in the video age range property.")
+                            .attributes(
+                                Attributes.key("type").value("String")
+                            ),
+                        parameterWithName("cefr_level").optional()
+                            .description("Filter by CEFR level. Multiple values can be specified (comma separated, or by repeating the parameter). Possible values are: [A1, A2, B1, B2, C1, C2]")
                             .attributes(
                                 Attributes.key("type").value("String")
                             ),
