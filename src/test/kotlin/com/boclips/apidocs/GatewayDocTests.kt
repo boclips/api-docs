@@ -78,6 +78,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("ngssCodes").description("List of all NGSS codes available"),
                         linkWithRel("ngssGrades").description("List of all NGSS grades available"),
                         linkWithRel("openstaxBooks").description("List of all Openstax books"),
+                        linkWithRel("openstaxBook").ignored(),
 
                         linkWithRel("countries").description("List of countries"),
 
