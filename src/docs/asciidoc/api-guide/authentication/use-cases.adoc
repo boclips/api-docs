@@ -66,7 +66,7 @@ Luckily, this information is provided in a well known format that can be easily 
 
 OIDC IdPs by convention expose their configuration via a `.well-known/openid-configuration` endpoint, this mechanism is called OpenID Connect Discovery.
 
-https://login.boclips.com/realms/boclips/.well-known/openid-configuration[Here] you can see how this information looks like for Boclips.
+https://api.boclips.com/v1/.well-known/openid-configuration[Here] you can see how this information looks like for Boclips.
 
 ==== Configuring an OIDC Client
 
