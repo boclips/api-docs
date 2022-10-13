@@ -80,6 +80,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("ngssGrades").description("List of all NGSS grades available"),
                         linkWithRel("openstaxBooks").ignored(),
                         linkWithRel("openstaxBook").ignored(),
+                        linkWithRel("openstaxSubjects").ignored(),
 
                         linkWithRel("countries").description("List of countries"),
 
