@@ -41,8 +41,6 @@ operation::resource-video-types[snippets='http-request,curl-request,http-respons
 
 [[resources-video-feed]]
 === Video Feed
-WARNING: This is a *_BETA_* feature. Whilst we don't anticipate major changes, we cannot guarantee backward compatibility at this stage.
-
 Sometimes you may want to ingest all videos in the Boclips offering to enrich with your own metadata.
 Currently, <<resources-video-search, `video search`>> is optimised for quick reads and limits the maximum window, so you can't request a page deeper than 10000 results.
 A GET request to `videoFeed` will allow you to page through all the videos.
@@ -55,4 +53,3 @@ operation::resource-video-feed[snippets='request-parameters,http-request,curl-re
 This means after a request you have 5 minutes to make another request to fetch the next page of results or the context will timeout and a 400 is returned
 - The end of results is given by returning an empty list of videos and no `next` link is returned
 - Making the request twice with the same `cursor_id` is essentially the same as following the next link
-
