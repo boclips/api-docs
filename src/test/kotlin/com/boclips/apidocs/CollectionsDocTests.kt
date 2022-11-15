@@ -375,6 +375,7 @@ class CollectionsDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("id").description("The ID of the collection"),
                         fieldWithPath("owner").description("The ID of the collection's owner"),
+                        fieldWithPath("ownerName").description("The name of the collection's owner"),
                         fieldWithPath("title").description("Collection's title"),
                         fieldWithPath("description").description("Collection's description"),
                         subsectionWithPath("videos").description("A list of <<resources-videos,videos>> in the collection. Shallow video details are returned by default"),
