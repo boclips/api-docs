@@ -19,7 +19,7 @@ class CurriculumDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("_embedded[].code").description("NGSS code value"),
                         fieldWithPath("_embedded[].contentArea").description("Content area associated to the NGSS code"),
-                        fieldWithPath("_embedded[].themaCategories").description("Thema category of the NGSS code"),
+                        fieldWithPath("_embedded[].themaCategories").ignored(),
                         fieldWithPath("_embedded[].themaCategories.defaults").ignored(),
                         fieldWithPath("_embedded[].themaCategories.customByGrade.*.[]").ignored()
                     )
@@ -40,7 +40,7 @@ class CurriculumDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("_embedded[].grade").description("NGSS grade value"),
                         fieldWithPath("_embedded[].description").description("Classes supported in the NGSS grade"),
-                        fieldWithPath("_embedded[].educationLevels").description("Education levels of NGSS grade")
+                        fieldWithPath("_embedded[].educationLevels").ignored()
                     )
                 )
             )
