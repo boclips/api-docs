@@ -407,6 +407,7 @@ class CollectionsDocTests : AbstractDocTests() {
                     links(
                         linkWithRel("self").description("Points to this collection"),
                         linkWithRel("edit").description("`PATCH` requests can be sent to this URL to update the collection"),
+                        linkWithRel("safeEdit").ignored(),
                         linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
                         linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
                         linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection"),
