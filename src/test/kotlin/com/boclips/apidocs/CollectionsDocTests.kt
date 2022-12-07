@@ -390,6 +390,7 @@ class CollectionsDocTests : AbstractDocTests() {
                         fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
                         fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
                         subsectionWithPath("subCollections").ignored(),
+                        subsectionWithPath("permissions").ignored(),
                         subsectionWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
                         subsectionWithPath("_links").description("HAL links related to this collection")
                     ),
