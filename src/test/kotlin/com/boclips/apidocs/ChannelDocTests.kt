@@ -12,6 +12,7 @@ import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
 import org.springframework.restdocs.request.RequestDocumentation.pathParameters
+import org.springframework.restdocs.request.RequestDocumentation.requestParameters
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes.key
 
@@ -58,10 +59,10 @@ class ChannelDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "resource-channels-get",
-                    pathParameters(
+                    requestParameters(
                         parameterWithName("page")
                             .optional()
-                            .description("Index of channels page to retrieve, 0 by default")
+                            .description("Zero-index based page number, first page by default")
                             .attributes(
                                 key("type").value("Integer")
                             ),

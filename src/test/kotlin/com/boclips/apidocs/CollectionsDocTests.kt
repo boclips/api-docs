@@ -412,7 +412,8 @@ class CollectionsDocTests : AbstractDocTests() {
                         linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
                         linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
                         linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection"),
-                        linkWithRel("interactedWith").description("`POST` requests to this URL to track collection interaction events")
+                        linkWithRel("interactedWith").description("`POST` requests to this URL to track collection interaction events"),
+                        linkWithRel("updatePermissions").description("`PATCH` requests to this URL allow to update collection permissions")
                     )
                 )
             )

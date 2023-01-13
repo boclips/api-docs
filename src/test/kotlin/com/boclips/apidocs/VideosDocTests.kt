@@ -232,6 +232,11 @@ class VideosDocTests : AbstractDocTests() {
                             .attributes(
                                 Attributes.key("type").value("String (e.g. '5d77b49698cfe500017e9856')")
                             ),
+                        parameterWithName("include_channel_facets").optional()
+                            .description("Indicates whether to include channel facets into search results.")
+                            .attributes(
+                                Attributes.key("type").value("Boolean")
+                            ),
                         parameterWithName("type").optional()
                             .description("Filter responses by <<resources-video-types,video type>>").attributes(
                                 Attributes.key("type").value("Enum")
