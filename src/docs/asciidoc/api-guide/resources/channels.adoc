@@ -10,4 +10,4 @@ operation::resource-channel-get[snippets='http-request,curl-request,http-respons
 
 === Retrieving many channels
 
-operation::resource-channels-get[snippets='http-request,curl-request,http-response,response-fields']
+operation::resource-channels-get[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
