@@ -272,23 +272,7 @@ class VideosDocTests : AbstractDocTests() {
                             .description("Filter by NGSS grade. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<_retrieving_all_supported_ngss_grades,retrieving all NGSS grades>>")
                             .attributes(
                                 Attributes.key("type").value("String (eg. 'K-2')")
-                            ),
-                        parameterWithName("openstax_book_id").optional()
-                            .description("Filter by openstax book id.")
-                            .attributes(
-                                Attributes.key("type").value("String (eg. '62739e7e94ee013d09effa5b')")
-                            ),
-                        parameterWithName("openstax_book_chapter").optional()
-                            .description("Filter by openstax book chapter number.")
-                            .attributes(
-                                Attributes.key("type").value("Number")
-                            ),
-                        parameterWithName("openstax_chapter_section").optional()
-                            .description("Filter by openstax chapter section number.")
-                            .attributes(
-                                Attributes.key("type").value("Number")
-                            ),
-
+                            )
                     ),
                     responseFields(
                         subsectionWithPath("_embedded.videos").description("Video resources array. See <<resources-video-access_response_fields,video>> for payload details"),
