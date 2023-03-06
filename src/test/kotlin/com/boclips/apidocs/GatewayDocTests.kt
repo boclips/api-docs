@@ -91,7 +91,12 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("isUserActive").description("Check whether given user is active"),
                         linkWithRel("contractLegalRestrictions").ignored(),
                         linkWithRel("suggestions").ignored(),
-                        linkWithRel("getMetadata").ignored()
+                        linkWithRel("getMetadata").ignored(),
+                        linkWithRel("getAllTypesByProvider").ignored(),
+                        linkWithRel("getThemesByProviderAndId").ignored(),
+                        linkWithRel("getThemesByIds").ignored(),
+                        linkWithRel("getThemeById").ignored(),
+                        linkWithRel("getThemesByProvider").ignored()
                     )
                 )
             )
