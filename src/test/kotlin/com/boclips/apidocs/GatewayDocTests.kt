@@ -89,6 +89,7 @@ class GatewayDocTests : AbstractDocTests() {
                         linkWithRel("contractLegalRestrictions").ignored(),
                         linkWithRel("suggestions").ignored(),
                         linkWithRel("getMetadata").ignored(),
+                        linkWithRel("getAllProviders").ignored(),
                         linkWithRel("getAllTypesByProvider").ignored(),
                         linkWithRel("getThemesByProviderAndId").ignored(),
                         linkWithRel("getThemesByIds").ignored(),
