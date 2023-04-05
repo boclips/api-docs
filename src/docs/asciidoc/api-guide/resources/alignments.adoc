@@ -1,0 +1,52 @@
+[[resources-alignments]]
+== Alignments
+
+We are constantly aligning our content to existing curricula standards, eg. to NGSS, OpenStax and Common Core.
+The alignments follow the hierarchy below:
+
+[source,ruby,indent=2]
+Provider
+|_ Types
+    |_ Themes
+        |_ Topics
+            |_ Targets
+                |_ Videos
+
+
+An example alignment could be:
+
+[source,ruby,indent=2]
+OpenStax
+|_ Business
+    |_ Entrepreneurship
+        |_ Chapter 1: The Entrepreneurial Perspective
+            |_ 1.1 Entrepreneurship Today
+                |_ (Video) Entrepreneurship Opportunity
+
+
+
+
+=== Retrieving providers and their types
+
+operation::resource-providers-get[snippets='http-request,curl-request,http-response,response-fields']
+
+=== Retrieving all available themes by a provider
+
+Currently supported providers:
+
+|===
+|Provider | Provider ID
+
+|OpenStax
+|openstax
+
+|Next Generation Science Standards
+|ngss
+
+|Common Core Math
+|common-core-math
+|===
+
+
+operation::resource-provider-themes-get[snippets='http-request,curl-request,http-response,response-fields']
+
