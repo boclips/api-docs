@@ -1,8 +1,6 @@
 package com.boclips.apidocs.testsupport
 
 import com.boclips.alignment.api.httpclient.AlignmentClient
-import com.boclips.alignment.api.httpclient.helper.ServiceAccountTokenFactory as AlignmentServiceTokenFactory
-import com.boclips.alignment.api.httpclient.helper.ServiceAccountCredentials as AlignmentServiceCredentials
 import com.boclips.videos.api.httpclient.ChannelsClient
 import com.boclips.videos.api.httpclient.CollectionsClient
 import com.boclips.videos.api.httpclient.SubjectsClient
@@ -27,6 +25,8 @@ import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import com.boclips.alignment.api.httpclient.helper.ServiceAccountCredentials as AlignmentServiceCredentials
+import com.boclips.alignment.api.httpclient.helper.ServiceAccountTokenFactory as AlignmentServiceTokenFactory
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ExtendWith(RestDocumentationExtension::class, SpringExtension::class)

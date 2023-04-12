@@ -135,9 +135,11 @@ class AlignmentsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .get(UriTemplate.fromTemplate(links["getThemesByIds"])
-                .set("id", setOf(theme.id))
-                .expand())
+            .get(
+                UriTemplate.fromTemplate(links["getThemesByIds"])
+                    .set("id", setOf(theme.id))
+                    .expand()
+            )
             .apply { prettyPrint() }
             .then()
             .assertThat().statusCode(CoreMatchers.`is`(200))
