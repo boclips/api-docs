@@ -1,7 +1,6 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
-import com.damnhandy.uri.template.UriTemplate
 import io.restassured.RestAssured
 import org.hamcrest.CoreMatchers
 import org.junit.jupiter.api.Test
@@ -19,9 +18,9 @@ class AlignmentsDocTests : AbstractDocTests() {
                 RestAssuredRestDocumentation.document(
                     "resource-providers-get",
                     responseFields(
-                        fieldWithPath("_embedded.providers[].name").description("Name of the provider"),
+                        fieldWithPath("_embedded.providers[].name").description("Name of the curriculum or publisher"),
                         fieldWithPath("_embedded.providers[].types")
-                            .description("Types available by provider"),
+                            .description("The disciplines or school levels available by provider"),
                         fieldWithPath("_embedded.providers[].description").ignored(),
                         fieldWithPath("_embedded.providers[].logoUrl").ignored(),
                         fieldWithPath("_embedded.providers[].defaultThemeLogoUrl").ignored(),
@@ -47,15 +46,15 @@ class AlignmentsDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("_embedded.themes[].id").description("ID of the theme"),
                         fieldWithPath("_embedded.themes[].provider")
-                            .description("Provider name"),
+                            .description("Name of the curriculum or publisher"),
                         fieldWithPath("_embedded.themes[]._links")
                             .ignored(),
-                        fieldWithPath("_embedded.themes[].type").description("Name of the type"),
-                        fieldWithPath("_embedded.themes[].title").description("Name of the theme"),
+                        fieldWithPath("_embedded.themes[].type").description("The discipline or school level"),
+                        fieldWithPath("_embedded.themes[].title").description("The book or specific grade level"),
                         fieldWithPath("_embedded.themes[].topics[].index").description("Recommended order of the topic"),
-                        fieldWithPath("_embedded.themes[].topics[].title").description("Topic name"),
+                        fieldWithPath("_embedded.themes[].topics[].title").description("The chapter or cluster name"),
                         fieldWithPath("_embedded.themes[].topics[].targets[].index").description("Recommended order of the target"),
-                        fieldWithPath("_embedded.themes[].topics[].targets[].title").description("Target name"),
+                        fieldWithPath("_embedded.themes[].topics[].targets[].title").description("The section or standard name"),
                         fieldWithPath("_embedded.themes[].topics[].targets[].videoIds").description("Videos aligned to the target"),
                         fieldWithPath("_embedded.themes[].logoUrl").ignored()
                     )
@@ -81,17 +80,18 @@ class AlignmentsDocTests : AbstractDocTests() {
                     responseFields(
                         fieldWithPath("id").description("ID of the theme"),
                         fieldWithPath("provider")
-                            .description("Provider name"),
+                            .description("Name of the curriculum or publisher"),
                         fieldWithPath("_links")
                             .ignored(),
-                        fieldWithPath("type").description("Name of the type"),
-                        fieldWithPath("title").description("Name of the theme"),
+                        fieldWithPath("type").description("The discipline or school level"),
+                        fieldWithPath("title").description("The book or specific grade level"),
                         fieldWithPath("topics[].index").description("Recommended order of the topic"),
-                        fieldWithPath("topics[].title").description("Topic name"),
+                        fieldWithPath("topics[].title").description("The chapter or cluster name"),
                         fieldWithPath("topics[].targets[].index").description("Recommended order of the target"),
-                        fieldWithPath("topics[].targets[].title").description("Target name"),
+                        fieldWithPath("topics[].targets[].title").description("The section or standard name"),
                         fieldWithPath("topics[].targets[].videoIds").description("Videos aligned to the target"),
-                        PayloadDocumentation.subsectionWithPath("topics[].targets[].videos").description("Videos details"),
+                        PayloadDocumentation.subsectionWithPath("topics[].targets[].videos")
+                            .description("Videos details"),
                         fieldWithPath("logoUrl").ignored()
                     )
                 )
