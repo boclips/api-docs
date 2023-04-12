@@ -13,6 +13,9 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation
 import org.springframework.restdocs.snippet.Attributes
 
 class AlignmentsDocTests : AbstractDocTests() {
+    private val stagingThemeId = "62eba02f51ecf2a9306c85ef"
+    private val stagingThemeProvider = "openstax"
+
     @Test
     fun `get all providers`() {
         RestAssured.given(stubOwnerSpec)
@@ -70,7 +73,6 @@ class AlignmentsDocTests : AbstractDocTests() {
 
     @Test
     fun `get a provider theme by id`() {
-        val theme = alignmentClient.getThemes()._embedded.themes[0]
         RestAssured.given(stubOwnerSpec)
             .filter(
                 RestAssuredRestDocumentation.document(
@@ -99,14 +101,13 @@ class AlignmentsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .get(links["getThemesByProviderAndId"], theme.provider, theme.id).apply { prettyPrint() }
+            .get(links["getThemesByProviderAndId"], stagingThemeProvider, stagingThemeId).apply { prettyPrint() }
             .then()
             .assertThat().statusCode(CoreMatchers.`is`(200))
     }
 
     @Test
     fun `get themes by ids`() {
-        val theme = alignmentClient.getThemes()._embedded.themes[0]
         RestAssured.given(stubOwnerSpec)
             .filter(
                 RestAssuredRestDocumentation.document(
@@ -137,7 +138,7 @@ class AlignmentsDocTests : AbstractDocTests() {
             .`when`()
             .get(
                 UriTemplate.fromTemplate(links["getThemesByIds"])
-                    .set("id", setOf(theme.id))
+                    .set("id", setOf(stagingThemeId))
                     .expand()
             )
             .apply { prettyPrint() }

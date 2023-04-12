@@ -1,6 +1,5 @@
 package com.boclips.apidocs.testsupport
 
-import com.boclips.alignment.api.httpclient.AlignmentClient
 import com.boclips.videos.api.httpclient.ChannelsClient
 import com.boclips.videos.api.httpclient.CollectionsClient
 import com.boclips.videos.api.httpclient.SubjectsClient
@@ -25,8 +24,6 @@ import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.junit.jupiter.SpringExtension
-import com.boclips.alignment.api.httpclient.helper.ServiceAccountCredentials as AlignmentServiceCredentials
-import com.boclips.alignment.api.httpclient.helper.ServiceAccountTokenFactory as AlignmentServiceTokenFactory
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ExtendWith(RestDocumentationExtension::class, SpringExtension::class)
@@ -80,7 +77,6 @@ abstract class AbstractDocTests {
     protected lateinit var subjectsClient: SubjectsClient
     protected lateinit var collectionsClient: CollectionsClient
     protected lateinit var channelsClient: ChannelsClient
-    protected lateinit var alignmentClient: AlignmentClient
 
     protected lateinit var links: Map<String, String>
 
@@ -208,18 +204,6 @@ abstract class AbstractDocTests {
             apiUrl = "https://api.staging-boclips.com",
             tokenFactory = ServiceAccountTokenFactory(
                 ServiceAccountCredentials(
-                    authEndpoint = "https://api.staging-boclips.com",
-                    clientId = clientId,
-                    clientSecret = clientSecret
-                )
-            ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build())
-        )
-
-        alignmentClient = AlignmentClient.create(
-            apiUrl = "https://api.staging-boclips.com",
-            tokenFactory = AlignmentServiceTokenFactory(
-                AlignmentServiceCredentials(
                     authEndpoint = "https://api.staging-boclips.com",
                     clientId = clientId,
                     clientSecret = clientSecret
