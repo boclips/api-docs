@@ -1,8 +1,8 @@
 plugins {
     id 'org.asciidoctor.convert' version '2.4.0'
     id 'org.springframework.boot' version '2.6.1'
-    id 'org.jetbrains.kotlin.jvm' version '1.5.21'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.5.21'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.21'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.6.21'
     id 'com.adarshr.test-logger' version '1.2.0'
     id 'org.kordamp.gradle.livereload' version '0.2.1'
     id 'org.jlleitschuh.gradle.ktlint' version '10.2.0'
@@ -13,7 +13,7 @@ apply plugin: 'org.kordamp.gradle.livereload'
 
 group = 'com.boclips'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
@@ -56,6 +56,7 @@ dependencies {
     testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
 
     testImplementation 'com.github.boclips:videos:v1255'
+    testImplementation 'com.github.boclips:alignment-service:v115'
     // Below are transitive client dependencies that we need to import ourselves at the moment...
     testImplementation('com.fasterxml.jackson.core:jackson-databind:2.13.1')
     testImplementation('com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1')
@@ -111,13 +112,13 @@ liveReload {
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '11'
+        jvmTarget = '17'
     }
 }
 
 compileTestKotlin {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '11'
+        jvmTarget = '17'
     }
 }
