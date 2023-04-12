@@ -1,5 +1,8 @@
 package com.boclips.apidocs.testsupport
 
+import com.boclips.alignment.api.httpclient.AlignmentClient
+import com.boclips.alignment.api.httpclient.helper.ServiceAccountTokenFactory as AlignmentServiceTokenFactory
+import com.boclips.alignment.api.httpclient.helper.ServiceAccountCredentials as AlignmentServiceCredentials
 import com.boclips.videos.api.httpclient.ChannelsClient
 import com.boclips.videos.api.httpclient.CollectionsClient
 import com.boclips.videos.api.httpclient.SubjectsClient
@@ -77,6 +80,7 @@ abstract class AbstractDocTests {
     protected lateinit var subjectsClient: SubjectsClient
     protected lateinit var collectionsClient: CollectionsClient
     protected lateinit var channelsClient: ChannelsClient
+    protected lateinit var alignmentClient: AlignmentClient
 
     protected lateinit var links: Map<String, String>
 
@@ -204,6 +208,18 @@ abstract class AbstractDocTests {
             apiUrl = "https://api.staging-boclips.com",
             tokenFactory = ServiceAccountTokenFactory(
                 ServiceAccountCredentials(
+                    authEndpoint = "https://api.staging-boclips.com",
+                    clientId = clientId,
+                    clientSecret = clientSecret
+                )
+            ),
+            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build())
+        )
+
+        alignmentClient = AlignmentClient.create(
+            apiUrl = "https://api.staging-boclips.com",
+            tokenFactory = AlignmentServiceTokenFactory(
+                AlignmentServiceCredentials(
                     authEndpoint = "https://api.staging-boclips.com",
                     clientId = clientId,
                     clientSecret = clientSecret

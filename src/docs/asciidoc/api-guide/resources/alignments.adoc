@@ -50,3 +50,11 @@ Currently supported providers:
 
 operation::resource-provider-themes-get[snippets='http-request,curl-request,http-response,response-fields']
 
+=== Retrieving a Theme by provider and by id
+
+operation::resource-provider-theme-get[snippets='http-request,curl-request,http-response,response-fields']
+
+=== Retrieving Themes by ids
+
+operation::resource-themes-get[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
+
