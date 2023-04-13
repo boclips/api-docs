@@ -1,8 +1,8 @@
 plugins {
     id 'org.asciidoctor.convert' version '2.4.0'
     id 'org.springframework.boot' version '2.6.1'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.21'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.6.21'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.21'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.5.21'
     id 'com.adarshr.test-logger' version '1.2.0'
     id 'org.kordamp.gradle.livereload' version '0.2.1'
     id 'org.jlleitschuh.gradle.ktlint' version '10.2.0'
@@ -13,11 +13,10 @@ apply plugin: 'org.kordamp.gradle.livereload'
 
 group = 'com.boclips'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://repo.spring.io/libs-release/") }
     maven {
         url 'https://jitpack.io'
         credentials { username authToken }
@@ -112,13 +111,13 @@ liveReload {
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '17'
+        jvmTarget = '11'
     }
 }
 
 compileTestKotlin {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '17'
+        jvmTarget = '11'
     }
 }
