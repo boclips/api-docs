@@ -26,6 +26,7 @@ class AlignmentsDocTests : AbstractDocTests() {
                         fieldWithPath("_embedded.providers[].name").description("Name of the curriculum or publisher"),
                         fieldWithPath("_embedded.providers[].types")
                             .description("The disciplines or school levels available by provider"),
+                        PayloadDocumentation.subsectionWithPath("_embedded.providers[]._links").description("HAL links for the resource"),
                         fieldWithPath("_embedded.providers[].description").ignored(),
                         fieldWithPath("_embedded.providers[].logoUrl").ignored(),
                         fieldWithPath("_embedded.providers[].defaultThemeLogoUrl").ignored(),
@@ -52,8 +53,7 @@ class AlignmentsDocTests : AbstractDocTests() {
                         fieldWithPath("_embedded.themes[].id").description("ID of the theme"),
                         fieldWithPath("_embedded.themes[].provider")
                             .description("Name of the curriculum or publisher"),
-                        fieldWithPath("_embedded.themes[]._links")
-                            .ignored(),
+                        PayloadDocumentation.subsectionWithPath("_embedded.themes[]._links").description("HAL links for the resource"),
                         fieldWithPath("_embedded.themes[].type").description("The discipline or school level"),
                         fieldWithPath("_embedded.themes[].title").description("The book or specific grade level"),
                         fieldWithPath("_embedded.themes[].topics[].index").description("Recommended order of the topic"),
@@ -85,8 +85,7 @@ class AlignmentsDocTests : AbstractDocTests() {
                         fieldWithPath("id").description("ID of the theme"),
                         fieldWithPath("provider")
                             .description("Name of the curriculum or publisher"),
-                        fieldWithPath("_links")
-                            .ignored(),
+                        PayloadDocumentation.subsectionWithPath("_links").description("HAL links for the resource"),
                         fieldWithPath("type").description("The discipline or school level"),
                         fieldWithPath("title").description("The book or specific grade level"),
                         fieldWithPath("topics[].index").description("Recommended order of the topic"),
@@ -122,8 +121,7 @@ class AlignmentsDocTests : AbstractDocTests() {
                         fieldWithPath("_embedded.themes[].id").description("ID of the theme"),
                         fieldWithPath("_embedded.themes[].provider")
                             .description("Name of the curriculum or publisher"),
-                        fieldWithPath("_embedded.themes[]._links")
-                            .ignored(),
+                        PayloadDocumentation.subsectionWithPath("_embedded.themes[]._links").description("HAL links for the resource"),
                         fieldWithPath("_embedded.themes[].type").description("The discipline or school level"),
                         fieldWithPath("_embedded.themes[].title").description("The book or specific grade level"),
                         fieldWithPath("_embedded.themes[].topics[].index").description("Recommended order of the topic"),
