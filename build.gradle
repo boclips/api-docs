@@ -54,6 +54,7 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 
     testImplementation 'com.github.boclips:videos:v1255'
     // Below are transitive client dependencies that we need to import ourselves at the moment...
@@ -120,4 +121,17 @@ compileTestKotlin {
         freeCompilerArgs = ['-Xjsr305=strict']
         jvmTarget = '11'
     }
+}
+
+task(bundleInstall, type: Exec) {
+    workingDir file('slate')
+    executable '/Users/duck/.rbenv/shims/bundle'
+    args 'install'
+}
+
+task(slate, type: Exec) {
+    dependsOn 'bundleInstall', 'test'
+    workingDir file('slate')
+    executable '/Users/duck/.rbenv/shims/bundle'
+    args 'exec', 'middleman', 'build'
 }
