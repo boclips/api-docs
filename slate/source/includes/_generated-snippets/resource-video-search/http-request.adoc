@@ -1,0 +1,7 @@
+[source,http,options="nowrap"]
+----
+GET /v1/videos?query=genetic&sort_by=RELEASE_DATE&duration_min=PT1M&duration_max=PT3M&released_date_from=2018-01-01&released_date_to=2019-06-01&source=boclips&size=1&page=0&channel=5cf140c4c1475c47f7178679&type=NEWS HTTP/1.1
+Authorization: Bearer ***
+Host: api.boclips.com
+
+----

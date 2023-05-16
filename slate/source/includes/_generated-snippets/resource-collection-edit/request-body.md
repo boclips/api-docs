@@ -1,0 +1,18 @@
+```
+{
+    "title": "Genetic Screening Debate",
+    "description": "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds.",
+    "videos": ["5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3"],
+    "subjects": ["5cb499c9fd5beb428189454b", "5cb499c9fd5beb428189454d"],
+    "discoverable": true,
+    "ageRange": {
+        "min": 8,
+        "max": 12
+    },
+    "attachment": {
+        "linkToResource": "https://docs.google.com/document/d/1SBf26k2PEPsChg2X4yv6F71uqp8bECcYFtAFSmTDN10/edit?usp=sharing",
+        "description": "1.Solving Problems with The Scientific Method: We Do it Everyday! 1.Plan A Science Fair Project",
+        "type": "LESSON_PLAN"
+    }
+}
+```

@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ http PUT 'https://api.boclips.com/v1/collections/64635f58f804c60f575eb2f5/videos/5c542abf5438cdbcb56df0bf' \
+    'Authorization:Bearer ***'
+----

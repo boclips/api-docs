@@ -1,0 +1,10 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 303 See Other
+Location: /videos/5c542abf5438cdbcb56df0bf
+X-XSS-Protection: 1; mode=block
+Set-Cookie: SESSION=ZWRjMTdkNzYtMDhmZC00OTNhLTk2ODUtMzg4YzM5MDI3NzQ1; Path=/; Secure; HttpOnly; SameSite=None
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+----

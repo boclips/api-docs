@@ -1,0 +1,3 @@
+```
+{"_embedded":[{"grade":"K-2","description":"Kindergarten to class 2","educationLevels":["4CD1"]},{"grade":"3-5","description":"Classes 3 to 5","educationLevels":["4CD2"]},{"grade":"MS","description":"Middle school (classes 6 to 8)","educationLevels":["4CF"]},{"grade":"HS","description":"High school (classes 9 to 12)","educationLevels":["4CL","4CN"]}]}
+```

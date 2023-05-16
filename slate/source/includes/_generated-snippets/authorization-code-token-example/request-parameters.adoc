@@ -1,0 +1,20 @@
+|===
+|Parameter|Type|Optional|Description
+
+    |grant_type
+    |String - Constant
+    |false
+    |The grant type for this flow must always be `authorization_code`
+    |client_id
+    |String
+    |false
+    |The client ID that you've been issued with
+    |code
+    |String
+    |false
+    |The client secret that was Boclips issued to you
+    |redirect_uri
+    |String
+    |false
+    |The exact same redirect_uri that was used when requesting the code. Including path and/or params if any.
+|===

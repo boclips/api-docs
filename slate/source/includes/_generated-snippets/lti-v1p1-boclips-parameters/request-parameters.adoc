@@ -1,0 +1,12 @@
+|===
+|Parameter|Type|Optional|Description
+
+    |custom_logo
+    |URL
+    |true
+    |A URL to an image file that will be displayed at the top of LTI pages
+    |user_id
+    |String
+    |true
+    |A user ID which identifies the specific Boclips user interacting with LTI. This enables per-user analytics for backend clients.
+|===

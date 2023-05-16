@@ -1,0 +1,14 @@
+Path | Type | Description
+---- | ---- | -----------
+`id` | `String` | The ID of the channel
+`name` | `String` | The name of the channel
+`legalRestriction` | `Object` | Text demonstrating the legal restrictions involved in using this channel's content
+`description` | `String` | Text describing this channel's content
+`contentCategories[*].label` | `String` | Content category label
+`language.code` | `String` | Language in 3 letter ISO-639-2 code format
+`language.name` | `String` | Name of the channel language
+`_links` | `Object` | HAL links related to this collection
+`contentTypes` | `Array` | Deprecated in favour of contentType
+`contentType` | `String` | The type of content the channel produces
+`notes` | `String` | Custom notes about the channel
+`oneLineDescription` | `Null` | A snappy, high-energy description of the channel

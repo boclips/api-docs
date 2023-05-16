@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/authorize?response_type=code&client_id=***&redirect_uri=***' -i -X GET
+----

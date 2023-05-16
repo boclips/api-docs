@@ -1,0 +1,3 @@
+```
+{"_embedded":{"levels":[{"code":"4C","label":"All ages"},{"code":"4CA","label":"Pre-school"},{"code":"4CD1","label":"Lower Primary"},{"code":"4CD2","label":"Upper Primary"},{"code":"4CF","label":"Middle and Preparatory"},{"code":"4CL","label":"Secondary"},{"code":"4CT","label":"Higher education"},{"code":"4CTB","label":"Undergraduate"},{"code":"4CTM","label":"Graduate and Post-Graduate"},{"code":"4CN","label":"Advanced Secondary"},{"code":"4CP","label":"Vocational and Professional"},{"code":"4CX","label":"Adult Education"}]}}
+```

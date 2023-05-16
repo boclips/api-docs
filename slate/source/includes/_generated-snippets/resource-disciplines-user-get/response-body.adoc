@@ -1,0 +1,59 @@
+[source,options="nowrap"]
+----
+{
+  "_embedded" : {
+    "disciplines" : [ {
+      "id" : "5d0921adcbb0371877b252d2",
+      "name" : "Social Sciences",
+      "code" : "social-studies",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb4281894567",
+        "name" : "Social Studies",
+        "categories" : [ "F" ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921adcbb0371877b252d2"
+        }
+      }
+    }, {
+      "id" : "5d0921b0cbb0371877b252d3",
+      "name" : "Mathematics",
+      "code" : "mathematics",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb428189454e",
+        "name" : "Chemistry",
+        "categories" : [ "A" ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921b0cbb0371877b252d3"
+        }
+      }
+    }, {
+      "id" : "5d0921b4cbb0371877b252d6",
+      "name" : "Life Sciences",
+      "code" : "life-sciences",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb428189454b",
+        "name" : "Spanish",
+        "categories" : [ "A", "D" ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921b4cbb0371877b252d6"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "rel" : "self",
+      "href" : "https://api.boclips.com/v1/disciplines"
+    }
+  }
+}
+----

@@ -1,0 +1,6 @@
+[source,http,options="nowrap"]
+----
+GET /v1/authorize?response_type=code&client_id=***&redirect_uri=*** HTTP/1.1
+Host: api.boclips.com
+
+----

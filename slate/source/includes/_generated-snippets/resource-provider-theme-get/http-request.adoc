@@ -1,0 +1,7 @@
+[source,http,options="nowrap"]
+----
+GET /v1/alignments/openstax/themes/62eba02f51ecf2a9306c85ef HTTP/1.1
+Authorization: Bearer ***
+Host: api.boclips.com
+
+----

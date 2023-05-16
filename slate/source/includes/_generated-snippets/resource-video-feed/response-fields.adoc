@@ -1,0 +1,12 @@
+|===
+|Path|Type|Description
+
+|`+_embedded.videos+`
+|`+Array+`
+|Video resources array. See <<resources-video-access_response_fields,video>> for payload details
+
+|`+_links+`
+|`+Object+`
+|HAL links related to this collection
+
+|===

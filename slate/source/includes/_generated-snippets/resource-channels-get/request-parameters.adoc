@@ -1,0 +1,12 @@
+|===
+|Parameter|Type|Optional|Description
+
+    |page
+    |Integer
+    |true
+    |Zero-index based page number, first page by default
+    |size
+    |Integer
+    |true
+    |Channels page size, 10000 by default
+|===

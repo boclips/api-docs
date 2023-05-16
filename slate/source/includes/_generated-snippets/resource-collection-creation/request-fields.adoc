@@ -1,0 +1,20 @@
+|===
+|Path|Type|Optional|Description
+
+    |title
+    |String
+    |false
+    |Collection's title
+    |description
+    |String
+    |true
+    |Collection's description
+    |videos
+    |Array
+    |true
+    |A list of IDs of videos that should belong to this collection
+    |subjects
+    |Array
+    |true
+    |A list of IDs of subjects that should belong to this collection
+|===

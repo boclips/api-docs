@@ -1,0 +1,29 @@
+Path | Type | Description
+---- | ---- | -----------
+`id` | `String` | The unique identifier for this video, can be interpolated in templated links
+`title` | `String` | Human readable title for this video
+`description` | `String` | Description detailing what this video talks about
+`additionalDescription` | `Null` | Deprecated we are planning to drop support for this field. Additional information to help improve the metadata
+`releasedOn` | `String` | Date on which the video was originally released as stated by the content producer
+`updatedAt` | `String` | Date when the most recent update occured
+`subjects` | `Array` | Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details
+`badges` | `Array` | Tagged badges for this video. E.g. ad-free or Youtube
+`rating` | `Number` | Deprecated we are planning to drop support for this field. Score of this video based on user rating. From 0 to 5
+`yourRating` | `Null` | Deprecated we are planning to drop support for this field. Score you gave to this video. From 0 to 5
+`bestFor` | `Array` | List of best for labels. See <<resources-video-access_response_fields-bestFor,bestFor>> for payload details
+`promoted` | `Boolean` | Promoted status of this video
+`type` | `String` | Content type of this video
+`playback` | `Object` | Video Playback resource. See <<resources-video-access_response_fields-playback,playback>> for payload details
+`attachments` | `Array` | List of resources attached to the video to help use the video in the classroom
+`legalRestrictions` | `String` | Legal restrictions for this particular video if any
+`contentWarnings` | `Array` | Content warnings for this particular video if any. See <<resources-video-access_response_fields-contentWarnings,contentWarnings>> for payload details
+`educationLevels` | `Array` | Education levels this video is suitable for. See <<resources-education-levels,education levels resource>> for more details
+`ageRange.label` | `String` | Deprecated in favour of educationLevels. Age range in a human readable format
+`ageRange.min` | `Number` | Deprecated in favour of educationLevels. Minimum of age range for this video
+`ageRange.max` | `Number` | Deprecated in favour of educationLevels. Maximum of age range for this video
+`language.code` | `String` | The language of the video in the format of the ISO 639-2 standard
+`language.displayName` | `String` | The language of the video in a human readable format (e.g English)
+`cefrLevel` | `String` | The CEFR level of the video (e.g C1)
+`createdBy` | `String` | Who provided the video
+`availability.availableUntil` | `ISO-8601 (YYYY-MM-DD)` | If provided, the video will be only available until this date
+`_links` | `Object` | HAL links for this resource

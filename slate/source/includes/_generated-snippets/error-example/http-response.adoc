@@ -1,0 +1,24 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+X-Boclips-Trace-ID: d1da9aae306384cb
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Type: application/json
+content-encoding: gzip
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 233
+
+{
+  "path" : "/v1/videos",
+  "status" : 400,
+  "timestamp" : "2023-05-16T10:48:45.058332149Z",
+  "error" : "Invalid request",
+  "message" : "not-quite-a-number is not a valid ISO 8601 duration. Example is PT5S.",
+  "reasons" : null
+}
+----

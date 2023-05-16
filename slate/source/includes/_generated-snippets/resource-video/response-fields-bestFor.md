@@ -1,0 +1,3 @@
+Path | Type | Description
+---- | ---- | -----------
+`label` | `String` | A <<resources-tags,tag>> label, to describe the video's learning objective

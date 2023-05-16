@@ -1,0 +1,3 @@
+```
+{"_embedded":{"contentCategories":[{"key":"CHALK_AND_TALK_PRESENTATION","label":"Chalk and Talk/Presentation"},{"key":"TALKING_HEAD","label":"Talking Head"},{"key":"ANIMATION","label":"Animation"},{"key":"DOCUMENTARY","label":"Documentary"},{"key":"HISTORICAL_ARCHIVE","label":"Historical Archive"},{"key":"LIVE_ARTS_PERFORMANCES","label":"Live Arts Performances"},{"key":"INTERVIEW","label":"Interview"},{"key":"DEMONSTRATION","label":"Demonstration"}]}}
+```

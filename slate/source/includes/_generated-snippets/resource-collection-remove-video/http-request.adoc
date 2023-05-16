@@ -1,0 +1,7 @@
+[source,http,options="nowrap"]
+----
+DELETE /v1/collections/64635f48f804c60f575eb2ef/videos/5c542abf5438cdbcb56df0bf HTTP/1.1
+Authorization: Bearer ***
+Host: api.boclips.com
+
+----

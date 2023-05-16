@@ -1,0 +1,21 @@
+```bash
+$ curl 'https://api.staging-boclips.com/v1/collections/64638cd3a63c3219e7975390' -i -X PATCH \
+    -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJEVzg1cWVGSGp3dG9UN0Z2RkRwajJWelJyZTJRT3dsc2JPNHQ1blNWQXpFIn0.eyJleHAiOjE2ODQyNDYwMTAsImlhdCI6MTY4NDI0NTcxMCwianRpIjoiNGY1YTdmNjAtOGVlMy00Njk1LWJmMDgtOTlmNjM3OTQwMjBlIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5zdGFnaW5nLWJvY2xpcHMuY29tL3JlYWxtcy9ib2NsaXBzIiwiYXVkIjpbInZpZGVvLXNlcnZpY2UiLCJ1c2VyLXNlcnZpY2UiLCJhY2NvdW50IiwiYWxpZ25tZW50LXNlcnZpY2UiXSwic3ViIjoiNjNiYzBiYmYtNTU5Yi00ZTRhLWEwMTEtMzdjMzk1YzViMWM4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYXBpLWRvY3MiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiUk9MRV9BUEkiXX0sInJlc291cmNlX2FjY2VzcyI6eyJ2aWRlby1zZXJ2aWNlIjp7InJvbGVzIjpbIlJPTEVfSU5TRVJUX0NPTExFQ1RJT05TIiwiUk9MRV9WSUVXX0NPTExFQ1RJT05TIiwiUk9MRV9WSUVXX1ZJREVPX1RZUEVTIiwiUk9MRV9UQUdfVklERU9TIiwiUk9MRV9WSUVXX0RJU0NJUExJTkVTIiwiUk9MRV9SQVRFX1ZJREVPUyIsIlJPTEVfVklFV19FRFVDQVRJT05fTEVWRUxTIiwiUk9MRV9ET1dOTE9BRF9UUkFOU0NSSVBUIiwiUk9MRV9WSUVXX0NPTlRFTlRfUEFSVE5FUlMiLCJST0xFX0RFTEVURV9DT0xMRUNUSU9OUyIsIlJPTEVfVVBEQVRFX0NPTExFQ1RJT05TIiwiUk9MRV9JTlNFUlRfRVZFTlRTIiwiUk9MRV9WSUVXX0NIQU5ORUxTIiwiUk9MRV9WSUVXX1RBR1MiLCJST0xFX1ZJRVdfQ09OVEVOVF9DQVRFR09SSUVTIiwiUk9MRV9WSUVXX1ZJREVPUyJdfSwidXNlci1zZXJ2aWNlIjp7InJvbGVzIjpbIlJPTEVfU1lOQ0hST05JU0VfSU5URUdSQVRJT05fVVNFUlMiXX0sImFjY291bnQiOnsicm9sZXMiOlsidmlldy1wcm9maWxlIl19LCJhbGlnbm1lbnQtc2VydmljZSI6eyJyb2xlcyI6WyJST0xFX1ZJRVdfQUxJR05NRU5UUyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImNsaWVudElkIjoiYXBpLWRvY3MiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImNsaWVudEhvc3QiOiIxMC43Ni41LjEyOCIsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1hcGktZG9jcyIsImNsaWVudEFkZHJlc3MiOiIxMC43Ni41LjEyOCIsImVtYWlsIjoic2VydmljZS1hY2NvdW50LWFwaS1kb2NzQHBsYWNlaG9sZGVyLm9yZyJ9.erL70kI5W3jZE4o1BsMhT2ql9mGlVmsHtqrr4t9n3VPkWmNTlTTqox0SE0WTKd3Jfc267XxflqBendcGXrlUF40i24riFSE5BKAYb0nCy191fOcCt3I1cvwL20u_AUjAV5_NW8GFdn0-iT4XMcdoT7jdlbSvK9740NSDX93_RVpJq9xlAXvQppXJXwxcpeoCQ82vEq9CycqEX3PfvCpTL1wHyZhlQY55yJaunQ1_CRiqtkBjF2Tkrtk0b76kD4Or3J5hgcDAcy5IwMbQ3Nj7_befvmEu1zy_0KPiBq4Fl8Cush8eVZMALvPiAXMhJzC20_3UZ8WEAnGG2_sDccn6gg' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "title": "Genetic Screening Debate",
+    "description": "Doctors and other health care professionals are faced with complex patient care issues as genetic testing becomes more widely available, study finds.",
+    "videos": ["5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3"],
+    "subjects": ["5cb499c9fd5beb428189454b", "5cb499c9fd5beb428189454d"],
+    "discoverable": true,
+    "ageRange": {
+        "min": 8,
+        "max": 12
+    },
+    "attachment": {
+        "linkToResource": "https://docs.google.com/document/d/1SBf26k2PEPsChg2X4yv6F71uqp8bECcYFtAFSmTDN10/edit?usp=sharing",
+        "description": "1.Solving Problems with The Scientific Method: We Do it Everyday! 1.Plan A Science Fair Project",
+        "type": "LESSON_PLAN"
+    }
+}'
+```

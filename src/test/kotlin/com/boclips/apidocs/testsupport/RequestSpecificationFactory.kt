@@ -55,6 +55,8 @@ class RequestSpecificationFactory {
         }
 
         private fun handleBearerToken(policy: BearerTokenDocumentationPolicy): OperationPreprocessor {
+
+            ResourceDocumentation()
             return when (policy) {
                 BearerTokenDocumentationPolicy.HIDE -> removeHeaders("Authorization")
                 BearerTokenDocumentationPolicy.MASK -> maskAuthHeader()

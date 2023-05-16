@@ -1,0 +1,7 @@
+[source,http,options="nowrap"]
+----
+GET /v1/content-categories HTTP/1.1
+Authorization: Bearer ***
+Host: api.boclips.com
+
+----

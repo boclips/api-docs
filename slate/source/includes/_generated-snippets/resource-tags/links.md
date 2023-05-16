@@ -1,0 +1,3 @@
+Relation | Description
+-------- | -----------
+`self` | The tag collection resource that was just retrieved

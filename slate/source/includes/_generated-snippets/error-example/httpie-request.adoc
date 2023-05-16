@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ http GET 'https://api.boclips.com/v1/videos?duration_min=not-quite-a-number' \
+    'Authorization:Bearer ***'
+----

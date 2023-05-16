@@ -1,0 +1,22 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: ae6176a64342dc38
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: accept-encoding
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Encoding: gzip
+Content-Type: application/hal+json
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 81
+
+{
+  "_embedded" : {
+    "videoTypes" : [ "INSTRUCTIONAL", "NEWS", "STOCK" ]
+  }
+}
+----

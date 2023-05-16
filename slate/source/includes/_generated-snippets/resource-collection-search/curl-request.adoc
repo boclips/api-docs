@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/collections?query=collection&projection=list&page=0&size=1' -i -X GET \
+    -H 'Authorization: Bearer ***'
+----

@@ -1,0 +1,5466 @@
+[source,options="nowrap"]
+----
+{
+  "_embedded" : {
+    "channels" : [ {
+      "id" : "5cfea7cd8ce44c52e6e33b15",
+      "name" : "2veritaserum",
+      "legalRestriction" : {
+        "id" : "5d976e55ed1c74690e0f025f",
+        "text" : "No restrictions",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e55ed1c74690e0f025f"
+          }
+        }
+      },
+      "description" : "desc",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "abk",
+        "name" : "Abkhazian"
+      },
+      "notes" : "nono",
+      "contentTypes" : [ "STOCK" ],
+      "contentType" : "STOCK",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cd8ce44c52e6e33b15"
+        }
+      }
+    }, {
+      "id" : "5cfea7d18ce44c52e6e33b3c",
+      "name" : "Ab Dav Research",
+      "legalRestriction" : {
+        "id" : "5d976e9c138a17514040baca",
+        "text" : "Some dummy restrictions",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e9c138a17514040baca"
+          }
+        }
+      },
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d18ce44c52e6e33b3c"
+        }
+      }
+    }, {
+      "id" : "5cfea8a18ce44c52e6e34074",
+      "name" : "Actualized.org",
+      "legalRestriction" : {
+        "id" : "5db32455c7c734094f53d1f9",
+        "text" : "Viewer discretion is advised. Content may not be suitable for people of 12 years or younger. Please contact boclips for editing permissions.",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5db32455c7c734094f53d1f9"
+          }
+        }
+      },
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8a18ce44c52e6e34074"
+        }
+      }
+    }, {
+      "id" : "5cfea7d18ce44c52e6e33b40",
+      "name" : "Adam Westbrook",
+      "legalRestriction" : {
+        "id" : "5d976e9c138a17514040baca",
+        "text" : "Some dummy restrictions",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e9c138a17514040baca"
+          }
+        }
+      },
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d18ce44c52e6e33b40"
+        }
+      }
+    }, {
+      "id" : "5cfea84e8ce44c52e6e33e5e",
+      "name" : "Almeida Theatre",
+      "legalRestriction" : null,
+      "description" : "hello",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea84e8ce44c52e6e33e5e"
+        }
+      }
+    }, {
+      "id" : "5cfe8b09336c6d2d0aa7c669",
+      "name" : "American Museum of Natural History",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b09336c6d2d0aa7c669"
+        }
+      }
+    }, {
+      "id" : "5cfea7b88ce44c52e6e33a7f",
+      "name" : "Ann & Robert H. Lurie Childreen's Hospital of Chicago",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "NEWS" ],
+      "contentType" : "NEWS",
+      "oneLineDescription" : "3 kids, 1 minute, 180 works of art to discover in this sassy series of interstitials where these characters never mince their words!",
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b88ce44c52e6e33a7f"
+        }
+      }
+    }, {
+      "id" : "5cfea9968ce44c52e6e34641",
+      "name" : "Ann & Robert H. Lurie Childreen's Hospital of Chicago1",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "deu",
+        "name" : "deu"
+      },
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9968ce44c52e6e34641"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f7178679",
+      "name" : "AP",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "eng",
+        "name" : "English"
+      },
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f7178679"
+        }
+      }
+    }, {
+      "id" : "5cfea8338ce44c52e6e33dae",
+      "name" : "AQA",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8338ce44c52e6e33dae"
+        }
+      }
+    }, {
+      "id" : "5cfea8988ce44c52e6e34037",
+      "name" : "Ashmolean Museum",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8988ce44c52e6e34037"
+        }
+      }
+    }, {
+      "id" : "5cfea84d8ce44c52e6e33e5a",
+      "name" : "Audio Productions",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "spa",
+        "name" : "Spanish"
+      },
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea84d8ce44c52e6e33e5a"
+        }
+      }
+    }, {
+      "id" : "5cfea9938ce44c52e6e3461f",
+      "name" : "Austin Evans",
+      "legalRestriction" : {
+        "id" : "5d976e9c138a17514040baca",
+        "text" : "Usage Notice: Please be advised that this video is available to use in streaming access products only and is not available for download licensing. Please save to Playlist or Cart and Contact Us to request streaming usage.",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e9c138a17514040baca"
+          }
+        }
+      },
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "bel",
+        "name" : "Belarusian"
+      },
+      "notes" : null,
+      "contentTypes" : [ "STOCK" ],
+      "contentType" : "STOCK",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9938ce44c52e6e3461f"
+        }
+      }
+    }, {
+      "id" : "5cfea89a8ce44c52e6e34049",
+      "name" : "Barristan Selmy",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "NEWS" ],
+      "contentType" : "NEWS",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89a8ce44c52e6e34049"
+        }
+      }
+    }, {
+      "id" : "5cfea86a8ce44c52e6e33f09",
+      "name" : "BBC",
+      "legalRestriction" : null,
+      "description" : "tedst",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea86a8ce44c52e6e33f09"
+        }
+      }
+    }, {
+      "id" : "5cfe8ba0336c6d2d0aa7c9aa",
+      "name" : "BBC Earth",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8ba0336c6d2d0aa7c9aa"
+        }
+      }
+    }, {
+      "id" : "5cfea7ce8ce44c52e6e33b1d",
+      "name" : "BBC Earth Lab",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ce8ce44c52e6e33b1d"
+        }
+      }
+    }, {
+      "id" : "5cfea88f8ce44c52e6e33ff4",
+      "name" : "BBC Ideas",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "spa",
+        "name" : "Spanish"
+      },
+      "notes" : null,
+      "contentTypes" : [ "NEWS" ],
+      "contentType" : "NEWS",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea88f8ce44c52e6e33ff4"
+        }
+      }
+    }, {
+      "id" : "5cfea86a8ce44c52e6e33f0c",
+      "name" : "BBC News",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea86a8ce44c52e6e33f0c"
+        }
+      }
+    }, {
+      "id" : "5cfea86a8ce44c52e6e33f0f",
+      "name" : "BBC Newsnight",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea86a8ce44c52e6e33f0f"
+        }
+      }
+    }, {
+      "id" : "5cfea88f8ce44c52e6e33ff6",
+      "name" : "BBC Radio 4 !",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea88f8ce44c52e6e33ff6"
+        }
+      }
+    }, {
+      "id" : "5cfea9318ce44c52e6e343cd",
+      "name" : "BBC Studios",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "abk",
+        "name" : "Abkhazian"
+      },
+      "notes" : null,
+      "contentTypes" : [ "NEWS" ],
+      "contentType" : "NEWS",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9318ce44c52e6e343cd"
+        }
+      }
+    }, {
+      "id" : "5cfe8ab3336c6d2d0aa7c47b",
+      "name" : "BBC Teach",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8ab3336c6d2d0aa7c47b"
+        }
+      }
+    }, {
+      "id" : "5e26db31215aaa478ed515e9",
+      "name" : "better name",
+      "legalRestriction" : {
+        "id" : "5d976e55ed1c74690e0f025f",
+        "text" : "No restrictions",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e55ed1c74690e0f025f"
+          }
+        }
+      },
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : "This is a description for 123",
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5e26db31215aaa478ed515e9"
+        }
+      }
+    }, {
+      "id" : "5cfea86c8ce44c52e6e33f1d",
+      "name" : "BFI",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea86c8ce44c52e6e33f1d"
+        }
+      }
+    }, {
+      "id" : "5cfea7cb8ce44c52e6e33b02",
+      "name" : "Biographics",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cb8ce44c52e6e33b02"
+        }
+      }
+    }, {
+      "id" : "5cfea8088ce44c52e6e33c93",
+      "name" : "Biography",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "abk",
+        "name" : "Abkhazian"
+      },
+      "notes" : null,
+      "contentTypes" : [ "STOCK" ],
+      "contentType" : "STOCK",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8088ce44c52e6e33c93"
+        }
+      }
+    }, {
+      "id" : "5cfea8338ce44c52e6e33db1",
+      "name" : "Blank on Blank",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8338ce44c52e6e33db1"
+        }
+      }
+    }, {
+      "id" : "5d4402be2b79777a3ac9dfc4",
+      "name" : "Bridgeman Arts",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d4402be2b79777a3ac9dfc4"
+        }
+      }
+    }, {
+      "id" : "5cfea7b68ce44c52e6e33a71",
+      "name" : "British Dyslexia Association",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b68ce44c52e6e33a71"
+        }
+      }
+    }, {
+      "id" : "5cfea89d8ce44c52e6e34064",
+      "name" : "Broadwaycom",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89d8ce44c52e6e34064"
+        }
+      }
+    }, {
+      "id" : "5cfea99b8ce44c52e6e3467c",
+      "name" : "Bustle",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99b8ce44c52e6e3467c"
+        }
+      }
+    }, {
+      "id" : "5cfea8088ce44c52e6e33c9c",
+      "name" : "Button Poetry",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8088ce44c52e6e33c9c"
+        }
+      }
+    }, {
+      "id" : "5cfea9998ce44c52e6e34661",
+      "name" : "C-SPAN",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9998ce44c52e6e34661"
+        }
+      }
+    }, {
+      "id" : "5cfea7d28ce44c52e6e33b4e",
+      "name" : "Cambridge University",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d28ce44c52e6e33b4e"
+        }
+      }
+    }, {
+      "id" : "5cfea7ca8ce44c52e6e33af6",
+      "name" : "Canon Europe",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ca8ce44c52e6e33af6"
+        }
+      }
+    }, {
+      "id" : "5cfea7ec8ce44c52e6e33bed",
+      "name" : "CBBC",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "abk",
+        "name" : "Abkhazian"
+      },
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ec8ce44c52e6e33bed"
+        }
+      }
+    }, {
+      "id" : "5cfea7cb8ce44c52e6e33afc",
+      "name" : "CBS Sunday Morning",
+      "legalRestriction" : null,
+      "description" : "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : "ggggggggggggggggggg",
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : "jjjjjjjjjjjjjjjjjjjj",
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cb8ce44c52e6e33afc"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f717867b",
+      "name" : "Challenger Center",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f717867b"
+        }
+      }
+    }, {
+      "id" : "5cfea4528ce44c52e6e32702",
+      "name" : "Challenger Center",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea4528ce44c52e6e32702"
+        }
+      }
+    }, {
+      "id" : "620ce8c5ef54676e3bda78cd",
+      "name" : "Channel Test Search 1",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "spa",
+        "name" : "Spanish"
+      },
+      "notes" : null,
+      "contentTypes" : [ "NEWS" ],
+      "contentType" : "NEWS",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/620ce8c5ef54676e3bda78cd"
+        }
+      }
+    }, {
+      "id" : "5cfea9958ce44c52e6e34638",
+      "name" : "Chungdahm Learning",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9958ce44c52e6e34638"
+        }
+      }
+    }, {
+      "id" : "5cfea7b88ce44c52e6e33a7b",
+      "name" : "Cincinnati Children's",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b88ce44c52e6e33a7b"
+        }
+      }
+    }, {
+      "id" : "5cfe8c0a336c6d2d0aa7cbf3",
+      "name" : "Code.org",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "afr",
+        "name" : "Afrikaans"
+      },
+      "notes" : "kkk",
+      "contentTypes" : [ "STOCK" ],
+      "contentType" : "STOCK",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8c0a336c6d2d0aa7cbf3"
+        }
+      }
+    }, {
+      "id" : "5cfea9938ce44c52e6e34625",
+      "name" : "ColdFusion",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9938ce44c52e6e34625"
+        }
+      }
+    }, {
+      "id" : "5cfea7d58ce44c52e6e33b64",
+      "name" : "columbusmuseum",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d58ce44c52e6e33b64"
+        }
+      }
+    }, {
+      "id" : "5cfea89e8ce44c52e6e3406a",
+      "name" : "CrashCourse",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89e8ce44c52e6e3406a"
+        }
+      }
+    }, {
+      "id" : "5cfea7d38ce44c52e6e33b55",
+      "name" : "Creators",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d38ce44c52e6e33b55"
+        }
+      }
+    }, {
+      "id" : "62b58c94f34caf7bcb955e9a",
+      "name" : "Cristina-test",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "eng",
+        "name" : "English"
+      },
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/62b58c94f34caf7bcb955e9a"
+        }
+      }
+    }, {
+      "id" : "5cfea8428ce44c52e6e33e12",
+      "name" : "Cult of Pedagogy",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8428ce44c52e6e33e12"
+        }
+      }
+    }, {
+      "id" : "5cfea89a8ce44c52e6e34044",
+      "name" : "DE4AL7",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89a8ce44c52e6e34044"
+        }
+      }
+    }, {
+      "id" : "5cfea7cf8ce44c52e6e33b27",
+      "name" : "Deep Look",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cf8ce44c52e6e33b27"
+        }
+      }
+    }, {
+      "id" : "61927b0a32472e78bfc46a76",
+      "name" : "demo channel",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "spa",
+        "name" : "Spanish"
+      },
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/61927b0a32472e78bfc46a76"
+        }
+      }
+    }, {
+      "id" : "5cfea7cf8ce44c52e6e33b2d",
+      "name" : "Design Science",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cf8ce44c52e6e33b2d"
+        }
+      }
+    }, {
+      "id" : "5cfea7ce8ce44c52e6e33b19",
+      "name" : "Devon Contract Waste",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ce8ce44c52e6e33b19"
+        }
+      }
+    }, {
+      "id" : "5cfea8978ce44c52e6e34029",
+      "name" : "Discover Ireland",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8978ce44c52e6e34029"
+        }
+      }
+    }, {
+      "id" : "5cfea9988ce44c52e6e34654",
+      "name" : "Discovery UK",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9988ce44c52e6e34654"
+        }
+      }
+    }, {
+      "id" : "5cfea7cd8ce44c52e6e33b13",
+      "name" : "Disney Educational Productions",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cd8ce44c52e6e33b13"
+        }
+      }
+    }, {
+      "id" : "5cfea9988ce44c52e6e3465a",
+      "name" : "Domain of Science",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9988ce44c52e6e3465a"
+        }
+      }
+    }, {
+      "id" : "5d5d61220726b741db534ba8",
+      "name" : "Dow Jones",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d5d61220726b741db534ba8"
+        }
+      }
+    }, {
+      "id" : "5cfea83d8ce44c52e6e33dee",
+      "name" : "Duke Learning Innovation",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83d8ce44c52e6e33dee"
+        }
+      }
+    }, {
+      "id" : "5cfe89c8336c6d2d0aa7bf92",
+      "name" : "Easy German",
+      "legalRestriction" : {
+        "id" : "5d976e55ed1c74690e0f025f",
+        "text" : "No restrictions",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e55ed1c74690e0f025f"
+          }
+        }
+      },
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "deu",
+        "name" : "deu"
+      },
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe89c8336c6d2d0aa7bf92"
+        }
+      }
+    }, {
+      "id" : "5cfe89e4336c6d2d0aa7c00d",
+      "name" : "Easy Languages",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "deu",
+        "name" : "deu"
+      },
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe89e4336c6d2d0aa7c00d"
+        }
+      }
+    }, {
+      "id" : "5cfe8a62336c6d2d0aa7c2be",
+      "name" : "Easy Spanish",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8a62336c6d2d0aa7c2be"
+        }
+      }
+    }, {
+      "id" : "5cfea83d8ce44c52e6e33df4",
+      "name" : "EDCHAT®",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83d8ce44c52e6e33df4"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f7178680",
+      "name" : "Eddie Woo",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f7178680"
+        }
+      }
+    }, {
+      "id" : "5cfe8ab1336c6d2d0aa7c470",
+      "name" : "Eddie Woo",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8ab1336c6d2d0aa7c470"
+        }
+      }
+    }, {
+      "id" : "5cfea7ed8ce44c52e6e33bf1",
+      "name" : "Educated Minds with Miss Cole",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ed8ce44c52e6e33bf1"
+        }
+      }
+    }, {
+      "id" : "5cfea8628ce44c52e6e33ed5",
+      "name" : "Edutopia",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8628ce44c52e6e33ed5"
+        }
+      }
+    }, {
+      "id" : "5cfea9988ce44c52e6e34658",
+      "name" : "Eli the Computer Guy",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9988ce44c52e6e34658"
+        }
+      }
+    }, {
+      "id" : "5cfea83e8ce44c52e6e33df6",
+      "name" : "Elite Facts",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83e8ce44c52e6e33df6"
+        }
+      }
+    }, {
+      "id" : "5cfea8048ce44c52e6e33c7e",
+      "name" : "Entertain The Elk 2211",
+      "legalRestriction" : null,
+      "description" : "test",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8048ce44c52e6e33c7e"
+        }
+      }
+    }, {
+      "id" : "5cfea9978ce44c52e6e3464d",
+      "name" : "Epic Wildlife",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9978ce44c52e6e3464d"
+        }
+      }
+    }, {
+      "id" : "5cfea7cb8ce44c52e6e33b06",
+      "name" : "Eric Buffington",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cb8ce44c52e6e33b06"
+        }
+      }
+    }, {
+      "id" : "5cfea99e8ce44c52e6e34694",
+      "name" : "Every Think",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99e8ce44c52e6e34694"
+        }
+      }
+    }, {
+      "id" : "5cfea7d58ce44c52e6e33b60",
+      "name" : "Experiments with Google",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d58ce44c52e6e33b60"
+        }
+      }
+    }, {
+      "id" : "5cfe8cb0336c6d2d0aa7cf81",
+      "name" : "Extra Credits",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8cb0336c6d2d0aa7cf81"
+        }
+      }
+    }, {
+      "id" : "5d3f000d7ec37565dca27cac",
+      "name" : "Extra English Practise",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d3f000d7ec37565dca27cac"
+        }
+      }
+    }, {
+      "id" : "5cfea7cc8ce44c52e6e33b0a",
+      "name" : "FantasticPhonics",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cc8ce44c52e6e33b0a"
+        }
+      }
+    }, {
+      "id" : "5cfea7d18ce44c52e6e33b45",
+      "name" : "Fig. 1 by University of California",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d18ce44c52e6e33b45"
+        }
+      }
+    }, {
+      "id" : "5cfe8b46336c6d2d0aa7c7c6",
+      "name" : "Film Riot",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b46336c6d2d0aa7c7c6"
+        }
+      }
+    }, {
+      "id" : "5cfea9978ce44c52e6e34652",
+      "name" : "Finger Monkey Channel",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9978ce44c52e6e34652"
+        }
+      }
+    }, {
+      "id" : "5cfea7cb8ce44c52e6e33b04",
+      "name" : "FIRST LEGO League",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cb8ce44c52e6e33b04"
+        }
+      }
+    }, {
+      "id" : "5cfea99d8ce44c52e6e3468f",
+      "name" : "Freethink",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99d8ce44c52e6e3468f"
+        }
+      }
+    }, {
+      "id" : "5cfea7ce8ce44c52e6e33b1b",
+      "name" : "Future Earth",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ce8ce44c52e6e33b1b"
+        }
+      }
+    }, {
+      "id" : "5cfea8988ce44c52e6e34032",
+      "name" : "FutureLearn",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8988ce44c52e6e34032"
+        }
+      }
+    }, {
+      "id" : "5cfea7d48ce44c52e6e33b5a",
+      "name" : "GatesFoundation",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d48ce44c52e6e33b5a"
+        }
+      }
+    }, {
+      "id" : "5cfea8138ce44c52e6e33ce1",
+      "name" : "Geethanjali Kids - Rhymes and Stories",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8138ce44c52e6e33ce1"
+        }
+      }
+    }, {
+      "id" : "5cfea89b8ce44c52e6e34050",
+      "name" : "Gil Manor",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89b8ce44c52e6e34050"
+        }
+      }
+    }, {
+      "id" : "5cfea99a8ce44c52e6e3466b",
+      "name" : "Glamour",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99a8ce44c52e6e3466b"
+        }
+      }
+    }, {
+      "id" : "5cfe8abc336c6d2d0aa7c4b0",
+      "name" : "Grammaropolis",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8abc336c6d2d0aa7c4b0"
+        }
+      }
+    }, {
+      "id" : "5cfe8b62336c6d2d0aa7c864",
+      "name" : "Great Big Story",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b62336c6d2d0aa7c864"
+        }
+      }
+    }, {
+      "id" : "5cfea83d8ce44c52e6e33df0",
+      "name" : "Gresham College",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83d8ce44c52e6e33df0"
+        }
+      }
+    }, {
+      "id" : "5cfea8088ce44c52e6e33c97",
+      "name" : "Guardian Culture",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8088ce44c52e6e33c97"
+        }
+      }
+    }, {
+      "id" : "5cfea90b8ce44c52e6e342ec",
+      "name" : "Guardian News",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea90b8ce44c52e6e342ec"
+        }
+      }
+    }, {
+      "id" : "5cfea99d8ce44c52e6e3468b",
+      "name" : "Happify",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99d8ce44c52e6e3468b"
+        }
+      }
+    }, {
+      "id" : "5cfea89b8ce44c52e6e34052",
+      "name" : "harpercollins11",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89b8ce44c52e6e34052"
+        }
+      }
+    }, {
+      "id" : "63d1171808335c5b58b9666d",
+      "name" : "Harsha - test",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "eng",
+        "name" : "English"
+      },
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/63d1171808335c5b58b9666d"
+        }
+      }
+    }, {
+      "id" : "5cfea8178ce44c52e6e33cfe",
+      "name" : "HarvardX",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8178ce44c52e6e33cfe"
+        }
+      }
+    }, {
+      "id" : "5cfea8088ce44c52e6e33c99",
+      "name" : "Hay Levels",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8088ce44c52e6e33c99"
+        }
+      }
+    }, {
+      "id" : "5cfea8998ce44c52e6e3403d",
+      "name" : "Hillsdale College",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8998ce44c52e6e3403d"
+        }
+      }
+    }, {
+      "id" : "5cfea83d8ce44c52e6e33df2",
+      "name" : "Hillsdale College Online Courses",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83d8ce44c52e6e33df2"
+        }
+      }
+    }, {
+      "id" : "5cfea7bc8ce44c52e6e33a9c",
+      "name" : "HISTORY",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7bc8ce44c52e6e33a9c"
+        }
+      }
+    }, {
+      "id" : "5cfe8d1d336c6d2d0aa7d1d4",
+      "name" : "History Bombs",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8d1d336c6d2d0aa7d1d4"
+        }
+      }
+    }, {
+      "id" : "5cfea7d38ce44c52e6e33b50",
+      "name" : "IBM",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d38ce44c52e6e33b50"
+        }
+      }
+    }, {
+      "id" : "5cfea99c8ce44c52e6e3467f",
+      "name" : "IFLScience Official",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99c8ce44c52e6e3467f"
+        }
+      }
+    }, {
+      "id" : "5cfea9988ce44c52e6e3465c",
+      "name" : "Improvement Pill",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9988ce44c52e6e3465c"
+        }
+      }
+    }, {
+      "id" : "5cfea7ba8ce44c52e6e33a8f",
+      "name" : "insideadhd",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ba8ce44c52e6e33a8f"
+        }
+      }
+    }, {
+      "id" : "618cf3510d19964e4328b4d6",
+      "name" : "Institute of Human Anatomy",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/618cf3510d19964e4328b4d6"
+        }
+      }
+    }, {
+      "id" : "5cfea99e8ce44c52e6e34691",
+      "name" : "Iris",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99e8ce44c52e6e34691"
+        }
+      }
+    }, {
+      "id" : "5cfea89a8ce44c52e6e34046",
+      "name" : "Is This Just Fantasy?",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89a8ce44c52e6e34046"
+        }
+      }
+    }, {
+      "id" : "5cfea9998ce44c52e6e3465f",
+      "name" : "IT'S HISTORY",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "NEWS" ],
+      "contentType" : "NEWS",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9998ce44c52e6e3465f"
+        }
+      }
+    }, {
+      "id" : "5cfea7cd8ce44c52e6e33b17",
+      "name" : "It's Okay To Be Smart",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cd8ce44c52e6e33b17"
+        }
+      }
+    }, {
+      "id" : "5cfea7cc8ce44c52e6e33b08",
+      "name" : "Jeremy Thompson",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cc8ce44c52e6e33b08"
+        }
+      }
+    }, {
+      "id" : "5cfea8428ce44c52e6e33e14",
+      "name" : "Jimmy Thatcher",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8428ce44c52e6e33e14"
+        }
+      }
+    }, {
+      "id" : "5cfe8a98336c6d2d0aa7c3e6",
+      "name" : "Juan Coronado",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8a98336c6d2d0aa7c3e6"
+        }
+      }
+    }, {
+      "id" : "5fb698eb92a64c0e7b324d44",
+      "name" : "Learn with Zakaria - تعلم مع زكريا",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5fb698eb92a64c0e7b324d44"
+        }
+      }
+    }, {
+      "id" : "5cfea9968ce44c52e6e34645",
+      "name" : "Life Noggin",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9968ce44c52e6e34645"
+        }
+      }
+    }, {
+      "id" : "5cfea89c8ce44c52e6e3405d",
+      "name" : "lindsayjskinner",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89c8ce44c52e6e3405d"
+        }
+      }
+    }, {
+      "id" : "5cfea99b8ce44c52e6e3467a",
+      "name" : "LinkedIn",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99b8ce44c52e6e3467a"
+        }
+      }
+    }, {
+      "id" : "5cfea9978ce44c52e6e34649",
+      "name" : "list25",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9978ce44c52e6e34649"
+        }
+      }
+    }, {
+      "id" : "5cfea83c8ce44c52e6e33de4",
+      "name" : "Loughborough University",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83c8ce44c52e6e33de4"
+        }
+      }
+    }, {
+      "id" : "5cfea99b8ce44c52e6e34676",
+      "name" : "MacGillivray Freeman",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99b8ce44c52e6e34676"
+        }
+      }
+    }, {
+      "id" : "5cfea9988ce44c52e6e34656",
+      "name" : "MajorPrep",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9988ce44c52e6e34656"
+        }
+      }
+    }, {
+      "id" : "5db02e010ac78d5d2fd69c86",
+      "name" : "Make N' Create",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5db02e010ac78d5d2fd69c86"
+        }
+      }
+    }, {
+      "id" : "5cfea9998ce44c52e6e34667",
+      "name" : "MAKERS",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9998ce44c52e6e34667"
+        }
+      }
+    }, {
+      "id" : "5cfea89b8ce44c52e6e34056",
+      "name" : "Maria Quevedo",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89b8ce44c52e6e34056"
+        }
+      }
+    }, {
+      "id" : "5cfea84e8ce44c52e6e33e5c",
+      "name" : "Mark Daniels",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea84e8ce44c52e6e33e5c"
+        }
+      }
+    }, {
+      "id" : "5cfea9938ce44c52e6e34621",
+      "name" : "Marques Brownlee",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9938ce44c52e6e34621"
+        }
+      }
+    }, {
+      "id" : "5cfea9958ce44c52e6e3463a",
+      "name" : "Mashable Watercooler",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9958ce44c52e6e3463a"
+        }
+      }
+    }, {
+      "id" : "5cfea99a8ce44c52e6e34670",
+      "name" : "mathantics",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99a8ce44c52e6e34670"
+        }
+      }
+    }, {
+      "id" : "5d499aa03334ad77d5796690",
+      "name" : "Matt Jones",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d499aa03334ad77d5796690"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f7178681",
+      "name" : "Matt Jones",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f7178681"
+        }
+      }
+    }, {
+      "id" : "5cfe8c0c336c6d2d0aa7cc02",
+      "name" : "MindYourDecisions",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8c0c336c6d2d0aa7cc02"
+        }
+      }
+    }, {
+      "id" : "5cfe8d21336c6d2d0aa7d1eb",
+      "name" : "MITCSAIL",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8d21336c6d2d0aa7d1eb"
+        }
+      }
+    }, {
+      "id" : "5cfea9938ce44c52e6e34623",
+      "name" : "MITK12Videos",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9938ce44c52e6e34623"
+        }
+      }
+    }, {
+      "id" : "5cfea7cf8ce44c52e6e33b30",
+      "name" : "Monterey Bay Aquarium Research Institute (MBARI)",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cf8ce44c52e6e33b30"
+        }
+      }
+    }, {
+      "id" : "5cfea7ce8ce44c52e6e33b1f",
+      "name" : "Motherboard",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ce8ce44c52e6e33b1f"
+        }
+      }
+    }, {
+      "id" : "5cfea8428ce44c52e6e33e16",
+      "name" : "Movieclips",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8428ce44c52e6e33e16"
+        }
+      }
+    }, {
+      "id" : "5cfea7ec8ce44c52e6e33bef",
+      "name" : "mrbruff",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ec8ce44c52e6e33bef"
+        }
+      }
+    }, {
+      "id" : "5cfea9998ce44c52e6e34665",
+      "name" : "MSNBC",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9998ce44c52e6e34665"
+        }
+      }
+    }, {
+      "id" : "6053788ce18d692bfbd63c77",
+      "name" : "Name",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/6053788ce18d692bfbd63c77"
+        }
+      }
+    }, {
+      "id" : "5cfea7d08ce44c52e6e33b32",
+      "name" : "NASA Goddard",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d08ce44c52e6e33b32"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f717867d",
+      "name" : "NASA Jet Propulsion Laboratory",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f717867d"
+        }
+      }
+    }, {
+      "id" : "5cfea4528ce44c52e6e32704",
+      "name" : "NASA Jet Propulsion Laboratory",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea4528ce44c52e6e32704"
+        }
+      }
+    }, {
+      "id" : "5cfea9978ce44c52e6e3464b",
+      "name" : "Nat Geo WILD",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9978ce44c52e6e3464b"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f717867a",
+      "name" : "Natcom Global",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "spa",
+        "name" : "Spanish"
+      },
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f717867a"
+        }
+      }
+    }, {
+      "id" : "5cfea8328ce44c52e6e33da4",
+      "name" : "National Centre for Writing",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8328ce44c52e6e33da4"
+        }
+      }
+    }, {
+      "id" : "5d2855a97e173c570e69c376",
+      "name" : "National Geographic",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d2855a97e173c570e69c376"
+        }
+      }
+    }, {
+      "id" : "5cfea81b8ce44c52e6e33d16",
+      "name" : "National Theatre",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea81b8ce44c52e6e33d16"
+        }
+      }
+    }, {
+      "id" : "5cfea7cf8ce44c52e6e33b29",
+      "name" : "nature video",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cf8ce44c52e6e33b29"
+        }
+      }
+    }, {
+      "id" : "5cfea7d18ce44c52e6e33b3e",
+      "name" : "NPR",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d18ce44c52e6e33b3e"
+        }
+      }
+    }, {
+      "id" : "5cfe8d01336c6d2d0aa7d131",
+      "name" : "Numberphile",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8d01336c6d2d0aa7d131"
+        }
+      }
+    }, {
+      "id" : "5cfe8d0b336c6d2d0aa7d16e",
+      "name" : "Numberphile2",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8d0b336c6d2d0aa7d16e"
+        }
+      }
+    }, {
+      "id" : "5d80ea217c518c39fe980301",
+      "name" : "Odd Quartet",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d80ea217c518c39fe980301"
+        }
+      }
+    }, {
+      "id" : "5cfea8088ce44c52e6e33c95",
+      "name" : "OpenLearn from The Open University",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8088ce44c52e6e33c95"
+        }
+      }
+    }, {
+      "id" : "5cfea8188ce44c52e6e33d00",
+      "name" : "Opus Arte",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8188ce44c52e6e33d00"
+        }
+      }
+    }, {
+      "id" : "5cfea99c8ce44c52e6e34687",
+      "name" : "Origin Of Everything",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99c8ce44c52e6e34687"
+        }
+      }
+    }, {
+      "id" : "5cfe8cae336c6d2d0aa7cf78",
+      "name" : "OverSimplified",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8cae336c6d2d0aa7cf78"
+        }
+      }
+    }, {
+      "id" : "5cfea84e8ce44c52e6e33e65",
+      "name" : "Oxford Online English",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea84e8ce44c52e6e33e65"
+        }
+      }
+    }, {
+      "id" : "5cfe8af8336c6d2d0aa7c608",
+      "name" : "patrickJMT",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8af8336c6d2d0aa7c608"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f717867c",
+      "name" : "PBS NewsHour",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f717867c"
+        }
+      }
+    }, {
+      "id" : "5cfea9948ce44c52e6e3462b",
+      "name" : "PBS Space Time",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9948ce44c52e6e3462b"
+        }
+      }
+    }, {
+      "id" : "5cfea7b98ce44c52e6e33a85",
+      "name" : "Pediatric Occupational Therapy Services",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b98ce44c52e6e33a85"
+        }
+      }
+    }, {
+      "id" : "5cfea8918ce44c52e6e34002",
+      "name" : "Penguin Books UK",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8918ce44c52e6e34002"
+        }
+      }
+    }, {
+      "id" : "5cfe8b49336c6d2d0aa7c7d3",
+      "name" : "Philosophy Tube",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b49336c6d2d0aa7c7d3"
+        }
+      }
+    }, {
+      "id" : "5cfe8bf3336c6d2d0aa7cb78",
+      "name" : "Physics Girl",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8bf3336c6d2d0aa7cb78"
+        }
+      }
+    }, {
+      "id" : "5cfea8208ce44c52e6e33d37",
+      "name" : "Please go to our new YouTube Channel below",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8208ce44c52e6e33d37"
+        }
+      }
+    }, {
+      "id" : "6362393bcb42106895ebf76e",
+      "name" : "Podcasts from NASA",
+      "legalRestriction" : null,
+      "description" : "Test for Hackathon",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "eng",
+        "name" : "English"
+      },
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/6362393bcb42106895ebf76e"
+        }
+      }
+    }, {
+      "id" : "63623cb8cb42106895ebf771",
+      "name" : "Podcasts from Youth Radio",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/63623cb8cb42106895ebf771"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f7178682",
+      "name" : "Press Association",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f7178682"
+        }
+      }
+    }, {
+      "id" : "5cfea7d58ce44c52e6e33b66",
+      "name" : "Prime Coaching Sport",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d58ce44c52e6e33b66"
+        }
+      }
+    }, {
+      "id" : "5cfea7ba8ce44c52e6e33a8d",
+      "name" : "Psych2Go",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ba8ce44c52e6e33a8d"
+        }
+      }
+    }, {
+      "id" : "5cfea7b88ce44c52e6e33a7d",
+      "name" : "Reaching Families",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b88ce44c52e6e33a7d"
+        }
+      }
+    }, {
+      "id" : "5cfea7d08ce44c52e6e33b39",
+      "name" : "Reactions",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d08ce44c52e6e33b39"
+        }
+      }
+    }, {
+      "id" : "5cfea9948ce44c52e6e3462f",
+      "name" : "Real Engineering",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9948ce44c52e6e3462f"
+        }
+      }
+    }, {
+      "id" : "5d80f382acc1e027eef62fd4",
+      "name" : "Redesign My Brain",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d80f382acc1e027eef62fd4"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f7178683",
+      "name" : "Reuters Archive",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f7178683"
+        }
+      }
+    }, {
+      "id" : "5cfea94e8ce44c52e6e34481",
+      "name" : "Roald Dahl",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea94e8ce44c52e6e34481"
+        }
+      }
+    }, {
+      "id" : "5d4b11a19082e01934ecbbd9",
+      "name" : "rockentry",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d4b11a19082e01934ecbbd9"
+        }
+      }
+    }, {
+      "id" : "5cfea7d28ce44c52e6e33b4c",
+      "name" : "Royal Botanic Gardens, Kew",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d28ce44c52e6e33b4c"
+        }
+      }
+    }, {
+      "id" : "5cfe8b58336c6d2d0aa7c82d",
+      "name" : "Royal Shakespeare Company",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b58336c6d2d0aa7c82d"
+        }
+      }
+    }, {
+      "id" : "5cfea7d38ce44c52e6e33b53",
+      "name" : "Royal Society Of Chemistry",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d38ce44c52e6e33b53"
+        }
+      }
+    }, {
+      "id" : "5cfe8b4c336c6d2d0aa7c7e6",
+      "name" : "RSC Shakespeare Learning Zone",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b4c336c6d2d0aa7c7e6"
+        }
+      }
+    }, {
+      "id" : "5cfea99c8ce44c52e6e34685",
+      "name" : "SciFri",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99c8ce44c52e6e34685"
+        }
+      }
+    }, {
+      "id" : "5cfea9928ce44c52e6e3461b",
+      "name" : "Seeker",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9928ce44c52e6e3461b"
+        }
+      }
+    }, {
+      "id" : "5cfea81b8ce44c52e6e33d14",
+      "name" : "Shakespeare's Globe",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea81b8ce44c52e6e33d14"
+        }
+      }
+    }, {
+      "id" : "5cfea89a8ce44c52e6e3404b",
+      "name" : "Shia Syndicate",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89a8ce44c52e6e3404b"
+        }
+      }
+    }, {
+      "id" : "5cfea99a8ce44c52e6e3466e",
+      "name" : "Simon Clark",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99a8ce44c52e6e3466e"
+        }
+      }
+    }, {
+      "id" : "5cfea83e8ce44c52e6e33df8",
+      "name" : "SingSongAlong",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83e8ce44c52e6e33df8"
+        }
+      }
+    }, {
+      "id" : "5cfe8b26336c6d2d0aa7c714",
+      "name" : "Smithsonian Channel",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b26336c6d2d0aa7c714"
+        }
+      }
+    }, {
+      "id" : "5cfea9508ce44c52e6e3448f",
+      "name" : "Sotheby's",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9508ce44c52e6e3448f"
+        }
+      }
+    }, {
+      "id" : "5cfe8b59336c6d2d0aa7c830",
+      "name" : "Space Videos",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b59336c6d2d0aa7c830"
+        }
+      }
+    }, {
+      "id" : "5cfea83d8ce44c52e6e33dec",
+      "name" : "SpokenVerse",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83d8ce44c52e6e33dec"
+        }
+      }
+    }, {
+      "id" : "5cfea7b78ce44c52e6e33a79",
+      "name" : "St. Joseph's Health Centre, Toronto",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b78ce44c52e6e33a79"
+        }
+      }
+    }, {
+      "id" : "5cfea7ce8ce44c52e6e33b23",
+      "name" : "Stanford",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ce8ce44c52e6e33b23"
+        }
+      }
+    }, {
+      "id" : "5cfe8ab2336c6d2d0aa7c479",
+      "name" : "stanfordonline",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8ab2336c6d2d0aa7c479"
+        }
+      }
+    }, {
+      "id" : "5cfea86b8ce44c52e6e33f13",
+      "name" : "Stonewall | Acceptance Without Exception",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea86b8ce44c52e6e33f13"
+        }
+      }
+    }, {
+      "id" : "5cfea7ba8ce44c52e6e33a91",
+      "name" : "storybooth",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ba8ce44c52e6e33a91"
+        }
+      }
+    }, {
+      "id" : "5cfe8cf8336c6d2d0aa7d107",
+      "name" : "StoryCorps",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8cf8336c6d2d0aa7d107"
+        }
+      }
+    }, {
+      "id" : "5d5c231dd6c49b7f5a740fbc",
+      "name" : "StorylineOnline",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d5c231dd6c49b7f5a740fbc"
+        }
+      }
+    }, {
+      "id" : "62a6eed573f2db722e7de4bb",
+      "name" : "Streaming-test",
+      "legalRestriction" : null,
+      "description" : "pawel channel description",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/62a6eed573f2db722e7de4bb"
+        }
+      }
+    }, {
+      "id" : "5cfea8998ce44c52e6e3403b",
+      "name" : "Tate",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8998ce44c52e6e3403b"
+        }
+      }
+    }, {
+      "id" : "5cfea7cb8ce44c52e6e33b00",
+      "name" : "TeacherHub English",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cb8ce44c52e6e33b00"
+        }
+      }
+    }, {
+      "id" : "5cfea9948ce44c52e6e3462d",
+      "name" : "Tech Insider",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9948ce44c52e6e3462d"
+        }
+      }
+    }, {
+      "id" : "5e303555b281e424e1195b50",
+      "name" : "TED",
+      "legalRestriction" : {
+        "id" : "5d976e55ed1c74690e0f025f",
+        "text" : "No restrictions",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e55ed1c74690e0f025f"
+          }
+        }
+      },
+      "description" : "with descriptionnnnn",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5e303555b281e424e1195b50"
+        }
+      }
+    }, {
+      "id" : "5cf140c4c1475c47f7178678",
+      "name" : "TED",
+      "legalRestriction" : {
+        "id" : "5d976e9c138a17514040baca",
+        "text" : "Usage Notice: Please be advised that this video is available to use in streaming access products only and is not available for download licensing. Please save to Playlist or Cart and Contact Us to request streaming usage.",
+        "_links" : {
+          "self" : {
+            "rel" : "self",
+            "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e9c138a17514040baca"
+          }
+        }
+      },
+      "description" : "PACT CONTENT PARTNER - DO NOT CHANGE",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : {
+        "code" : "afr",
+        "name" : "Afrikaans"
+      },
+      "notes" : "3",
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : "One line description",
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cf140c4c1475c47f7178678"
+        }
+      }
+    }, {
+      "id" : "5e0f6fa404d95551584b3f5c",
+      "name" : "TED-Ed",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5e0f6fa404d95551584b3f5c"
+        }
+      }
+    }, {
+      "id" : "5cfea99b8ce44c52e6e34678",
+      "name" : "Tennessee Department of Agriculture",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99b8ce44c52e6e34678"
+        }
+      }
+    }, {
+      "id" : "5cfea7b28ce44c52e6e33a58",
+      "name" : "The Art Assignment",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b28ce44c52e6e33a58"
+        }
+      }
+    }, {
+      "id" : "5cfea7cb8ce44c52e6e33afa",
+      "name" : "The Art of Photography",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cb8ce44c52e6e33afa"
+        }
+      }
+    }, {
+      "id" : "5cfea7d18ce44c52e6e33b43",
+      "name" : "The Atlantic",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d18ce44c52e6e33b43"
+        }
+      }
+    }, {
+      "id" : "5e1deaca885cfd10e8098134",
+      "name" : "The Bazillions",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5e1deaca885cfd10e8098134"
+        }
+      }
+    }, {
+      "id" : "5cfea7cb8ce44c52e6e33afe",
+      "name" : "The Book Tutor",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cb8ce44c52e6e33afe"
+        }
+      }
+    }, {
+      "id" : "5cfea8988ce44c52e6e34039",
+      "name" : "The British Library",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8988ce44c52e6e34039"
+        }
+      }
+    }, {
+      "id" : "5cfea90b8ce44c52e6e342ee",
+      "name" : "The British Museum",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea90b8ce44c52e6e342ee"
+        }
+      }
+    }, {
+      "id" : "5cfea9958ce44c52e6e34636",
+      "name" : "The Cogito",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9958ce44c52e6e34636"
+        }
+      }
+    }, {
+      "id" : "5cfea9978ce44c52e6e34650",
+      "name" : "The Dodo",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9978ce44c52e6e34650"
+        }
+      }
+    }, {
+      "id" : "5cfea7d28ce44c52e6e33b49",
+      "name" : "The Guardian",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d28ce44c52e6e33b49"
+        }
+      }
+    }, {
+      "id" : "5cfea9958ce44c52e6e3463e",
+      "name" : "The Infographics Show",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9958ce44c52e6e3463e"
+        }
+      }
+    }, {
+      "id" : "5cfea7d08ce44c52e6e33b37",
+      "name" : "The New York Times",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d08ce44c52e6e33b37"
+        }
+      }
+    }, {
+      "id" : "5e9739ee3470ce3af1f44331",
+      "name" : "The Office",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5e9739ee3470ce3af1f44331"
+        }
+      }
+    }, {
+      "id" : "5cfe8abc336c6d2d0aa7c4ae",
+      "name" : "The Royal Institution",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8abc336c6d2d0aa7c4ae"
+        }
+      }
+    }, {
+      "id" : "5cfe8b22336c6d2d0aa7c6fe",
+      "name" : "The RSA",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b22336c6d2d0aa7c6fe"
+        }
+      }
+    }, {
+      "id" : "5cfea9958ce44c52e6e3463c",
+      "name" : "The Specialist",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9958ce44c52e6e3463c"
+        }
+      }
+    }, {
+      "id" : "5cfea9958ce44c52e6e34634",
+      "name" : "The Take",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9958ce44c52e6e34634"
+        }
+      }
+    }, {
+      "id" : "5cfea7d08ce44c52e6e33b35",
+      "name" : "The Telegraph",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7d08ce44c52e6e33b35"
+        }
+      }
+    }, {
+      "id" : "5cfea89d8ce44c52e6e34060",
+      "name" : "The Tony Awards",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89d8ce44c52e6e34060"
+        }
+      }
+    }, {
+      "id" : "5cfea8148ce44c52e6e33ce4",
+      "name" : "The Touring Teacher",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8148ce44c52e6e33ce4"
+        }
+      }
+    }, {
+      "id" : "5cfea8988ce44c52e6e34030",
+      "name" : "The University of Chicago",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8988ce44c52e6e34030"
+        }
+      }
+    }, {
+      "id" : "5cfea7cf8ce44c52e6e33b2b",
+      "name" : "The Verge",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cf8ce44c52e6e33b2b"
+        }
+      }
+    }, {
+      "id" : "5cfea8988ce44c52e6e34035",
+      "name" : "The Wordsworth Trust",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8988ce44c52e6e34035"
+        }
+      }
+    }, {
+      "id" : "5cfe8b29336c6d2d0aa7c723",
+      "name" : "thebrainscoop",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8b29336c6d2d0aa7c723"
+        }
+      }
+    }, {
+      "id" : "5cfea84e8ce44c52e6e33e60",
+      "name" : "TheDepressedLobster",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea84e8ce44c52e6e33e60"
+        }
+      }
+    }, {
+      "id" : "5cfea8a18ce44c52e6e34072",
+      "name" : "Then & Now",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8a18ce44c52e6e34072"
+        }
+      }
+    }, {
+      "id" : "5cfea7b88ce44c52e6e33a81",
+      "name" : "therapyideas",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b88ce44c52e6e33a81"
+        }
+      }
+    }, {
+      "id" : "5cfea9928ce44c52e6e34619",
+      "name" : "TheSpanglerEffect",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9928ce44c52e6e34619"
+        }
+      }
+    }, {
+      "id" : "5e1deac9885cfd10e8098133",
+      "name" : "This is a new provider",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5e1deac9885cfd10e8098133"
+        }
+      }
+    }, {
+      "id" : "5cfea7ca8ce44c52e6e33af8",
+      "name" : "Thomson Reuters Foundation",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ca8ce44c52e6e33af8"
+        }
+      }
+    }, {
+      "id" : "5cfea9938ce44c52e6e34629",
+      "name" : "Thought Café",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9938ce44c52e6e34629"
+        }
+      }
+    }, {
+      "id" : "5cfea99a8ce44c52e6e34669",
+      "name" : "TIME",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99a8ce44c52e6e34669"
+        }
+      }
+    }, {
+      "id" : "5cfea89e8ce44c52e6e3406d",
+      "name" : "Timeless Classic Movies",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89e8ce44c52e6e3406d"
+        }
+      }
+    }, {
+      "id" : "5cfea8168ce44c52e6e33cf7",
+      "name" : "Timeline - World History Documentaries",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8168ce44c52e6e33cf7"
+        }
+      }
+    }, {
+      "id" : "5d4806d07e667847ff94f694",
+      "name" : "Tom Nicholas",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d4806d07e667847ff94f694"
+        }
+      }
+    }, {
+      "id" : "5cfea83d8ce44c52e6e33dea",
+      "name" : "Tom Robinson",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea83d8ce44c52e6e33dea"
+        }
+      }
+    }, {
+      "id" : "5cfea8698ce44c52e6e33f05",
+      "name" : "Tom Scott",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8698ce44c52e6e33f05"
+        }
+      }
+    }, {
+      "id" : "5cfea84e8ce44c52e6e33e62",
+      "name" : "UCL Film & TV Society",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea84e8ce44c52e6e33e62"
+        }
+      }
+    }, {
+      "id" : "5cfea7ba8ce44c52e6e33a93",
+      "name" : "UK Parliament",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ba8ce44c52e6e33a93"
+        }
+      }
+    }, {
+      "id" : "5fb68bb29ab5452e1d2a11bc",
+      "name" : "Um Abdullah",
+      "legalRestriction" : null,
+      "description" : "Um Abdullah Test",
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : [ "INSTRUCTIONAL" ],
+      "contentType" : "INSTRUCTIONAL",
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5fb68bb29ab5452e1d2a11bc"
+        }
+      }
+    }, {
+      "id" : "5cfea9928ce44c52e6e3461d",
+      "name" : "Unbox Therapy",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9928ce44c52e6e3461d"
+        }
+      }
+    }, {
+      "id" : "5cfea7e78ce44c52e6e33bd2",
+      "name" : "Understood",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7e78ce44c52e6e33bd2"
+        }
+      }
+    }, {
+      "id" : "5cfea8978ce44c52e6e3402b",
+      "name" : "University of Warwick",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8978ce44c52e6e3402b"
+        }
+      }
+    }, {
+      "id" : "5cfea8338ce44c52e6e33dab",
+      "name" : "Vanity Fair",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8338ce44c52e6e33dab"
+        }
+      }
+    }, {
+      "id" : "5cfea99a8ce44c52e6e34673",
+      "name" : "Verge Science",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99a8ce44c52e6e34673"
+        }
+      }
+    }, {
+      "id" : "5cfea7cf8ce44c52e6e33b25",
+      "name" : "Veritasium",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7cf8ce44c52e6e33b25"
+        }
+      }
+    }, {
+      "id" : "5cfea8998ce44c52e6e3403f",
+      "name" : "VideoSparkNotes",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8998ce44c52e6e3403f"
+        }
+      }
+    }, {
+      "id" : "5cfe8c9b336c6d2d0aa7cf0d",
+      "name" : "Vihart",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfe8c9b336c6d2d0aa7cf0d"
+        }
+      }
+    }, {
+      "id" : "5cfea99c8ce44c52e6e34682",
+      "name" : "Vintage Space",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea99c8ce44c52e6e34682"
+        }
+      }
+    }, {
+      "id" : "5cfea86a8ce44c52e6e33f07",
+      "name" : "Viralmente",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea86a8ce44c52e6e33f07"
+        }
+      }
+    }, {
+      "id" : "5cfea7ce8ce44c52e6e33b21",
+      "name" : "Vox",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7ce8ce44c52e6e33b21"
+        }
+      }
+    }, {
+      "id" : "5cfea7b88ce44c52e6e33a83",
+      "name" : "Wall Street Journal",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea7b88ce44c52e6e33a83"
+        }
+      }
+    }, {
+      "id" : "5cfea8a18ce44c52e6e34070",
+      "name" : "Watts Gallery - Artists' Village",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8a18ce44c52e6e34070"
+        }
+      }
+    }, {
+      "id" : "5cfea89d8ce44c52e6e34062",
+      "name" : "WhatsOnStage",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea89d8ce44c52e6e34062"
+        }
+      }
+    }, {
+      "id" : "5cfea9938ce44c52e6e34627",
+      "name" : "WIRED",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea9938ce44c52e6e34627"
+        }
+      }
+    }, {
+      "id" : "5cfea8968ce44c52e6e34024",
+      "name" : "WNYC",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5cfea8968ce44c52e6e34024"
+        }
+      }
+    }, {
+      "id" : "5d8e24039a425065b67a6a92",
+      "name" : "Xinhua News Agency",
+      "legalRestriction" : null,
+      "description" : null,
+      "contentCategories" : [ {
+        "key" : "ANIMATION",
+        "label" : "Animation"
+      } ],
+      "language" : null,
+      "notes" : null,
+      "contentTypes" : null,
+      "contentType" : null,
+      "oneLineDescription" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/channels/5d8e24039a425065b67a6a92"
+        }
+      }
+    } ]
+  }
+}
+----

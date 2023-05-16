@@ -1,0 +1,58 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: 25514ab4624792fd
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: accept-encoding
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Encoding: gzip
+Content-Type: application/hal+json
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 836
+
+{
+  "_embedded" : {
+    "levels" : [ {
+      "code" : "4C",
+      "label" : "All ages"
+    }, {
+      "code" : "4CA",
+      "label" : "Pre-school"
+    }, {
+      "code" : "4CD1",
+      "label" : "Lower Primary"
+    }, {
+      "code" : "4CD2",
+      "label" : "Upper Primary"
+    }, {
+      "code" : "4CF",
+      "label" : "Middle and Preparatory"
+    }, {
+      "code" : "4CL",
+      "label" : "Secondary"
+    }, {
+      "code" : "4CT",
+      "label" : "Higher education"
+    }, {
+      "code" : "4CTB",
+      "label" : "Undergraduate"
+    }, {
+      "code" : "4CTM",
+      "label" : "Graduate and Post-Graduate"
+    }, {
+      "code" : "4CN",
+      "label" : "Advanced Secondary"
+    }, {
+      "code" : "4CP",
+      "label" : "Vocational and Professional"
+    }, {
+      "code" : "4CX",
+      "label" : "Adult Education"
+    } ]
+  }
+}
+----

@@ -1,0 +1,7 @@
+[source,http,options="nowrap"]
+----
+GET /v1/users/0690f7ee-d38f-48c5-863c-ea39bfdbc5d3 HTTP/1.1
+Authorization: Bearer ***
+Host: api.boclips.com
+
+----

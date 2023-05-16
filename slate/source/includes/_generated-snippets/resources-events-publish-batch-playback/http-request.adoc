@@ -1,0 +1,22 @@
+[source,http,options="nowrap"]
+----
+POST /v1/events/playback/batch HTTP/1.1
+Authorization: Bearer ***
+Content-Type: application/json
+Host: api.boclips.com
+Content-Length: 412
+
+[ {
+  "videoId" : "5c542abf5438cdbcb56df0bf",
+  "segmentStartSeconds" : 1,
+  "segmentEndSeconds" : 3,
+  "captureTime" : "1997-07-16T19:20:30.45+01:00",
+  "userId" : "05c4b56f-1ca2-42ac-b992-2b254584ea29"
+}, {
+  "videoId" : "5c542abf5438cdbcb56df0bf",
+  "segmentStartSeconds" : 1,
+  "segmentEndSeconds" : 3,
+  "captureTime" : "1997-07-16T19:20:30.45+01:00",
+  "userId" : "b51a69eb-6977-4766-9f76-7b1b7dc0b953"
+} ]
+----

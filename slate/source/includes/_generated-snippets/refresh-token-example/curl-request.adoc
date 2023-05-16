@@ -1,0 +1,6 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/token' -i -X POST \
+    -H 'Content-Type: application/x-www-form-urlencoded; charset=ISO-8859-1' \
+    -d 'grant_type=refresh_token&client_id=***&refresh_token=***'
+----

@@ -1,0 +1,10 @@
+```
+{
+    "firstName": "John",
+    "lastName": "Smith",
+    "subjects": ["5cb499c9fd5beb428189454b"],
+    "ages": [7,8,9],
+    "country": "USA",
+    "state": "AZ"
+}
+```

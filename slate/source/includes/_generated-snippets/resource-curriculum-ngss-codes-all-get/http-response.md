@@ -1,0 +1,25 @@
+```http
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: 6f8fdc5f2cc0c6b5
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: *
+Set-Cookie: JSESSIONID=EECDB9215759A4197E40218CA8323111; Path=/; Secure; HttpOnly
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+Content-Type: application/hal+json
+Date: Tue, 16 May 2023 13:59:08 GMT
+content-encoding: gzip
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Transfer-Encoding: chunked
+Content-Length: 2120
+
+{"_embedded":[{"code":"PS1","contentArea":"Matter and its Interactions","themaCategories":{"defaults":["PHD","PN","YPMP5"],"customByGrade":{"HS":["PHD","PN"]}}},{"code":"PS2","contentArea":"Motion and Stability: Forces and Interactions","themaCategories":{"defaults":["PHDB","YPMP5"],"customByGrade":{"HS":["PHDB"]}}},{"code":"PS3","contentArea":"Energy","themaCategories":{"defaults":["PHDY","PHP","RNFY","THV","YPMP5"],"customByGrade":{"HS":["PHDY","PHP","RNFY","THV"]}}},{"code":"PS4","contentArea":"Waves and their Applications in Technologies for Information Transfer","themaCategories":{"defaults":["PHDS","U","PDR","PNRL","YPMP5","YPMT6","YNTC"],"customByGrade":{"HS":["PHDS","U","PDR","PNRL"]}}},{"code":"ESS1","contentArea":"Earth's Place in the Universe","themaCategories":{"defaults":["PGS","RB","WNR","YPMP6","YNNZ","YPMP51"],"customByGrade":{"HS":["PGS","RB","WNR"]}}},{"code":"ESS2","contentArea":"Earth's Systems","themaCategories":{"defaults":["RB","RGB","YPMP6","YNNV","YNNT"],"customByGrade":{"HS":["RB","RGB"]}}},{"code":"ESS3","contentArea":"Earth and Human Activity","themaCategories":{"defaults":["RN","JBFF","JPFA","YPMP6","YXZG"],"customByGrade":{"HS":["RN","JBFF","JPFA"]}}},{"code":"LS1","contentArea":"From Molecules to Organisms: Structures and Processes","themaCategories":{"defaults":["PSD","PSF","PSG","PSAF","YPMP1"],"customByGrade":{"HS":["PSD","PSF","PSG","PSAF"]}}},{"code":"LS2","contentArea":"Ecosystems: Interactions, Energy, and Dynamics","themaCategories":{"defaults":["RNKH","PSAF","RNC","RNA","YNN","YPMP6"],"customByGrade":{"HS":["RNKH","PSAF","RNC","RNA"]}}},{"code":"LS3","contentArea":"Heredity: Inheritance and Variation of Traits","themaCategories":{"defaults":["PSAK","YPMP1","YNTA"],"customByGrade":{"HS":["PSAK"]}}},{"code":"LS4","contentArea":"Biological Evolution: Unity and Diversity","themaCategories":{"defaults":["PSAJ","RNCB","PSXE","YPMP1","YNN"],"customByGrade":{"HS":["PSAJ","RNCB","PSXE"]}}},{"code":"ETS1","contentArea":"Engineering Design","themaCategories":{"defaults":["TBD","TBC","TBX","TBY","YPMT","YNTG"],"customByGrade":{"HS":["TBD","TBC","TBX"]}}}]}
+```

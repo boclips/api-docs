@@ -1,0 +1,20 @@
+|===
+|Path|Type|Optional|Description
+
+    |videoId
+    |String
+    |false
+    |ID of the <<resources-videos,video>>
+    |segmentStartSeconds
+    |Number
+    |false
+    |Second the video started its playback
+    |segmentEndSeconds
+    |Number
+    |false
+    |Second the video ended its playback
+    |userId
+    |String
+    |true
+    |ID of the user who initiated the playback
+|===

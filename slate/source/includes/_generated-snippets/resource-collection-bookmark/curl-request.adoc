@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/collections/64635f6bf804c60f575eb2f8?bookmarked=true' -i -X PATCH \
+    -H 'Authorization: Bearer ***'
+----

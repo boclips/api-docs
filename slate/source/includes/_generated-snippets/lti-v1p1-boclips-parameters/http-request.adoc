@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+POST /v1p1/videos/5c542abf5438cdbcb56df0bf HTTP/1.1
+Content-Type: application/x-www-form-urlencoded; charset=ISO-8859-1
+Host: lti.boclips.com
+
+custom_logo=https%3A%2F%2Fstorage.googleapis.com%2Fboclips-public-static-files%2Fboclips%2Flogo.png&lti_version=LTI-1p0&oauth_nonce=2597760273462125&oauth_signature=HbqooOfCmGgr5EiAu6yzjQaJwA0%3D&lti_message_type=basic-lti-launch-request&user_id=some_user_id&oauth_consumer_key=your-consumer-key&resource_link_id=41B464BA-F406-485C-ACDF-C1E5EB474156&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1684245751&oauth_version=1.0
+----

@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/alignments/openstax/themes/62eba02f51ecf2a9306c85ef' -i -X GET \
+    -H 'Authorization: Bearer ***'
+----

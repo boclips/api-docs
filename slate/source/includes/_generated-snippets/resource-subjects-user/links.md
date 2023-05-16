@@ -1,0 +1,3 @@
+Relation | Description
+-------- | -----------
+`self` | The subject collection resource that was just retrieved

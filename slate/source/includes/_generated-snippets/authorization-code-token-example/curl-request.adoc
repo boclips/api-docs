@@ -1,0 +1,6 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/token' -i -X POST \
+    -H 'Content-Type: application/x-www-form-urlencoded; charset=ISO-8859-1' \
+    -d 'grant_type=authorization_code&client_id=***&code=***&redirect_uri=exact-same-url-used-to-request-code'
+----

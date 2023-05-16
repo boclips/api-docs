@@ -1,0 +1,16 @@
+|===
+|Path|Type|Optional|Description
+
+    |linkToResource
+    |String
+    |false
+    |A link that points to attachment's actual content
+    |type
+    |Enum String
+    |false
+    |The type of the attachment. Currently we support `LESSON_PLAN` only
+    |description
+    |String
+    |true
+    |Text that describes the attachment
+|===

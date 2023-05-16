@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ http GET 'https://api.boclips.com/v1/curriculum/ngss/codes' \
+    'Authorization:Bearer ***'
+----

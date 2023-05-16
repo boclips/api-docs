@@ -1,0 +1,12 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/events/playback' -i -X POST \
+    -H 'Authorization: Bearer ***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+  "videoId" : "5c542abf5438cdbcb56df0bf",
+  "segmentStartSeconds" : 1,
+  "segmentEndSeconds" : 3,
+  "userId" : "f0e8d794-1d7e-4944-9705-e16946c7b694"
+}'
+----

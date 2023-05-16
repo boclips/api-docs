@@ -1,0 +1,24 @@
+|===
+|Path|Type|Optional|Description
+
+    |[*].videoId
+    |String
+    |false
+    |ID of the <<resources-videos,video>>
+    |[*].segmentStartSeconds
+    |Number
+    |false
+    |Second the video started its playback
+    |[*].segmentEndSeconds
+    |Number
+    |false
+    |Second the video ended its playback
+    |[*].captureTime
+    |ISO-8601 (YYYY-MM-DDThh:mm:ss.sTZD)
+    |false
+    |Time when playback event was fired
+    |[*].userId
+    |String
+    |true
+    |ID of the user who initiated the playback
+|===

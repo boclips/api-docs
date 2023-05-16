@@ -1,0 +1,45 @@
+[source,options="nowrap"]
+----
+{
+  "id" : "64635f6bf804c60f575eb2f8",
+  "owner" : "63bc0bbf-559b-4e4a-a011-37c395c5b1c8",
+  "ownerName" : "Some First Name Some Last Name",
+  "title" : "Discoverable Boclips Collection",
+  "videos" : [ ],
+  "updatedAt" : "2023-05-16T10:48:11.836Z",
+  "public" : true,
+  "discoverable" : true,
+  "promoted" : false,
+  "mine" : false,
+  "createdBy" : "Teacher",
+  "subjects" : [ {
+    "id" : "5cb499c9fd5beb428189454d",
+    "name" : "History"
+  }, {
+    "id" : "5cb499c9fd5beb428189454b",
+    "name" : "Spanish"
+  } ],
+  "ageRange" : null,
+  "description" : "This content is accessible by everyone",
+  "attachments" : [ ],
+  "subCollections" : [ ],
+  "origin" : null,
+  "permissions" : {
+    "anyone" : "VIEW_ONLY"
+  },
+  "_links" : {
+    "self" : {
+      "href" : "https://api.boclips.com/v1/collections/64635f6bf804c60f575eb2f8",
+      "templated" : false
+    },
+    "unbookmark" : {
+      "href" : "https://api.boclips.com/v1/collections/64635f6bf804c60f575eb2f8?bookmarked=false",
+      "templated" : false
+    },
+    "interactedWith" : {
+      "href" : "https://api.boclips.com/v1/collections/64635f6bf804c60f575eb2f8/events",
+      "templated" : false
+    }
+  }
+}
+----

@@ -1,0 +1,6 @@
+Relation | Description
+-------- | -----------
+`self` | Points to this exact search query
+`next` | Points to next page of collections
+`details` | Points to this search query with details projection
+`list` | Points to this search query with list projection

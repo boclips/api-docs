@@ -1,0 +1,106 @@
+|===
+|Relation|Description
+
+|`+trackPageRendered+`
+|`POST` endpoint for tracking pageRendered event
+
+|`+trackPlatformInteractedWith+`
+|`POST` endpoint for tracking a platform interaction event
+
+|`+createPlaybackEvents+`
+|Sending <<_sending_a_batch_of_playback_events,batches>> of playback events from the past
+
+|`+createSearchQueryCompletionsSuggestedEvent+`
+|`POST` endpoint for tracking search completions suggested event
+
+|`+activate+`
+|A `PUT` request against this link allows to pass profile information and activate a new user
+
+|`+profile+`
+|Templated link to get user profile information
+
+|`+currentUser+`
+|Get the current user's profile
+
+|`+video+`
+|The video resource, templated link to retrieve an individual video
+
+|`+searchVideos+`
+|Templated link to perform video search
+
+|`+videoFeed+`
+|A feed of videos for deep pagination
+
+|`+videoTypes+`
+|Lists <<resources-video-types,types>> of videos available in the system. These can be later used when <<resources-video-search,searching>>
+
+|`+tags+`
+|List of tags that can be attached to videos
+
+|`+createCollection+`
+|Link to create a new video collection
+
+|`+myCollections+`
+|Collections created by the current user
+
+|`+mySavedCollections+`
+|Collections created or bookmarked by the current user
+
+|`+discoverCollections+`
+|Collections that have been curated by Boclips and are considered a great starting point for exploration.
+
+|`+promotedCollections+`
+|Collections that are promoted, e.g. on a homepage.
+
+|`+searchCollections+`
+|Search all collections
+
+|`+collection+`
+|The collection resource, templated link to retrieve an individual video collection
+
+|`+subjects+`
+|List of subjects available that will return videos
+
+|`+allSubjects+`
+|List of all subjects available in the system
+
+|`+educationLevels+`
+|List of available education levels
+
+|`+disciplines+`
+|List of disciplines that will return videos (e.g. arts, humanities...)
+
+|`+allDisciplines+`
+|List of all disciplines available in the system (e.g. arts, humanities...)
+
+|`+ngssCodes+`
+|List of all NGSS codes available
+
+|`+ngssGrades+`
+|List of all NGSS grades available
+
+|`+countries+`
+|List of countries
+
+|`+channel+`
+|Retrieve a specific channel
+
+|`+channels+`
+|Retrieve all channels
+
+|`+contentCategories+`
+|Retrieve a list of content categories
+
+|`+validateShareCode+`
+|Validate a share code for a given user
+
+|`+isUserActive+`
+|Check whether given user is active
+
+|`+getAllProviders+`
+|List all providers and their types
+
+|`+getThemesByProvider+`
+|List all available theme for a specific provider
+
+|===

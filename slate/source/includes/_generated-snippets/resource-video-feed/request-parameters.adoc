@@ -1,0 +1,16 @@
+|===
+|Parameter|Type|Optional|Description
+
+    |size
+    |Number
+    |true
+    |The number of videos per page, 1000 by default and is also the max size
+    |cursor_id
+    |String
+    |true
+    |This is set explicitly in the next link and you should never have to set it
+    |updated_as_of
+    |ISO-8601 (YYYY-MM-DD)
+    |true
+    |Filters on the video updatedAt property, this range is inclusive
+|===

@@ -1,0 +1,7 @@
+Relation | Description
+-------- | -----------
+`self` | The video resource that was just retrieved
+`logInteraction` | `POST` request to this URL will log user's interaction with this video
+`rate` | `PATCH` request to this URL will give this video a rating
+`tag` | `PATCH` request to this URL will tag this video
+`transcript` | `GET` to fetch transcripts of video

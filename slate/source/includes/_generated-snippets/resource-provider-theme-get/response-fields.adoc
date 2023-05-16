@@ -1,0 +1,48 @@
+|===
+|Path|Type|Description
+
+|`+id+`
+|`+String+`
+|ID of the theme
+
+|`+provider+`
+|`+String+`
+|Name of the curriculum or publisher
+
+|`+_links+`
+|`+Object+`
+|HAL links for the resource
+
+|`+type+`
+|`+String+`
+|The discipline or school level
+
+|`+title+`
+|`+String+`
+|The book or specific grade level
+
+|`+topics[].index+`
+|`+Number+`
+|Recommended order of the topic
+
+|`+topics[].title+`
+|`+String+`
+|The chapter or cluster name
+
+|`+topics[].targets[].index+`
+|`+Number+`
+|Recommended order of the target
+
+|`+topics[].targets[].title+`
+|`+String+`
+|The section or standard name
+
+|`+topics[].targets[].videoIds+`
+|`+Array+`
+|Videos aligned to the target
+
+|`+topics[].targets[].videos+`
+|`+Array+`
+|Videos details
+
+|===

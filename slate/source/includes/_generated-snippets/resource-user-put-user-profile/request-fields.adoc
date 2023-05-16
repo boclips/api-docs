@@ -1,0 +1,28 @@
+|===
+|Path|Type|Optional|Description
+
+    |firstName
+    |String
+    |true
+    |The first name of the user
+    |lastName
+    |String
+    |true
+    |The user's last name
+    |subjects
+    |Array
+    |true
+    |Ids of teaching <<resources-subjects,subjects>> relevant for this user. They influence <<resources-user-profile,search results>>
+    |ages
+    |Array
+    |true
+    |The student ages taught by the user
+    |country
+    |String
+    |true
+    |The country of the user (3-letter ISO Country Code)
+    |state
+    |String
+    |true
+    |The US state of the user (2-letter ISO Code)
+|===

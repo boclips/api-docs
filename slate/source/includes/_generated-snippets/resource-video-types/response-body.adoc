@@ -1,0 +1,8 @@
+[source,options="nowrap"]
+----
+{
+  "_embedded" : {
+    "videoTypes" : [ "INSTRUCTIONAL", "NEWS", "STOCK" ]
+  }
+}
+----

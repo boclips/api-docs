@@ -1,0 +1,88 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: b0cc087f62850e8a
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: accept-encoding
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Encoding: gzip
+Content-Type: application/hal+json
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 1721
+
+{
+  "_embedded" : {
+    "tags" : [ {
+      "id" : "5d3ac0175b3f3b7ba335e104",
+      "label" : "Application",
+      "userId" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/tags/5d3ac0175b3f3b7ba335e104"
+        }
+      }
+    }, {
+      "id" : "5d3ac0185b3f3b7ba335e105",
+      "label" : "Experience",
+      "userId" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/tags/5d3ac0185b3f3b7ba335e105"
+        }
+      }
+    }, {
+      "id" : "5d3ac0185b3f3b7ba335e106",
+      "label" : "Explainer",
+      "userId" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/tags/5d3ac0185b3f3b7ba335e106"
+        }
+      }
+    }, {
+      "id" : "5d3ac0185b3f3b7ba335e107",
+      "label" : "Discovery",
+      "userId" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/tags/5d3ac0185b3f3b7ba335e107"
+        }
+      }
+    }, {
+      "id" : "5d3ac0185b3f3b7ba335e108",
+      "label" : "Review",
+      "userId" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/tags/5d3ac0185b3f3b7ba335e108"
+        }
+      }
+    }, {
+      "id" : "5d3ac0195b3f3b7ba335e109",
+      "label" : "Other",
+      "userId" : null,
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/tags/5d3ac0195b3f3b7ba335e109"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "rel" : "self",
+      "href" : "https://api.boclips.com/v1/tags"
+    }
+  }
+}
+----

@@ -1,0 +1,11 @@
+[source,bash]
+----
+$ echo '{
+  "videoId" : "5c542abf5438cdbcb56df0bf",
+  "segmentStartSeconds" : 1,
+  "segmentEndSeconds" : 3,
+  "userId" : "f0e8d794-1d7e-4944-9705-e16946c7b694"
+}' | http POST 'https://api.boclips.com/v1/events/playback' \
+    'Authorization:Bearer ***' \
+    'Content-Type:application/json'
+----

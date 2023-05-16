@@ -1,0 +1,67 @@
+[source,options="nowrap"]
+----
+{
+  "_embedded" : {
+    "collections" : [ {
+      "id" : "63497505f836d50db2c7d098",
+      "owner" : "6eb42a4f-e868-4ee9-b14e-075a88174cbf",
+      "ownerName" : "Contract Tests",
+      "title" : "A title",
+      "videos" : [ ],
+      "updatedAt" : "2022-10-14T14:41:09.327Z",
+      "public" : true,
+      "discoverable" : true,
+      "promoted" : false,
+      "mine" : false,
+      "createdBy" : "Boclips",
+      "subjects" : [ ],
+      "ageRange" : null,
+      "description" : "Description of collection",
+      "attachments" : [ ],
+      "subCollections" : [ ],
+      "origin" : "BO_WEB_APP",
+      "permissions" : {
+        "anyone" : "VIEW_ONLY"
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://api.boclips.com/v1/collections/63497505f836d50db2c7d098",
+          "templated" : false
+        },
+        "bookmark" : {
+          "href" : "https://api.boclips.com/v1/collections/63497505f836d50db2c7d098?bookmarked=true",
+          "templated" : false
+        },
+        "interactedWith" : {
+          "href" : "https://api.boclips.com/v1/collections/63497505f836d50db2c7d098/events",
+          "templated" : false
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "size" : 1,
+    "totalElements" : 10000,
+    "totalPages" : 10000,
+    "number" : 0
+  },
+  "_links" : {
+    "list" : {
+      "href" : "https://api.boclips.com/v1/collections?query=collection&page=0&size=1&projection=list",
+      "templated" : false
+    },
+    "details" : {
+      "href" : "https://api.boclips.com/v1/collections?query=collection&page=0&size=1&projection=details",
+      "templated" : false
+    },
+    "self" : {
+      "href" : "https://api.boclips.com/v1/collections?query=collection&projection=list&page=0&size=1",
+      "templated" : false
+    },
+    "next" : {
+      "href" : "https://api.boclips.com/v1/collections?query=collection&projection=list&size=1&page=1",
+      "templated" : false
+    }
+  }
+}
+----

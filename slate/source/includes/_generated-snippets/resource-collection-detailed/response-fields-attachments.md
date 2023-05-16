@@ -1,0 +1,6 @@
+Path | Type | Description
+---- | ---- | -----------
+`id` | `String` | ID of the attachment
+`type` | `Enum String` | The type of the attachment: `LESSON_PLAN` `ACTIVITY`
+`description` | `String` | Text that describes the attachment
+`_links.download.href` | `String` | A link that points to attachment's actual content

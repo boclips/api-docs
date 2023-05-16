@@ -1,0 +1,13 @@
+[source,options="nowrap"]
+----
+{
+  "access_token" : "***",
+  "expires_in" : "300",
+  "refresh_expires_in" : "604798",
+  "refresh_token" : "***",
+  "token_type" : "Bearer",
+  "not-before-policy" : "1673824636",
+  "session_state" : "f59fa5fe-e94b-43e4-b89a-c91043e152bf",
+  "scope" : "profile email"
+}
+----

@@ -1,0 +1,28 @@
+|===
+|Parameter|Type|Optional|Description
+
+    |oauth_consumer_key
+    |String
+    |false
+    |The LTI consumer key. We create it and give it to you as a part of credentials exchange
+    |oauth_version
+    |String
+    |false
+    |OAuth version, should always be set to `1.0`
+    |oauth_signature_method
+    |String
+    |false
+    |Signature method, should be set to `HMAC-SHA1`
+    |oauth_signature
+    |String
+    |false
+    |The signature generated from request parameters and LTI consumer secret
+    |oauth_timestamp
+    |Number
+    |false
+    |Request timestamp, expressed in the number of seconds since January 1, 1970 00:00:00 GMT. More details link:https://oauth.net/core/1.0/#nonce[here]
+    |oauth_nonce
+    |String
+    |false
+    |A random value to help with uniquely identifying each request. More details link:https://oauth.net/core/1.0/#nonce[here]
+|===

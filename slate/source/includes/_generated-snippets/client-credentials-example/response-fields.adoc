@@ -1,0 +1,36 @@
+|===
+|Path|Type|Description
+
+|`+access_token+`
+|`+String+`
+|The OIDC `access_token` JWT-encoded that can be used to fetch Boclips resources
+
+|`+refresh_token+`
+|`+Null+`
+|The OIDC `refresh_token` that can be used to get a new `access_token` if the current expires
+
+|`+expires_in+`
+|`+String+`
+|Expiration of the `access_token` in seconds
+
+|`+refresh_expires_in+`
+|`+String+`
+|Expiration of the `refresh_token` in millis
+
+|`+scope+`
+|`+String+`
+|https://auth0.com/docs/scopes/current/oidc-scopes[OIDC claims] allowed for this particular `access_token`
+
+|`+session_state+`
+|`+Null+`
+|https://openid.net/specs/openid-connect-session-1_0.html#CreatingUpdatingSessions[OIDC Session State] - only present if the OP supports session management
+
+|`+not-before-policy+`
+|`+String+`
+|The instant after which the `access_token` will become valid as long as it hasn't expired
+
+|`+token_type+`
+|`+String+`
+|https://openid.net/specs/openid-connect-core-1_0.html[OIDC token type] must be `bearer`
+
+|===

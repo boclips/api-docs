@@ -1,0 +1,46 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: 77fbed8cfb88e55b
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: accept-encoding
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Encoding: gzip
+Content-Type: application/hal+json
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 664
+
+{
+  "_embedded" : {
+    "contentCategories" : [ {
+      "key" : "CHALK_AND_TALK_PRESENTATION",
+      "label" : "Chalk and Talk/Presentation"
+    }, {
+      "key" : "TALKING_HEAD",
+      "label" : "Talking Head"
+    }, {
+      "key" : "ANIMATION",
+      "label" : "Animation"
+    }, {
+      "key" : "DOCUMENTARY",
+      "label" : "Documentary"
+    }, {
+      "key" : "HISTORICAL_ARCHIVE",
+      "label" : "Historical Archive"
+    }, {
+      "key" : "LIVE_ARTS_PERFORMANCES",
+      "label" : "Live Arts Performances"
+    }, {
+      "key" : "INTERVIEW",
+      "label" : "Interview"
+    }, {
+      "key" : "DEMONSTRATION",
+      "label" : "Demonstration"
+    } ]
+  }
+}
+----

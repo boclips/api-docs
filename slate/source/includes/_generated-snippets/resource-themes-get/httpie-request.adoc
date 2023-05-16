@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ http GET 'https://api.boclips.com/v1/alignments/themes?id=62eba02f51ecf2a9306c85ef' \
+    'Authorization:Bearer ***'
+----

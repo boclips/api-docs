@@ -1,0 +1,6 @@
+`/v1/alignments/{provider}/themes/{id}`
+
+Parameter | Description
+--------- | -----------
+`provider` | ID of the provider
+`id` | ID of the theme

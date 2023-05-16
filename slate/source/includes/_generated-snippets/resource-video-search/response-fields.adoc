@@ -1,0 +1,28 @@
+|===
+|Path|Type|Description
+
+|`+_embedded.videos+`
+|`+Array+`
+|Video resources array. See <<resources-video-access_response_fields,video>> for payload details
+
+|`+_embedded.facets+`
+|`+Object+`
+|Search facets for durations, subjects and education levels
+
+|`+page.size+`
+|`+Number+`
+|Amount of resources in the current page
+
+|`+page.totalElements+`
+|`+Number+`
+|Total amount of resources for this search query across pages
+
+|`+page.totalPages+`
+|`+Number+`
+|Total amount of pages for this search query
+
+|`+page.number+`
+|`+Number+`
+|Number of the current page. Zero-index based
+
+|===

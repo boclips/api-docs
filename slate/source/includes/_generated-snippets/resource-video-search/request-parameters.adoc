@@ -1,0 +1,124 @@
+|===
+|Parameter|Type|Optional|Description
+
+    |size
+    |Number
+    |true
+    |The number of videos per page, 100 by default
+    |page
+    |Number
+    |true
+    |Zero-index based page number, first page by default
+    |query
+    |String
+    |true
+    |The text search query
+    |duration
+    |Range of ISO-8601 (PT6M5S)
+    |true
+    |Filters on the video duration property. Provide duration ranges in the form `min[-max]`, ie `PT1M-PT6M`. These ranges are inclusive. This property supersedes the duration_min and duration_max properties.
+    |duration_min
+    |ISO-8601 (PT6M5S)
+    |true
+    |Filters on the video duration property, this range is inclusive
+    |duration_max
+    |ISO-8601 (PT30S)
+    |true
+    |Filters on the video duration property, this range is inclusive
+    |released_date_from
+    |ISO-8601 (YYYY-MM-DD)
+    |true
+    |Filters on the video releasedOn property, this range is inclusive
+    |released_date_to
+    |ISO-8601 (YYYY-MM-DD)
+    |true
+    |Filters on the video releasedOn property, this range is inclusive
+    |updated_as_of
+    |ISO-8601 (YYYY-MM-DD)
+    |true
+    |Filters on the video updatedAt property, this range is inclusive
+    |source
+    |YOUTUBE, BOCLIPS
+    |true
+    |Filter by video source, e.g youtube or boclips
+    |subject
+    |Subject Id (e.g. '5cb499c9fd5beb428189454b')
+    |true
+    |Filter by subject id - from the <<resources-subjects,list of subjects>>
+    |education_level
+    |String
+    |true
+    |Filter by education level. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<resources-education-levels,education levels resource>>
+    |age_range_min
+    |Number
+    |true
+    |Deprecated in favour of education_level. Minimum age to filter from - it filters on the video age range property, and is inclusive.
+    |age_range_max
+    |Number
+    |true
+    |Deprecated in favour of education_level. Maximum age to filter to - it filters on the video age range property, and is inclusive
+    |age_range
+    |String
+    |true
+    |Deprecated in favour of education_level. Filter videos which cover at least 2 ages from a range in the video age range property.
+    |cefr_level
+    |String
+    |true
+    |Filter by CEFR level. Multiple values can be specified (comma separated, or by repeating the parameter). Possible values are: [A1, A2, B1, B2, C1, C2]
+    |duration_facets
+    |Range of ISO-8601 (PT6M5S), e.g. PT0S-PT5M.
+    |true
+    |Override default facets for durations, see <<resources-video-search-facets,search facets>>.
+    |include_education_level_facets
+    |Boolean
+    |true
+    |Indicates whether to include education level facets into search results.
+    |age_range_facets
+    |String, e.g. 3-5
+    |true
+    |Deprecated. Override default facets for age ranges, see <<resources-video-search-facets,search facets>>.
+    |promoted
+    |Boolean
+    |true
+    |Filter by promoted videos only
+    |content_partner
+    |String (e.g. 'Bloomberg')
+    |true
+    |Deprecated in favour of channel. Filter by content partner, which is the provider of the video content. Use multiple times to search for multiple values, e.g. 'content_partner=first&content_partner=second'.
+    |channel
+    |String (e.g. '5d77b49698cfe500017e9856')
+    |true
+    |Filter by channel IDs (channel is the provider of the video content). Use multiple times to search for multiple values, e.g. 'channel=5d5432448256f68bdcf75d53&channel=5d77b49698cfe500017e9856'. Deprecated: filtering by channel names (it is still available, but will be removed anytime soon).
+    |include_channel_facets
+    |Boolean
+    |true
+    |Indicates whether to include channel facets into search results.
+    |type
+    |Enum
+    |true
+    |Filter responses by <<resources-video-types,video type>>
+    |best_for
+    |List of strings (e.g 'explainer')
+    |true
+    |Filter responses by <<resources-tags,tag>> labels
+    |sort_by
+    |RELEASE_DATE, RATING
+    |true
+    |A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction
+    |id
+    |Video ID (e.g '5cd9627d6c2905689d1c150c'
+    |true
+    |Filter by video ids, this can be a comma separated list of video ids
+    |language
+    |String (e.g 'eng')
+    |true
+    |Filter by language codes (ISO 639-2 language code). Use multiple times to search for multiple values, e.g. 'language=eng&language=spa'.
+    |ngss_code
+    |String (eg. 'LS4')
+    |true
+    |Filter by NGSS code. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<_retrieving_all_supported_ngss_codes,retrieving all NGSS codes>>
+    |ngss_grade
+    |String (eg. 'K-2')
+    |true
+    |Filter by NGSS grade. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<_retrieving_all_supported_ngss_grades,retrieving all NGSS grades>>
+|===

@@ -1,0 +1,11 @@
+[source,options="nowrap"]
+----
+{
+  "path" : "/v1/videos",
+  "status" : 400,
+  "timestamp" : "2023-05-16T10:48:45.058332149Z",
+  "error" : "Invalid request",
+  "message" : "not-quite-a-number is not a valid ISO 8601 duration. Example is PT5S.",
+  "reasons" : null
+}
+----

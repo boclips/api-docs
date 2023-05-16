@@ -1,0 +1,7 @@
+[source,http,options="nowrap"]
+----
+GET /v1/channels/5cfea7cd8ce44c52e6e33b15 HTTP/1.1
+Authorization: Bearer ***
+Host: api.boclips.com
+
+----

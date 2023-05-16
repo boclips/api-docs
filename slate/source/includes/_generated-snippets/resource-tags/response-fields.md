@@ -1,0 +1,7 @@
+Path | Type | Description
+---- | ---- | -----------
+`_embedded.tags[].id` | `String` | ID of the tag
+`_embedded.tags[].label` | `String` | Human readable tag label, this can be used for filtering videos
+`_embedded.tags[].userId` | `Null` | The ID of the user that tagged the video with the given tag
+`_embedded.tags[]._links` | `Object` | HAL links for the tag resource
+`_links` | `Object` | HAL links for the tag collection resource

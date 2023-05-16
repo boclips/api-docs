@@ -1,0 +1,58 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: fe669bf4cf1847c8
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: accept-encoding
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Encoding: gzip
+Content-Type: application/hal+json
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 1005
+
+{
+  "_embedded" : {
+    "subjects" : [ {
+      "id" : "5cb499c9fd5beb428189454b",
+      "name" : "Spanish",
+      "categories" : [ "A", "D" ],
+      "_links" : {
+        "self" : {
+          "href" : "https://api.boclips.com/v1/subjects/5cb499c9fd5beb428189454b",
+          "templated" : false
+        }
+      }
+    }, {
+      "id" : "5cb499c9fd5beb428189454e",
+      "name" : "Chemistry",
+      "categories" : [ "A" ],
+      "_links" : {
+        "self" : {
+          "href" : "https://api.boclips.com/v1/subjects/5cb499c9fd5beb428189454e",
+          "templated" : false
+        }
+      }
+    }, {
+      "id" : "5cb499c9fd5beb4281894567",
+      "name" : "Social Studies",
+      "categories" : [ "F" ],
+      "_links" : {
+        "self" : {
+          "href" : "https://api.boclips.com/v1/subjects/5cb499c9fd5beb4281894567",
+          "templated" : false
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "https://api.boclips.com/v1/subjects",
+      "templated" : false
+    }
+  }
+}
+----

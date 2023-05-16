@@ -1,0 +1,50 @@
+[source,options="nowrap"]
+----
+{
+  "_embedded" : {
+    "themes" : [ {
+      "id" : "63f794aff679ef2d70967014",
+      "provider" : "ngss",
+      "title" : "TEST_THEME",
+      "type" : "Math",
+      "topics" : [ {
+        "index" : 0,
+        "title" : "The Chapter Two",
+        "targets" : [ {
+          "index" : 0,
+          "title" : "Chapter Overview",
+          "videoIds" : [ "5c542ab85438cdbcb56ddce6" ]
+        } ]
+      } ],
+      "logoUrl" : "",
+      "_links" : {
+        "_self" : {
+          "rel" : "_self",
+          "href" : "https://api.boclips.com/v1/alignments/ngss/themes/63f794aff679ef2d70967014"
+        }
+      }
+    }, {
+      "id" : "63fe43b7b178c163a722a7a5",
+      "provider" : "ngss",
+      "title" : "TEST_THEME",
+      "type" : "Math",
+      "topics" : [ {
+        "index" : 0,
+        "title" : "The Chapter Two",
+        "targets" : [ {
+          "index" : 0,
+          "title" : "Chapter Overview",
+          "videoIds" : [ "5c542ab85438cdbcb56ddce6", "64457cb861225b5c1f0592fe" ]
+        } ]
+      } ],
+      "logoUrl" : "",
+      "_links" : {
+        "_self" : {
+          "rel" : "_self",
+          "href" : "https://api.boclips.com/v1/alignments/ngss/themes/63fe43b7b178c163a722a7a5"
+        }
+      }
+    } ]
+  }
+}
+----

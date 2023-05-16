@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ curl 'https://api.boclips.com/v1/video-types' -i -X GET \
+    -H 'Authorization: Bearer ***'
+----

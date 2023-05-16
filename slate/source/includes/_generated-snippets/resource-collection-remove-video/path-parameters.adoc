@@ -1,0 +1,8 @@
+.+/collections/64635f48f804c60f575eb2ef/videos/{video_id}+
+|===
+|Parameter|Description
+
+|`+video_id+`
+|The ID of the video
+
+|===

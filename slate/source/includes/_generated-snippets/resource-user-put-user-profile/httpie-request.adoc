@@ -1,0 +1,13 @@
+[source,bash]
+----
+$ echo '{
+  "firstName" : "John",
+  "lastName" : "Smith",
+  "subjects" : [ "5cb499c9fd5beb428189454b" ],
+  "ages" : [ 7, 8, 9 ],
+  "country" : "USA",
+  "state" : "AZ"
+}' | http PUT 'https://api.boclips.com/v1/users/0690f7ee-d38f-48c5-863c-ea39bfdbc5d3' \
+    'Authorization:Bearer ***' \
+    'Content-Type:application/json'
+----

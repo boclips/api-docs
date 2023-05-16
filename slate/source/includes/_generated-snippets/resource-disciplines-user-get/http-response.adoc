@@ -1,0 +1,73 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: 519b801217eb4e90
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: accept-encoding
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Encoding: gzip
+Content-Type: application/hal+json
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 1431
+
+{
+  "_embedded" : {
+    "disciplines" : [ {
+      "id" : "5d0921adcbb0371877b252d2",
+      "name" : "Social Sciences",
+      "code" : "social-studies",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb4281894567",
+        "name" : "Social Studies",
+        "categories" : [ "F" ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921adcbb0371877b252d2"
+        }
+      }
+    }, {
+      "id" : "5d0921b0cbb0371877b252d3",
+      "name" : "Mathematics",
+      "code" : "mathematics",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb428189454e",
+        "name" : "Chemistry",
+        "categories" : [ "A" ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921b0cbb0371877b252d3"
+        }
+      }
+    }, {
+      "id" : "5d0921b4cbb0371877b252d6",
+      "name" : "Life Sciences",
+      "code" : "life-sciences",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb428189454b",
+        "name" : "Spanish",
+        "categories" : [ "A", "D" ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921b4cbb0371877b252d6"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "rel" : "self",
+      "href" : "https://api.boclips.com/v1/disciplines"
+    }
+  }
+}
+----

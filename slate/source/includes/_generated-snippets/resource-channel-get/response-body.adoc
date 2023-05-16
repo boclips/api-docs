@@ -1,0 +1,36 @@
+[source,options="nowrap"]
+----
+{
+  "id" : "5cfea7cd8ce44c52e6e33b15",
+  "name" : "2veritaserum",
+  "legalRestriction" : {
+    "id" : "5d976e55ed1c74690e0f025f",
+    "text" : "No restrictions",
+    "_links" : {
+      "self" : {
+        "rel" : "self",
+        "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e55ed1c74690e0f025f"
+      }
+    }
+  },
+  "description" : "desc",
+  "contentCategories" : [ {
+    "key" : "ANIMATION",
+    "label" : "Animation"
+  } ],
+  "language" : {
+    "code" : "abk",
+    "name" : "Abkhazian"
+  },
+  "notes" : "nono",
+  "contentTypes" : [ "STOCK" ],
+  "contentType" : "STOCK",
+  "oneLineDescription" : null,
+  "_links" : {
+    "self" : {
+      "rel" : "self",
+      "href" : "https://api.boclips.com/v1/channels/5cfea7cd8ce44c52e6e33b15"
+    }
+  }
+}
+----

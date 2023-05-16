@@ -1,0 +1,421 @@
+[source,options="nowrap"]
+----
+{
+  "_embedded" : {
+    "disciplines" : [ {
+      "id" : "5d0921accbb0371877b252d1",
+      "name" : "Humanities",
+      "code" : "arts",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb428189455d",
+        "name" : "Fine Art",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894554",
+        "name" : "Theatre and Performing Arts",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f09123e93799efe8ad9",
+        "name" : "Music",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189454f",
+        "name" : "Design",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894553",
+        "name" : "Art History",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382279bbfd47e6e7533a9",
+        "name" : "Fashion and Cosmetology",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f06123e93799efe8ad0",
+        "name" : "Photography and Film",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f08123e93799efe8ad5",
+        "name" : "Theatre Tech",
+        "categories" : [ ]
+      }, {
+        "id" : "5e70ae4b7cdd5a3b586cb8ea",
+        "name" : "Art",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921accbb0371877b252d1"
+        }
+      }
+    }, {
+      "id" : "5d0921adcbb0371877b252d2",
+      "name" : "Social Sciences",
+      "code" : "social-studies",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb428189454d",
+        "name" : "History",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894564",
+        "name" : "Economics and Business",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894567",
+        "name" : "Social Studies",
+        "categories" : [ "F" ]
+      }, {
+        "id" : "5e70ae4b7cdd5a3b586cb8e7",
+        "name" : "Philosophy and Religions",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73821c9bbfd47e6e7533a4",
+        "name" : "Ancient History",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894562",
+        "name" : "Civics and Government",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382259bbfd47e6e7533a8",
+        "name" : "Global Studies",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f07123e93799efe8ad3",
+        "name" : "Law",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189455b",
+        "name" : "Psychology",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f09123e93799efe8ad8",
+        "name" : "Tourism",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73820b9bbfd47e6e75339f",
+        "name" : "U.S. History",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382239bbfd47e6e7533a7",
+        "name" : "World History",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921adcbb0371877b252d2"
+        }
+      }
+    }, {
+      "id" : "5d0921b0cbb0371877b252d3",
+      "name" : "Mathematics",
+      "code" : "mathematics",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb4281894559",
+        "name" : "General Mathematics",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894555",
+        "name" : "Biology and Environmental Science",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894556",
+        "name" : "Geography and Earth Science",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894558",
+        "name" : "Physics",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f07123e93799efe8ad1",
+        "name" : "Agriculture and Horticulture",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73822a9bbfd47e6e7533aa",
+        "name" : "Basic Number Skills",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189454e",
+        "name" : "Chemistry",
+        "categories" : [ "A" ]
+      }, {
+        "id" : "5cdd6f06123e93799efe8ace",
+        "name" : "Engineering",
+        "categories" : [ ]
+      }, {
+        "id" : "5e70ae4b7cdd5a3b586cb8e5",
+        "name" : "General Science",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73822c9bbfd47e6e7533ac",
+        "name" : "Statistics",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894551",
+        "name" : "Technology and Computer Science",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921b0cbb0371877b252d3"
+        }
+      }
+    }, {
+      "id" : "5d0921b1cbb0371877b252d4",
+      "name" : "Physical Sciences",
+      "code" : "physical-sciences",
+      "subjects" : [ {
+        "id" : "5cdd6f08123e93799efe8ad7",
+        "name" : "Physical Education",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189455f",
+        "name" : "Early Childhood",
+        "categories" : [ ]
+      }, {
+        "id" : "5d25ec36269a9f20c9a88b08",
+        "name" : "Physical Health and Nutrition",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894563",
+        "name" : "Teacher Training",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f05123e93799efe8acc",
+        "name" : "Career Preparation",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73822f9bbfd47e6e7533ae",
+        "name" : "Personal Finance",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f07123e93799efe8ad2",
+        "name" : "Personal Health and Wellness",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f08123e93799efe8ad6",
+        "name" : "Public Health and Welfare",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894565",
+        "name" : "Social Emotional Learning",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189455a",
+        "name" : "Special Education",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921b1cbb0371877b252d4"
+        }
+      }
+    }, {
+      "id" : "5d0921b4cbb0371877b252d6",
+      "name" : "Life Sciences",
+      "code" : "life-sciences",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb428189454b",
+        "name" : "Spanish",
+        "categories" : [ "A", "D" ]
+      }, {
+        "id" : "5e70ae4b7cdd5a3b586cb8e8",
+        "name" : "Arabic",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189455e",
+        "name" : "French",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f08123e93799efe8ad4",
+        "name" : "Other Languages",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f06123e93799efe8acf",
+        "name" : "English as a Second Language",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894560",
+        "name" : "Mandarin",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb4281894561",
+        "name" : "German",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5d0921b4cbb0371877b252d6"
+        }
+      }
+    }, {
+      "id" : "5e70aff21609f9555a8e701b",
+      "name" : "Business",
+      "code" : "business",
+      "subjects" : [ {
+        "id" : "5e70ae4b7cdd5a3b586cb8ed",
+        "name" : "Biology",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5e70aff21609f9555a8e701b"
+        }
+      }
+    }, {
+      "id" : "5e74e67bb96a48536e7b6518",
+      "name" : "Technology",
+      "code" : "technology",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb4281894566",
+        "name" : "Literature",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189455c",
+        "name" : "Reading, Writing, and Literacy",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73820a9bbfd47e6e75339e",
+        "name" : "Children's Literature",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f06123e93799efe8acf",
+        "name" : "English as a Second Language",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f05123e93799efe8acd",
+        "name" : "Classics and Mythology",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382099bbfd47e6e75339d",
+        "name" : "Journalism and Media Studies",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382089bbfd47e6e75339c",
+        "name" : "Language and Linguistics",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7380499bbfd47e6e753341",
+        "name" : "Public Speaking",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73514ca56410512f083c59",
+        "name" : "Writing",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/5e74e67bb96a48536e7b6518"
+        }
+      }
+    }, {
+      "id" : "619f6860d999e37fa3b4f66c",
+      "name" : "Health and Nursing",
+      "code" : "health-and-nursing",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb4281894566",
+        "name" : "Literature",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189455c",
+        "name" : "Reading, Writing, and Literacy",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73820a9bbfd47e6e75339e",
+        "name" : "Children's Literature",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f06123e93799efe8acf",
+        "name" : "English as a Second Language",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f05123e93799efe8acd",
+        "name" : "Classics and Mythology",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382099bbfd47e6e75339d",
+        "name" : "Journalism and Media Studies",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382089bbfd47e6e75339c",
+        "name" : "Language and Linguistics",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7380499bbfd47e6e753341",
+        "name" : "Public Speaking",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73514ca56410512f083c59",
+        "name" : "Writing",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/619f6860d999e37fa3b4f66c"
+        }
+      }
+    }, {
+      "id" : "61a48a42d999e37fa34cf770",
+      "name" : "World Languages",
+      "code" : "world-languages",
+      "subjects" : [ {
+        "id" : "5cb499c9fd5beb4281894566",
+        "name" : "Literature",
+        "categories" : [ ]
+      }, {
+        "id" : "5cb499c9fd5beb428189455c",
+        "name" : "Reading, Writing, and Literacy",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73820a9bbfd47e6e75339e",
+        "name" : "Children's Literature",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f06123e93799efe8acf",
+        "name" : "English as a Second Language",
+        "categories" : [ ]
+      }, {
+        "id" : "5cdd6f05123e93799efe8acd",
+        "name" : "Classics and Mythology",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382099bbfd47e6e75339d",
+        "name" : "Journalism and Media Studies",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7382089bbfd47e6e75339c",
+        "name" : "Language and Linguistics",
+        "categories" : [ ]
+      }, {
+        "id" : "5e7380499bbfd47e6e753341",
+        "name" : "Public Speaking",
+        "categories" : [ ]
+      }, {
+        "id" : "5e73514ca56410512f083c59",
+        "name" : "Writing",
+        "categories" : [ ]
+      } ],
+      "_links" : {
+        "self" : {
+          "rel" : "self",
+          "href" : "https://api.boclips.com/v1/disciplines/61a48a42d999e37fa34cf770"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "rel" : "self",
+      "href" : "https://api.boclips.com/v1/disciplines?visibility=all"
+    }
+  }
+}
+----

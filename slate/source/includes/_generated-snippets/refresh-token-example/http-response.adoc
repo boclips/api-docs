@@ -1,0 +1,29 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: 05f9d36a18b1cfa9
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: *
+Server: nginx/1.21.1
+Content-Type: application/json
+Referrer-Policy: no-referrer
+X-XSS-Protection: 1; mode=block
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+content-encoding: gzip
+Via: 1.1 google, 1.1 google
+Content-Length: 268
+
+{
+  "access_token" : "***",
+  "expires_in" : "300",
+  "refresh_expires_in" : "604798",
+  "refresh_token" : "***",
+  "token_type" : "Bearer",
+  "not-before-policy" : "1673824636",
+  "session_state" : "f59fa5fe-e94b-43e4-b89a-c91043e152bf",
+  "scope" : "profile email"
+}
+----

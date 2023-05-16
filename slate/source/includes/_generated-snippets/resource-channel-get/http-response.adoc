@@ -1,0 +1,50 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Boclips-Trace-ID: 6aa5f3b5411b5a5d
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: accept-encoding
+Access-Control-Expose-Headers: *
+X-XSS-Protection: 1; mode=block
+Content-Encoding: gzip
+Content-Type: application/hal+json
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length: 759
+
+{
+  "id" : "5cfea7cd8ce44c52e6e33b15",
+  "name" : "2veritaserum",
+  "legalRestriction" : {
+    "id" : "5d976e55ed1c74690e0f025f",
+    "text" : "No restrictions",
+    "_links" : {
+      "self" : {
+        "rel" : "self",
+        "href" : "https://api.boclips.com/v1/legal-restrictions/5d976e55ed1c74690e0f025f"
+      }
+    }
+  },
+  "description" : "desc",
+  "contentCategories" : [ {
+    "key" : "ANIMATION",
+    "label" : "Animation"
+  } ],
+  "language" : {
+    "code" : "abk",
+    "name" : "Abkhazian"
+  },
+  "notes" : "nono",
+  "contentTypes" : [ "STOCK" ],
+  "contentType" : "STOCK",
+  "oneLineDescription" : null,
+  "_links" : {
+    "self" : {
+      "rel" : "self",
+      "href" : "https://api.boclips.com/v1/channels/5cfea7cd8ce44c52e6e33b15"
+    }
+  }
+}
+----

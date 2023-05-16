@@ -1,0 +1,4 @@
+Path | Type | Description
+---- | ---- | -----------
+`_embedded[].grade` | `String` | NGSS grade value
+`_embedded[].description` | `String` | Classes supported in the NGSS grade

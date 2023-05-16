@@ -1,0 +1,3 @@
+Path | Type | Description
+---- | ---- | -----------
+`_embedded.contentCategories` | `Array` | List of categories that channel's content can be described as.
