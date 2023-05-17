@@ -21,7 +21,7 @@ If you're already familiar with the basics and are looking for detailed guide ar
 [[authenticating-with-api]]
 == Authenticating with the API
 
-Our auth systems are based on OAuth 2.0 and the credentials required to authenticate are the *client id* and *secret*. Currently, there isn't a self-served portal that will provide you with these, so our team will share them with you directly.
+Our auth systems are based on https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/[OAuth 2.0] and the credentials required to authenticate are the *client id* and *secret*. Currently, there isn't a self-served portal that will provide you with these, so our team will share them with you directly.
 
 Once you have them, you can acquire an access token by issuing a request below:
 
