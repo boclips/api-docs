@@ -14,12 +14,37 @@ Hello there fellow engineer and welcome to the Boclips API world!
 
 This is a quickstart guide to give you an overview of what integrating with our API looks like and provide you with some concrete examples and code snippets that will hopefully make your life easier.
 
+Boclips API is a REST API with JSON as the data exchange format.
+
 If you're already familiar with the basics and are looking for detailed guide around the API resources, it can be found link:api-guide/index.html[here].
 
 [[authenticating-with-api]]
 == Authenticating with the API
-Common integration scenarios with code snippets to be shown here.
 
+Our auth systems are based on OAuth 2.0 and the credentials required to authenticate are the *client id* and *secret*. Currently, there isn't a self-served portal that will provide you with these, so our team will share them with you directly.
+
+Once you have them, you can acquire an access token by issuing a request below:
+
+include::{snippets}/client-credentials-example/http-request.adoc[]
+
+// [collapsible]
+// include::{snippets}/client-credentials-example/curl-request.adoc[]
+
+[IMPORTANT]
+Please note that the request needs to be sent with the `application/x-www-form-urlencoded` content type to be processed correctly.
+
+This will give you back a JSON response similar to the one below:
+
+[source,json]
+{
+  "access_token": "***",
+  "expires_in": 300,
+  ...
+}
+
+The value of the `access_token` field then needs to be attached as the `Bearer` token of the HTTP `Authorization` header to authorise the actual API requests, for example:
+
+include::{snippets}/resource-video/http-request.adoc[]
 
 [[common-integration-scenarios]]
 == Common Integration Scenarios
