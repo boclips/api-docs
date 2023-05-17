@@ -48,9 +48,13 @@ include::{snippets}/resource-video/http-request.adoc[]
 
 [[common-integration-scenarios]]
 == Common Integration Scenarios
-Common integration scenarios with code snippets to be shown here.
 
-=== Integrating Boclips Player into a Web Application
+Sections below cover the usual integration use cases.
+
+=== Integrating the Boclips Player into your web app
+Integrating Boclips Player into a Web Application will be described here, alternatively can be moved to a separate page.
+
+=== Acquiring a Boclips API access token in your web app
 Integrating Boclips Player into a Web Application will be described here, alternatively can be moved to a separate page.
 
 [[detailed-reference-guides]]
