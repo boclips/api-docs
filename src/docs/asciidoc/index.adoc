@@ -1,5 +1,5 @@
 = Boclips Developer Documentation
-Boclips Engineering;
+Delivered to you by Boclips Engineering
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs

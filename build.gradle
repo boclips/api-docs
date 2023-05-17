@@ -13,7 +13,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.kordamp.gradle.livereload'
 
 group = 'com.boclips'
-version = '0.0.1-SNAPSHOT'
+version = '1'
 sourceCompatibility = '11'
 
 repositories {
