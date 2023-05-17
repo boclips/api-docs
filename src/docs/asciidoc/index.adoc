@@ -1,5 +1,6 @@
 = Boclips Developer Documentation
 Delivered to you by Boclips Engineering
+:version-label: API Version
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
