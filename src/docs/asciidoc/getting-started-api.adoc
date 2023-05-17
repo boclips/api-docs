@@ -1,16 +1,25 @@
-= Integrating with Boclips API
+= Getting Started With Boclips API
 Delivered to you by Boclips Engineering
 :version-label: API Version
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
 :sectlinks:
-:favicon:
+:stylesheet: styles.css
 
-[[overview]]
-= Overview
-In order to integrate with Boclips, we offer a comprehensive link:api-guide/index.html[REST API]
-as well as an link:player-guide.html[open source player].
+[[welcome]]
+== Hello, World!
+
+Hello there fellow engineer and welcome to the Boclips API world!
+
+This is a quickstart guide to give you an overview of what integrating with our API looks like and provide you with some concrete examples and code snippets that will hopefully make your life easier.
+
+If you're already familiar with the basics and are looking for detailed guide around the API resources, it can be found link:api-guide/index.html[here].
+
+[[authenticating-with-api]]
+== Authenticating with the API
+Common integration scenarios with code snippets to be shown here.
+
 
 [[common-integration-scenarios]]
 == Common Integration Scenarios
@@ -19,8 +28,8 @@ Common integration scenarios with code snippets to be shown here.
 === Integrating Boclips Player into a Web Application
 Integrating Boclips Player into a Web Application will be described here, alternatively can be moved to a separate page.
 
-[[detailed-guides]]
-== Detailed Guides
+[[detailed-reference-guides]]
+== Detailed Reference Guides
 You can find detailed guides below.
 
 [[api-reference-guide]]

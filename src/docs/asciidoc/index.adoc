@@ -6,6 +6,7 @@ Delivered to you by Boclips Engineering
 :source-highlighter: highlightjs
 :sectlinks:
 :favicon:
+:stylesheet: styles.css
 
 [[intro]]
 == Integrating with the Boclips Platform
