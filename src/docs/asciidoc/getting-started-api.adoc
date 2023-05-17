@@ -10,7 +10,7 @@ Delivered to you by Boclips Engineering
 [[welcome]]
 == Hello, World!
 
-Hello there fellow engineer and welcome to the Boclips API world!
+Hello there fellow engineer and welcome to the Boclips API world 🤖
 
 This is a quickstart guide to give you an overview of what integrating with our API looks like and provide you with some concrete examples and code snippets that will hopefully make your life easier.
 
