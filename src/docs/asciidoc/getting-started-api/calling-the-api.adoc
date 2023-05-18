@@ -23,6 +23,10 @@ const response = await axios.get('https://api.boclips.com/v1/videos', { <1>
 
 <1> _Hardcoded URL is used here for simplicity, but you should consider using the link:/api-guide/index.html#overview-hypermedia[links^] exposed by Boclips API in your real implementation_
 
+The `response` will contain a resource object — in the case of the example above it will be a list of video metadata entries. Please refer to the link:/api-guide/index.html#resources[detailed API guide^] for resource details.
+
+=== Keeping Secrets a Secret
+
 So far so good, but an important thing to consider is where the `boclipsAccessToken` is coming from.
 
 If the web app acquires the access token by itself, it means that the client id and secret become exposed in its source code, effectively disclosing them to anyone who knows their way around the web browser's developer tools! 🙀
@@ -30,6 +34,12 @@ If the web app acquires the access token by itself, it means that the client id 
 The way our customers usually tackle this issue is by running an additional backend service that retrieves the access token on web app's behalf.
 
 image::../resources/token-retrieval.jpg[]
+
+=== Cross-Origin Resource Sharing
+
+Please note that the Boclips API is protected with https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS[CORS^], and we will need to whitelist the various domains you'll be making calls from.
+
+Please contact us directly, and we'll set it up for you in no time 🏃‍
 
 [.text-center]
 === link:integrating-a-boclips-player.html[Next: _Integrating the Boclips Player_]
