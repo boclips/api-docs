@@ -13,7 +13,7 @@ Delivered to you by Boclips Engineering
 [[authenticating-with-api]]
 == Authenticating with the API
 
-Our auth systems are based on https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/[OAuth 2.0] and the credentials required to authenticate are the *client id* and *secret*. Currently, there isn't a self-served portal that will provide you with these, so our team will share them with you directly.
+Our auth systems are based on https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/[OAuth 2.0^] and the credentials required to authenticate are the *client id* and *secret*. Currently, there isn't a self-served portal that will provide you with these, so our team will share them with you directly.
 
 Once you have them, you can acquire an access token by issuing a request below:
 

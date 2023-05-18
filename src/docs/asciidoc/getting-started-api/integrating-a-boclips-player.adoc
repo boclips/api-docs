@@ -53,11 +53,11 @@ Now let's see how to put this together and show a playable video to your users! 
 <1> _Player sources_
 <2> _A container to render the player in_
 <3> _A factory function to return Boclips API tokens_
-<4> _Loading the video into the player (URL hardcoded for simplicity, consider using link:api-guide/index.html#overview-hypermedia[links] instead)_
+<4> _Loading the video into the player (URL hardcoded for simplicity, consider using link:/api-guide/index.html#overview-hypermedia[links^] instead)_
 
 Above is a minimal example that you can copy to get yourself started quickly.
 
-Our player repository contains a few https://github.com/boclips/boclips-player/tree/main/demo[demo projects] too — give them a go if you're interested in the different ways of setting it up.
+Our player repository contains a few https://github.com/boclips/boclips-player/tree/main/demo[demo projects^] too — give them a go if you're interested in the different ways of setting it up.
 
 [.text-center]
 === link:detailed-guides.html[Next: _Detailed Guides_]

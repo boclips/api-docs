@@ -12,7 +12,7 @@ Delivered to you by Boclips Engineering
 
 == Calling the Boclips API from your web app
 
-As described in the section about authenticating, in order to successfully issue a call against Boclips API, you need to retrieve our access token and send it over in the `Authorization` header of any subsequent HTTP requests, for example using https://axios-http.com/[Axios]:
+As described in the section about authenticating, in order to successfully issue a call against Boclips API, you need to retrieve our access token and send it over in the `Authorization` header of any subsequent HTTP requests, for example using https://axios-http.com/[Axios^]:
 
 [source,javascript]
 const response = await axios.get('https://api.boclips.com/v1/videos', { <1>
@@ -21,7 +21,7 @@ const response = await axios.get('https://api.boclips.com/v1/videos', { <1>
   }
 })
 
-<1> _Hardcoded URL is used here for simplicity, but you should consider using the link:api-guide/index.html#overview-hypermedia[links] exposed by Boclips API in your real implementation_
+<1> _Hardcoded URL is used here for simplicity, but you should consider using the link:/api-guide/index.html#overview-hypermedia[links^] exposed by Boclips API in your real implementation_
 
 So far so good, but an important thing to consider is where the `boclipsAccessToken` is coming from.
 
