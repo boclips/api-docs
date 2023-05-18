@@ -72,7 +72,48 @@ The way our customers usually tackle this issue is by running an additional back
 image::resources/token-retrieval.jpg[]
 
 === Integrating the Boclips Player into your web app
-Integrating Boclips Player into a Web Application will be described here, alternatively can be moved to a separate page.
+
+In order to integrate our video player into your web application, you're going to need just a couple of things:
+
+. a way to fetch Boclips API access tokens (described above),
+. the Boclips player sources.
+
+Now let's see how to put this together and show a playable video to your users! Below is a minimal example that you can copy to get yourself started quickly.
+
+[source,html]
+----
+<html>
+  <head>
+    <script type="text/javascript" <1>
+      src="https://unpkg.com/boclips-player@6.10.6/dist/boclips-player.js">
+    </script>
+    <link rel="stylesheet" type="text/css" <1>
+      href="https://unpkg.com/boclips-player@6.10.6/dist/boclips-player.css"
+    />
+  </head>
+  <body>
+    <div id="container"></div> <2>
+    <script>
+      const renderPlayer = () => {
+        const container = document.querySelector('#container'); <2>
+        const playerOptions = {
+          api: {
+            tokenFactory: () => YourService.getBoclipsAccessToken() <3>
+          }
+        }
+        const player = Boclips.PlayerFactory.get(container, playerOptions);
+        player.loadVideo('https://api.boclips.com/v1/videos/5c542aba5438cdbcb56de630'); <4>
+      };
+      window.onload = (_event) => renderPlayer();
+    </script>
+  </body>
+</html>
+----
+
+<1> _Load player sources_
+<2> _Specify the container to render the player in_
+<3> _Configure a factory function that returns Boclips API tokens_
+<4> _Load the video into the player_
 
 [[detailed-reference-guides]]
 == Detailed Reference Guides
