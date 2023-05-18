@@ -35,9 +35,11 @@ This will give you back a JSON response similar to the one below:
 [source,json]
 {
   "access_token": "***",
-  "expires_in": 300,
+  "expires_in": 300, <1>
   ...
 }
+
+<1> _Access token's lifetime expressed in seconds_
 
 The value of the `access_token` field then needs to be attached as the `Bearer` token of the HTTP `Authorization` header to authorise the actual API requests, for example:
 
@@ -50,7 +52,7 @@ Sections below cover the usual integration use cases.
 
 === Calling the Boclips API from your web app
 
-As described in the section about authenticating, in order to successfully issue a call against Boclips API, you need to retrieve our access token and send it over in the `Authorization` header of any subsequent HTTP requests.
+As described in the section about authenticating, in order to successfully issue a call against Boclips API, you need to retrieve our access token and send it over in the `Authorization` header of any subsequent HTTP requests, for example using https://axios-http.com/[Axios]:
 
 [source,javascript]
 const response = await axios.get('https://api.boclips.com/v1/videos', {
