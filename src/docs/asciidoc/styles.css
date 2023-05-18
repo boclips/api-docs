@@ -723,6 +723,6 @@ p { margin-bottom: 1.25rem; }
     .show-for-print { display: inherit !important; } }
 
 code {
-    max-height: 300px;
+    max-height: 600px;
     overflow-y: scroll;
 }
