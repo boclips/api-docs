@@ -11,10 +11,13 @@ Boclips Engineering;
 In order to integrate with Boclips, we offer a comprehensive link:api-guide/index.html[REST API]
 as well as an link:player-guide.html[open source player].
 
+
 [[api-reference-guide]]
 == API Reference Guide
 This is the link to the link:api-guide/index.html[API reference guide].
-
+++++
+<p>We also have a Postman library for our API here: <a href="/docs/postman/postman-collection.json" download>Download</a></p>
+++++
 [[lti-reference-guide]]
 == LTI Reference Guide
 This is the link to link:lti-guide.html[LTI reference guide].
