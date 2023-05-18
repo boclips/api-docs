@@ -95,10 +95,22 @@ asciidoctor {
     }
 }
 
+postman {
+    baseUrl = 'https://api.boclips.com'
+    title = 'Boclips API'
+    outputDirectory = "${buildDir}/postman"
+}
+
 task copyRestDocs(type: Copy) {
     dependsOn asciidoctor
     from "${asciidoctor.outputDir}/html5"
     into "${sourceSets.main.output.resourcesDir}/static/docs"
+}
+
+task copyPostmanCollections(type: Copy) {
+    dependsOn 'postman'
+    from "${postman.outputDirectory}"
+    into "${sourceSets.main.output.resourcesDir}/static/docs/postman"
 }
 
 openapi3 {
@@ -108,12 +120,9 @@ openapi3 {
     format = 'yaml'
 }
 
-postman {
-    baseUrl = 'https://api.boclips.com'
-    title = 'Boclips API'
-}
 
 bootJar {
+    dependsOn copyPostmanCollections
     dependsOn copyRestDocs
 }
 
