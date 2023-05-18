@@ -28,3 +28,9 @@ Delivered to you by Boclips Engineering
 === Packages
 
 * https://www.npmjs.com/package/boclips-player[Boclips Player on NPM]
+
+[[postman]]
+=== Postman Collections
+++++
+<p>We also have a Postman library for our API: <a href="/docs/postman/postman-collection.json" download>[click to download]</a></p>
+++++
