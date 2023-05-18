@@ -9,10 +9,27 @@ Delivered to you by Boclips Engineering
 :stylesheet: styles.css
 
 [[intro]]
-== Integrating with the Boclips Platform
+== Quickstart Guides
 
-If you're looking to integrate with Boclips API, please go link:getting-started-api/index.html[here].
+Go link:getting-started-api/index.html[here] if you're looking for a crash course on integrating with Boclips API 👷‍
 
-If you're looking for details on integrating with Boclips LTI, please go link:lti-guide.html[here].
+If you're looking for details on integrating with Boclips LTI, please go link:lti-guide.html[here] 🤓
 
-Have fun integrating!
+[[detailed-guides-and-others]]
+== Detailed Guides and Other Resources
+
+[[reference-guides]]
+=== Reference Guides
+
+* link:/api-guide/index.html[API reference guide]
+* link:/player-guide.html[Player reference guide]
+
+[[public-repos]]
+=== Public Repositories
+
+* https://github.com/boclips/boclips-player[Boclips Player]
+
+[[packages]]
+=== Packages
+
+* https://www.npmjs.com/package/boclips-player[Boclips Player on NPM]
