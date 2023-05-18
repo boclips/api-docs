@@ -14,7 +14,7 @@ Delivered to you by Boclips Engineering
 
 In order to integrate our video player into your web application, you're going to need just a couple of things:
 
-. a way to fetch Boclips API access tokens (described above),
+. a way to fetch Boclips API access tokens (described link:authenticating.html[here] and link:calling-the-api.html[here]),
 . the Boclips player sources,
 . a video to display!
 
