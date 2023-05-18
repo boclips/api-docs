@@ -1,6 +1,7 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.epages.restdocs.apispec.RestAssuredRestDocumentationWrapper
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers
@@ -16,16 +17,25 @@ class EventsDocTests : AbstractDocTests() {
 
     @Test
     fun `publishing playback event`() {
+        val requestFields = requestFields(
+            fieldWithPath("videoId").description("ID of the <<resources-videos,video>>"),
+            fieldWithPath("segmentStartSeconds").description("Second the video started its playback"),
+            fieldWithPath("segmentEndSeconds").description("Second the video ended its playback"),
+            fieldWithPath("userId").optional().description("ID of the user who initiated the playback")
+        )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-events-publish-playback",
-                    requestFields(
-                        fieldWithPath("videoId").description("ID of the <<resources-videos,video>>"),
-                        fieldWithPath("segmentStartSeconds").description("Second the video started its playback"),
-                        fieldWithPath("segmentEndSeconds").description("Second the video ended its playback"),
-                        fieldWithPath("userId").optional().description("ID of the user who initiated the playback")
-                    )
+                    requestFields
+                )
+            )
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "{method-name}",
+                    "Can publish a playback event",
+                    false,
+                    requestFields
                 )
             )
             .`when`().contentType(ContentType.JSON).body(
@@ -46,17 +56,27 @@ class EventsDocTests : AbstractDocTests() {
 
     @Test
     fun `publishing batch of playback events`() {
+        val requestFields = requestFields(
+            fieldWithPath("[*].videoId").description("ID of the <<resources-videos,video>>"),
+            fieldWithPath("[*].segmentStartSeconds").description("Second the video started its playback"),
+            fieldWithPath("[*].segmentEndSeconds").description("Second the video ended its playback"),
+            fieldWithPath("[*].captureTime").type("ISO-8601 (YYYY-MM-DDThh:mm:ss.sTZD)")
+                .description("Time when playback event was fired"),
+            fieldWithPath("[*].userId").optional().description("ID of the user who initiated the playback")
+        )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-events-publish-batch-playback",
-                    requestFields(
-                        fieldWithPath("[*].videoId").description("ID of the <<resources-videos,video>>"),
-                        fieldWithPath("[*].segmentStartSeconds").description("Second the video started its playback"),
-                        fieldWithPath("[*].segmentEndSeconds").description("Second the video ended its playback"),
-                        fieldWithPath("[*].captureTime").type("ISO-8601 (YYYY-MM-DDThh:mm:ss.sTZD)").description("Time when playback event was fired"),
-                        fieldWithPath("[*].userId").optional().description("ID of the user who initiated the playback")
-                    )
+                    requestFields
+                )
+            )
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "{method-name}",
+                    "Can publish a batch of playback events",
+                    false,
+                    requestFields
                 )
             )
             .`when`().contentType(ContentType.JSON).body(

@@ -3,6 +3,7 @@ package com.boclips.apidocs
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.apidocs.testsupport.BearerTokenDocumentationPolicy
 import com.boclips.apidocs.testsupport.RequestSpecificationFactory
+import com.epages.restdocs.apispec.RestAssuredRestDocumentationWrapper
 import io.restassured.RestAssured.given
 import io.restassured.specification.RequestSpecification
 import org.hamcrest.CoreMatchers.`is`
@@ -127,10 +128,30 @@ class LoginDocTests : AbstractDocTests() {
 
     @Test
     fun `client credentials flow`() {
+        val requestParameters = requestParameters(
+            parameterWithName("grant_type").description("The grant type for this flow must always be `client_credentials`")
+                .attributes(
+                    Attributes.key("type").value("String - Constant"), Attributes.key("value").value("client_credentials")
+                ),
+            parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
+                Attributes.key("type").value("String")
+            ),
+            parameterWithName("client_secret").description("The client secret that was Boclips issued to you")
+                .attributes(
+                    Attributes.key("type").value("String")
+                )
+        )
         given(loginDocumentationSpec).urlEncodingEnabled(true)
             .param("grant_type", "client_credentials")
             .param("client_id", clientId)
             .param("client_secret", clientSecret)
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "{method-name} yadadda", "hello desc", false,
+                    requestParameters,
+                    tokenResponseFields
+                )
+            )
             .filter(
                 document(
                     "client-credentials-example",
@@ -138,17 +159,7 @@ class LoginDocTests : AbstractDocTests() {
                         modifyParameters().set("client_id", "***").set("client_secret", "***")
                     ),
                     tokenResponseFields,
-                    requestParameters(
-                        parameterWithName("grant_type").description("The grant type for this flow must always be `client_credentials`").attributes(
-                            Attributes.key("type").value("String - Constant")
-                        ),
-                        parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
-                            Attributes.key("type").value("String")
-                        ),
-                        parameterWithName("client_secret").description("The client secret that was Boclips issued to you").attributes(
-                            Attributes.key("type").value("String")
-                        )
-                    )
+                    requestParameters
                 )
             )
             .`when`().post("/token").apply { prettyPrint() }

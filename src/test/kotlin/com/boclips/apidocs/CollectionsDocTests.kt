@@ -7,6 +7,7 @@ import com.boclips.videos.api.request.collection.CreateCollectionRequest
 import com.boclips.videos.api.request.collection.UpdateCollectionRequest
 import com.boclips.videos.api.response.subject.SubjectResource
 import com.damnhandy.uri.template.UriTemplate
+import com.epages.restdocs.apispec.RestAssuredRestDocumentationWrapper
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers.equalTo
@@ -17,7 +18,6 @@ import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
-import org.springframework.restdocs.payload.PayloadDocumentation.beneathPath
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
@@ -35,34 +35,53 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `adding a video to a collection`() {
+        val pathParameters = pathParameters(
+            parameterWithName("id").description("The ID of the collection"),
+            parameterWithName("video_id").description("The ID of the video")
+        )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-collection-add-video",
-                    pathParameters(
-                        parameterWithName("video_id").description("The ID of the video")
-                    )
+                    pathParameters
+                )
+            )
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "{method-name}",
+                    "Can add a video to a collection",
+                    false,
+                    pathParameters,
                 )
             )
             .`when`()
-            .put("/collections/$aCollectionWithAttachments/videos/{video_id}", someExistingVideoIds[0])
+            .put("/collections/{id}/videos/{video_id}", aCollectionWithAttachments, someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
 
     @Test
     fun `removing a video from a collection`() {
+        val pathParameters = pathParameters(
+            parameterWithName("id").description("The ID of the collection"),
+            parameterWithName("video_id").description("The ID of the video")
+        )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-collection-remove-video",
-                    pathParameters(
-                        parameterWithName("video_id").description("The ID of the video")
-                    )
+                    pathParameters
+                )
+            ).filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "{method-name}",
+                    "Can remove a video from a collection",
+                    false,
+                    pathParameters,
                 )
             )
             .`when`()
-            .delete("/collections/$aCollectionWithAttachments/videos/{video_id}", someExistingVideoIds[0])
+            .delete("/collections/{id}/videos/{video_id}", aCollectionWithAttachments, someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
@@ -71,8 +90,10 @@ class CollectionsDocTests : AbstractDocTests() {
     fun `creating a new collection`() {
         given(stubOwnerSpec)
             .filter(
-                document(
+                RestAssuredRestDocumentationWrapper.document(
                     "resource-collection-creation",
+                    "Allows creation of new collections",
+                    false,
                     requestFields(
                         fieldWithPath("title")
                             .description("Collection's title"),
@@ -111,102 +132,113 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `retrieving a collection`() {
-        testRetrievingCollection(snippetId = "resource-collection")
+        testRetrievingCollection(snippetId = "Retrieving a collection")
     }
 
     @Test
     fun `retrieving a collection with detailed projection`() {
         testRetrievingCollection(
-            snippetId = "resource-collection-detailed",
+            snippetId = "Retrieving a collection with detailed projection",
             useDetailedProjection = true
         )
     }
 
     @Test
     fun `searching through collections`() {
+        val requestParameters = requestParameters(
+            parameterWithName("query")
+                .optional()
+                .description("A phrase you want to search by. Filters through collection titles")
+                .attributes(
+                    key("type").value("String")
+                ),
+            parameterWithName("discoverable")
+                .optional()
+                .description("By default only discoverable collections appear in search. To retrieve all collections use this property.")
+                .attributes(
+                    key("type").value("Boolean")
+                ),
+            parameterWithName("promoted")
+                .optional()
+                .description("Whether you want to search through promoted collections only or not")
+                .attributes(
+                    key("type").value("Boolean")
+                ),
+            parameterWithName("subject")
+                .optional()
+                .description("Allows to limit search results to specific subjects only")
+                .attributes(
+                    key("type").value("List of subject IDs")
+                ),
+            parameterWithName("age_range_min")
+                .optional()
+                .description("Minimum age to filter from - it filters on the collection age range property, and is inclusive")
+                .attributes(
+                    key("type").value("Number")
+                ),
+            parameterWithName("age_range_max")
+                .optional()
+                .description("Maximum age to filter to - it filters on the collection age range property, and is inclusive")
+                .attributes(
+                    key("type").value("Number")
+                ),
+            parameterWithName("age_range")
+                .optional()
+                .description("Filters on the video age ranges. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
+                .attributes(
+                    key("type").value("String")
+                ),
+            parameterWithName("has_lesson_plans")
+                .optional()
+                .description("Allows to limit search results to collection with lesson plan attachment only")
+                .attributes(
+                    key("type").value("Boolean")
+                ),
+            parameterWithName("page")
+                .optional()
+                .description("Index of search results page to retrieve")
+                .attributes(
+                    key("type").value("Integer")
+                ),
+            parameterWithName("size")
+                .optional()
+                .description("Collection page size")
+                .attributes(
+                    key("type").value("Integer")
+                ),
+            parameterWithName("projection")
+                .optional()
+                .description("Controls how sub-resources are fetched. Allowed values are `list` for shallow details and `details` for full sub-resource information. See <<resources-collections-projections,here>> for more details")
+                .attributes(
+                    key("type").value("Integer")
+                ),
+            parameterWithName("sort_by")
+                .optional()
+                .description("Sort collections by UPDATED_AT (last updated collections appear first), IS_DEFAULT (Watch later collections appear first), HAS_ATTACHMENT (collections with attachments appear first)")
+                .attributes(
+                    key("type").value("UPDATED_AT, IS_DEFAULT, HAS_ATTACHMENT")
+                )
+        )
+        val responseFields = responseFields(
+            subsectionWithPath("_embedded.collections").description("Collection resources array. See <<resources-collections-retrieve_response_fields,collection>> for payload details"),
+            *pageSpecificationResponseFields,
+            subsectionWithPath("_links").description("HAL links for the collection resource")
+        )
         given(stubOwnerSpec)
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "Collection Search",
+                    "Collection search description",
+                    false,
+                    requestParameters,
+                    responseFields,
+                )
+            )
             .filter(
                 document(
                     "resource-collection-search",
-                    requestParameters(
-                        parameterWithName("query")
-                            .optional()
-                            .description("A phrase you want to search by. Filters through collection titles")
-                            .attributes(
-                                key("type").value("String")
-                            ),
-                        parameterWithName("discoverable")
-                            .optional()
-                            .description("By default only discoverable collections appear in search. To retrieve all collections use this property.")
-                            .attributes(
-                                key("type").value("Boolean")
-                            ),
-                        parameterWithName("promoted")
-                            .optional()
-                            .description("Whether you want to search through promoted collections only or not")
-                            .attributes(
-                                key("type").value("Boolean")
-                            ),
-                        parameterWithName("subject")
-                            .optional()
-                            .description("Allows to limit search results to specific subjects only")
-                            .attributes(
-                                key("type").value("List of subject IDs")
-                            ),
-                        parameterWithName("age_range_min")
-                            .optional()
-                            .description("Minimum age to filter from - it filters on the collection age range property, and is inclusive")
-                            .attributes(
-                                key("type").value("Number")
-                            ),
-                        parameterWithName("age_range_max")
-                            .optional()
-                            .description("Maximum age to filter to - it filters on the collection age range property, and is inclusive")
-                            .attributes(
-                                key("type").value("Number")
-                            ),
-                        parameterWithName("age_range")
-                            .optional()
-                            .description("Filters on the video age ranges. Provide age ranges in the form `minAge-maxAge`, ie `5-7`. These ranges are inclusive.")
-                            .attributes(
-                                key("type").value("String")
-                            ),
-                        parameterWithName("has_lesson_plans")
-                            .optional()
-                            .description("Allows to limit search results to collection with lesson plan attachment only")
-                            .attributes(
-                                key("type").value("Boolean")
-                            ),
-                        parameterWithName("page")
-                            .optional()
-                            .description("Index of search results page to retrieve")
-                            .attributes(
-                                key("type").value("Integer")
-                            ),
-                        parameterWithName("size")
-                            .optional()
-                            .description("Collection page size")
-                            .attributes(
-                                key("type").value("Integer")
-                            ),
-                        parameterWithName("projection")
-                            .optional()
-                            .description("Controls how sub-resources are fetched. Allowed values are `list` for shallow details and `details` for full sub-resource information. See <<resources-collections-projections,here>> for more details")
-                            .attributes(
-                                key("type").value("Integer")
-                            ),
-                        parameterWithName("sort_by")
-                            .optional()
-                            .description("Sort collections by UPDATED_AT (last updated collections appear first), IS_DEFAULT (Watch later collections appear first), HAS_ATTACHMENT (collections with attachments appear first)")
-                            .attributes(
-                                key("type").value("UPDATED_AT, IS_DEFAULT, HAS_ATTACHMENT")
-                            )
-                    ),
-                    responseFields(
-                        subsectionWithPath("_embedded.collections").description("Collection resources array. See <<resources-collections-retrieve_response_fields,collection>> for payload details"),
-                        *pageSpecificationResponseFields,
-                        subsectionWithPath("_links").description("HAL links for the collection resource")
-                    ),
+                    requestParameters,
+                    responseFields,
                     links(
                         linkWithRel("self").description("Points to this exact search query"),
                         linkWithRel("next").description("Points to next page of collections"),
@@ -232,43 +264,55 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `editing collections`() {
+        val requestFields = requestFields(
+            fieldWithPath("title")
+                .optional()
+                .description("Collection's title"),
+            fieldWithPath("description")
+                .optional()
+                .description("Collection's description"),
+            fieldWithPath("videos")
+                .optional()
+                .description("A list of IDs of videos that should belong to this collection. Will replace existing videos"),
+            fieldWithPath("subjects")
+                .optional()
+                .description("A list of IDs of subjects that should belong to this collection. Will replace existing subjects"),
+            fieldWithPath("discoverable")
+                .optional()
+                .description("Whether the new collection is visible in search and has been vetted by Boclips"),
+            fieldWithPath("ageRange.min")
+                .optional()
+                .description("The lower bound of age range this collection of videos is suitable for"),
+            fieldWithPath("ageRange.max")
+                .optional()
+                .description("The upper bound of age range this collection of videos is suitable for"),
+            subsectionWithPath("attachment")
+                .optional()
+                .description("An optional <<resources-collections-attachments,attachment>> that can be added to this collection"),
+            fieldWithPath("attachment.linkToResource").description("A link that points to attachment's actual content"),
+            fieldWithPath("attachment.type").type("String")
+                .description("The type of the attachment. Currently we support `LESSON_PLAN` only"),
+            fieldWithPath("attachment.description").optional().description("Text that describes the attachment")
+        )
         given(stubOwnerSpec)
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "resource-collection-edit",
+                    "Collection Edit description",
+                    false,
+                    requestFields,
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
+                    ),
+                )
+            )
             .filter(
                 document(
                     "resource-collection-edit",
-                    requestFields(
-                        fieldWithPath("title")
-                            .optional()
-                            .description("Collection's title"),
-                        fieldWithPath("description")
-                            .optional()
-                            .description("Collection's description"),
-                        fieldWithPath("videos")
-                            .optional()
-                            .description("A list of IDs of videos that should belong to this collection. Will replace existing videos"),
-                        fieldWithPath("subjects")
-                            .optional()
-                            .description("A list of IDs of subjects that should belong to this collection. Will replace existing subjects"),
-                        fieldWithPath("discoverable")
-                            .optional()
-                            .description("Whether the new collection is visible in search and has been vetted by Boclips"),
-                        fieldWithPath("ageRange.min")
-                            .optional()
-                            .description("The lower bound of age range this collection of videos is suitable for"),
-                        fieldWithPath("ageRange.max")
-                            .optional()
-                            .description("The upper bound of age range this collection of videos is suitable for"),
-                        subsectionWithPath("attachment")
-                            .optional()
-                            .description("An optional <<resources-collections-attachments,attachment>> that can be added to this collection")
+                    requestFields,
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
                     ),
-                    requestFields(
-                        beneathPath("attachment").withSubsectionId("attachment"),
-                        fieldWithPath("linkToResource").description("A link that points to attachment's actual content"),
-                        fieldWithPath("type").type("Enum String")
-                            .description("The type of the attachment. Currently we support `LESSON_PLAN` only"),
-                        fieldWithPath("description").optional().description("Text that describes the attachment")
-                    )
                 )
             )
             .`when`()
@@ -305,6 +349,16 @@ class CollectionsDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "resource-collection-bookmark",
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
+                    )
+                )
+            )
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "bookmark a collection",
+                    "Collection bookmark description",
+                    false,
                     pathParameters(
                         parameterWithName("id").description("The ID of the collection")
                     )
@@ -365,6 +419,44 @@ class CollectionsDocTests : AbstractDocTests() {
     }
 
     private fun testRetrievingCollection(snippetId: String, useDetailedProjection: Boolean = false) {
+        val responseFields = responseFields(
+            fieldWithPath("id").description("The ID of the collection"),
+            fieldWithPath("owner").description("The ID of the collection's owner"),
+            fieldWithPath("ownerName").description("The name of the collection's owner"),
+            fieldWithPath("title").description("Collection's title"),
+            fieldWithPath("description").description("Collection's description"),
+            subsectionWithPath("videos").description("A list of <<resources-videos,videos>> in the collection. Shallow video details are returned by default"),
+            subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
+            fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
+            fieldWithPath("public").ignored(),
+            fieldWithPath("origin").ignored(),
+            fieldWithPath("discoverable").description("Discoverable collections are discoverable through searching and browsing."),
+            fieldWithPath("promoted").description("Whether the collection is promoted"),
+            fieldWithPath("mine").description("Whether the collection belongs to me"),
+            fieldWithPath("createdBy").description("Name of collection's creator"),
+            fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
+            fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
+            subsectionWithPath("subCollections").ignored(),
+            subsectionWithPath("permissions").ignored(),
+            subsectionWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
+            subsectionWithPath("_links").description("HAL links related to this collection"),
+            fieldWithPath("attachments[*].id").description("ID of the attachment"),
+            fieldWithPath("attachments[*].type").description("The type of the attachment: `LESSON_PLAN` `ACTIVITY`")
+                .type("String"),
+            fieldWithPath("attachments[*].description").description("Text that describes the attachment"),
+            fieldWithPath("attachments[*]._links.download.href").description("A link that points to attachment's actual content"),
+            fieldWithPath("attachments[*]._links.download.templated").ignored()
+        )
+        val resourceLinks = links(
+            linkWithRel("self").description("Points to this collection"),
+            linkWithRel("edit").description("`PATCH` requests can be sent to this URL to update the collection"),
+            linkWithRel("safeEdit").ignored(),
+            linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
+            linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
+            linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection"),
+            linkWithRel("interactedWith").description("`POST` requests to this URL to track collection interaction events"),
+            linkWithRel("updatePermissions").description("`PATCH` requests to this URL allow to update collection permissions")
+        )
         given(stubOwnerSpec)
             .filter(
                 document(
@@ -372,49 +464,17 @@ class CollectionsDocTests : AbstractDocTests() {
                     pathParameters(
                         parameterWithName("id").description("The ID of the collection")
                     ),
-                    responseFields(
-                        fieldWithPath("id").description("The ID of the collection"),
-                        fieldWithPath("owner").description("The ID of the collection's owner"),
-                        fieldWithPath("ownerName").description("The name of the collection's owner"),
-                        fieldWithPath("title").description("Collection's title"),
-                        fieldWithPath("description").description("Collection's description"),
-                        subsectionWithPath("videos").description("A list of <<resources-videos,videos>> in the collection. Shallow video details are returned by default"),
-                        subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
-                        fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
-                        fieldWithPath("public").ignored(),
-                        fieldWithPath("origin").ignored(),
-                        fieldWithPath("discoverable").description("Discoverable collections are discoverable through searching and browsing."),
-                        fieldWithPath("promoted").description("Whether the collection is promoted"),
-                        fieldWithPath("mine").description("Whether the collection belongs to me"),
-                        fieldWithPath("createdBy").description("Name of collection's creator"),
-                        fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
-                        fieldWithPath("ageRange").description("Tells which ages videos in this collection are suitable for"),
-                        subsectionWithPath("subCollections").ignored(),
-                        subsectionWithPath("permissions").ignored(),
-                        subsectionWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
-                        subsectionWithPath("_links").description("HAL links related to this collection")
+                    responseFields,
+                    resourceLinks
+                )
+            )
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    snippetId, "Retrieving a collection by ID", false,
+                    pathParameters(
+                        parameterWithName("id").description("The ID of the collection")
                     ),
-                    responseFields(
-                        beneathPath("attachments").withSubsectionId("attachments"),
-                        fieldWithPath("id").description("ID of the attachment"),
-                        fieldWithPath("type").description("The type of the attachment: `LESSON_PLAN` `ACTIVITY`")
-                            .attributes(
-                                key("type").value("Enum String")
-                            ),
-                        fieldWithPath("description").description("Text that describes the attachment"),
-                        fieldWithPath("_links.download.href").description("A link that points to attachment's actual content"),
-                        fieldWithPath("_links.download.templated").ignored()
-                    ),
-                    links(
-                        linkWithRel("self").description("Points to this collection"),
-                        linkWithRel("edit").description("`PATCH` requests can be sent to this URL to update the collection"),
-                        linkWithRel("safeEdit").ignored(),
-                        linkWithRel("remove").description("`DELETE` request can be sent to this URL to remove the collection (videos remain in the system)"),
-                        linkWithRel("addVideo").description("`PUT` requests to this URL allow to add more videos to this collection"),
-                        linkWithRel("removeVideo").description("`DELETE` requests to this URL allow to remove videos from this collection"),
-                        linkWithRel("interactedWith").description("`POST` requests to this URL to track collection interaction events"),
-                        linkWithRel("updatePermissions").description("`PATCH` requests to this URL allow to update collection permissions")
-                    )
+                    responseFields, resourceLinks
                 )
             )
             .`when`()

@@ -1,6 +1,7 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.epages.restdocs.apispec.RestAssuredRestDocumentationWrapper
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers
 import org.junit.jupiter.api.Test
@@ -10,16 +11,25 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 
 class ContentCategoriesDocTest : AbstractDocTests() {
     @Test
-    fun `lists available video types`() {
+    fun `List available video types`() {
+        val responseFields = responseFields(
+            fieldWithPath("_embedded.contentCategories").description("List of categories that channel's content can be described as."),
+            fieldWithPath("_embedded.contentCategories[*].label").ignored(),
+            fieldWithPath("_embedded.contentCategories[*].key").ignored()
+        )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-channels",
-                    responseFields(
-                        fieldWithPath("_embedded.contentCategories").description("List of categories that channel's content can be described as."),
-                        fieldWithPath("_embedded.contentCategories[*].label").ignored(),
-                        fieldWithPath("_embedded.contentCategories[*].key").ignored()
-                    )
+                    responseFields
+                )
+            )
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "{method-name}",
+                    "Get all available video types",
+                    false,
+                    responseFields
                 )
             )
             .`when`()

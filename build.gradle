@@ -6,6 +6,7 @@ plugins {
     id 'com.adarshr.test-logger' version '1.2.0'
     id 'org.kordamp.gradle.livereload' version '0.2.1'
     id 'org.jlleitschuh.gradle.ktlint' version '10.2.0'
+    id 'com.epages.restdocs-api-spec' version '0.16.4'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -54,6 +55,7 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
+    testImplementation 'com.epages:restdocs-api-spec-restassured:0.10.4'
 
     testImplementation 'com.github.boclips:videos:v1255'
     // Below are transitive client dependencies that we need to import ourselves at the moment...
@@ -97,6 +99,18 @@ task copyRestDocs(type: Copy) {
     dependsOn asciidoctor
     from "${asciidoctor.outputDir}/html5"
     into "${sourceSets.main.output.resourcesDir}/static/docs"
+}
+
+openapi3 {
+    server = 'https://api.boclips.com'
+    title = 'Boclips API'
+
+    format = 'yaml'
+}
+
+postman {
+    baseUrl = 'https://api.boclips.com'
+    title = 'Boclips API'
 }
 
 bootJar {
