@@ -89,9 +89,8 @@ asciidoctor {
     inputs.dir snippetsDir
     dependsOn test
     resources {
-        from('src/docs/asciidoc/resources') {
-            include("favicon.ico")
-        }
+        from 'src/docs/asciidoc/resources'
+        into 'resources'
     }
 }
 

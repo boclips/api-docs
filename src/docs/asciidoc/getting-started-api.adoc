@@ -27,9 +27,6 @@ Once you have them, you can acquire an access token by issuing a request below:
 
 include::{snippets}/client-credentials-example/http-request.adoc[]
 
-// [collapsible]
-// include::{snippets}/client-credentials-example/curl-request.adoc[]
-
 [IMPORTANT]
 Please note that the request needs to be sent with the `application/x-www-form-urlencoded` content type to be processed correctly.
 
@@ -51,10 +48,26 @@ include::{snippets}/resource-video/http-request.adoc[]
 
 Sections below cover the usual integration use cases.
 
-=== Integrating the Boclips Player into your web app
-Integrating Boclips Player into a Web Application will be described here, alternatively can be moved to a separate page.
+=== Calling the Boclips API from your web app
 
-=== Acquiring a Boclips API access token in your web app
+As described in the section about authenticating, in order to successfully issue a call against Boclips API, you need to retrieve our access token and send it over in the `Authorization` header of any subsequent HTTP requests.
+
+[source,javascript]
+const response = await axios.get('https://api.boclips.com/v1/videos', {
+  headers: {
+    'Authorization': `Bearer ${boclipsAccessToken}`
+  }
+})
+
+So far so good, but an important thing to consider is where the `boclipsAccessToken` is coming from.
+
+If the web app acquires the access token by itself, it means that the client id and secret become exposed in its source code, effectively disclosing them to anyone who knows their way around the web browser's developer tools! 🙀
+
+The way our customers usually tackle this issue is by running an additional backend service that retrieves the access token on web app's behalf.
+
+image::resources/token-retrieval.jpg[]
+
+=== Integrating the Boclips Player into your web app
 Integrating Boclips Player into a Web Application will be described here, alternatively can be moved to a separate page.
 
 [[detailed-reference-guides]]
