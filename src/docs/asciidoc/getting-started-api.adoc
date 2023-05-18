@@ -18,8 +18,13 @@ As a one-liner intro, Boclips API is an *HTTP* based *REST* web API with *JSON* 
 
 If you're already familiar with the basics and are looking for detailed guide around the API resources, it can be found link:api-guide/index.html[here].
 
+[[common-integration-scenarios]]
+== Common Integration Scenarios
+
+Sections below cover the usual integration use cases.
+
 [[authenticating-with-api]]
-== Authenticating with the API
+=== Authenticating with the API
 
 Our auth systems are based on https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/[OAuth 2.0] and the credentials required to authenticate are the *client id* and *secret*. Currently, there isn't a self-served portal that will provide you with these, so our team will share them with you directly.
 
@@ -44,11 +49,6 @@ This will give you back a JSON response similar to the one below:
 The value of the `access_token` field then needs to be attached as the `Bearer` token of the HTTP `Authorization` header to authorise the actual API requests, for example:
 
 include::{snippets}/resource-video/http-request.adoc[]
-
-[[common-integration-scenarios]]
-== Common Integration Scenarios
-
-Sections below cover the usual integration use cases.
 
 === Calling the Boclips API from your web app
 
