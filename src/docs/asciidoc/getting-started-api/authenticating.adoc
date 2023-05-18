@@ -1,0 +1,41 @@
+= Getting Started With Boclips API
+Delivered to you by Boclips Engineering
+:version-label: API Version
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:sectlinks:
+:stylesheet: ../styles.css
+
+[.text-center]
+=== link:index.html[Previous: _Getting Started_]
+
+[[authenticating-with-api]]
+== Authenticating with the API
+
+Our auth systems are based on https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/[OAuth 2.0] and the credentials required to authenticate are the *client id* and *secret*. Currently, there isn't a self-served portal that will provide you with these, so our team will share them with you directly.
+
+Once you have them, you can acquire an access token by issuing a request below:
+
+include::{snippets}/client-credentials-example/http-request.adoc[]
+
+[IMPORTANT]
+Please note that the request needs to be sent with the `application/x-www-form-urlencoded` content type to be processed correctly.
+
+This will give you back a JSON response similar to the one below:
+
+[source,json]
+{
+  "access_token": "***",
+  "expires_in": 300, <1>
+  ...
+}
+
+<1> _Access token's lifetime expressed in seconds_
+
+The value of the `access_token` field then needs to be attached as the `Bearer` token of the HTTP `Authorization` header to authorise the actual API requests, for example:
+
+include::{snippets}/resource-video/http-request.adoc[]
+
+[.text-center]
+=== link:calling-the-api.html[Next: _Calling the API_]

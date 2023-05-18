@@ -11,7 +11,7 @@ Delivered to you by Boclips Engineering
 [[intro]]
 == Integrating with the Boclips Platform
 
-If you're looking to integrate with Boclips API, please go link:getting-started-api.html[here].
+If you're looking to integrate with Boclips API, please go link:getting-started-api/index.html[here].
 
 If you're looking for details on integrating with Boclips LTI, please go link:lti-guide.html[here].
 

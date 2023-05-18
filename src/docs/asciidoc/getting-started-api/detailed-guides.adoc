@@ -1,0 +1,30 @@
+= Getting Started With Boclips API
+Delivered to you by Boclips Engineering
+:version-label: API Version
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:sectlinks:
+:stylesheet: ../styles.css
+
+[.text-center]
+=== link:integrating-a-boclips-player.html[Previous: _Integrating the Boclips Player_]
+
+[[detailed-guides-and-others]]
+== Detailed Guides and Other Resources
+
+[[reference-guides]]
+=== Reference Guides
+
+* link:api-guide/index.html[API reference guide]
+* link:player-guide.html[Player reference guide]
+
+[[public-repos]]
+=== Public Repositories
+
+* https://github.com/boclips/boclips-player[Boclips Player]
+
+[[packages]]
+=== Packages
+
+* https://www.npmjs.com/package/boclips-player[Boclips Player on NPM]
