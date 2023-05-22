@@ -28,18 +28,25 @@ include::{snippets}/client-credentials-example/curl-request.adoc[]
 
 This will give you back a JSON response similar to the one below:
 
-[source,json]
+[source,json,options=nowrap]
+----
 {
-  "access_token": "***",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
   "expires_in": 300, <1>
   ...
 }
+----
 
 <1> _Access token's lifetime expressed in seconds_
 
 The value of the `access_token` field then needs to be attached as the `Bearer` token of the HTTP `Authorization` header to authorise the actual API requests, for example:
 
-include::{snippets}/resource-video/http-request.adoc[]
+[source,http,,options=nowrap]
+----
+GET /v1/videos/5c542abf5438cdbcb56df0bf HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+Host: api.boclips.com
+----
 
 [.text-center]
 === link:calling-the-api.html[Next: _Calling the API_]
