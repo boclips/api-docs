@@ -1,0 +1,63 @@
+= Getting Started With Boclips API
+Delivered to you by Boclips Engineering
+:version-label: API Version
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:sectlinks:
+:stylesheet: ../styles.css
+
+[.text-center]
+=== link:calling-the-api.html[Previous: _Calling the Boclips API_]
+
+== Integrating the Boclips Player into your web app
+
+In order to integrate our video player into your web application, you're going to need just a couple of things:
+
+. a way to fetch Boclips API access tokens (described link:authenticating.html[here] and link:calling-the-api.html[here]),
+. the Boclips player sources,
+. a video to display!
+
+Now let's see how to put this together and show a playable video to your users! 🛠
+
+[source,html]
+----
+<html>
+  <head>
+    <script type="text/javascript" <1>
+      src="https://unpkg.com/boclips-player@6.10.6/dist/boclips-player.js">
+    </script>
+    <link rel="stylesheet" type="text/css" <1>
+      href="https://unpkg.com/boclips-player@6.10.6/dist/boclips-player.css"
+    />
+  </head>
+  <body>
+    <div id="container"></div> <2>
+    <script>
+      const renderPlayer = () => {
+        const container = document.querySelector('#container'); <2>
+        const playerOptions = {
+          api: {
+            tokenFactory: () => YourService.getBoclipsAccessToken() <3>
+          }
+        }
+        const player = Boclips.PlayerFactory.get(container, playerOptions);
+        player.loadVideo('https://api.boclips.com/v1/videos/5c542aba5438cdbcb56de630'); <4>
+      };
+      window.onload = (_event) => renderPlayer();
+    </script>
+  </body>
+</html>
+----
+
+<1> _Player sources_
+<2> _A container to render the player in_
+<3> _A factory function to return Boclips API tokens_
+<4> _Loading the video into the player (URL hardcoded for simplicity, consider using link:/api-guide/index.html#overview-hypermedia[links^] instead)_
+
+Above is a minimal example that you can copy to get yourself started quickly.
+
+Our player repository contains a few https://github.com/boclips/boclips-player/tree/main/demo[demo projects^] too — give them a go if you're interested in the different ways of setting it up.
+
+[.text-center]
+=== link:detailed-guides.html[Next: _Detailed Guides_]

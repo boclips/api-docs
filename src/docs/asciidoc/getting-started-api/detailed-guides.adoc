@@ -1,19 +1,14 @@
-= Boclips Developer Portal
+= Getting Started With Boclips API
 Delivered to you by Boclips Engineering
 :version-label: API Version
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
 :sectlinks:
-:favicon:
-:stylesheet: styles.css
+:stylesheet: ../styles.css
 
-[[intro]]
-== Quickstart Guides
-
-Go link:getting-started-api/index.html[here] if you're looking for a crash course on integrating with Boclips API 👷‍
-
-If you're looking for details on integrating with Boclips LTI, please go link:lti-guide.html[here] 🤓
+[.text-center]
+=== link:integrating-a-boclips-player.html[Previous: _Integrating the Boclips Player_]
 
 [[detailed-guides-and-others]]
 == Detailed Guides and Other Resources

@@ -1,0 +1,33 @@
+= Getting Started With Boclips API
+Delivered to you by Boclips Engineering
+:version-label: API Version
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:sectlinks:
+:stylesheet: ../styles.css
+
+[[welcome]]
+== Hello, World!
+
+Hello there fellow engineer and welcome to the Boclips API world 🤖
+
+This is a quickstart guide to give you an overview of what integrating with our API looks like and provide you with some concrete examples and code snippets that will hopefully make your life easier.
+
+As a one-liner intro, Boclips API is an *HTTP* based *REST* web API with *JSON* as the data exchange format.
+
+If you're already familiar with the basics and are looking for detailed guides and other resources, you can jump straight in link:detailed-guides.html[here].
+
+[[common-integration-scenarios]]
+== Common Integration Scenarios
+
+We'll cover the common integration use cases as part of this guide:
+
+. link:authenticating.html[Authenticating]
+. link:calling-the-api.html[Calling the API]
+. link:integrating-a-boclips-player.html[Integrating the Boclips Player]
+
+Without further ado, let's dive in! 🤿
+
+[.text-center]
+=== link:authenticating.html[Next: _Authenticating_]
