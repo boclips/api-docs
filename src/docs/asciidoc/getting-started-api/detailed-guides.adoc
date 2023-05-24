@@ -16,8 +16,8 @@ Delivered to you by Boclips Engineering
 [[reference-guides]]
 === Reference Guides
 
-* link:/api-guide/index.html[API reference guide]
-* link:/player-guide.html[Player reference guide]
+* link:/docs/api-guide/index.html[API reference guide]
+* link:/docs/player-guide.html[Player reference guide]
 
 [[public-repos]]
 === Public Repositories

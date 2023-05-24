@@ -21,8 +21,8 @@ If you're looking for details on integrating with Boclips LTI, please go link:lt
 [[reference-guides]]
 === Reference Guides
 
-* link:/api-guide/index.html[API reference guide]
-* link:/player-guide.html[Player reference guide]
+* link:/docs/api-guide/index.html[API reference guide]
+* link:/docs/player-guide.html[Player reference guide]
 
 [[public-repos]]
 === Public Repositories
