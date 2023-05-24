@@ -23,7 +23,7 @@ const response = await axios.get('https://api.boclips.com/v1/videos', { <1>
 
 <1> _Hardcoded URL is used here for simplicity, but you should consider using the link:/docs/api-guide/index.html#overview-hypermedia[links^] exposed by Boclips API in your real implementation_
 
-The `response` will contain a resource object — in the case of the example above it will be a list of video metadata entries. Please refer to the link:/api-guide/index.html#resources[detailed API guide^] for resource details.
+The `response` will contain a resource object — in the case of the example above it will be a list of video metadata entries. Please refer to the link:/docs/api-guide/index.html#resources[detailed API guide^] for resource details.
 
 === Keeping Secrets a Secret
 
