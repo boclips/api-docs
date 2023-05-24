@@ -20,7 +20,7 @@ class RequestSpecificationFactory {
             bearerTokenDocumentationPolicy: BearerTokenDocumentationPolicy = BearerTokenDocumentationPolicy.MASK
         ): RequestSpecification {
             return RequestSpecBuilder()
-                .setBaseUri("https://api.staging-boclips.com/v1")
+                .setBaseUri("https://api.staging-boclips.com")
                 .addHeader("Authorization", "Bearer $accessToken")
                 .addFilter(
                     documentationConfiguration(restDocumentation)

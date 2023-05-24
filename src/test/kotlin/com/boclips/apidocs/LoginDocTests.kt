@@ -60,7 +60,7 @@ class LoginDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().post("/token").apply { prettyPrint() }
+            .`when`().post("/v1/token").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(200))
     }
 
@@ -89,7 +89,7 @@ class LoginDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().get("/authorize").apply { prettyPrint() }
+            .`when`().get("/v1/authorize").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(200))
     }
 
@@ -122,7 +122,7 @@ class LoginDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().post("/token").apply { prettyPrint() }
+            .`when`().post("/v1/token").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(400)).and()
     }
 
@@ -162,7 +162,7 @@ class LoginDocTests : AbstractDocTests() {
                     requestParameters
                 )
             )
-            .`when`().post("/token").apply { prettyPrint() }
+            .`when`().post("/v1/token").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(200))
     }
 

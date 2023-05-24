@@ -69,7 +69,7 @@ class UserDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .get("/users/{id}", userId)
+            .get("/v1/users/{id}", userId)
             .then()
             .assertThat().statusCode(`is`(200))
     }
@@ -119,7 +119,7 @@ class UserDocTests : AbstractDocTests() {
                 }
                 """.trimIndent()
             )
-            .put("/users/{id}", userId)
+            .put("/v1/users/{id}", userId)
             .then()
             .assertThat().statusCode(`is`(200))
     }

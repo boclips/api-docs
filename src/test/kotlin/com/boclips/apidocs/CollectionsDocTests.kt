@@ -55,7 +55,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .put("/collections/{id}/videos/{video_id}", aCollectionWithAttachments, someExistingVideoIds[0])
+            .put("/v1/collections/{id}/videos/{video_id}", aCollectionWithAttachments, someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
@@ -81,7 +81,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 )
             )
             .`when`()
-            .delete("/collections/{id}/videos/{video_id}", aCollectionWithAttachments, someExistingVideoIds[0])
+            .delete("/v1/collections/{id}/videos/{video_id}", aCollectionWithAttachments, someExistingVideoIds[0])
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
     }
@@ -337,7 +337,7 @@ class CollectionsDocTests : AbstractDocTests() {
                 }
                 """.trimIndent()
             )
-            .patch("/collections/{id}", aCollectionWithAttachments)
+            .patch("/v1/collections/{id}", aCollectionWithAttachments)
             .apply { println(prettyPrint()) }
             .then()
             .assertThat().statusCode(`is`(HttpStatus.NO_CONTENT.value()))
@@ -366,7 +366,7 @@ class CollectionsDocTests : AbstractDocTests() {
             )
             .`when`()
             .queryParam("bookmarked", true)
-            .patch("/collections/{id}", aCollection)
+            .patch("/v1/collections/{id}", aCollection)
             .then()
             .assertThat().statusCode(`is`(HttpStatus.OK.value()))
             .and()

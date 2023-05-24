@@ -31,7 +31,7 @@ class GatewayDocTests : AbstractDocTests() {
                     )
                 )
             )
-            .`when`().get("/videos?duration_min=not-quite-a-number").apply { prettyPrint() }
+            .`when`().get("/v1/videos?duration_min=not-quite-a-number").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(400))
     }
 
@@ -106,7 +106,7 @@ class GatewayDocTests : AbstractDocTests() {
                     links
                 )
             )
-            .`when`().get("/").apply { prettyPrint() }
+            .`when`().get("/v1/").apply { prettyPrint() }
             .then().assertThat().statusCode(`is`(200))
     }
 }
