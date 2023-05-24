@@ -147,7 +147,7 @@ class LoginDocTests : AbstractDocTests() {
             .param("client_secret", clientSecret)
             .filter(
                 RestAssuredRestDocumentationWrapper.document(
-                    "{method-name} yadadda", "hello desc", false,
+                    "{method-name}", "hello desc", false,
                     requestParameters,
                     tokenResponseFields
                 )
