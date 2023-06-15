@@ -103,7 +103,7 @@ class VideosDocTests : AbstractDocTests() {
         given(stubOwnerSpec)
             .filter(
                 document(
-                    "{method-name}",
+                    "resource-video",
                     pathParameters(
                         parameterWithName("id").description("The ID of the video asset")
                     ),
