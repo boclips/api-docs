@@ -283,7 +283,7 @@ class VideosDocTests : AbstractDocTests() {
             parameterWithName("subtype").optional()
                 .description("Filter by video subtype. Multiple values can be specified (comma separated, or by repeating the parameter). Possible values are: ['ANIMATION', 'CHALK_AND_TALK_PRESENTATION', 'DEMONSTRATION', 'DOCUMENTARY', 'HISTORICAL_ARCHIVE', 'INTERVIEW', 'LIVE_ARTS_PERFORMANCES', 'TALKING_HEAD']")
                 .attributes(
-                    Attributes.key("type").value("String (eg. 'animation')")
+                    Attributes.key("type").value("String (eg. 'ANIMATION')")
                 )
         )
         val responseFields = responseFields(
