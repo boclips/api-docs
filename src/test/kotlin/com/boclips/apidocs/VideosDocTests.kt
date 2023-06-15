@@ -82,6 +82,8 @@ class VideosDocTests : AbstractDocTests() {
                 .description("The language of the video in a human readable format (e.g English)"),
             fieldWithPath("cefrLevel").optional()
                 .description("The CEFR level of the video (e.g C1)"),
+            fieldWithPath("contentCategories").optional()
+                .description("Tagged subtypes for this video (e.g Animation)"),
 
             fieldWithPath("createdBy").description("Who provided the video"),
             fieldWithPath("availability.availableUntil")
@@ -277,6 +279,11 @@ class VideosDocTests : AbstractDocTests() {
                 .description("Filter by NGSS grade. Multiple values can be specified (comma separated, or by repeating the parameter). See possible values at <<_retrieving_all_supported_ngss_grades,retrieving all NGSS grades>>")
                 .attributes(
                     Attributes.key("type").value("String (eg. 'K-2')")
+                ),
+            parameterWithName("subtype").optional()
+                .description("Filter by video subtype. Multiple values can be specified (comma separated, or by repeating the parameter). Possible values are: ['ANIMATION', 'CHALK_AND_TALK_PRESENTATION', 'DEMONSTRATION', 'DOCUMENTARY', 'HISTORICAL_ARCHIVE', 'INTERVIEW', 'LIVE_ARTS_PERFORMANCES', 'TALKING_HEAD']")
+                .attributes(
+                    Attributes.key("type").value("String (eg. 'animation')")
                 )
         )
         val responseFields = responseFields(
