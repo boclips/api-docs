@@ -91,7 +91,8 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("getThemesByIds").ignored(),
             linkWithRel("getThemesByProvider").description("List all available theme for a specific provider"),
             linkWithRel("access").ignored(),
-            linkWithRel("license").ignored()
+            linkWithRel("license").ignored(),
+            linkWithRel("learningOutcomes").ignored()
         )
         given(indexDocumentationSpec)
             .filter(
