@@ -19,6 +19,9 @@ sourceCompatibility = '11'
 repositories {
     mavenCentral()
     maven {
+        url = uri("https://dl.bintray.com/asciidoctor/maven/")
+    }
+    maven {
         url 'https://jitpack.io'
         credentials { username authToken }
     }
@@ -51,7 +54,6 @@ dependencies {
 
     implementation 'org.imsglobal:basiclti-util:1.1.2'
 
-    implementation 'org.asciidoctor:asciidoctorj-groovy-dsl:2.0.2'
     asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
