@@ -19,9 +19,6 @@ sourceCompatibility = '11'
 repositories {
     mavenCentral()
     maven {
-        url = uri("https://dl.bintray.com/asciidoctor/maven/")
-    }
-    maven {
         url 'https://jitpack.io'
         credentials { username authToken }
     }
@@ -85,6 +82,7 @@ test {
 
 asciidoctorj {
     version = '2.5.10'
+    groovyDslVersion = '2.0.2'
 }
 
 asciidoctor {
