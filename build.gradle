@@ -1,5 +1,5 @@
 plugins {
-    id 'org.asciidoctor.convert' version '2.4.0'
+    id 'org.asciidoctor.jvm.convert' version '3.3.2'
     id 'org.springframework.boot' version '2.6.1'
     id 'org.jetbrains.kotlin.jvm' version '1.5.21'
     id 'org.jetbrains.kotlin.plugin.spring' version '1.5.21'
@@ -35,6 +35,10 @@ test {
     useJUnitPlatform()
 }
 
+configurations {
+    asciidoctorExt
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -51,11 +55,11 @@ dependencies {
 
     implementation 'org.imsglobal:basiclti-util:1.1.2'
 
-    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
-    testImplementation 'com.epages:restdocs-api-spec-restassured:0.10.4'
+    testImplementation 'com.epages:restdocs-api-spec-restassured:0.11.2'
 
     testImplementation 'com.github.boclips:videos:v1255'
     // Below are transitive client dependencies that we need to import ourselves at the moment...
@@ -82,13 +86,13 @@ test {
 
 asciidoctorj {
     version = '2.5.2'
-    groovyDslVersion = '2.0.2'
 }
 
 asciidoctor {
-    attributes 'highlightjs-theme=github'
-    inputs.dir snippetsDir
     dependsOn test
+    configurations 'asciidoctorExt'
+    sourceDir  snippetsDir
+    outputDir  file('build/asciidoc')
     resources {
         from 'src/docs/asciidoc/resources'
         into 'resources'
