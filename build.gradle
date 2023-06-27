@@ -1,3 +1,5 @@
+import org.asciidoctor.gradle.base.SafeMode
+
 plugins {
     id 'org.asciidoctor.jvm.convert' version '3.3.2'
     id 'org.springframework.boot' version '2.6.1'
@@ -96,7 +98,7 @@ asciidoctor {
         from 'src/docs/asciidoc/resources'
         into 'resources'
     }
-    baseDirFollowsSourceDir()
+    baseDirFollowsSourceFile()
 }
 
 postman {
