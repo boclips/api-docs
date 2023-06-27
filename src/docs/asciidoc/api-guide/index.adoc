@@ -11,9 +11,10 @@ Boclips Engineering;
 :snippets: ../../../../build/generated-snippets
 :stylesheet: ../styles.css
 :favicon: ../favicon.ico
+:sourcedir:
 
-include::overview/index.adoc[]
+include::api-guide/overview/index.adoc[]
 
-include::authentication/index.adoc[]
+include::api-guide/authentication/index.adoc[]
 
-include::resources/index.adoc[]
+include::api-guide/resources/index.adoc[]

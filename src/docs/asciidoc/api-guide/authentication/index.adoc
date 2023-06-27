@@ -1,4 +1,4 @@
-:refresh-token-example-snippets: ../../../../../build/generated-snippets/refresh-token-example
+:refresh-token-example-snippets: ../../../build/generated-snippets/refresh-token-example
 
 [[authentication-overview]]
 = Authentication
@@ -18,6 +18,6 @@ Regardless of how the access token is retrieved, the structure of the response w
 include::{refresh-token-example-snippets}/response-body.adoc[]
 include::{refresh-token-example-snippets}/response-fields.adoc[]
 
-include::use-cases.adoc[]
+include::api-guide/authentication/use-cases.adoc[]
 
-include::sample-requests.adoc[]
+include::api-guide/authentication/sample-requests.adoc[]

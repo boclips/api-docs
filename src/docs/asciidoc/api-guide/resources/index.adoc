@@ -3,28 +3,28 @@
 
 Boclips API revolves around REST resources that can be accessed and interacted with via <<overview-hypermedia,hypermedia links>>.
 
-include::api-index.adoc[]
+include::api-guide/resources/api-index.adoc[]
 
-include::events.adoc[]
+include::api-guide/resources/events.adoc[]
 
-include::user.adoc[]
+include::api-guide/resources/user.adoc[]
 
-include::videos.adoc[]
+include::api-guide/resources/videos.adoc[]
 
-include::collections.adoc[]
+include::api-guide/resources/collections.adoc[]
 
-include::disciplines.adoc[]
+include::api-guide/resources/disciplines.adoc[]
 
-include::subjects.adoc[]
+include::api-guide/resources/subjects.adoc[]
 
-include::curriculum.adoc[]
+include::api-guide/resources/curriculum.adoc[]
 
-include::education-levels.adoc[]
+include::api-guide/resources/education-levels.adoc[]
 
-include::tags.adoc[]
+include::api-guide/resources/tags.adoc[]
 
-include::content-partners.adoc[]
+include::api-guide/resources/content-partners.adoc[]
 
-include::channels.adoc[]
+include::api-guide/resources/channels.adoc[]
 
-include::alignments.adoc[]
+include::api-guide/resources/alignments.adoc[]

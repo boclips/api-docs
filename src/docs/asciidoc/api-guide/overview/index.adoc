@@ -2,13 +2,13 @@
 = Overview
 This is the reference guide to the Boclips API.
 
-include::terms-of-service.adoc[]
+include::api-guide/overview/terms-of-service.adoc[]
 
-include::http-verbs.adoc[]
+include::api-guide/overview/http-verbs.adoc[]
 
-include::http-status-codes.adoc[]
+include::api-guide/overview/http-status-codes.adoc[]
 
-include::hypermedia.adoc[]
+include::api-guide/overview/hypermedia.adoc[]
 
-include::errors.adoc[]
+include::api-guide/overview/errors.adoc[]
 

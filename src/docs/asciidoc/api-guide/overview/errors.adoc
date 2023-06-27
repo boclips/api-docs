@@ -1,4 +1,4 @@
-:error-example-snippets: ../../../../../build/generated-snippets/error-example
+:error-example-snippets: ../../../build/generated-snippets/error-example
 
 [[overview-errors]]
 == Errors
