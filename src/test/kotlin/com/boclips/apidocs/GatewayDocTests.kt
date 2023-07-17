@@ -93,6 +93,7 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("access").ignored(),
             linkWithRel("license").ignored(),
             linkWithRel("learningOutcomes").ignored(),
+            linkWithRel("assessmentQuestions").ignored(),
             linkWithRel("accountUsers").ignored(),
             linkWithRel("getAccount").ignored(),
         )
