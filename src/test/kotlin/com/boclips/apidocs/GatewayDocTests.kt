@@ -83,6 +83,8 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("contentCategories").description("Retrieve a list of content categories"),
             linkWithRel("validateShareCode").description("Validate a share code for a given user"),
             linkWithRel("isUserActive").description("Check whether given user is active"),
+
+            linkWithRel("marketSegmentSubjects").ignored(),
             linkWithRel("contractLegalRestrictions").ignored(),
             linkWithRel("suggestions").ignored(),
             linkWithRel("getMetadata").ignored(),
