@@ -61,7 +61,8 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
-    testImplementation 'com.epages:restdocs-api-spec-restassured:0.11.2'
+    testImplementation 'com.epages:restdocs-api-spec:0.16.4'
+    testImplementation 'com.epages:restdocs-api-spec-restassured:0.16.4'
 
     testImplementation 'com.github.boclips:videos:v1255'
     // Below are transitive client dependencies that we need to import ourselves at the moment...
