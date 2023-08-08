@@ -20,7 +20,7 @@ import org.springframework.restdocs.snippet.Attributes.key
 class ChannelDocTests : AbstractDocTests() {
     @Test
     fun `getting single channel`() {
-        val channel = channelsClient.getChannels()._embedded.channels[0]
+        val channel = channelsClient.getChannel("5cfea7cd8ce44c52e6e33b15")
         val responseFields = responseFields(
             fieldWithPath("id").description("The ID of the channel"),
             fieldWithPath("name").description("The name of the channel"),
