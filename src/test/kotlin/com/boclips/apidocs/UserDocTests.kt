@@ -40,7 +40,8 @@ class UserDocTests : AbstractDocTests() {
             fieldWithPath("ages").description(Descriptions.ages),
             subsectionWithPath("subjects").description(Descriptions.subjects),
             fieldWithPath("email").description("The email of the user"),
-            subsectionWithPath("_links").description("HAL links related to this collection")
+            subsectionWithPath("_links").description("HAL links related to this collection"),
+            fieldWithPath("marketSegment").ignored()
         )
         val responseLinks = links(
             linkWithRel("profile").ignored(),
