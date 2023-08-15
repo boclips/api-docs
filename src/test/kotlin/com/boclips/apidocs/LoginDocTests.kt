@@ -3,7 +3,6 @@ package com.boclips.apidocs
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.apidocs.testsupport.BearerTokenDocumentationPolicy
 import com.boclips.apidocs.testsupport.RequestSpecificationFactory
-import com.epages.restdocs.apispec.RestAssuredRestDocumentationWrapper
 import io.restassured.RestAssured.given
 import io.restassured.specification.RequestSpecification
 import org.hamcrest.CoreMatchers.`is`
@@ -48,15 +47,18 @@ class LoginDocTests : AbstractDocTests() {
                     ),
                     tokenResponseFields,
                     requestParameters(
-                        parameterWithName("grant_type").description("The grant type for this flow must always be `refresh_token`").attributes(
-                            Attributes.key("type").value("String - Constant")
-                        ),
-                        parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
-                            Attributes.key("type").value("String")
-                        ),
-                        parameterWithName("refresh_token").description("The `refresh_token` that was obtained before").attributes(
-                            Attributes.key("type").value("String")
-                        )
+                        parameterWithName("grant_type").description("The grant type for this flow must always be `refresh_token`")
+                            .attributes(
+                                Attributes.key("type").value("String - Constant")
+                            ),
+                        parameterWithName("client_id").description("The client ID that you've been issued with")
+                            .attributes(
+                                Attributes.key("type").value("String")
+                            ),
+                        parameterWithName("refresh_token").description("The `refresh_token` that was obtained before")
+                            .attributes(
+                                Attributes.key("type").value("String")
+                            )
                     )
                 )
             )
@@ -77,15 +79,18 @@ class LoginDocTests : AbstractDocTests() {
                         modifyParameters().set("client_id", "***").set("redirect_uri", "***")
                     ),
                     requestParameters(
-                        parameterWithName("response_type").description("The response type for this flow must always be `code`").attributes(
-                            Attributes.key("type").value("String - Constant")
-                        ),
-                        parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
-                            Attributes.key("type").value("String")
-                        ),
-                        parameterWithName("redirect_uri").description("The URL your user should be redirected to once we managed to authorize her. Typically the root of your webapp. We need to whitelist valid redirect URLs on our end, please let us know where your app will be hosted.").attributes(
-                            Attributes.key("type").value("URL")
-                        )
+                        parameterWithName("response_type").description("The response type for this flow must always be `code`")
+                            .attributes(
+                                Attributes.key("type").value("String - Constant")
+                            ),
+                        parameterWithName("client_id").description("The client ID that you've been issued with")
+                            .attributes(
+                                Attributes.key("type").value("String")
+                            ),
+                        parameterWithName("redirect_uri").description("The URL your user should be redirected to once we managed to authorize her. Typically the root of your webapp. We need to whitelist valid redirect URLs on our end, please let us know where your app will be hosted.")
+                            .attributes(
+                                Attributes.key("type").value("URL")
+                            )
                     )
                 )
             )
@@ -107,18 +112,22 @@ class LoginDocTests : AbstractDocTests() {
                         modifyParameters().set("client_id", "***")
                     ),
                     requestParameters(
-                        parameterWithName("grant_type").description("The grant type for this flow must always be `authorization_code`").attributes(
-                            Attributes.key("type").value("String - Constant")
-                        ),
-                        parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
-                            Attributes.key("type").value("String")
-                        ),
-                        parameterWithName("code").description("The client secret that was Boclips issued to you").attributes(
-                            Attributes.key("type").value("String")
-                        ),
-                        parameterWithName("redirect_uri").description("The exact same redirect_uri that was used when requesting the code. Including path and/or params if any.").attributes(
-                            Attributes.key("type").value("String")
-                        )
+                        parameterWithName("grant_type").description("The grant type for this flow must always be `authorization_code`")
+                            .attributes(
+                                Attributes.key("type").value("String - Constant")
+                            ),
+                        parameterWithName("client_id").description("The client ID that you've been issued with")
+                            .attributes(
+                                Attributes.key("type").value("String")
+                            ),
+                        parameterWithName("code").description("The client secret that was Boclips issued to you")
+                            .attributes(
+                                Attributes.key("type").value("String")
+                            ),
+                        parameterWithName("redirect_uri").description("The exact same redirect_uri that was used when requesting the code. Including path and/or params if any.")
+                            .attributes(
+                                Attributes.key("type").value("String")
+                            )
                     )
                 )
             )
@@ -131,7 +140,8 @@ class LoginDocTests : AbstractDocTests() {
         val requestParameters = requestParameters(
             parameterWithName("grant_type").description("The grant type for this flow must always be `client_credentials`")
                 .attributes(
-                    Attributes.key("type").value("String - Constant"), Attributes.key("value").value("client_credentials")
+                    Attributes.key("type").value("String - Constant"),
+                    Attributes.key("value").value("client_credentials")
                 ),
             parameterWithName("client_id").description("The client ID that you've been issued with").attributes(
                 Attributes.key("type").value("String")
@@ -145,13 +155,6 @@ class LoginDocTests : AbstractDocTests() {
             .param("grant_type", "client_credentials")
             .param("client_id", clientId)
             .param("client_secret", clientSecret)
-            .filter(
-                RestAssuredRestDocumentationWrapper.document(
-                    "{method-name}", "hello desc", false,
-                    requestParameters,
-                    tokenResponseFields
-                )
-            )
             .filter(
                 document(
                     "client-credentials-example",
@@ -173,8 +176,10 @@ class LoginDocTests : AbstractDocTests() {
         fieldWithPath("refresh_expires_in").description("Expiration of the `refresh_token` in millis"),
 
         fieldWithPath("scope").description("https://auth0.com/docs/scopes/current/oidc-scopes[OIDC claims] allowed for this particular `access_token`"),
-        fieldWithPath("session_state").optional().description("https://openid.net/specs/openid-connect-session-1_0.html#CreatingUpdatingSessions[OIDC Session State] - only present if the OP supports session management"),
-        fieldWithPath("not-before-policy").optional().description("The instant after which the `access_token` will become valid as long as it hasn't expired"),
+        fieldWithPath("session_state").optional()
+            .description("https://openid.net/specs/openid-connect-session-1_0.html#CreatingUpdatingSessions[OIDC Session State] - only present if the OP supports session management"),
+        fieldWithPath("not-before-policy").optional()
+            .description("The instant after which the `access_token` will become valid as long as it hasn't expired"),
         fieldWithPath("token_type").description("https://openid.net/specs/openid-connect-core-1_0.html[OIDC token type] must be `bearer`")
     )
 
