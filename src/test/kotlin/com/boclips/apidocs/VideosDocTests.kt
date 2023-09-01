@@ -52,7 +52,8 @@ class VideosDocTests : AbstractDocTests() {
             fieldWithPath("playback._links.videoPreview.href").description("VideoPreview URL for the video. Templated with thumbnailWidth, and thumbnailCount")
                 .optional(),
             fieldWithPath("playback._links.videoPreview.templated").ignored(),
-            fieldWithPath("playback._links.hlsStream.href").description("URL for the Apple HLS stream").optional(),
+            fieldWithPath("playback._links.hlsStream.href").description("URL for the Apple HLS stream. Please note this has a lifespan of 48 hours, beyond this the video will need to be retrieved again")
+                .optional(),
             fieldWithPath("playback._links.hlsStream.templated").ignored(),
 
             subsectionWithPath("attachments").description("List of resources attached to the video to help use the video in the classroom"),
