@@ -1,0 +1,28 @@
+[[faq]]
+= Frequently asked questions
+:version-label: API Version
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:sectlinks:
+:favicon:
+
+[[credentials]]
+=== How can we get the credentials?
+Your account manager can help you get credentials that will allow you to authenticate; alternatively, contact support@boclips.com
+
+[[authenticate]]
+=== How can my service authenticate?
+Your service needs to obtain an access token and use it in the following API calls - link:/docs/getting-started-api/authenticating.html[this] page describes how to do it
+
+[[cors]]
+=== I am getting CORS exceptions - what can I do?
+In order to make your CORS issues go away, we will need to whitelist the various domains you’ll be making calls from. Please reach out to your account manager to get it done; alternatively contact support@boclips.com
+
+[[streaming-links]]
+=== How long are video streaming links valid?
+Each video resource contains an HLS link that is used for streaming. Such link has a lifespan of 48 hours, beyond this the video will need to be retrieved again. More on fetching videos can be found link:/docs/api-guide/index.html#resources-video-access[here]
+
+[[whitelabeled-experience]]
+=== Can this API integration be a white-labeled experience?
+Yes! All API integrations can be created to be completely native to your platform.
