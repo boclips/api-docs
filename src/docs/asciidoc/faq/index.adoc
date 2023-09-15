@@ -26,3 +26,7 @@ Each video resource contains an HLS link that is used for streaming. Such link h
 [[whitelabeled-experience]]
 === Can this API integration be a white-labeled experience?
 Yes! All API integrations can be created to be completely native to your platform.
+
+[[integration-support]]
+=== What should I do if I face any other issues?
+Please reach out to your account manager if you face any difficulties; alternatively, contact support@boclips.com
