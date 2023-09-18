@@ -26,3 +26,7 @@ Each video resource contains an HLS link that is used for streaming. Such link h
 [[whitelabeled-experience]]
 === Can this API integration be a white-labeled experience?
 Yes! All API integrations can be created to be completely native to your platform.
+
+[[integration-issues]]
+=== What do I do if I face issues with my API integration?
+We're truly sorry about the inconvenience! Feel free to reach out to your account manager to report the issue, and they'll ensure it gets sorted out promptly!
