@@ -90,6 +90,7 @@ class VideosDocTests : AbstractDocTests() {
             fieldWithPath("restrictions.territory.type").ignored(),
             fieldWithPath("restrictions.territory.territories").ignored(),
             fieldWithPath("restrictions.territory.additionalTerritoryInfo").ignored(),
+            fieldWithPath("restrictions.video").ignored(),
 
             fieldWithPath("createdBy").description("Who provided the video"),
             fieldWithPath("availability.availableUntil")
