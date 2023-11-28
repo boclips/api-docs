@@ -37,7 +37,7 @@ class GatewayDocTests : AbstractDocTests() {
 
     @Test
     fun `resource index contains root links`(restDocumentation: RestDocumentationContextProvider) {
-        val indexDocumentationSpec = RequestSpecificationFactory.createFor(freshClientAccessToken, restDocumentation)
+        val indexDocumentationSpec = RequestSpecificationFactory.createFor(privateClientAccessToken, restDocumentation)
 
         val links = links(
             linkWithRel("trackPageRendered").description("`POST` endpoint for tracking pageRendered event"),
@@ -45,7 +45,6 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("createPlaybackEvents").description("Sending <<_sending_a_batch_of_playback_events,batches>> of playback events from the past"),
             linkWithRel("createSearchQueryCompletionsSuggestedEvent").description("`POST` endpoint for tracking search completions suggested event"),
 
-            linkWithRel("activate").description("A `PUT` request against this link allows to pass profile information and activate a new user"),
             linkWithRel("profile").description("Templated link to get user profile information"),
             linkWithRel("currentUser").description("Get the current user's profile"),
 
@@ -92,11 +91,8 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("getThemesByProviderAndId").ignored(),
             linkWithRel("getThemesByIds").ignored(),
             linkWithRel("getThemesByProvider").description("List all available theme for a specific provider"),
-            linkWithRel("access").ignored(),
-            linkWithRel("license").ignored(),
             linkWithRel("learningOutcomes").ignored(),
-            linkWithRel("assessmentQuestions").ignored(),
-            linkWithRel("getAccount").ignored(),
+            linkWithRel("assessmentQuestions").ignored()
         )
         given(indexDocumentationSpec)
             .filter(
