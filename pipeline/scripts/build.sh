@@ -7,7 +7,7 @@ export GRADLE_USER_HOME
 
 version=$(cat version/tag)
 
-echo "authToken=$GITHUB_AUTH_TOKEN" > $GRADLE_USER_HOME/gradle.properties
+echo "authToken=$JITPACK_AUTH_TOKEN" > $GRADLE_USER_HOME/gradle.properties
 
 (
 cp player-source/docs/player-guide.adoc source/src/docs/asciidoc/
