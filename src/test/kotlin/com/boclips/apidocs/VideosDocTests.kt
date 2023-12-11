@@ -85,6 +85,7 @@ class VideosDocTests : AbstractDocTests() {
                 .description("The CEFR level of the video (e.g C1)"),
             fieldWithPath("contentCategories").optional()
                 .description("Tagged subtypes for this video (e.g Animation)"),
+            fieldWithPath("maxLicenseDurationYears").ignored(),
             fieldWithPath("restrictions.editing.permission").ignored(),
             fieldWithPath("restrictions.editing.editingInfo").ignored(),
             fieldWithPath("restrictions.territory.type").ignored(),
