@@ -11,7 +11,10 @@
 
 [[credentials]]
 === How can we get the credentials?
-Visit http://boclips.com/integrate, click *Start for Free*, and fill out the form. You'll receive your API key in 2-3 business days. Please allow up to 5 business days around US and UK Holidays.
+To try our API, visit http://boclips.com/integrate, click *Start for Free*, and fill out the form. You'll receive your API key in 2-3 business days. Please allow up to 5 business days around US and UK Holidays.
+
+If you are already in contact with one of our sales reps they will assist and provide you with credentials for authentication. For queries at any time you can reach us at support@boclips.com
+
 [[authenticate]]
 === How can my service authenticate?
 Your service needs to obtain an access token and use it in the following API calls - link:/docs/getting-started-api/authenticating.html[this] page describes how to do it
