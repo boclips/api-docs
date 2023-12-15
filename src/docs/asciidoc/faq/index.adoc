@@ -6,10 +6,13 @@
 :source-highlighter: highlightjs
 :sectlinks:
 :favicon:
+:hide-uri-scheme:
 
 [[credentials]]
 === How can we get the credentials?
-Your account manager can help you get credentials that will allow you to authenticate; alternatively, contact support@boclips.com
+To try our API, visit https://boclips.com/integrate, click *Start for Free*, and fill out the form. You'll receive your API key in 2-3 business days. Please allow up to 5 business days around US and UK Holidays.
+
+If you are already in contact with one of our sales reps they will assist and provide you with credentials for authentication. For queries at any time you can reach us at support@boclips.com
 
 [[authenticate]]
 === How can my service authenticate?
