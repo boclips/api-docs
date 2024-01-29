@@ -132,7 +132,7 @@ class LoginDocTests : AbstractDocTests() {
                 )
             )
             .`when`().post("/v1/token").apply { prettyPrint() }
-            .then().assertThat().statusCode(`is`(400)).and()
+            .then().assertThat().statusCode(`is`(401))
     }
 
     @Test
