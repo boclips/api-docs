@@ -16,7 +16,7 @@ apply plugin: 'org.kordamp.gradle.livereload'
 
 group = 'com.boclips'
 version = '1'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
