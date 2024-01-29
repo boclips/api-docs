@@ -4,8 +4,8 @@ platform: linux
 image_resource:
   type: registry-image
   source:
-    repository: openjdk
-    tag: 11-jre-slim-stretch
+    repository: eclipse-temurin
+    tag: 17-jdk
 
 inputs:
   - name: source
