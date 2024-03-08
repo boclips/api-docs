@@ -96,6 +96,8 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("assessmentQuestions").ignored(),
             linkWithRel("getCustomMetadata").ignored(),
             linkWithRel("activate").ignored(),
+            linkWithRel("boclipsSharedCollections").ignored(),
+            linkWithRel("userSharedBookmarkedCollections").ignored(),
         )
         given(indexDocumentationSpec)
             .filter(
