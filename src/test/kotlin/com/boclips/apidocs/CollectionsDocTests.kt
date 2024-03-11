@@ -432,6 +432,7 @@ class CollectionsDocTests : AbstractDocTests() {
             fieldWithPath("origin").ignored(),
             fieldWithPath("discoverable").description("Discoverable collections are discoverable through searching and browsing."),
             fieldWithPath("promoted").description("Whether the collection is promoted"),
+            fieldWithPath("promotedFor").ignored(),
             fieldWithPath("mine").description("Whether the collection belongs to me"),
             fieldWithPath("createdBy").description("Name of collection's creator"),
             fieldWithPath("subjects").description("A list of teaching subjects this collection relates to"),
