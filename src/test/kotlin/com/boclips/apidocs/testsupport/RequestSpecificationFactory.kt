@@ -17,10 +17,11 @@ class RequestSpecificationFactory {
         fun createFor(
             accessToken: String,
             restDocumentation: RestDocumentationContextProvider,
-            bearerTokenDocumentationPolicy: BearerTokenDocumentationPolicy = BearerTokenDocumentationPolicy.MASK
+            bearerTokenDocumentationPolicy: BearerTokenDocumentationPolicy = BearerTokenDocumentationPolicy.MASK,
+            baseUri: String = "https://api.staging-boclips.com"
         ): RequestSpecification {
             return RequestSpecBuilder()
-                .setBaseUri("https://api.staging-boclips.com")
+                .setBaseUri(baseUri)
                 .addHeader("Authorization", "Bearer $accessToken")
                 .addFilter(
                     documentationConfiguration(restDocumentation)

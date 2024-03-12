@@ -10,6 +10,8 @@ api.freshuser.username: fresh@user.com
 api.freshuser.password: $(bo show credential concourse-main boclips.api-docs fresh-user-password)
 api.updatableuser.username: updatable@user.com
 api.updatableuser.password: $(bo show credential concourse-main boclips.api-docs updatable-user-password)
+api.productionuser.username: engineering+api-docs@boclips.com
+api.productionuser.password: $(bo show credential concourse-main boclips.api-docs production-user-password)
 lti.v1p1.consumerkey: api-docs
 lti.v1p1.consumersecret: $(bo show credential concourse-main boclips.api-docs lti-v1p1-consumer-secret)
 EOF

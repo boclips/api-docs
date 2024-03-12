@@ -11,6 +11,8 @@ include::user.adoc[]
 
 include::videos.adoc[]
 
+include::learning-outcomes-and-assessment-questions.adoc[]
+
 include::collections.adoc[]
 
 include::disciplines.adoc[]
