@@ -19,8 +19,8 @@ API_UPDATABLEUSER_USERNAME="updatable@user.com"
 API_UPDATABLEUSER_PASSWORD="$(bo show credential concourse-main boclips.api-docs updatable-user-password)"
 API_CLIENTID="api-docs"
 API_CLIENTSECRET="$(bo show credential concourse-main keycloak-vars staging | jq .api_docs_client_secret)"
-API_PRODUCTIONUSER_USERNAME: engineering+api-docs@boclips.com
-API_PRODUCTIONUSER_PASSWORD: $(bo show credential concourse-main boclips.api-docs production-user-password)
+API_PRODUCTIONUSER_USERNAME="engineering+api-docs@boclips.com"
+API_PRODUCTIONUSER_PASSWORD="$(bo show credential concourse-main boclips.api-docs production-user-password)"
 LTI_V1P1_CONSUMERKEY="$(bo show credential concourse-main boclips.api-docs lti-v1p1-consumer-key)"
 LTI_V1P1_CONSUMERSECRET="$(bo show credential concourse-main boclips.api-docs lti-v1p1-consumer-secret)"
 
