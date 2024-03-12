@@ -45,6 +45,12 @@ abstract class AbstractDocTests {
     @Value("\${api.freshuser.password}")
     lateinit var freshUserPassword: String
 
+    @Value("\${api.productionuser.username}")
+    lateinit var productionUserUsername: String
+
+    @Value("\${api.productionuser.password}")
+    lateinit var productionUserPassword: String
+
     @Value("\${api.updatableuser.username}")
     lateinit var updatableUserUsername: String
 
@@ -73,6 +79,9 @@ abstract class AbstractDocTests {
     protected lateinit var privateClientAccessToken: String
     protected lateinit var privateClientRefreshToken: String
 
+    // production token used to communicate with Hestu
+    protected lateinit var productionUserAccessToken: String
+
     protected lateinit var videosClient: VideosClient
     protected lateinit var subjectsClient: SubjectsClient
     protected lateinit var collectionsClient: CollectionsClient
@@ -84,6 +93,7 @@ abstract class AbstractDocTests {
     fun setUp(restDocumentation: RestDocumentationContextProvider) {
         setupPublicClientTokens()
         setupFreshClientTokens()
+        setupProductionUserToken()
         setupTeacherToken()
         setupPrivateClientTokens()
 
@@ -115,8 +125,8 @@ abstract class AbstractDocTests {
                 "grant_type" to "password",
                 "client_id" to "hq",
                 "username" to username,
-                "password" to password
-            )
+                "password" to password,
+            ),
         ).responseObject<Map<String, Any>>().third.component1()
         publicClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         publicClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -129,11 +139,25 @@ abstract class AbstractDocTests {
                 "grant_type" to "password",
                 "client_id" to "hq",
                 "username" to freshUserUsername,
-                "password" to freshUserPassword
-            )
+                "password" to freshUserPassword,
+            ),
         ).responseObject<Map<String, Any>>().third.component1()
         freshClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         freshClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
+    }
+
+    private fun setupProductionUserToken() {
+        val payload = Fuel.post(
+            "https://api.boclips.com/v1/token",
+            listOf(
+                "grant_type" to "password",
+                "client_id" to "hq",
+                "scope" to "openid",
+                "username" to productionUserUsername,
+                "password" to productionUserPassword,
+            ),
+        ).responseObject<Map<String, Any>>().third.component1()
+        productionUserAccessToken = (payload?.get("access_token") as String?) ?: ""
     }
 
     private fun setupTeacherToken() {
@@ -143,8 +167,8 @@ abstract class AbstractDocTests {
                 "grant_type" to "password",
                 "client_id" to "teachers",
                 "username" to updatableUserUsername,
-                "password" to updatableUserPassword
-            )
+                "password" to updatableUserPassword,
+            ),
         ).responseObject<Map<String, Any>>().third.component1()
         teacherAccessToken = (payload?.get("access_token") as String?) ?: ""
         teacherRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -156,8 +180,8 @@ abstract class AbstractDocTests {
             listOf(
                 "grant_type" to "client_credentials",
                 "client_id" to clientId,
-                "client_secret" to clientSecret
-            )
+                "client_secret" to clientSecret,
+            ),
         ).responseObject<Map<String, Any>>().third.component1()
         privateClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         privateClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
@@ -170,10 +194,10 @@ abstract class AbstractDocTests {
                 ServiceAccountCredentials(
                     authEndpoint = "https://api.staging-boclips.com",
                     clientId = clientId,
-                    clientSecret = clientSecret
-                )
+                    clientSecret = clientSecret,
+                ),
             ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build())
+            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
         )
 
         collectionsClient = CollectionsClient.create(
@@ -182,10 +206,10 @@ abstract class AbstractDocTests {
                 ServiceAccountCredentials(
                     authEndpoint = "https://api.staging-boclips.com",
                     clientId = clientId,
-                    clientSecret = clientSecret
-                )
+                    clientSecret = clientSecret,
+                ),
             ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build())
+            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
         )
 
         subjectsClient = SubjectsClient.create(
@@ -194,10 +218,10 @@ abstract class AbstractDocTests {
                 ServiceAccountCredentials(
                     authEndpoint = "https://api.staging-boclips.com",
                     clientId = clientId,
-                    clientSecret = clientSecret
-                )
+                    clientSecret = clientSecret,
+                ),
             ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build())
+            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
         )
 
         channelsClient = ChannelsClient.create(
@@ -206,10 +230,10 @@ abstract class AbstractDocTests {
                 ServiceAccountCredentials(
                     authEndpoint = "https://api.staging-boclips.com",
                     clientId = clientId,
-                    clientSecret = clientSecret
-                )
+                    clientSecret = clientSecret,
+                ),
             ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build())
+            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
         )
     }
 
@@ -220,6 +244,6 @@ abstract class AbstractDocTests {
         fieldWithPath("page.size").description("Amount of resources in the current page"),
         fieldWithPath("page.totalElements").description("Total amount of resources for this search query across pages"),
         fieldWithPath("page.totalPages").description("Total amount of pages for this search query"),
-        fieldWithPath("page.number").description("Number of the current page. Zero-index based")
+        fieldWithPath("page.number").description("Number of the current page. Zero-index based"),
     )
 }
