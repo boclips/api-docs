@@ -1,0 +1,30 @@
+[[resources-learning-outcomes-assessment-questions]]
+== Learning outcomes and assessment questions
+CAUTION: These features are still in beta and could potentially change.
+
+=== Retrieving learning outcomes
+List of key takeaways for the video
+
+[IMPORTANT]
+====
+
+*Data provided by this endpoint is AI-generated*
+
+Read more about our AI policy https://www.boclips.com/ai-policy[here]
+====
+
+operation::learning-outcomes-get[snippets='path-parameters,http-request,curl-request,http-response']
+
+=== Retrieving assessment questions
+List of questions that could be asked about the content of the video in an assesment
+
+[IMPORTANT]
+====
+
+*Data provided by this endpoint is AI-generated*
+
+Read more about our AI policy https://www.boclips.com/ai-policy[here]
+====
+
+operation::assessment-questions-get[snippets='path-parameters,http-request,curl-request,http-response']
+
