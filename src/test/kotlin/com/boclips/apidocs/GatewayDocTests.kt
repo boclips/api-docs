@@ -92,8 +92,6 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("getThemesByProviderAndId").ignored(),
             linkWithRel("getThemesByIds").ignored(),
             linkWithRel("getThemesByProvider").description("List all available theme for a specific provider"),
-            linkWithRel("learningOutcomes").ignored(),
-            linkWithRel("assessmentQuestions").ignored(),
             linkWithRel("getCustomMetadata").ignored(),
             linkWithRel("activate").ignored(),
             linkWithRel("boclipsSharedCollections").ignored(),
