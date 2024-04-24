@@ -96,6 +96,11 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("activate").ignored(),
             linkWithRel("boclipsSharedCollections").ignored(),
             linkWithRel("userSharedBookmarkedCollections").ignored(),
+            linkWithRel("learningOutcomes").description("Retrieve learning outcomes of a video"),
+            linkWithRel("assessmentQuestions").description("Retrieve assessment questions of a video"),
+            linkWithRel("getHighlight").description("Retrieve a highlight by ID"),
+            linkWithRel("getHighlights").description("Retrieve all highlights with filters"),
+
         )
         given(indexDocumentationSpec)
             .filter(
