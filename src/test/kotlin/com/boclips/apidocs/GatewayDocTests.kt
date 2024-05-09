@@ -6,6 +6,8 @@ import com.epages.restdocs.apispec.RestAssuredRestDocumentationWrapper
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
 import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
@@ -91,11 +93,83 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("getAllProviders").description("List all providers and their types"),
             linkWithRel("getThemesByProviderAndId").ignored(),
             linkWithRel("getThemesByIds").ignored(),
-            linkWithRel("getThemesByProvider").description("List all available theme for a specific provider"),
+            linkWithRel("getThemesByProvider").description("List all available themes for a specific provider"),
             linkWithRel("getCustomMetadata").ignored(),
             linkWithRel("activate").ignored(),
             linkWithRel("boclipsSharedCollections").ignored(),
             linkWithRel("userSharedBookmarkedCollections").ignored(),
+        )
+        given(indexDocumentationSpec)
+            .filter(
+                RestAssuredRestDocumentationWrapper.document(
+                    "{method-name}", "Links fetching", false, links
+
+                )
+            )
+            .filter(
+                document(
+                    "resource-index",
+                    links
+                )
+            )
+            .`when`().get("/v1/").apply { prettyPrint() }
+            .then().assertThat().statusCode(`is`(200))
+    }
+
+    @Test
+    @Execution(ExecutionMode.SAME_THREAD)
+    fun `prod resource index contains hestu links`(restDocumentation: RestDocumentationContextProvider) {
+        val indexDocumentationSpec = RequestSpecificationFactory.createFor(
+            accessToken = productionUserAccessToken,
+            restDocumentation = restDocumentation,
+            baseUri = "https://api.boclips.com",
+        )
+
+        val links = links(
+
+            // TODO(AG) all ignored links will be removed and filtered out
+            linkWithRel("trackPageRendered").ignored(),
+            linkWithRel("trackPlatformInteractedWith").ignored(),
+            linkWithRel("createPlaybackEvents").ignored(),
+            linkWithRel("createSearchQueryCompletionsSuggestedEvent").ignored(),
+            linkWithRel("profile").ignored(),
+            linkWithRel("currentUser").ignored(),
+            linkWithRel("video").ignored(),
+            linkWithRel("searchVideos").ignored(),
+            linkWithRel("videoFeed").ignored(),
+            linkWithRel("tags").ignored(),
+            linkWithRel("createCollection").ignored(),
+            linkWithRel("myCollections").ignored(),
+            linkWithRel("mySavedCollections").ignored(),
+            linkWithRel("discoverCollections").ignored(),
+            linkWithRel("promotedCollections").ignored(),
+            linkWithRel("promotedForCollections").ignored(),
+            linkWithRel("searchCollections").ignored(),
+            linkWithRel("collection").ignored(),
+            linkWithRel("subjects").ignored(),
+            linkWithRel("allSubjects").ignored(),
+            linkWithRel("educationLevels").ignored(),
+            linkWithRel("disciplines").ignored(),
+            linkWithRel("allDisciplines").ignored(),
+            linkWithRel("ngssCodes").ignored(),
+            linkWithRel("ngssGrades").ignored(),
+            linkWithRel("countries").ignored(),
+            linkWithRel("channel").ignored(),
+            linkWithRel("channels").ignored(),
+            linkWithRel("validateShareCode").ignored(),
+            linkWithRel("isUserActive").ignored(),
+            linkWithRel("marketSegmentSubjects").ignored(),
+            linkWithRel("contractLegalRestrictions").ignored(),
+            linkWithRel("suggestions").ignored(),
+            linkWithRel("getMetadata").ignored(),
+            linkWithRel("getAllProviders").ignored(),
+            linkWithRel("getThemesByProviderAndId").ignored(),
+            linkWithRel("getThemesByIds").ignored(),
+            linkWithRel("getThemesByProvider").ignored(),
+            linkWithRel("boclipsSharedCollections").ignored(),
+            linkWithRel("userSharedBookmarkedCollections").ignored(),
+            linkWithRel("boclipsWebAppAccess").ignored(),
+
             linkWithRel("learningOutcomes").description("Retrieve learning outcomes of a video"),
             linkWithRel("assessmentQuestions").description("Retrieve assessment questions of a video"),
             linkWithRel("getHighlight").description("Retrieve a highlight by ID"),
@@ -111,7 +185,7 @@ class GatewayDocTests : AbstractDocTests() {
             )
             .filter(
                 document(
-                    "resource-index",
+                    "prod-resource-index",
                     links
                 )
             )
