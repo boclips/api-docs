@@ -15,4 +15,6 @@ The best way to handle the API integration is by assuming that links may come an
 
 A `GET` request is used to access the index.
 
-operation::resource-index[snippets='http-request,curl-request,http-response,links']
+operation::prod-resource-index[snippets='http-request,curl-request,http-response']
+operation::resource-index[snippets='links']
+operation::prod-resource-index[snippets='links']

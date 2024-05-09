@@ -11,6 +11,7 @@ import org.junit.jupiter.api.parallel.ExecutionMode
 import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
+import org.springframework.restdocs.hypermedia.HypermediaDocumentation.relaxedLinks
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
@@ -124,65 +125,13 @@ class GatewayDocTests : AbstractDocTests() {
             restDocumentation = restDocumentation,
             baseUri = "https://api.boclips.com",
         )
-
-        val links = links(
-
-            // TODO(AG) all ignored links will be removed and filtered out
-            linkWithRel("trackPageRendered").ignored(),
-            linkWithRel("trackPlatformInteractedWith").ignored(),
-            linkWithRel("createPlaybackEvents").ignored(),
-            linkWithRel("createSearchQueryCompletionsSuggestedEvent").ignored(),
-            linkWithRel("profile").ignored(),
-            linkWithRel("currentUser").ignored(),
-            linkWithRel("video").ignored(),
-            linkWithRel("searchVideos").ignored(),
-            linkWithRel("videoFeed").ignored(),
-            linkWithRel("tags").ignored(),
-            linkWithRel("createCollection").ignored(),
-            linkWithRel("myCollections").ignored(),
-            linkWithRel("mySavedCollections").ignored(),
-            linkWithRel("discoverCollections").ignored(),
-            linkWithRel("promotedCollections").ignored(),
-            linkWithRel("promotedForCollections").ignored(),
-            linkWithRel("searchCollections").ignored(),
-            linkWithRel("collection").ignored(),
-            linkWithRel("subjects").ignored(),
-            linkWithRel("allSubjects").ignored(),
-            linkWithRel("educationLevels").ignored(),
-            linkWithRel("disciplines").ignored(),
-            linkWithRel("allDisciplines").ignored(),
-            linkWithRel("ngssCodes").ignored(),
-            linkWithRel("ngssGrades").ignored(),
-            linkWithRel("countries").ignored(),
-            linkWithRel("channel").ignored(),
-            linkWithRel("channels").ignored(),
-            linkWithRel("validateShareCode").ignored(),
-            linkWithRel("isUserActive").ignored(),
-            linkWithRel("marketSegmentSubjects").ignored(),
-            linkWithRel("contractLegalRestrictions").ignored(),
-            linkWithRel("suggestions").ignored(),
-            linkWithRel("getMetadata").ignored(),
-            linkWithRel("getAllProviders").ignored(),
-            linkWithRel("getThemesByProviderAndId").ignored(),
-            linkWithRel("getThemesByIds").ignored(),
-            linkWithRel("getThemesByProvider").ignored(),
-            linkWithRel("boclipsSharedCollections").ignored(),
-            linkWithRel("userSharedBookmarkedCollections").ignored(),
-            linkWithRel("boclipsWebAppAccess").ignored(),
-
+        val links = relaxedLinks(
             linkWithRel("learningOutcomes").description("Retrieve learning outcomes of a video"),
             linkWithRel("assessmentQuestions").description("Retrieve assessment questions of a video"),
             linkWithRel("getHighlight").description("Retrieve a highlight by ID"),
-            linkWithRel("getHighlights").description("Retrieve all highlights with filters"),
-
+            linkWithRel("getHighlights").description("Retrieve all highlights with filters")
         )
         given(indexDocumentationSpec)
-            .filter(
-                RestAssuredRestDocumentationWrapper.document(
-                    "{method-name}", "Links fetching", false, links
-
-                )
-            )
             .filter(
                 document(
                     "prod-resource-index",
