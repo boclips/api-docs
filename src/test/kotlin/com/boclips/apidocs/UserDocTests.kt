@@ -37,7 +37,6 @@ class UserDocTests : AbstractDocTests() {
             fieldWithPath("id").description("The ID of the user"),
             fieldWithPath("firstName").description(Descriptions.firstName),
             fieldWithPath("lastName").description(Descriptions.lastName),
-            fieldWithPath("ages").description(Descriptions.ages),
             subsectionWithPath("subjects").description(Descriptions.subjects),
             fieldWithPath("email").description("The email of the user"),
             subsectionWithPath("_links").description("HAL links related to this collection")
@@ -83,10 +82,6 @@ class UserDocTests : AbstractDocTests() {
             fieldWithPath("firstName").optional().description(Descriptions.firstName),
             fieldWithPath("lastName").optional().description(Descriptions.lastName),
             fieldWithPath("subjects").optional().description(Descriptions.subjects),
-            fieldWithPath("ages").optional().description(Descriptions.ages),
-            fieldWithPath("country").optional()
-                .description("The country of the user (3-letter ISO Country Code)"),
-            fieldWithPath("state").optional().description("The US state of the user (2-letter ISO Code)")
         )
         val userId = extractUserId(myLinks["profile"]!!)
 
@@ -112,10 +107,7 @@ class UserDocTests : AbstractDocTests() {
                 {
                     "firstName": "John",
                     "lastName": "Smith",
-                    "subjects": ["$subject"],
-                    "ages": [7,8,9],
-                    "country": "USA",
-                    "state": "AZ"
+                    "subjects": ["$subject"]
                 }
                 """.trimIndent()
             )

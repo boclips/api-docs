@@ -79,8 +79,6 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("ngssCodes").description("List of all NGSS codes available"),
             linkWithRel("ngssGrades").description("List of all NGSS grades available"),
 
-            linkWithRel("countries").description("List of countries"),
-
             linkWithRel("channel").description("Retrieve a specific channel"),
             linkWithRel("channels").description("Retrieve all channels"),
             linkWithRel("contentCategories").description("Retrieve a list of content categories"),
