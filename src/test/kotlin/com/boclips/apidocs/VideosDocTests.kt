@@ -32,8 +32,6 @@ class VideosDocTests : AbstractDocTests() {
             fieldWithPath("updatedAt").description("Date when the most recent update occured"),
             subsectionWithPath("subjects").description("Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details"),
             fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
-            fieldWithPath("rating").description("Deprecated we are planning to drop support for this field. Score of this video based on user rating. From 0 to 5"),
-            fieldWithPath("yourRating").description("Deprecated we are planning to drop support for this field. Score you gave to this video. From 0 to 5"),
             subsectionWithPath("bestFor").description("List of best for labels. See <<resources-video-access_response_fields-bestFor,bestFor>> for payload details"),
             fieldWithPath("promoted").description("Promoted status of this video"),
             fieldWithPath("type").description("Content type of this video"),
@@ -103,7 +101,6 @@ class VideosDocTests : AbstractDocTests() {
         val videoResponseLinks = links(
             linkWithRel("self").description("The video resource that was just retrieved"),
             linkWithRel("logInteraction").description("`POST` request to this URL will log user's interaction with this video"),
-            linkWithRel("rate").description("`PATCH` request to this URL will give this video a rating"),
             linkWithRel("tag").optional().description("`PATCH` request to this URL will tag this video"),
             linkWithRel("transcript").description("`GET` to fetch transcripts of video")
         )
@@ -262,9 +259,9 @@ class VideosDocTests : AbstractDocTests() {
                     Attributes.key("type").value("List of strings (e.g 'explainer')")
                 ),
             parameterWithName("sort_by").optional()
-                .description("A key to sort the results by, currently only release_date and rating are supported. This only sorts in a descending direction")
+                .description("A key to sort the results by, currently only release_date is supported. This only sorts in a descending direction")
                 .attributes(
-                    Attributes.key("type").value("RELEASE_DATE, RATING")
+                    Attributes.key("type").value("RELEASE_DATE")
                 ),
             parameterWithName("id").optional()
                 .description("Filter by video ids, this can be a comma separated list of video ids")
