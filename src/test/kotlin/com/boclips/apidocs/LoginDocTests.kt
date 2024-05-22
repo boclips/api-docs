@@ -70,8 +70,8 @@ class LoginDocTests : AbstractDocTests() {
     fun `authorization code flow - requesting code`() {
         given(loginDocumentationSpec).urlEncodingEnabled(true)
             .param("response_type", "code")
-            .param("client_id", "teachers")
-            .param("redirect_uri", "https://teachers.staging-boclips.com")
+            .param("client_id", userClient)
+            .param("redirect_uri", "https://app.staging-boclips.com")
             .filter(
                 document(
                     "authorization-code-example",
@@ -188,7 +188,7 @@ class LoginDocTests : AbstractDocTests() {
     @BeforeEach
     fun setupDocumentationSpec(restDocumentation: RestDocumentationContextProvider) {
         loginDocumentationSpec = RequestSpecificationFactory.createFor(
-            accessToken = publicClientAccessToken,
+            accessToken = userAccessToken,
             restDocumentation = restDocumentation,
             bearerTokenDocumentationPolicy = BearerTokenDocumentationPolicy.HIDE
         )

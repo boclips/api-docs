@@ -76,7 +76,7 @@ class UserDocTests : AbstractDocTests() {
     @Test
     fun `updating user profile`(restDocumentation: RestDocumentationContextProvider) {
         val subject = subjectsClient.getAllSubjects()._embedded.subjects[0].id
-        val myLinks = getLinksFor(teacherAccessToken)
+        val myLinks = getLinksFor(userAccessToken)
 
         val requestFields = requestFields(
             fieldWithPath("firstName").optional().description(Descriptions.firstName),
@@ -130,7 +130,7 @@ class UserDocTests : AbstractDocTests() {
     @BeforeEach
     override fun setUp(restDocumentation: RestDocumentationContextProvider) {
         super.setUp(restDocumentation)
-        stubOwnerSpec = RequestSpecificationFactory.createFor(teacherAccessToken, restDocumentation)
-        links = getLinksFor(teacherAccessToken)
+        stubOwnerSpec = RequestSpecificationFactory.createFor(userAccessToken, restDocumentation)
+        links = getLinksFor(userAccessToken)
     }
 }

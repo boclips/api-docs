@@ -71,9 +71,10 @@ abstract class AbstractDocTests {
     protected lateinit var freshClientAccessToken: String
     protected lateinit var freshClientRefreshToken: String
 
+    protected var userClient = "api-docs-user-client"
     // credentials used for operations modifying the user
-    protected lateinit var teacherAccessToken: String
-    protected lateinit var teacherRefreshToken: String
+    protected lateinit var userAccessToken: String
+    protected lateinit var userRefreshToken: String
 
     // credentials used to set up the fixtures
     protected lateinit var privateClientAccessToken: String
@@ -165,13 +166,13 @@ abstract class AbstractDocTests {
             "https://api.staging-boclips.com/v1/token",
             listOf(
                 "grant_type" to "password",
-                "client_id" to "teachers",
+                "client_id" to "api-docs-user-client",
                 "username" to updatableUserUsername,
                 "password" to updatableUserPassword,
             ),
         ).responseObject<Map<String, Any>>().third.component1()
-        teacherAccessToken = (payload?.get("access_token") as String?) ?: ""
-        teacherRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
+        userAccessToken = (payload?.get("access_token") as String?) ?: ""
+        userRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
     private fun setupPrivateClientTokens() {
