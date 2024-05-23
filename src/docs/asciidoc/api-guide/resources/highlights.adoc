@@ -1,0 +1,32 @@
+== Highlights
+CAUTION: These features are still in beta and could potentially change.
+
+A highlight is a segment (generally 15s-1m) of a video bit on an individual topic. Highlights are composed of the original `video_id`, a `start_time` and an `end_time`.
+
+Highlights were designed to provide short, targeted intervention or explanation for example in response to getting a multiple choice answer wrong or embedded in generative AI experiences combining text and video. See our generative AI highlights demo for an example https://highlights.boclips.com/login.
+
+To display a highlight using our video player see the "Loading a section of a video" section of the video documentation https://docs.boclips.com/docs/player-guide.html#_loading_a_section_of_a_video.
+
+=== Accessing a single highlight
+You can retrieve a single highlight by making a `GET` request using its ID. Highlights are searched for semantically, using the meaning rather than keywords of your phrase.
+
+You can specify a version of this endpoint by passing the `X-Boclips-Api-Version` header in YYYY-MM-DD format.
+ We strongly advise sending this to protect against breaking changes. The current version is 2024-04-24
+
+----
+"X-Boclips-Api-Version": "YYYY-MM-DD"
+----
+
+operation::highlight-get[snippets='path-parameters,http-request,curl-request,http-response']
+
+=== Highlight search
+A GET request against the highlight link will return a collection of highlights.
+
+You can specify a version of this endpoint by passing the `X-Boclips-Api-Version` header in YYYY-MM-DD format.
+ We strongly advise sending this to protect against breaking changes. The current version is 2024-04-24
+
+----
+"X-Boclips-Api-Version": "YYYY-MM-DD"
+----
+
+operation::highlights-get[snippets='request-parameters,http-request,curl-request,http-response']
