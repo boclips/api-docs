@@ -100,7 +100,7 @@ class UserDocTests : AbstractDocTests() {
                 """
                 {
                     "firstName": "John",
-                    "lastName": "Smith",
+                    "lastName": "Smith"
                 }
                 """.trimIndent()
             )
