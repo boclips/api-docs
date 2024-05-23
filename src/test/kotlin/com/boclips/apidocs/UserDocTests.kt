@@ -22,11 +22,8 @@ import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 object Descriptions {
-    const val firstName = "The first name of the user"
-    const val lastName = "The user's last name"
-    const val subjects =
-        "Ids of teaching <<resources-subjects,subjects>> relevant for this user. They influence <<resources-user-profile,search results>>"
-    const val ages = "The student ages taught by the user"
+    const val FIRSTNAME = "The first name of the user"
+    const val LASTNAME = "The user's last name"
 }
 
 class UserDocTests : AbstractDocTests() {
@@ -35,9 +32,8 @@ class UserDocTests : AbstractDocTests() {
     fun `getting user profile`() {
         val responseFields = responseFields(
             fieldWithPath("id").description("The ID of the user"),
-            fieldWithPath("firstName").description(Descriptions.firstName),
-            fieldWithPath("lastName").description(Descriptions.lastName),
-            subsectionWithPath("subjects").description(Descriptions.subjects),
+            fieldWithPath("firstName").description(Descriptions.FIRSTNAME),
+            fieldWithPath("lastName").description(Descriptions.LASTNAME),
             fieldWithPath("email").description("The email of the user"),
             subsectionWithPath("_links").description("HAL links related to this collection")
         )
@@ -75,13 +71,11 @@ class UserDocTests : AbstractDocTests() {
 
     @Test
     fun `updating user profile`(restDocumentation: RestDocumentationContextProvider) {
-        val subject = subjectsClient.getAllSubjects()._embedded.subjects[0].id
         val myLinks = getLinksFor(userAccessToken)
 
         val requestFields = requestFields(
-            fieldWithPath("firstName").optional().description(Descriptions.firstName),
-            fieldWithPath("lastName").optional().description(Descriptions.lastName),
-            fieldWithPath("subjects").optional().description(Descriptions.subjects),
+            fieldWithPath("firstName").optional().description(Descriptions.FIRSTNAME),
+            fieldWithPath("lastName").optional().description(Descriptions.LASTNAME),
         )
         val userId = extractUserId(myLinks["profile"]!!)
 
@@ -106,8 +100,7 @@ class UserDocTests : AbstractDocTests() {
                 """
                 {
                     "firstName": "John",
-                    "lastName": "Smith",
-                    "subjects": ["$subject"]
+                    "lastName": "Smith"
                 }
                 """.trimIndent()
             )
