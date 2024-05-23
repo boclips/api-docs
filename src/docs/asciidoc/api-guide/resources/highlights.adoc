@@ -1,4 +1,6 @@
 == Highlights
+CAUTION: These features are still in beta and could potentially change.
+
 A highlight is a segment (generally 15s-1m) of a video bit on an individual topic. Highlights are composed of the original `video_id`, a `start_time` and an `end_time`.
 
 Highlights were designed to provide short, targeted intervention or explanation for example in response to getting a multiple choice answer wrong or embedded in generative AI experiences combining text and video. See our generative AI highlights demo for an example https://highlights.boclips.com/login.

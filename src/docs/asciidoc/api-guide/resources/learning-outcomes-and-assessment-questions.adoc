@@ -1,5 +1,5 @@
 [[resources-learning-outcomes-assessment-questions]]
-== Learning Outcomes, Assessment Questions, and Highlights
+== Learning Outcomes, Assessment Questions
 CAUTION: These features are still in beta and could potentially change.
 
 === Retrieving learning outcomes
