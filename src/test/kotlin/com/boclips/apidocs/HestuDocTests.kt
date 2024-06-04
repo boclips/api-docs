@@ -178,7 +178,7 @@ class HestuDocTests : AbstractDocTests() {
 
             RequestDocumentation.parameterWithName("hyper_relevance")
                 .optional()
-                .description("if true, the highlights will start at the part that is most relevant to your query. Default is false, which will return the full duration of the highlights.")
+                .description("If true, the highlights will start at the part that is most relevant to your query. Default is false, which will return the full duration of the highlights.")
                 .attributes(Attributes.key("type").value("Boolean"))
         )
         RestAssured.given(hestuDocumentationSpec)
