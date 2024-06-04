@@ -174,7 +174,12 @@ class HestuDocTests : AbstractDocTests() {
             RequestDocumentation.parameterWithName("max_overlap")
                 .optional()
                 .description("If multiple highlights come from the same video, this is the maximum they are allowed to overlap as a % (expressed as a decimal e.g. 0.2 is 20%) of the smallest video. If 1 a highlight can be a full segment of another highlight. If 0 no overlap is allowed.")
-                .attributes(Attributes.key("type").value("String"))
+                .attributes(Attributes.key("type").value("String")),
+
+            RequestDocumentation.parameterWithName("hyper_relevance")
+                .optional()
+                .description("if true, the highlights will start at the part that is most relevant to your query. Default is false, which will return the full duration of the highlights.")
+                .attributes(Attributes.key("type").value("Boolean"))
         )
         RestAssured.given(hestuDocumentationSpec)
             .filter(
