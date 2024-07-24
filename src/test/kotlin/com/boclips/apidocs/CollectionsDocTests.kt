@@ -429,7 +429,6 @@ class CollectionsDocTests : AbstractDocTests() {
             subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
             fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
             fieldWithPath("public").ignored(),
-            fieldWithPath("origin").ignored(),
             fieldWithPath("discoverable").description("Discoverable collections are discoverable through searching and browsing."),
             fieldWithPath("promoted").description("Whether the collection is promoted"),
             fieldWithPath("promotedFor").ignored(),
