@@ -97,6 +97,8 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("activate").ignored(),
             linkWithRel("boclipsSharedCollections").ignored(),
             linkWithRel("userSharedBookmarkedCollections").ignored(),
+            linkWithRel("searchSchools").ignored(),
+            linkWithRel("countries").ignored(),
         )
         given(indexDocumentationSpec)
             .filter(
