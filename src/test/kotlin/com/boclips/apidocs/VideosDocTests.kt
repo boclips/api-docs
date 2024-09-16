@@ -320,7 +320,7 @@ class VideosDocTests : AbstractDocTests() {
                     .set("source", "boclips")
                     .set("sort_by", "RELEASE_DATE")
                     .set("channel", "5cf140c4c1475c47f7178679")
-                    .set("type", "NEWS")
+                    .set("type", "HISTORICAL_NEWS_ARCHIVE")
                     .expand()
             )
             .apply { println(prettyPrint()) }
