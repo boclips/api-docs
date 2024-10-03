@@ -159,7 +159,7 @@ class HestuDocTests : AbstractDocTests() {
                 .attributes(Attributes.key("type").value("String")),
             RequestDocumentation.parameterWithName("threshold")
                 .optional()
-                .description("Minimum similarity score a clip needs to be returned between 0 and 1. Default is none, which will return the closest match no matter what.")
+                .description("Minimum similarity score a clip needs to be returned between 0 and 1. Default is 0.815 which is a good balance between relevency and results. 0 will return the closest matches no matter the (lack of) relevence.")
                 .attributes(Attributes.key("type").value("Number")),
             RequestDocumentation.parameterWithName("size")
                 .optional()
