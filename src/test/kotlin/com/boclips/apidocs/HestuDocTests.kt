@@ -170,15 +170,15 @@ class HestuDocTests : AbstractDocTests() {
                 .optional()
                 .description("Filter by education level. Multiple values can be specified (comma separated). See possible values at <<resources-education-levels,education levels resource>>")
                 .attributes(Attributes.key("type").value("String")),
-            
+
             RequestDocumentation.parameterWithName("channel")
                 .optional()
                 .description("Filter by channel IDs (channel is the provider of the video content). Multiple values can be specified (comma separated)")
                 .attributes(Attributes.key("type").value("String")),
-            
+
             RequestDocumentation.parameterWithName("subtype")
                 .optional()
-                .description("Filter by video subtype. Multiple values can be specified (comma separated). Possible values are: ['ANIMATION', 'CHALK_AND_TALK_PRESENTATION', 'DEMONSTRATION', 'DOCUMENTARY', 'HISTORICAL_ARCHIVE', 'INTERVIEW', 'LIVE_ARTS_PERFORMANCES', 'TALKING_HEAD'])
+                .description("Filter by video subtype. Multiple values can be specified (comma separated). Possible values are: ['ANIMATION', 'CHALK_AND_TALK_PRESENTATION', 'DEMONSTRATION', 'DOCUMENTARY', 'HISTORICAL_ARCHIVE', 'INTERVIEW', 'LIVE_ARTS_PERFORMANCES', 'TALKING_HEAD']")
                 .attributes(Attributes.key("type").value("String")),
 
             RequestDocumentation.parameterWithName("max_overlap")
