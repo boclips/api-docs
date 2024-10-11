@@ -110,6 +110,8 @@ class HestuDocTests : AbstractDocTests() {
             fieldWithPath("end_time").description("End  time of the highlight"),
             fieldWithPath("duration").description("Duration of the highlight"),
             fieldWithPath("score").description("Confidence score of the highlight"),
+            fieldWithPath("createdBy").optional().description("Who provided the video for highlight"),
+            fieldWithPath("contentCategories").optional().description("Tagged subtypes for this highlight (e.g Animation)"),
             subsectionWithPath("_links").description("HAL links for the highlight")
 
         )
@@ -151,6 +153,9 @@ class HestuDocTests : AbstractDocTests() {
             fieldWithPath("_embedded.highlights[].end_time").description("End  time of the highlight"),
             fieldWithPath("_embedded.highlights[].duration").description("Duration of the highlight"),
             fieldWithPath("_embedded.highlights[].score").description("Confidence score of the highlight"),
+            fieldWithPath("_embedded.highlights[].createdBy").optional().description("Who provided the video for highlight"),
+            fieldWithPath("_embedded.highlights[].contentCategories").optional().description("Tagged subtypes for this highlight (e.g Animation)"),
+
             subsectionWithPath("_embedded.highlights[]._links").description("HAL links for the highlight"),
         )
         val requestParameters = RequestDocumentation.requestParameters(
@@ -209,7 +214,7 @@ class HestuDocTests : AbstractDocTests() {
                 ),
             )
             .`when`()
-            .get("$HIGHLIGHTS_PATH?query=test")
+            .get("$HIGHLIGHTS_PATH?query=dna")
             .apply { prettyPrint() }
             .then()
             .assertThat().statusCode(CoreMatchers.`is`(200))
