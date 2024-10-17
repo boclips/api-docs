@@ -26,7 +26,6 @@ operation::resource-collection[snippets='path-parameters,http-request,curl-reque
 
 Attachments allow linking additional resources to video collections. The only type of attachments currently supported are lesson plans, which are in form of a hyperlink to an external document that can be accessed by collection's viewer. Additionally, an attachment can have a description.
 
-operation::resource-collection[snippets='response-fields-attachments']
 
 [[resources-collections-projections]]
 ==== Projections
@@ -63,7 +62,7 @@ Upon success, the API will respond with a `204` status.
 
 Example below shows all possible values, but subsets can be submitted as well.
 
-operation::resource-collection-edit[snippets='request-fields,request-fields-attachment,http-request,curl-request,http-response']
+operation::resource-collection-edit[snippets='request-fields,http-request,curl-request,http-response']
 
 ==== Adding videos to a collection
 

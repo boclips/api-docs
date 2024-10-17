@@ -132,13 +132,13 @@ class CollectionsDocTests : AbstractDocTests() {
 
     @Test
     fun `retrieving a collection`() {
-        testRetrievingCollection(snippetId = "Retrieving a collection")
+        testRetrievingCollection(snippetId = "resource-collection")
     }
 
     @Test
     fun `retrieving a collection with detailed projection`() {
         testRetrievingCollection(
-            snippetId = "Retrieving a collection with detailed projection",
+            snippetId = "resource-collection-detailed",
             useDetailedProjection = true
         )
     }
@@ -491,7 +491,7 @@ class CollectionsDocTests : AbstractDocTests() {
             .assertThat().statusCode(`is`(200))
     }
 
-    val someExistingVideoIds = listOf("5c542abf5438cdbcb56df0bf", "5cf15aaece7c2c4e212747d3")
+    val someExistingVideoIds = listOf("5c542abf5438cdbcb56df0bf", "5c9e4958cbe6e54027116f8f")
     val anotherCollectionTitle = "Discoverable Boclips Collection"
 
     lateinit var subjects: List<SubjectResource>
