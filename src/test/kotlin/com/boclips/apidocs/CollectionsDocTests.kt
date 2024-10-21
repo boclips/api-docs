@@ -426,6 +426,7 @@ class CollectionsDocTests : AbstractDocTests() {
             fieldWithPath("title").description("Collection's title"),
             fieldWithPath("description").description("Collection's description"),
             subsectionWithPath("videos").description("A list of <<resources-videos,videos>> in the collection. Shallow video details are returned by default"),
+            subsectionWithPath("assets").ignored(),
             subsectionWithPath("subjects").description("A list of subjects assigned to this collection. See <<resources-subjects_response_fields,subjects>> for payload details"),
             fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
             fieldWithPath("public").ignored(),
