@@ -440,7 +440,6 @@ class CollectionsDocTests : AbstractDocTests() {
             subsectionWithPath("permissions").ignored(),
             subsectionWithPath("attachments").description("A list of <<resources-collections-attachments,attachments>> linked to this collection"),
             subsectionWithPath("segments").ignored(),
-            subsectionWithPath("videoNotes").ignored(),
             subsectionWithPath("_links").description("HAL links related to this collection"),
             fieldWithPath("attachments[*].id").description("ID of the attachment"),
             fieldWithPath("attachments[*].type").description("The type of the attachment: `LESSON_PLAN` `ACTIVITY`")
