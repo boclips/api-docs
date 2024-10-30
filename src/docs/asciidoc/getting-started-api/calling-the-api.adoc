@@ -35,11 +35,5 @@ The way our customers usually tackle this issue is by running an additional back
 
 image::../resources/token-retrieval.jpg[]
 
-=== Cross-Origin Resource Sharing
-
-Please note that the Boclips API is protected with https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS[CORS^], and we will need to whitelist the various domains you'll be making calls from.
-
-Please contact us directly, and we'll set it up for you in no time 🏃‍
-
 [.text-center]
 === link:integrating-a-boclips-player.html[Next: _Integrating the Boclips Player_]
