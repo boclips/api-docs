@@ -7,8 +7,6 @@ include::api-index.adoc[]
 
 include::events.adoc[]
 
-include::user.adoc[]
-
 include::videos.adoc[]
 
 include::learning-outcomes-and-assessment-questions.adoc[]
