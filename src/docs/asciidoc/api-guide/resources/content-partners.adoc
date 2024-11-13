@@ -1,4 +1,0 @@
-[[resources-content-partners]]
-== Content Partners
-
-This is now deprecated in favour of <<resources-channels,`channels`>>
