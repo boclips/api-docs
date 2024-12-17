@@ -31,14 +31,14 @@ class VideosDocTests : AbstractDocTests() {
             fieldWithPath("releasedOn").description("Date on which the video was originally released as stated by the content producer"),
             fieldWithPath("updatedAt").description("Date when the most recent update occured"),
             subsectionWithPath("subjects").description("Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details"),
-            fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free or Youtube"),
+            fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free"),
             subsectionWithPath("bestFor").description("List of best for labels. See <<resources-video-access_response_fields-bestFor,bestFor>> for payload details"),
             fieldWithPath("promoted").description("Promoted status of this video"),
             fieldWithPath("type").description("Content type of this video"),
 
             subsectionWithPath("playback").description("Video Playback resource. See <<resources-video-access_response_fields-playback,playback>> for payload details"),
-            fieldWithPath("playback.type").description("Playback type, i.e. STREAM or YOUTUBE"),
-            fieldWithPath("playback.id").description("Id of this playback, useful for YOUTUBE type"),
+            fieldWithPath("playback.type").description("Playback type, i.e. STREAM "),
+            fieldWithPath("playback.id").description("Id of this playback"),
             fieldWithPath("playback.duration").description("Duration of this particular video in ISO-8601"),
             fieldWithPath("playback._links.createPlaybackEvent.href").description("POST endpoint for a createPlaybackEvent. See more on events <<resources-events,here>>"),
             fieldWithPath("playback._links.createPlaybackEvent.templated").ignored(),
@@ -176,8 +176,8 @@ class VideosDocTests : AbstractDocTests() {
                     Attributes.key("type").value("ISO-8601 (YYYY-MM-DD)")
                 ),
             parameterWithName("source").optional()
-                .description("Filter by video source, e.g youtube or boclips").attributes(
-                    Attributes.key("type").value("YOUTUBE, BOCLIPS")
+                .description("Filter by video source, e.g boclips").attributes(
+                    Attributes.key("type").value("BOCLIPS")
                 ),
             parameterWithName("subject").optional()
                 .description("Filter by subject id - from the <<resources-subjects,list of subjects>>")
