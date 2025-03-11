@@ -6,6 +6,8 @@ image_resource:
   source:
     repository: eclipse-temurin
     tag: 17-jdk
+    username: ((docker-hub.username))
+    password: ((docker-hub.password))
 
 inputs:
   - name: source
