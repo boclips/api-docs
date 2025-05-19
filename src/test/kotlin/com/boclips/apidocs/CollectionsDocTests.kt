@@ -158,12 +158,6 @@ class CollectionsDocTests : AbstractDocTests() {
                 .attributes(
                     key("type").value("Boolean")
                 ),
-            parameterWithName("promoted")
-                .optional()
-                .description("Whether you want to search through promoted collections only or not")
-                .attributes(
-                    key("type").value("Boolean")
-                ),
             parameterWithName("subject")
                 .optional()
                 .description("Allows to limit search results to specific subjects only")
@@ -431,7 +425,6 @@ class CollectionsDocTests : AbstractDocTests() {
             fieldWithPath("updatedAt").description("A timestamp of collection's last update"),
             fieldWithPath("public").ignored(),
             fieldWithPath("discoverable").description("Discoverable collections are discoverable through searching and browsing."),
-            fieldWithPath("promoted").description("Whether the collection is promoted"),
             fieldWithPath("promotedFor").ignored(),
             fieldWithPath("mine").description("Whether the collection belongs to me"),
             fieldWithPath("createdBy").description("Name of collection's creator"),

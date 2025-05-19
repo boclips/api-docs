@@ -33,7 +33,6 @@ class VideosDocTests : AbstractDocTests() {
             subsectionWithPath("subjects").description("Tagged Subject resources for this video. See <<resources-subjects,subject resource>> for payload details"),
             fieldWithPath("badges").description("Tagged badges for this video. E.g. ad-free"),
             subsectionWithPath("bestFor").description("List of best for labels. See <<resources-video-access_response_fields-bestFor,bestFor>> for payload details"),
-            fieldWithPath("promoted").description("Promoted status of this video"),
             fieldWithPath("type").description("Content type of this video"),
 
             subsectionWithPath("playback").description("Video Playback resource. See <<resources-video-access_response_fields-playback,playback>> for payload details"),
@@ -223,10 +222,6 @@ class VideosDocTests : AbstractDocTests() {
                 .description("Deprecated. Override default facets for age ranges, see <<resources-video-search-facets,search facets>>.")
                 .attributes(
                     Attributes.key("type").value("String, e.g. 3-5")
-                ),
-            parameterWithName("promoted").optional().description("Filter by promoted videos only")
-                .attributes(
-                    Attributes.key("type").value("Boolean")
                 ),
             parameterWithName("content_partner").optional()
                 .description("Deprecated in favour of channel. Filter by content partner, which is the provider of the video content. Use multiple times to search for multiple values, e.g. 'content_partner=first&content_partner=second'.")
