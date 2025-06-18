@@ -88,6 +88,7 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("suggestions").ignored(),
             linkWithRel("getMetadata").ignored(),
             linkWithRel("getAllProviders").description("List all providers and their types"),
+            linkWithRel("getProviderById").ignored(),
             linkWithRel("getThemesByProviderAndId").ignored(),
             linkWithRel("getThemesByIds").ignored(),
             linkWithRel("getThemesByProvider").description("List all available themes for a specific provider"),
