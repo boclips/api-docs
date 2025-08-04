@@ -99,6 +99,13 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("searchSchools").ignored(),
             linkWithRel("searchDistricts").ignored(),
             linkWithRel("countries").ignored(),
+
+            linkWithRel("learningOutcomes").ignored(),
+            linkWithRel("assessmentQuestions").ignored(),
+            linkWithRel("getHighlights").ignored(),
+            linkWithRel("getHighlight").ignored(),
+            linkWithRel("CefrLevel").ignored(),
+            linkWithRel("ellWritingAssessment").ignored(),
         )
         given(indexDocumentationSpec)
             .filter(
