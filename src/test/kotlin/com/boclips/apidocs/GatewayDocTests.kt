@@ -129,7 +129,8 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("learningOutcomes").description("Retrieve learning outcomes of a video"),
             linkWithRel("assessmentQuestions").description("Retrieve assessment questions of a video"),
             linkWithRel("getHighlight").description("Retrieve a highlight by ID"),
-            linkWithRel("getHighlights").description("Retrieve all highlights with filters")
+            linkWithRel("getHighlights").description("Retrieve all highlights with filters"),
+            linkWithRel("ellWritingAssessment").ignored(),
         )
         given(indexDocumentationSpec)
             .filter(
