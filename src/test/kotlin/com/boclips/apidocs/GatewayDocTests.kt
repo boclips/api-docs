@@ -106,6 +106,8 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("getHighlight").ignored(),
             linkWithRel("CefrLevel").ignored(),
             linkWithRel("ellWritingAssessment").ignored(),
+            linkWithRel("ellWritingAssessmentFeedback").ignored(),
+            linkWithRel("ellWritingAssessmentFeedbackOptions").ignored(),
         )
         given(indexDocumentationSpec)
             .filter(
