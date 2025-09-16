@@ -108,6 +108,7 @@ class GatewayDocTests : AbstractDocTests() {
             linkWithRel("ellWritingAssessment").ignored(),
             linkWithRel("ellWritingAssessmentFeedback").ignored(),
             linkWithRel("ellWritingAssessmentFeedbackOptions").ignored(),
+            linkWithRel("assistant").ignored(),
         )
         given(indexDocumentationSpec)
             .filter(
