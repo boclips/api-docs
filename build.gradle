@@ -74,7 +74,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-hateoas'
     testImplementation 'org.springframework.hateoas:spring-hateoas'
 
-    testImplementation "org.junit.jupiter:junit-jupiter-engine"
 }
 
 test {
