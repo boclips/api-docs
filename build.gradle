@@ -2,7 +2,7 @@ import org.asciidoctor.gradle.base.SafeMode
 
 plugins {
     id 'org.asciidoctor.jvm.convert' version '3.3.2'
-    id 'org.springframework.boot' version '2.6.1'
+    id 'org.springframework.boot' version '2.7.18'
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
     id 'org.jetbrains.kotlin.plugin.spring' version '1.6.10'
     id 'com.adarshr.test-logger' version '1.2.0'
