@@ -30,6 +30,10 @@ repositories {
 val snippetsDir = layout.buildDirectory.dir("generated-snippets")
 val asciidoctorExt = configurations.register("asciidoctorExt")
 
+ktlint {
+    version = "1.8.0"
+}
+
 // The dependency-management plugin forces the Kotlin plugin's version onto every configuration, and ktlint
 // can fail to parse with a newer compiler than it was built against ("Extensions storage is not
 // registered"). Give ktlint the Kotlin versions it asks for.
