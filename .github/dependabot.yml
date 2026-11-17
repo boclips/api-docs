@@ -1,0 +1,35 @@
+version: 2
+registries:
+  jitpack:
+    type: maven-repository
+    url: https://jitpack.io
+    username: ${{secrets.JITPACK_ACCESS_TOKEN}}
+    password: ""
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  registries: "*"
+  schedule:
+    interval: daily
+    time: "08:00"
+    timezone: Europe/London
+  open-pull-requests-limit: 30
+  cooldown:
+    default-days: 3
+    exclude:
+    - "com.github.boclips:*"
+  groups:
+    kotlin-plugin:
+      applies-to: version-updates
+      patterns:
+      - "org.jetbrains.kotlin.jvm"
+      - "org.jetbrains.kotlin.plugin.spring"
+    spring-boot:
+      applies-to: version-updates
+      patterns:
+      - "org.springframework.boot"
+      - "org.springframework.boot:*"
+    openfeign:
+      applies-to: version-updates
+      patterns:
+      - "io.github.openfeign:*"
