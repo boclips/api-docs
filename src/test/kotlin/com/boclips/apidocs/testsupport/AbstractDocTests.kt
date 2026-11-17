@@ -29,7 +29,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ExtendWith(RestDocumentationExtension::class, SpringExtension::class)
 @ActiveProfiles("test")
 abstract class AbstractDocTests {
-
     protected var stubOwnerSpec: RequestSpecification? = null
     protected var apiUserSpec: RequestSpecification? = null
 
@@ -72,6 +71,7 @@ abstract class AbstractDocTests {
     protected lateinit var freshClientRefreshToken: String
 
     protected var userClient = "api-docs-user-client"
+
     // credentials used for operations modifying the user
     protected lateinit var userAccessToken: String
     protected lateinit var userRefreshToken: String
@@ -110,9 +110,13 @@ abstract class AbstractDocTests {
     }
 
     protected fun getLinksFor(userToken: String): Map<String, String> {
-        val linksResource = Fuel.get("https://api.staging-boclips.com/v1")
-            .header("Authorization", "Bearer $userToken")
-            .responseObject<Map<String, Any>>().third.component1()!!
+        val linksResource =
+            Fuel
+                .get("https://api.staging-boclips.com/v1")
+                .header("Authorization", "Bearer $userToken")
+                .responseObject<Map<String, Any>>()
+                .third
+                .component1()!!
 
         @Suppress("UNCHECKED_CAST")
         return (linksResource["_links"] as Map<String, Map<String, String>>)
@@ -120,131 +124,160 @@ abstract class AbstractDocTests {
     }
 
     private fun setupPublicClientTokens() {
-        val payload = Fuel.post(
-            "https://api.staging-boclips.com/v1/token",
-            listOf(
-                "grant_type" to "password",
-                "client_id" to "hq",
-                "username" to username,
-                "password" to password,
-            ),
-        ).responseObject<Map<String, Any>>().third.component1()
+        val payload =
+            Fuel
+                .post(
+                    "https://api.staging-boclips.com/v1/token",
+                    listOf(
+                        "grant_type" to "password",
+                        "client_id" to "hq",
+                        "username" to username,
+                        "password" to password,
+                    ),
+                ).responseObject<Map<String, Any>>()
+                .third
+                .component1()
         publicClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         publicClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
     private fun setupFreshClientTokens() {
-        val payload = Fuel.post(
-            "https://api.staging-boclips.com/v1/token",
-            listOf(
-                "grant_type" to "password",
-                "client_id" to "hq",
-                "username" to freshUserUsername,
-                "password" to freshUserPassword,
-            ),
-        ).responseObject<Map<String, Any>>().third.component1()
+        val payload =
+            Fuel
+                .post(
+                    "https://api.staging-boclips.com/v1/token",
+                    listOf(
+                        "grant_type" to "password",
+                        "client_id" to "hq",
+                        "username" to freshUserUsername,
+                        "password" to freshUserPassword,
+                    ),
+                ).responseObject<Map<String, Any>>()
+                .third
+                .component1()
         freshClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         freshClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
     private fun setupProductionUserToken() {
-        val payload = Fuel.post(
-            "https://api.boclips.com/v1/token",
-            listOf(
-                "grant_type" to "password",
-                "client_id" to "hq",
-                "scope" to "openid",
-                "username" to productionUserUsername,
-                "password" to productionUserPassword,
-            ),
-        ).responseObject<Map<String, Any>>().third.component1()
+        val payload =
+            Fuel
+                .post(
+                    "https://api.boclips.com/v1/token",
+                    listOf(
+                        "grant_type" to "password",
+                        "client_id" to "hq",
+                        "scope" to "openid",
+                        "username" to productionUserUsername,
+                        "password" to productionUserPassword,
+                    ),
+                ).responseObject<Map<String, Any>>()
+                .third
+                .component1()
         productionUserAccessToken = (payload?.get("access_token") as String?) ?: ""
     }
 
     private fun setupTeacherToken() {
-        val payload = Fuel.post(
-            "https://api.staging-boclips.com/v1/token",
-            listOf(
-                "grant_type" to "password",
-                "client_id" to "api-docs-user-client",
-                "username" to updatableUserUsername,
-                "password" to updatableUserPassword,
-            ),
-        ).responseObject<Map<String, Any>>().third.component1()
+        val payload =
+            Fuel
+                .post(
+                    "https://api.staging-boclips.com/v1/token",
+                    listOf(
+                        "grant_type" to "password",
+                        "client_id" to "api-docs-user-client",
+                        "username" to updatableUserUsername,
+                        "password" to updatableUserPassword,
+                    ),
+                ).responseObject<Map<String, Any>>()
+                .third
+                .component1()
         userAccessToken = (payload?.get("access_token") as String?) ?: ""
         userRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
     private fun setupPrivateClientTokens() {
-        val payload = Fuel.post(
-            "https://api.staging-boclips.com/v1/token",
-            listOf(
-                "grant_type" to "client_credentials",
-                "client_id" to clientId,
-                "client_secret" to clientSecret,
-            ),
-        ).responseObject<Map<String, Any>>().third.component1()
+        val payload =
+            Fuel
+                .post(
+                    "https://api.staging-boclips.com/v1/token",
+                    listOf(
+                        "grant_type" to "client_credentials",
+                        "client_id" to clientId,
+                        "client_secret" to clientSecret,
+                    ),
+                ).responseObject<Map<String, Any>>()
+                .third
+                .component1()
         privateClientAccessToken = (payload?.get("access_token") as String?) ?: ""
         privateClientRefreshToken = (payload?.get("refresh_token") as String?) ?: ""
     }
 
     private fun setupClients() {
-        videosClient = VideosClient.create(
-            apiUrl = "https://api.staging-boclips.com",
-            tokenFactory = ServiceAccountTokenFactory(
-                ServiceAccountCredentials(
-                    authEndpoint = "https://api.staging-boclips.com",
-                    clientId = clientId,
-                    clientSecret = clientSecret,
-                ),
-            ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
-        )
+        videosClient =
+            VideosClient.create(
+                apiUrl = "https://api.staging-boclips.com",
+                tokenFactory =
+                    ServiceAccountTokenFactory(
+                        ServiceAccountCredentials(
+                            authEndpoint = "https://api.staging-boclips.com",
+                            clientId = clientId,
+                            clientSecret = clientSecret,
+                        ),
+                    ),
+                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+            )
 
-        collectionsClient = CollectionsClient.create(
-            apiUrl = "https://api.staging-boclips.com",
-            tokenFactory = ServiceAccountTokenFactory(
-                ServiceAccountCredentials(
-                    authEndpoint = "https://api.staging-boclips.com",
-                    clientId = clientId,
-                    clientSecret = clientSecret,
-                ),
-            ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
-        )
+        collectionsClient =
+            CollectionsClient.create(
+                apiUrl = "https://api.staging-boclips.com",
+                tokenFactory =
+                    ServiceAccountTokenFactory(
+                        ServiceAccountCredentials(
+                            authEndpoint = "https://api.staging-boclips.com",
+                            clientId = clientId,
+                            clientSecret = clientSecret,
+                        ),
+                    ),
+                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+            )
 
-        subjectsClient = SubjectsClient.create(
-            apiUrl = "https://api.staging-boclips.com",
-            tokenFactory = ServiceAccountTokenFactory(
-                ServiceAccountCredentials(
-                    authEndpoint = "https://api.staging-boclips.com",
-                    clientId = clientId,
-                    clientSecret = clientSecret,
-                ),
-            ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
-        )
+        subjectsClient =
+            SubjectsClient.create(
+                apiUrl = "https://api.staging-boclips.com",
+                tokenFactory =
+                    ServiceAccountTokenFactory(
+                        ServiceAccountCredentials(
+                            authEndpoint = "https://api.staging-boclips.com",
+                            clientId = clientId,
+                            clientSecret = clientSecret,
+                        ),
+                    ),
+                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+            )
 
-        channelsClient = ChannelsClient.create(
-            apiUrl = "https://api.staging-boclips.com",
-            tokenFactory = ServiceAccountTokenFactory(
-                ServiceAccountCredentials(
-                    authEndpoint = "https://api.staging-boclips.com",
-                    clientId = clientId,
-                    clientSecret = clientSecret,
-                ),
-            ),
-            feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
-        )
+        channelsClient =
+            ChannelsClient.create(
+                apiUrl = "https://api.staging-boclips.com",
+                tokenFactory =
+                    ServiceAccountTokenFactory(
+                        ServiceAccountCredentials(
+                            authEndpoint = "https://api.staging-boclips.com",
+                            clientId = clientId,
+                            clientSecret = clientSecret,
+                        ),
+                    ),
+                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+            )
     }
 
     val linksFieldDescriptor: FieldDescriptor =
         PayloadDocumentation.subsectionWithPath("_links").description("HAL links for this resource")
 
-    val pageSpecificationResponseFields = arrayOf(
-        fieldWithPath("page.size").description("Amount of resources in the current page"),
-        fieldWithPath("page.totalElements").description("Total amount of resources for this search query across pages"),
-        fieldWithPath("page.totalPages").description("Total amount of pages for this search query"),
-        fieldWithPath("page.number").description("Number of the current page. Zero-index based"),
-    )
+    val pageSpecificationResponseFields =
+        arrayOf(
+            fieldWithPath("page.size").description("Amount of resources in the current page"),
+            fieldWithPath("page.totalElements").description("Total amount of resources for this search query across pages"),
+            fieldWithPath("page.totalPages").description("Total amount of pages for this search query"),
+            fieldWithPath("page.number").description("Number of the current page. Zero-index based"),
+        )
 }

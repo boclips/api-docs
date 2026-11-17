@@ -13,14 +13,11 @@ class AuthHeaderMaskingPreprocessor : OperationPreprocessor {
 
     private val requestFactory = OperationRequestFactory()
 
-    override fun preprocess(request: OperationRequest): OperationRequest {
-        return requestFactory.createFrom(
+    override fun preprocess(request: OperationRequest): OperationRequest =
+        requestFactory.createFrom(
             request,
-            writableHttpHeaders(request.headers).apply { setBearerAuth("***") }
+            writableHttpHeaders(request.headers).apply { setBearerAuth("***") },
         )
-    }
 
-    override fun preprocess(response: OperationResponse): OperationResponse {
-        return response
-    }
+    override fun preprocess(response: OperationResponse): OperationResponse = response
 }

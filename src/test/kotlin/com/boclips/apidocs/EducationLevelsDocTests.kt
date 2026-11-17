@@ -12,28 +12,29 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class EducationLevelsDocTests : AbstractDocTests() {
     @Test
     fun `return all education levels`() {
-        val responseFields = responseFields(
-            fieldWithPath("_embedded.levels[].code").description("Code of the education level, can be used for filtering"),
-            fieldWithPath("_embedded.levels[].label").description("Human readable education level name"),
-        )
+        val responseFields =
+            responseFields(
+                fieldWithPath("_embedded.levels[].code").description("Code of the education level, can be used for filtering"),
+                fieldWithPath("_embedded.levels[].label").description("Human readable education level name"),
+            )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-education-levels-all",
-                    responseFields
-                )
-            )
-            .filter(
+                    responseFields,
+                ),
+            ).filter(
                 RestAssuredRestDocumentationWrapper.document(
                     "{method-name}",
                     "Get all education levels",
                     false,
-                    responseFields
-                )
-            )
-            .`when`()
-            .get(links["educationLevels"]).apply { prettyPrint() }
+                    responseFields,
+                ),
+            ).`when`()
+            .get(links["educationLevels"])
+            .apply { prettyPrint() }
             .then()
-            .assertThat().statusCode(`is`(200))
+            .assertThat()
+            .statusCode(`is`(200))
     }
 }

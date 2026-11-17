@@ -12,29 +12,30 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class ContentCategoriesDocTest : AbstractDocTests() {
     @Test
     fun `List available video types`() {
-        val responseFields = responseFields(
-            fieldWithPath("_embedded.contentCategories").description("List of categories that channel's content can be described as."),
-            fieldWithPath("_embedded.contentCategories[*].label").ignored(),
-            fieldWithPath("_embedded.contentCategories[*].key").ignored()
-        )
+        val responseFields =
+            responseFields(
+                fieldWithPath("_embedded.contentCategories").description("List of categories that channel's content can be described as."),
+                fieldWithPath("_embedded.contentCategories[*].label").ignored(),
+                fieldWithPath("_embedded.contentCategories[*].key").ignored(),
+            )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-channels",
-                    responseFields
-                )
-            )
-            .filter(
+                    responseFields,
+                ),
+            ).filter(
                 RestAssuredRestDocumentationWrapper.document(
                     "{method-name}",
                     "Get all available video types",
                     false,
-                    responseFields
-                )
-            )
-            .`when`()
-            .get(links["contentCategories"]).apply { prettyPrint() }
+                    responseFields,
+                ),
+            ).`when`()
+            .get(links["contentCategories"])
+            .apply { prettyPrint() }
             .then()
-            .assertThat().statusCode(CoreMatchers.`is`(200))
+            .assertThat()
+            .statusCode(CoreMatchers.`is`(200))
     }
 }
