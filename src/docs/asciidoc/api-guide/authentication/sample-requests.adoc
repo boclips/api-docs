@@ -3,12 +3,12 @@
 [[trigger-authorization]]
 === Obtaining an Authorization Code:
 
-operation::authorization-code-example[snippets='http-request,curl-request,request-parameters']
+operation::authorization-code-example[snippets='http-request,curl-request,query-parameters']
 
 [[get-token-authorization]]
 === Obtaining an Access Token:
 
-operation::authorization-code-token-example[snippets='http-request,curl-request,request-parameters']
+operation::authorization-code-token-example[snippets='http-request,curl-request,form-parameters']
 
 [[refresh-token]]
 === Refreshing an Access Token
@@ -17,6 +17,6 @@ The refresh token enables you to renew an access token periodically without havi
 
 In order to renew a token using a `refresh_token` flow you should:
 
-operation::refresh-token-example[snippets='http-request,curl-request,request-parameters']
+operation::refresh-token-example[snippets='http-request,curl-request,form-parameters']
 
 Assuming all the parameters are correct, you will get a <<authentication-token-response,valid token response>> back.

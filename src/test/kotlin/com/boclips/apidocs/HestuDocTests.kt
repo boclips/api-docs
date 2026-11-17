@@ -13,7 +13,7 @@ import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.request.RequestDocumentation
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes
 
 class HestuDocTests : AbstractDocTests() {
@@ -169,8 +169,8 @@ class HestuDocTests : AbstractDocTests() {
                 ).optional().description("Tagged subtypes for this highlight (e.g Animation)"),
                 subsectionWithPath("_embedded.highlights[]._links").description("HAL links for the highlight"),
             )
-        val requestParameters =
-            RequestDocumentation.requestParameters(
+        val parameters =
+            RequestDocumentation.queryParameters(
                 RequestDocumentation
                     .parameterWithName("query")
                     .description("The text search query")
@@ -222,7 +222,7 @@ class HestuDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "highlights-get",
-                    requestParameters,
+                    parameters,
                     responseFields,
                 ),
             ).filter(
@@ -230,7 +230,7 @@ class HestuDocTests : AbstractDocTests() {
                     "{method-name}",
                     "Can get filtered highlights",
                     false,
-                    requestParameters,
+                    parameters,
                     responseFields,
                 ),
             ).`when`()

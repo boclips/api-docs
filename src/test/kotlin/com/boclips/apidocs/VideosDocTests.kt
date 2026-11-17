@@ -15,8 +15,8 @@ import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
 import org.springframework.restdocs.request.RequestDocumentation.pathParameters
-import org.springframework.restdocs.request.RequestDocumentation.requestParameters
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.request.RequestDocumentation.queryParameters
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes
 
 class VideosDocTests : AbstractDocTests() {
@@ -180,8 +180,8 @@ class VideosDocTests : AbstractDocTests() {
 
     @Test
     fun `Search For Videos`() {
-        val requestParameters =
-            requestParameters(
+        val parameters =
+            queryParameters(
                 parameterWithName("size")
                     .optional()
                     .description("The number of videos per page, 100 by default")
@@ -389,13 +389,13 @@ class VideosDocTests : AbstractDocTests() {
                 *pageSpecificationResponseFields,
             )
         given(stubOwnerSpec)
-            .filter(document("resource-video-search", requestParameters, responseFields))
+            .filter(document("resource-video-search", parameters, responseFields))
             .filter(
                 RestAssuredRestDocumentationWrapper.document(
                     "{method-name}",
                     "Video Search Endpoint",
                     false,
-                    requestParameters,
+                    parameters,
                     responseFields,
                 ),
             ).`when`()

@@ -5,7 +5,7 @@ image_resource:
   type: registry-image
   source:
     repository: eclipse-temurin
-    tag: 17-jdk
+    tag: 21-jdk
     username: ((docker-hub.username))
     password: ((docker-hub.password))
 

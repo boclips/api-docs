@@ -1,6 +1,6 @@
 package com.boclips.apidocs.testsupport.preprocessors
 
-import org.springframework.http.HttpHeaders.writableHttpHeaders
+import org.springframework.http.HttpHeaders
 import org.springframework.restdocs.operation.OperationRequest
 import org.springframework.restdocs.operation.OperationRequestFactory
 import org.springframework.restdocs.operation.OperationResponse
@@ -16,7 +16,7 @@ class AuthHeaderMaskingPreprocessor : OperationPreprocessor {
     override fun preprocess(request: OperationRequest): OperationRequest =
         requestFactory.createFrom(
             request,
-            writableHttpHeaders(request.headers).apply { setBearerAuth("***") },
+            HttpHeaders.copyOf(request.headers).apply { setBearerAuth("***") },
         )
 
     override fun preprocess(response: OperationResponse): OperationResponse = response

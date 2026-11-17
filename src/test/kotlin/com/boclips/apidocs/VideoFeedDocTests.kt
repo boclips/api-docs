@@ -12,15 +12,15 @@ import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
-import org.springframework.restdocs.request.RequestDocumentation.requestParameters
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.request.RequestDocumentation.queryParameters
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes
 
 class VideoFeedDocTests : AbstractDocTests() {
     @Test
     fun `video feed details`() {
-        val requestParameters =
-            requestParameters(
+        val parameters =
+            queryParameters(
                 parameterWithName("size")
                     .optional()
                     .description("The number of videos per page, 1000 by default and is also the max size")
@@ -51,7 +51,7 @@ class VideoFeedDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "resource-video-feed",
-                    requestParameters,
+                    parameters,
                     responseFields,
                     responseLinks,
                 ),
@@ -60,7 +60,7 @@ class VideoFeedDocTests : AbstractDocTests() {
                     "{method-name}",
                     "Get video feed",
                     false,
-                    requestParameters,
+                    parameters,
                     responseFields,
                     responseLinks,
                 ),

@@ -98,7 +98,7 @@ More info can be found in the link:https://www.imsglobal.org/specs/ltiv1p1/imple
 We support additional parameters that allow customizing the LTI experience. They can be passed along all the other launch request parameters.
 
 [cols="2,1,1,5"]
-include::{snippets}/lti-v1p1-boclips-parameters/request-parameters.adoc[]
+include::{snippets}/lti-v1p1-boclips-parameters/form-parameters.adoc[]
 
 [[lti-v1p1-access-video]]
 === Accessing a single video

@@ -10,7 +10,7 @@ import org.springframework.restdocs.payload.PayloadDocumentation
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.request.RequestDocumentation
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes
 
 class AlignmentsDocTests : AbstractDocTests() {
@@ -169,8 +169,8 @@ class AlignmentsDocTests : AbstractDocTests() {
                 fieldWithPath("_embedded.themes[].topics[].targets[].videoIds").description("Videos aligned to the target"),
                 fieldWithPath("_embedded.themes[].logoUrl").ignored(),
             )
-        val requestParameters =
-            RequestDocumentation.requestParameters(
+        val parameters =
+            RequestDocumentation.queryParameters(
                 RequestDocumentation
                     .parameterWithName("id")
                     .optional()
@@ -182,7 +182,7 @@ class AlignmentsDocTests : AbstractDocTests() {
             .filter(
                 document(
                     "resource-themes-get",
-                    requestParameters,
+                    parameters,
                     responseFields,
                 ),
             ).filter(
@@ -190,7 +190,7 @@ class AlignmentsDocTests : AbstractDocTests() {
                     "{method-name}",
                     "Can get themes by IDs",
                     false,
-                    requestParameters,
+                    parameters,
                     responseFields,
                 ),
             ).`when`()

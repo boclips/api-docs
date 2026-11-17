@@ -1,6 +1,7 @@
 package com.boclips.apidocs
 
 import com.boclips.apidocs.testsupport.AbstractDocTests
+import com.boclips.apidocs.testsupport.preprocessors.ParameterReplacingPreprocessor.Companion.replaceParameters
 import io.restassured.RestAssured.given
 import io.restassured.builder.RequestSpecBuilder
 import io.restassured.specification.RequestSpecification
@@ -10,15 +11,14 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.restdocs.RestDocumentationContextProvider
-import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyParameters
+import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyHeaders
 import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyUris
 import org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
-import org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
 import org.springframework.restdocs.operation.preprocess.Preprocessors.replacePattern
+import org.springframework.restdocs.request.RequestDocumentation.formParameters
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
-import org.springframework.restdocs.request.RequestDocumentation.requestParameters
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.documentationConfiguration
 import org.springframework.restdocs.snippet.Attributes.key
 import java.util.regex.Pattern.compile
 
@@ -47,20 +47,19 @@ class LtiDocTests : AbstractDocTests() {
                                 .host("lti.boclips.com"),
                             replacePattern(compile("staging-boclips"), "boclips"),
                             prettyPrint(),
-                            modifyParameters().set("oauth_consumer_key", "your-consumer-key"),
+                            replaceParameters("oauth_consumer_key" to "your-consumer-key"),
                         ).withResponseDefaults(
                             modifyUris()
                                 .scheme("https")
                                 .host("lti.boclips.com"),
-                            removeHeaders(
-                                "Authorization",
-                                "Pragma",
-                                "Expires",
-                                "X-Content-Type-Options",
-                                "Date",
-                                "X-Xss-Protection",
-                                "Cache-Control",
-                            ),
+                            modifyHeaders()
+                                .remove("Authorization")
+                                .remove("Pragma")
+                                .remove("Expires")
+                                .remove("X-Content-Type-Options")
+                                .remove("Date")
+                                .remove("X-Xss-Protection")
+                                .remove("Cache-Control"),
                             replacePattern(compile("staging-boclips"), "boclips"),
                             replacePattern(compile(consumerKey), "your-consumer-key"),
                             prettyPrint(),
@@ -99,7 +98,7 @@ class LtiDocTests : AbstractDocTests() {
             }.filter(
                 document(
                     "lti-v1p1-full-launch-request",
-                    requestParameters(
+                    formParameters(
                         *ltiParameters,
                         *oauthParameters,
                         *boclipsParameters,
@@ -108,7 +107,7 @@ class LtiDocTests : AbstractDocTests() {
             ).filter(
                 document(
                     "lti-v1p1-lti-parameters",
-                    requestParameters(
+                    formParameters(
                         *ltiParameters,
                         *oauthParametersIgnored,
                         *boclipsParametersIgnored,
@@ -117,7 +116,7 @@ class LtiDocTests : AbstractDocTests() {
             ).filter(
                 document(
                     "lti-v1p1-oauth-parameters",
-                    requestParameters(
+                    formParameters(
                         *ltiParametersIgnored,
                         *oauthParameters,
                         *boclipsParametersIgnored,
@@ -126,7 +125,7 @@ class LtiDocTests : AbstractDocTests() {
             ).filter(
                 document(
                     "lti-v1p1-boclips-parameters",
-                    requestParameters(
+                    formParameters(
                         *ltiParametersIgnored,
                         *oauthParametersIgnored,
                         *boclipsParameters,

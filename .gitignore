@@ -5,3 +5,4 @@ out/
 build
 dependency-check-cache/
 .DS_Store
+.kotlin/

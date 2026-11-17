@@ -14,7 +14,7 @@ import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.hypermedia.HypermediaDocumentation.relaxedLinks
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 
 class GatewayDocTests : AbstractDocTests() {
     @Test
