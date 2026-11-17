@@ -9,8 +9,6 @@ import com.boclips.videos.api.httpclient.helper.ServiceAccountTokenFactory
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.jackson.responseObject
 import feign.okhttp.OkHttpClient
-import feign.opentracing.TracingClient
-import io.jaegertracing.internal.JaegerTracer
 import io.restassured.specification.RequestSpecification
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.extension.ExtendWith
@@ -224,7 +222,7 @@ abstract class AbstractDocTests {
                             clientSecret = clientSecret,
                         ),
                     ),
-                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+                feignClient = OkHttpClient(),
             )
 
         collectionsClient =
@@ -238,7 +236,7 @@ abstract class AbstractDocTests {
                             clientSecret = clientSecret,
                         ),
                     ),
-                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+                feignClient = OkHttpClient(),
             )
 
         subjectsClient =
@@ -252,7 +250,7 @@ abstract class AbstractDocTests {
                             clientSecret = clientSecret,
                         ),
                     ),
-                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+                feignClient = OkHttpClient(),
             )
 
         channelsClient =
@@ -266,7 +264,7 @@ abstract class AbstractDocTests {
                             clientSecret = clientSecret,
                         ),
                     ),
-                feignClient = TracingClient(OkHttpClient(), JaegerTracer.Builder("api-docs").build()),
+                feignClient = OkHttpClient(),
             )
     }
 

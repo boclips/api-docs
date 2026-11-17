@@ -1,14 +1,14 @@
 import org.asciidoctor.gradle.base.SafeMode
 
 plugins {
-    id 'org.asciidoctor.jvm.convert' version '3.3.2'
-    id 'org.springframework.boot' version '2.7.18'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.6.10'
-    id 'com.adarshr.test-logger' version '1.2.0'
-    id 'org.kordamp.gradle.livereload' version '0.2.1'
-    id 'org.jlleitschuh.gradle.ktlint' version '10.2.0'
-    id 'com.epages.restdocs-api-spec' version '0.16.4'
+    id 'org.asciidoctor.jvm.convert' version '4.0.5'
+    id 'org.springframework.boot' version '4.1.2'
+    id 'org.jetbrains.kotlin.jvm' version '2.4.21'
+    id 'org.jetbrains.kotlin.plugin.spring' version '2.4.21'
+    id 'com.adarshr.test-logger' version '4.0.0'
+    id 'org.kordamp.gradle.livereload' version '0.4.0'
+    id 'org.jlleitschuh.gradle.ktlint' version '14.2.0'
+    id 'com.epages.restdocs-api-spec' version '0.20.2'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -16,20 +16,20 @@ apply plugin: 'org.kordamp.gradle.livereload'
 
 group = 'com.boclips'
 version = '1'
-sourceCompatibility = '17'
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+}
 
 repositories {
     mavenCentral()
     maven {
-        url 'https://jitpack.io'
-        credentials { username authToken }
+        url = 'https://jitpack.io'
+        credentials { username = authToken }
     }
 }
 
 ext {
     set('snippetsDir', file('build/generated-snippets'))
-    kotlinVersion = '1.6.10'
-    feignVersion = '11.7'
 }
 
 test {
@@ -40,15 +40,24 @@ configurations {
     asciidoctorExt
 }
 
+// The dependency-management plugin forces the Kotlin plugin's version onto every configuration, and ktlint
+// can fail to parse with a newer compiler than it was built against ("Extensions storage is not
+// registered"). Give ktlint the Kotlin versions it asks for.
+configurations.matching { it.name.startsWith('ktlint') }.configureEach {
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == 'org.jetbrains.kotlin' && details.requested.version) {
+            details.useVersion(details.requested.version)
+        }
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
 
-    implementation "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
 
     implementation 'com.github.kittinunf.fuel:fuel:2.2.1'
     implementation 'com.github.kittinunf.fuel:fuel-jackson:2.2.1'
@@ -59,17 +68,17 @@ dependencies {
     asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
-    testImplementation 'com.epages:restdocs-api-spec:0.16.4'
-    testImplementation 'com.epages:restdocs-api-spec-restassured:0.16.4'
+    // spring-restdocs-restassured 3.0.6 brings REST Assured 5, which does not run on the Groovy 5 that Spring Boot 4 manages.
+    testImplementation platform('io.rest-assured:rest-assured-bom:6.3.0')
+    // The last released REST Assured modules: REST Docs 4 has only milestones and restdocs-api-spec 0.20 has none.
+    testImplementation 'org.springframework.restdocs:spring-restdocs-restassured:3.0.6'
+    testImplementation 'com.epages:restdocs-api-spec:0.20.2'
+    testImplementation 'com.epages:restdocs-api-spec-restassured:0.19.4'
 
-    testImplementation 'com.github.boclips:videos:v1255'
-    testImplementation "io.github.openfeign:feign-jackson:$feignVersion"
-    testImplementation "io.github.openfeign:feign-core:$feignVersion"
-    testImplementation "io.github.openfeign:feign-okhttp:$feignVersion"
-
-    testImplementation "io.opentracing.contrib:opentracing-spring-jaeger-cloud-starter:3.3.1"
-    testImplementation('org.springframework.security.oauth:spring-security-oauth2:2.4.0.RELEASE')
+    testImplementation 'com.github.boclips:videos:v2456'
+    // The videos client brings feign at runtime only; the tests build its clients directly.
+    testImplementation platform('io.github.openfeign:feign-bom:13.6.1')
+    testImplementation 'io.github.openfeign:feign-okhttp'
     testImplementation('com.damnhandy:handy-uri-templates:2.1.8')
     testImplementation 'org.springframework.boot:spring-boot-starter-hateoas'
     testImplementation 'org.springframework.hateoas:spring-hateoas'
@@ -81,12 +90,13 @@ test {
 }
 
 asciidoctorj {
-    version = '2.5.2'
+    version = '3.0.1'
 }
 
 asciidoctor {
     dependsOn test
     configurations 'asciidoctorExt'
+    attributes 'snippets': snippetsDir
     outputDir = file('build/asciidoc/html5')
     resources {
         from 'src/docs/asciidoc/resources'
@@ -101,18 +111,6 @@ postman {
     outputDirectory = "${buildDir}/postman"
 }
 
-task copyRestDocs(type: Copy) {
-    dependsOn asciidoctor
-    from "${asciidoctor.outputDir}"
-    into "${sourceSets.main.output.resourcesDir}/static/docs"
-}
-
-task copyPostmanCollections(type: Copy) {
-    dependsOn 'postman'
-    from "${postman.outputDirectory}"
-    into "${sourceSets.main.output.resourcesDir}/static/docs/postman"
-}
-
 openapi3 {
     server = 'https://api.boclips.com'
     title = 'Boclips API'
@@ -122,25 +120,19 @@ openapi3 {
 
 
 bootJar {
-    dependsOn copyPostmanCollections
-    dependsOn copyRestDocs
+    from(asciidoctor) { into 'BOOT-INF/classes/static/docs' }
+    dependsOn 'postman'
+    from(postman.outputDirectory) { into 'BOOT-INF/classes/static/docs/postman' }
 }
 
 liveReload {
-    port 8080
-    docRoot "${asciidoctor.outputDir}"
+    port = 8080
+    docRoot = "${asciidoctor.outputDir}"
 }
 
-compileKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '17'
-    }
-}
-
-compileTestKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '17'
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add('-Xjsr305=strict')
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
     }
 }

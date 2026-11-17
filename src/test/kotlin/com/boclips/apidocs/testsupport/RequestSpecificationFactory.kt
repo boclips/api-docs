@@ -5,11 +5,11 @@ import io.restassured.builder.RequestSpecBuilder
 import io.restassured.specification.RequestSpecification
 import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.operation.preprocess.OperationPreprocessor
+import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyHeaders
 import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyUris
 import org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
-import org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
 import org.springframework.restdocs.operation.preprocess.Preprocessors.replacePattern
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.documentationConfiguration
 import java.util.regex.Pattern
 
 class RequestSpecificationFactory {
@@ -35,19 +35,18 @@ class RequestSpecificationFactory {
                             prettyPrint(),
                         ).withResponseDefaults(
                             StagingUriModifyingOperationPreprocessor(),
-                            removeHeaders(
-                                "Authorization",
-                                "Set-Cookie",
-                                "Date",
-                                "Expires",
-                                "Pragma",
-                                "X-Frame-Options",
-                                "X-Content-Type-Options",
-                                "X-Xss-Protection",
-                                "Strict-Transport-Security",
-                                "Cache-Control",
-                                "Transfer-Encoding",
-                            ),
+                            modifyHeaders()
+                                .remove("Authorization")
+                                .remove("Set-Cookie")
+                                .remove("Date")
+                                .remove("Expires")
+                                .remove("Pragma")
+                                .remove("X-Frame-Options")
+                                .remove("X-Content-Type-Options")
+                                .remove("X-Xss-Protection")
+                                .remove("Strict-Transport-Security")
+                                .remove("Cache-Control")
+                                .remove("Transfer-Encoding"),
                             replacePattern(Pattern.compile("staging-boclips"), "boclips"),
                             prettyPrint(),
                         ),
@@ -55,7 +54,7 @@ class RequestSpecificationFactory {
 
         private fun handleBearerToken(policy: BearerTokenDocumentationPolicy): OperationPreprocessor =
             when (policy) {
-                BearerTokenDocumentationPolicy.HIDE -> removeHeaders("Authorization")
+                BearerTokenDocumentationPolicy.HIDE -> modifyHeaders().remove("Authorization")
                 BearerTokenDocumentationPolicy.MASK -> maskAuthHeader()
             }
     }

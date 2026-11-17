@@ -56,5 +56,5 @@ operation::resource-provider-theme-get[snippets='http-request,curl-request,http-
 
 === Retrieving Themes by ids
 
-operation::resource-themes-get[snippets='request-parameters,http-request,curl-request,http-response,response-fields']
+operation::resource-themes-get[snippets='query-parameters,http-request,curl-request,http-response,response-fields']
 

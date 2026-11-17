@@ -7,7 +7,7 @@ import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 
 class CurriculumDocTests : AbstractDocTests() {
     @Test

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 import java.net.URI
 
 class EventsDocTests : AbstractDocTests() {
@@ -110,7 +110,7 @@ class EventsDocTests : AbstractDocTests() {
         val video = videosClient.getVideo(videoId)
         return URI(
             video.playback
-                ?._links
+                ?.links
                 ?.get("createPlaybackEvent")
                 ?.href!!,
         )

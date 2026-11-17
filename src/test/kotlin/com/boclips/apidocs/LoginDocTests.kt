@@ -3,22 +3,23 @@ package com.boclips.apidocs
 import com.boclips.apidocs.testsupport.AbstractDocTests
 import com.boclips.apidocs.testsupport.BearerTokenDocumentationPolicy
 import com.boclips.apidocs.testsupport.RequestSpecificationFactory
+import com.boclips.apidocs.testsupport.preprocessors.ParameterReplacingPreprocessor.Companion.replaceParameters
 import io.restassured.RestAssured.given
 import io.restassured.specification.RequestSpecification
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.restdocs.RestDocumentationContextProvider
-import org.springframework.restdocs.operation.preprocess.Preprocessors.modifyParameters
 import org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest
 import org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse
 import org.springframework.restdocs.operation.preprocess.Preprocessors.replacePattern
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.restdocs.payload.ResponseFieldsSnippet
+import org.springframework.restdocs.request.RequestDocumentation.formParameters
 import org.springframework.restdocs.request.RequestDocumentation.parameterWithName
-import org.springframework.restdocs.request.RequestDocumentation.requestParameters
-import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.document
+import org.springframework.restdocs.request.RequestDocumentation.queryParameters
+import org.springframework.restdocs.restassured.RestAssuredRestDocumentation.document
 import org.springframework.restdocs.snippet.Attributes
 import java.util.regex.Pattern
 
@@ -34,7 +35,7 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "refresh-token-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "***").set("refresh_token", "***"),
+                        replaceParameters("client_id" to "***", "refresh_token" to "***"),
                     ),
                     preprocessResponse(
                         replacePattern(
@@ -47,7 +48,7 @@ class LoginDocTests : AbstractDocTests() {
                         ),
                     ),
                     tokenResponseFields,
-                    requestParameters(
+                    formParameters(
                         parameterWithName("grant_type")
                             .description("The grant type for this flow must always be `refresh_token`")
                             .attributes(
@@ -84,9 +85,9 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "authorization-code-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "***").set("redirect_uri", "***"),
+                        replaceParameters("client_id" to "***", "redirect_uri" to "***"),
                     ),
-                    requestParameters(
+                    queryParameters(
                         parameterWithName("response_type")
                             .description("The response type for this flow must always be `code`")
                             .attributes(
@@ -126,9 +127,9 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "authorization-code-token-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "***"),
+                        replaceParameters("client_id" to "***"),
                     ),
-                    requestParameters(
+                    formParameters(
                         parameterWithName("grant_type")
                             .description("The grant type for this flow must always be `authorization_code`")
                             .attributes(
@@ -163,8 +164,8 @@ class LoginDocTests : AbstractDocTests() {
 
     @Test
     fun `client credentials flow`() {
-        val requestParameters =
-            requestParameters(
+        val parameters =
+            formParameters(
                 parameterWithName("grant_type")
                     .description("The grant type for this flow must always be `client_credentials`")
                     .attributes(
@@ -189,10 +190,10 @@ class LoginDocTests : AbstractDocTests() {
                 document(
                     "client-credentials-example",
                     preprocessRequest(
-                        modifyParameters().set("client_id", "***").set("client_secret", "***"),
+                        replaceParameters("client_id" to "***", "client_secret" to "***"),
                     ),
                     tokenResponseFields,
-                    requestParameters,
+                    parameters,
                 ),
             ).`when`()
             .post("/v1/token")

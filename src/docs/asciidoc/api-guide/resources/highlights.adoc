@@ -29,4 +29,4 @@ You can specify a version of this endpoint by passing the `X-Boclips-Api-Version
 "X-Boclips-Api-Version": "YYYY-MM-DD"
 ----
 
-operation::highlights-get[snippets='request-parameters,http-request,curl-request,http-response']
+operation::highlights-get[snippets='query-parameters,http-request,curl-request,http-response']

@@ -12,7 +12,7 @@ may not be available (See <<user-context>> if user based features are needed).
 
 In order to get an access token using `client_credentials` we would perform a request:
 
-operation::client-credentials-example[snippets='http-request,curl-request,request-parameters']
+operation::client-credentials-example[snippets='http-request,curl-request,form-parameters']
 
 Assuming all the parameters are correct, you will get a <<authentication-token-response,valid token response>> back.
 
