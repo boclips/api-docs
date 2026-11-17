@@ -17,28 +17,29 @@ class EventsDocTests : AbstractDocTests() {
 
     @Test
     fun `publishing playback event`() {
-        val requestFields = requestFields(
-            fieldWithPath("videoId").description("ID of the <<resources-videos,video>>"),
-            fieldWithPath("segmentStartSeconds").description("Second the video started its playback"),
-            fieldWithPath("segmentEndSeconds").description("Second the video ended its playback"),
-            fieldWithPath("userId").optional().description("ID of the user who initiated the playback")
-        )
+        val requestFields =
+            requestFields(
+                fieldWithPath("videoId").description("ID of the <<resources-videos,video>>"),
+                fieldWithPath("segmentStartSeconds").description("Second the video started its playback"),
+                fieldWithPath("segmentEndSeconds").description("Second the video ended its playback"),
+                fieldWithPath("userId").optional().description("ID of the user who initiated the playback"),
+            )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-events-publish-playback",
-                    requestFields
-                )
-            )
-            .filter(
+                    requestFields,
+                ),
+            ).filter(
                 RestAssuredRestDocumentationWrapper.document(
                     "{method-name}",
                     "Can publish a playback event",
                     false,
-                    requestFields
-                )
-            )
-            .`when`().contentType(ContentType.JSON).body(
+                    requestFields,
+                ),
+            ).`when`()
+            .contentType(ContentType.JSON)
+            .body(
                 """
                 {
                   "videoId": "$videoId",
@@ -46,40 +47,42 @@ class EventsDocTests : AbstractDocTests() {
                   "segmentEndSeconds": 3,
                   "userId": "f0e8d794-1d7e-4944-9705-e16946c7b694"
                 }
-                """.trimIndent()
-            )
-            .post(createPlaybackEventLink())
+                """.trimIndent(),
+            ).post(createPlaybackEventLink())
             .apply { println(prettyPrint()) }
             .then()
-            .assertThat().statusCode(CoreMatchers.`is`(HttpStatus.CREATED.value()))
+            .assertThat()
+            .statusCode(CoreMatchers.`is`(HttpStatus.CREATED.value()))
     }
 
     @Test
     fun `publishing batch of playback events`() {
-        val requestFields = requestFields(
-            fieldWithPath("[*].videoId").description("ID of the <<resources-videos,video>>"),
-            fieldWithPath("[*].segmentStartSeconds").description("Second the video started its playback"),
-            fieldWithPath("[*].segmentEndSeconds").description("Second the video ended its playback"),
-            fieldWithPath("[*].captureTime").type("ISO-8601 (YYYY-MM-DDThh:mm:ss.sTZD)")
-                .description("Time when playback event was fired"),
-            fieldWithPath("[*].userId").optional().description("ID of the user who initiated the playback")
-        )
+        val requestFields =
+            requestFields(
+                fieldWithPath("[*].videoId").description("ID of the <<resources-videos,video>>"),
+                fieldWithPath("[*].segmentStartSeconds").description("Second the video started its playback"),
+                fieldWithPath("[*].segmentEndSeconds").description("Second the video ended its playback"),
+                fieldWithPath("[*].captureTime")
+                    .type("ISO-8601 (YYYY-MM-DDThh:mm:ss.sTZD)")
+                    .description("Time when playback event was fired"),
+                fieldWithPath("[*].userId").optional().description("ID of the user who initiated the playback"),
+            )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resources-events-publish-batch-playback",
-                    requestFields
-                )
-            )
-            .filter(
+                    requestFields,
+                ),
+            ).filter(
                 RestAssuredRestDocumentationWrapper.document(
                     "{method-name}",
                     "Can publish a batch of playback events",
                     false,
-                    requestFields
-                )
-            )
-            .`when`().contentType(ContentType.JSON).body(
+                    requestFields,
+                ),
+            ).`when`()
+            .contentType(ContentType.JSON)
+            .body(
                 """
                 [{
                     "videoId": "$videoId",
@@ -95,20 +98,23 @@ class EventsDocTests : AbstractDocTests() {
                     "captureTime": "1997-07-16T19:20:30.45+01:00",
                     "userId": "b51a69eb-6977-4766-9f76-7b1b7dc0b953"
                 }]
-                """.trimIndent()
-            )
-            .post(getPlaybackEventsLink())
+                """.trimIndent(),
+            ).post(getPlaybackEventsLink())
             .apply { println(prettyPrint()) }
             .then()
-            .assertThat().statusCode(CoreMatchers.`is`(HttpStatus.CREATED.value()))
+            .assertThat()
+            .statusCode(CoreMatchers.`is`(HttpStatus.CREATED.value()))
     }
 
     fun createPlaybackEventLink(): URI {
         val video = videosClient.getVideo(videoId)
-        return URI(video.playback?._links?.get("createPlaybackEvent")?.href!!)
+        return URI(
+            video.playback
+                ?._links
+                ?.get("createPlaybackEvent")
+                ?.href!!,
+        )
     }
 
-    fun getPlaybackEventsLink(): URI {
-        return URI(links["createPlaybackEvents"] ?: error("Could not find link"))
-    }
+    fun getPlaybackEventsLink(): URI = URI(links["createPlaybackEvents"] ?: error("Could not find link"))
 }

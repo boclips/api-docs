@@ -12,27 +12,28 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.do
 class VideoTypesDocTests : AbstractDocTests() {
     @Test
     fun `List available video types`() {
-        val responseFields = responseFields(
-            fieldWithPath("_embedded.videoTypes").description("Video types available in the system")
-        )
+        val responseFields =
+            responseFields(
+                fieldWithPath("_embedded.videoTypes").description("Video types available in the system"),
+            )
         given(stubOwnerSpec)
             .filter(
                 document(
                     "resource-video-types",
-                    responseFields
-                )
-            )
-            .filter(
+                    responseFields,
+                ),
+            ).filter(
                 RestAssuredRestDocumentationWrapper.document(
                     "{method-name}",
                     "List all available video types",
                     false,
-                    responseFields
-                )
-            )
-            .`when`()
-            .get(links["videoTypes"]).apply { prettyPrint() }
+                    responseFields,
+                ),
+            ).`when`()
+            .get(links["videoTypes"])
+            .apply { prettyPrint() }
             .then()
-            .assertThat().statusCode(CoreMatchers.`is`(200))
+            .assertThat()
+            .statusCode(CoreMatchers.`is`(200))
     }
 }

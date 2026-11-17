@@ -7,9 +7,7 @@ import org.springframework.restdocs.operation.OperationResponseFactory
 import org.springframework.restdocs.operation.preprocess.OperationPreprocessor
 
 class StagingUriModifyingOperationPreprocessor : OperationPreprocessor {
-    override fun preprocess(request: OperationRequest?): OperationRequest? {
-        return request
-    }
+    override fun preprocess(request: OperationRequest?): OperationRequest? = request
 
     override fun preprocess(response: OperationResponse?): OperationResponse? {
         if (response == null) {

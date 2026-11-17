@@ -18,9 +18,9 @@ class RequestSpecificationFactory {
             accessToken: String,
             restDocumentation: RestDocumentationContextProvider,
             bearerTokenDocumentationPolicy: BearerTokenDocumentationPolicy = BearerTokenDocumentationPolicy.MASK,
-            baseUri: String = "https://api.staging-boclips.com"
-        ): RequestSpecification {
-            return RequestSpecBuilder()
+            baseUri: String = "https://api.staging-boclips.com",
+        ): RequestSpecification =
+            RequestSpecBuilder()
                 .setBaseUri(baseUri)
                 .addHeader("Authorization", "Bearer $accessToken")
                 .addFilter(
@@ -32,9 +32,8 @@ class RequestSpecificationFactory {
                                 .host("api.boclips.com"),
                             handleBearerToken(bearerTokenDocumentationPolicy),
                             replacePattern(Pattern.compile("staging-boclips"), "boclips"),
-                            prettyPrint()
-                        )
-                        .withResponseDefaults(
+                            prettyPrint(),
+                        ).withResponseDefaults(
                             StagingUriModifyingOperationPreprocessor(),
                             removeHeaders(
                                 "Authorization",
@@ -47,23 +46,22 @@ class RequestSpecificationFactory {
                                 "X-Xss-Protection",
                                 "Strict-Transport-Security",
                                 "Cache-Control",
-                                "Transfer-Encoding"
+                                "Transfer-Encoding",
                             ),
                             replacePattern(Pattern.compile("staging-boclips"), "boclips"),
-                            prettyPrint()
-                        )
+                            prettyPrint(),
+                        ),
                 ).build()
-        }
 
-        private fun handleBearerToken(policy: BearerTokenDocumentationPolicy): OperationPreprocessor {
-            return when (policy) {
+        private fun handleBearerToken(policy: BearerTokenDocumentationPolicy): OperationPreprocessor =
+            when (policy) {
                 BearerTokenDocumentationPolicy.HIDE -> removeHeaders("Authorization")
                 BearerTokenDocumentationPolicy.MASK -> maskAuthHeader()
             }
-        }
     }
 }
 
 enum class BearerTokenDocumentationPolicy {
-    HIDE, MASK
+    HIDE,
+    MASK,
 }
