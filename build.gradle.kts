@@ -1,10 +1,12 @@
+import com.epages.restdocs.apispec.gradle.PostmanTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-val authToken: String by project
+val authToken = providers.gradleProperty("authToken")
 
 plugins {
     id("org.asciidoctor.jvm.convert") version "4.0.5"
     id("org.springframework.boot") version "4.1.2"
+    id("io.spring.dependency-management") version "1.1.7"
     id("org.jetbrains.kotlin.jvm") version "2.4.21"
     id("org.jetbrains.kotlin.plugin.spring") version "2.4.21"
     id("com.adarshr.test-logger") version "4.0.0"
@@ -13,31 +15,20 @@ plugins {
     id("com.epages.restdocs-api-spec") version "0.20.2"
 }
 
-apply(plugin = "io.spring.dependency-management")
-
 group = "com.boclips"
 version = "1"
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
-}
+java.sourceCompatibility = JavaVersion.VERSION_21
 
 repositories {
     mavenCentral()
     maven {
         url = uri("https://jitpack.io")
-        credentials { username = authToken }
+        credentials { username = authToken.get() }
     }
 }
 
-extra["snippetsDir"] = file("build/generated-snippets")
-val snippetsDir: File by extra
-
-tasks.test {
-    useJUnitPlatform()
-    outputs.dir(snippetsDir)
-}
-
-val asciidoctorExt by configurations.creating
+val snippetsDir = layout.buildDirectory.dir("generated-snippets")
+val asciidoctorExt = configurations.register("asciidoctorExt")
 
 // The dependency-management plugin forces the Kotlin plugin's version onto every configuration, and ktlint
 // can fail to parse with a newer compiler than it was built against ("Extensions storage is not
@@ -81,15 +72,27 @@ dependencies {
     testImplementation("org.springframework.hateoas:spring-hateoas")
 }
 
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xjsr305=strict")
+        jvmTarget = JvmTarget.JVM_21
+    }
+}
+
+tasks.test {
+    useJUnitPlatform()
+    outputs.dir(snippetsDir)
+}
+
 asciidoctorj {
     setVersion("3.0.1")
 }
 
 tasks.asciidoctor {
     dependsOn(tasks.test)
-    configurations("asciidoctorExt")
-    attributes(mapOf("snippets" to snippetsDir))
-    setOutputDir(file("build/asciidoc/html5"))
+    configurations(asciidoctorExt.name)
+    attributes(mapOf("snippets" to snippetsDir.get().asFile))
+    outputDirProperty = layout.buildDirectory.dir("asciidoc/html5")
     resources {
         from("src/docs/asciidoc/resources")
         into("resources")
@@ -110,27 +113,15 @@ postman {
 openapi3 {
     setServer("https://api.boclips.com")
     title = "Boclips API"
-
     format = "yaml"
 }
 
 tasks.bootJar {
     from(tasks.asciidoctor) { into("BOOT-INF/classes/static/docs") }
-    dependsOn("postman")
-    from(postman.outputDirectory) { into("BOOT-INF/classes/static/docs/postman") }
+    from(tasks.named<PostmanTask>("postman").map { it.outputDirectory }) { into("BOOT-INF/classes/static/docs/postman") }
 }
 
 tasks.liveReload {
     port = 8080
-    docRoot =
-        tasks.asciidoctor
-            .get()
-            .outputDir.path
-}
-
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xjsr305=strict")
-        jvmTarget = JvmTarget.JVM_21
-    }
+    docRoot = tasks.asciidoctor.map { it.outputDir.path }
 }
