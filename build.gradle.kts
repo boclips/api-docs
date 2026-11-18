@@ -55,7 +55,7 @@ dependencies {
     implementation("com.github.kittinunf.fuel:fuel-jackson:2.2.1")
     implementation("com.github.kittinunf.fuel:fuel-coroutines:2.2.1")
 
-    implementation("org.imsglobal:basiclti-util:1.1.2")
+    implementation("org.imsglobal:basiclti-util:1.2.0")
 
     asciidoctorExt("org.springframework.restdocs:spring-restdocs-asciidoctor")
 
