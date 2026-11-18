@@ -69,7 +69,7 @@ dependencies {
 
     testImplementation("com.github.boclips:videos:v2456")
     // The videos client brings feign at runtime only; the tests build its clients directly.
-    testImplementation(platform("io.github.openfeign:feign-bom:13.6.1"))
+    testImplementation(platform("io.github.openfeign:feign-bom:13.18"))
     testImplementation("io.github.openfeign:feign-okhttp")
     testImplementation("com.damnhandy:handy-uri-templates:2.1.8")
     testImplementation("org.springframework.boot:spring-boot-starter-hateoas")
